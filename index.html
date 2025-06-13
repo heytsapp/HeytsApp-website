@@ -2182,6 +2182,17 @@
             menuToggle.addEventListener('click', toggleMenu);
             overlay.addEventListener('click', toggleMenu); // Close menu when clicking overlay
 
+            // --- (إضافة جديدة) إغلاق القائمة تلقائيًا عند النقر على رابط ---
+            const menuNavLinks = document.querySelectorAll('.navbar .nav-link');
+
+            menuNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // التأكد من أن القائمة مفتوحة قبل محاولة إغلاقها
+                    if (mainNav.classList.contains('is-open')) {
+                        toggleMenu();
+                    }
+                });
+            });
 
         });
 
