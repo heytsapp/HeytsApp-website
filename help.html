@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز المساعدة - دليل استخدام Heytsapp</title>
+    <meta name="description"
+        content="دليلك الكامل خطوة بخطوة لإتقان برنامج Heytsapp، من التثبيت والربط وحتى إعداد الرسائل التلقائية والمتابعة الذكية.">
+
+    <link rel="icon" type="image/x-icon" href="img/icon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <style>
+        /*
+                    ==============================================
+                    |                                            |
+                    |          1. GLOBAL STYLES & VARIABLES      |
+                    |          (الأنماط العامة والمتغيرات)         |
+                    |                                            |
+                    ==============================================
+                    */
+        :root {
+            /* Heytsapp Official Color Palette */
+            --primary: #3bae5e;
+            --primary-dark: #2a8c4a;
+            --dark: #0c2d32;
+            --light-bg: #f4f9f5;
+            --white-color: #FFFFFF;
+            --text-dark: #0c2d32;
+            --text-light: #556a6e;
+            --border-color: #e9eef2;
+            --radius: 12px;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
+            --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #1c2541 100%);
+        }
+
+        /* Basic Reset & Body */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--white-color);
+            color: var(--text-dark);
+            line-height: 1.8;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        /* General Components */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-bg {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Buttons Styling */
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .btn-primary {
+            color: var(--white-color);
+            background-image: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4);
+        }
+
+        /* Animation initial states */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up {
+            transform: translateY(50px);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /*
+                    ==============================================
+                    |          2. HEADER & NAVIGATION              |
+                    |             (الشريط العلوي والقائمة)          |
+                    ==============================================
+                    */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+        }
+
+        .header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-medium);
+            border-bottom-color: var(--border-color);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .navbar {
+            display: flex;
+            /* Kept for desktop */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .navbar ul li a {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .special-link {
+            padding: 6px 18px !important;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .special-link:hover {
+            background-color: var(--primary);
+            color: var(--white-color) !important;
+        }
+
+        /*
+                    ==============================================
+                    |         3. HELP PAGE SPECIFIC STYLES         |
+                    |            (تنسيقات صفحة المساعدة)           |
+                    ==============================================
+                    */
+        .help-page-section {
+            overflow: visible !important;
+            /* Fix for Sticky Sidebar */
+        }
+
+        .help-article-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .help-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .help-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-right: 3px solid var(--border-color);
+        }
+
+        .help-sidebar ul li a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-light);
+            font-weight: 700;
+            border-right: 3px solid transparent;
+            margin-right: -3px;
+            transition: all 0.3s ease;
+        }
+
+        .help-sidebar ul li a:hover {
+            color: var(--primary);
+            background-color: var(--light-bg);
+        }
+
+        .help-sidebar ul li a.active {
+            color: var(--primary-dark);
+            border-right-color: var(--primary);
+            background-color: var(--light-bg);
+            transform: translateX(-5px);
+        }
+
+        .help-content .help-section {
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 80px;
+        }
+
+        .help-content .help-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .help-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .help-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .help-content .image-showcase {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .help-content .image-showcase img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+            max-width: 90%;
+            margin: auto;
+        }
+
+        /*
+                    ==============================================
+                    |        4. FOOTER & GENERAL COMPONENTS        |
+                    |            (الفوتر ومكونات عامة)             |
+                    ==============================================
+                    */
+        .footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer .logo img {
+            height: 50px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        .footer .social-icons {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer .social-icons a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 12px;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        .footer .copyright {
+            font-size: .9rem;
+            color: #aaa;
+            border-top: 1px solid #3a4766;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        /*
+                    ==============================================
+                    |        5. MOBILE NAVIGATION & RESPONSIVE     |
+                    |            (قائمة الهاتف والتجاوب)           |
+                    ==============================================
+                    */
+
+        /* Base style for the hamburger button (hidden on desktop) */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* The dark overlay for when the menu is open */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0s 0.4s;
+        }
+
+        .nav-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Responsive styles for tablets */
+        @media (max-width: 992px) {
+            .help-article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .help-sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .help-sidebar ul {
+                display: flex;
+                flex-wrap: wrap;
+                border: none;
+                justify-content: center;
+            }
+
+            .help-sidebar ul li a {
+                border: 1px solid var(--border-color);
+                border-radius: 50px;
+                margin: 5px;
+            }
+
+            .help-sidebar ul li a.active {
+                border-color: var(--primary);
+                transform: none;
+            }
+        }
+
+        /* Responsive styles for mobile phones */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+                /* Show the hamburger button */
+            }
+
+            .navbar {
+                display: block;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--white-color);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                transition: right 0.4s ease-in-out;
+                padding-top: 80px;
+            }
+
+            .navbar.is-open {
+                right: 0;
+                /* Slide in when open */
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar ul li a {
+                display: block;
+                padding: 15px;
+                width: 100%;
+                font-size: 1.2rem;
+            }
+
+            .navbar ul li a.special-link {
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <header id="header" class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/LOGO_2.png" alt="Heytsapp Logo">
+            </a>
+            <nav class="navbar" id="main-nav">
+                <ul>
+                    <li><a href="index.html#features" class="nav-link">المميزات</a></li>
+                    <li><a href="index.html#process" class="nav-link">كيف يعمل</a></li>
+                    <li><a href="index.html#testimonials" class="nav-link">الآراء</a></li>
+                    <li><a href="index.html#gallery" class="nav-link">صور البرنامج</a></li>
+                    <li><a href="index.html#pricing" class="nav-link">الأسعار</a></li>
+                    <li><a href="index.html#faq" class="nav-link">الأسئلة</a></li>
+                    <li><a href="help.html" class="nav-link special-link active">المساعدة</a></li>
+                </ul>
+            </nav>
+            <a href="index.html#pricing" class="btn btn-primary">ابدأ الآن</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i> </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-bg" style="padding: 80px 0;">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-tagline">مركز المساعدة</span>
+                    <h1>دليلك الكامل لإتقان Heytsapp</h1>
+                    <p>مرحباً بك! هذا الدليل سيأخذ بيدك خطوة بخطوة، من لحظة تثبيت البرنامج وحتى إطلاق العنان لكامل
+                        إمكانياته، لمساعدتك على تنمية أعمالك عبر واتساب.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section help-page-section" style="padding-top: 60px;">
+            <div class="container">
+                <div class="help-article-grid">
+                    <aside class="help-sidebar">
+                        <ul>
+                            <li><a href="#section1" class="active">1. البدء والربط</a></li>
+                            <li><a href="#section2">2. فهم الواجهة</a></li>
+                            <li><a href="#section3">3. الرسالة الترحيبية</a></li>
+                            <li><a href="#section4">4. رسالة المتابعة</a></li>
+                            <li><a href="#section5">5. الإعدادات المتقدمة</a></li>
+                            <li><a href="#section6">6. القوالب والترخيص</a></li>
+                            <li><a href="#section7">7. تشغيل البوت</a></li>
+                        </ul>
+                    </aside>
+
+                    <article class="help-content">
+
+                        <div id="section1" class="help-section">
+                            <h2>القسم الأول: البدء وإضافة حسابك الأول</h2>
+                            <p>عند فتح البرنامج لأول مرة، ستكون واجهتك بسيطة ومباشرة. هدفنا الأول هو ربط حسابك في واتساب
+                                بالبرنامج.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/1.jpg" alt="شاشة إضافة حساب جديد">
+                            </div>
+                            <h3>إضافة حساب جديد:</h3>
+                            <p>سيطلب منك البرنامج إدخال "اسم للحساب". هذا الاسم هو لتمييز حساباتك داخل البرنامج فقط
+                                (مثال: "متجر الأزياء"، "حملة فيسبوك يونيو"، "رقم الدعم الفني"). اختر اسمًا واضحًا لك.
+                            </p>
+                            <h3>ربط حساب واتساب (مسح رمز QR):</h3>
+                            <p>بعد إدخال الاسم، سيفتح البرنامج تلقائيًا نافذة متصفح جديدة تعرض صفحة WhatsApp Web مع رمز
+                                QR المربع. امسك هاتفك المحمول، افتح تطبيق واتساب، اذهب إلى الإعدادات > الأجهزة المرتبطة
+                                > ربط جهاز، ثم قم بتوجيه كاميرا هاتفك لمسح الرمز المربع الذي ظهر على شاشة الكمبيوتر.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/2.jpg" alt="مسح رمز QR">
+                            </div>
+                            <h4>هل يجب أن أقوم بذلك في كل مرة أفتح فيها البرنامج؟</h4>
+                            <p><strong>لا.</strong> هذه الخطوة مطلوبة مرة واحدة فقط لكل حساب. سيقوم البرنامج بحفظ جلسة
+                                الدخول بأمان، وفي المرات القادمة سيقوم بتسجيل الدخول تلقائيًا إلى حسابك دون الحاجة لمسح
+                                الرمز مجددًا.</p>
+                        </div>
+
+                        <div id="section2" class="help-section">
+                            <h2>القسم الثاني: فهم الواجهة الرئيسية (لوحة التحكم)</h2>
+                            <p>بعد ربط حسابك، ستنتقل إلى الواجهة الرئيسية. كل "تبويب" في الأعلى يمثل حساب واتساب مختلف.
+                                تبويب "الرئيسية" هو لوحة قيادتك ويعرض لك أرقامًا حية ومباشرة عن أداء البوت:</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/3.jpg" alt="لوحة التحكم والإحصائيات">
+                            </div>
+                            <ul>
+                                <li><strong>إجمالي الرسائل المرسلة:</strong> مجموع كل الرسائل (الترحيبية والمتابعة).
+                                </li>
+                                <li><strong>رسائل الترحيب:</strong> عدد العملاء الجدد الذين تم الترحيب بهم.</li>
+                                <li><strong>رسائل المتابعة:</strong> عدد العملاء الذين تلقوا رسالة متابعة.</li>
+                                <li><strong>متابعات تلقائية:</strong> عدد رسائل المتابعة التي أرسلها البوت تلقائيًا.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div id="section3" class="help-section">
+                            <h2>القسم الثالث: إعداد "الرسالة الترحيبية" (الانطباع الأول)</h2>
+                            <p>هذه هي الرسالة التي سيستقبلها كل عميل جديد فور تواصله معك. يمكنك كتابة نص جذاب، وإدراج
+                                اسم العميل تلقائيًا، وإضافة مرفقات متنوعة.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/4.jpg" alt="إعداد الرسالة الترحيبية">
+                            </div>
+                            <h3>قائمة التسلسل (على اليسار):</h3>
+                            <p>هذه القائمة تعرض الشكل النهائي لرسالتك الترحيبية بالترتيب الذي سيتم إرساله. يمكنك سحب
+                                وإفلات أي عنصر (نص أو مرفق) لتغيير ترتيب إرساله، حذفه، أو تعديله.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/5.jpg" alt="قائمة تسلسل الرسائل">
+                            </div>
+                        </div>
+
+                        <div id="section4" class="help-section">
+                            <h2>القسم الرابع: إعداد "رسالة المتابعة" (إعادة استهداف العملاء)</h2>
+                            <p>هذه هي الرسالة التي تُرسل للعملاء الذين لم يتخذوا قرار الشراء بعد. إنها أداتك القوية
+                                لزيادة المبيعات.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/6.jpg" alt="إعداد رسالة المتابعة">
+                            </div>
+                            <h3>🏷️ تحديد تسميات التجاهل:</h3>
+                            <p>هذه هي أقوى ميزة في نظام المتابعة. عند الضغط على الزر، سيقوم البرنامج بجلب جميع التسميات
+                                (Labels) من حسابك. قم بوضع علامة "صح" بجانب التسميات التي تريد أن يتجاهلها البوت (مثل
+                                "تم الشراء"). من الآن فصاعدًا، أي عميل لديه إحدى هذه التسميات لن يستقبل رسالة المتابعة
+                                أبدًا.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/7.jpg" alt="تحديد تسميات التجاهل">
+                            </div>
+                        </div>
+
+                        <div id="section5" class="help-section">
+                            <h2>القسم الخامس: فهم "الإعدادات" المتقدمة</h2>
+                            <p>هنا يمكنك التحكم في التفاصيل الدقيقة لعمل البوت، مثل سجل الأحداث، ضبط أوقات الخمول، إضافة
+                                استثناءات، وتصدير الأرقام.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/8.jpg" alt="شاشة الإعدادات">
+                            </div>
+                            <h3>📜 عرض سجل الإرسال:</h3>
+                            <p>عند الضغط عليه، تفتح نافذة تعرض جدولاً بكل الأرقام التي رد عليها البوت، مع أسمائهم، ونوع
+                                الرسالة، وتاريخ الإرسال. يمكنك البحث والفلترة وإعادة تعيين أي عميل ليبدأ دورة المتابعة
+                                من جديد.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/9.jpg" alt="سجل الإرسال">
+                            </div>
+                        </div>
+
+                        <div id="section6" class="help-section">
+                            <h2>القسم السادس: القائمة العلوية وإدارة الحسابات</h2>
+                            <p>تتيح لك القائمة العلوية التحكم في القوالب والترخيص.</p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/10.jpg" alt="حفظ القوالب">
+                            </div>
+                            <h3>حفظ وتحميل القوالب:</h3>
+                            <p>بعد إعداد رسالة ترحيب ومتابعة رائعة، يمكنك حفظ كل هذه الإعدادات في ملف واحد. يمكنك لاحقًا
+                                تحميل هذا الملف على أي حساب آخر لتطبيق نفس الإعدادات فورًا، مما يوفر وقتًا هائلاً.</p>
+                            <h3>إدارة الحسابات:</h3>
+                            <p>بالضغط بزر الماوس الأيمن على أي تبويب حساب، يمكنك "إعادة تسمية الحساب" لتمييزه بشكل أفضل
+                                أو "حذف الحساب" بالكامل من البرنامج.</p>
+                        </div>
+
+                        <div id="section7" class="help-section">
+                            <h2>القسم السابع: تشغيل البوت!</h2>
+                            <p>بعد إعداد كل شيء، أنت الآن جاهز لإطلاق قوة الأتمتة.</p>
+                            <h3>الزر الكبير (تشغيل/إيقاف البوت):</h3>
+                            <p>هذا هو مفتاح التشغيل الرئيسي لكل حساب على حدة. عندما يكون لونه أحمر، يكون البوت متوقفًا.
+                                عند الضغط عليه ويصبح لونه أخضر، يبدأ البوت في العمل والمراقبة الفورية للرسائل الجديدة.
+                            </p>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="img/11.jpg" alt="تشغيل البوت">
+                            </div>
+                            <h3>حالة المتصفح:</h3>
+                            <p>في تبويب "الرئيسية"، ستلاحظ وجود نص صغير يوضح حالة الاتصال. عندما ترى عبارة "🟢 البوت
+                                جاهز للعمل"، فهذا يعني أن البرنامج متصل بحسابك بنجاح، ومستعد لاستقبال الرسائل والرد
+                                عليها فورًا.</p>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">
+                <img src="img/LOGO_3.png" alt="Heytsapp Logo">
+            </div>
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                <p>© 2025 AShop – جميع الحقوق محفوظة | Heytsapp v1.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Animation on scroll
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            animatedElements.forEach(el => { observer.observe(el); });
+
+            // Active link highlighting for sidebar
+            const navLinks = document.querySelectorAll('.help-sidebar a');
+            const helpSections = document.querySelectorAll('.help-section');
+
+            function updateActiveHelpLink() {
+                let currentSectionId = '';
+                helpSections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    // A different offset for article reading
+                    if (window.scrollY >= sectionTop - 200) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref && linkHref.substring(1) === currentSectionId) {
+                        link.classList.add('active');
+                    }
+                });
+                // --------------------------------------------------
+                // Mobile Menu Toggle Functionality
+                // --------------------------------------------------
+                const menuToggle = document.getElementById('mobile-menu-toggle');
+                const mainNav = document.getElementById('main-nav');
+                const body = document.body;
+
+                // Create the overlay div
+                const overlay = document.createElement('div');
+                overlay.className = 'nav-overlay';
+                body.appendChild(overlay);
+
+                function toggleMenu() {
+                    mainNav.classList.toggle('is-open');
+                    overlay.classList.toggle('is-open');
+                }
+
+                menuToggle.addEventListener('click', toggleMenu);
+                overlay.addEventListener('click', toggleMenu); // Close menu when clicking overlay
+            }
+            window.addEventListener('scroll', updateActiveHelpLink);
+        });
+    </script>
+</body>
+
+</html>
