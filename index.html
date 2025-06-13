@@ -64,6 +64,9 @@
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            /* <--- أضف هذا السطر المهم جداً */
+
         }
 
         /* Body Styles */
@@ -71,6 +74,7 @@
             font-family: 'Tajawal', sans-serif;
             background-color: var(--white-color);
             color: var(--text-dark);
+            overflow-x: hidden;
             line-height: 1.8;
             text-align: right;
             overflow-x: hidden;
@@ -286,8 +290,13 @@
         ==============================================
         */
         .header {
-            position: sticky;
+            position: fixed;
+            /* تغيير sticky إلى fixed لضمان الثبات المطلق */
             top: 0;
+            left: 0;
+            /* إضافة لضمان المحاذاة الصحيحة */
+            right: 0;
+            /* إضافة لضمان المحاذاة الصحيحة */
             z-index: 1000;
             width: 100%;
             padding: 20px 0;
@@ -296,6 +305,11 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
+        }
+
+        main {
+            padding-top: 85px;
+            /* قيمة تقريبية لارتفاع الهيدر */
         }
 
         .header.scrolled {
@@ -1310,6 +1324,13 @@
 |            (تنسيقات قائمة الهاتف)             |
 ==============================================
 */
+        /* Prevents the page from scrolling when the mobile menu is open */
+        /* Lock page scroll when mobile menu is open */
+        /* --- The definitive solution to lock page scroll --- */
+        /* --- The definitive solution to lock page scroll (v2) --- */
+        html.menu-open {
+            overflow: hidden;
+        }
 
         /* The hamburger button itself */
         .mobile-menu-toggle {
@@ -1343,6 +1364,14 @@
             transition: opacity 0.4s ease;
         }
 
+        /* --- Custom styling for the header's main CTA button --- */
+        .header .btn-primary {
+            padding: 12px 28px;
+            /* تقليل الحشو الداخلي للزر */
+            font-size: 0.9rem;
+            /* تصغير حجم الخط قليلاً */
+        }
+
 
         @media (max-width: 768px) {
 
@@ -1351,24 +1380,34 @@
                 display: block;
             }
 
+            /* --- Custom styling for the header's main CTA button --- */
+            .header .btn-primary {
+                padding: 12px 28px;
+                /* تقليل الحشو الداخلي للزر */
+                font-size: 0.9rem;
+                /* تصغير حجم الخط قليلاً */
+            }
+
             /* Style the navigation menu for mobile */
             .navbar {
                 position: fixed;
                 top: 0;
-                right: -100%;
+                left: -100%;
                 /* Start off-screen (for RTL) */
                 width: 300px;
                 height: 100vh;
                 background-color: var(--white-color);
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 z-index: 999;
-                transition: right 0.4s ease-in-out;
+                transition: left 0.4s ease-in-out;
                 padding-top: 80px;
+                overflow-y: auto;
+                overscroll-behavior: contain;
             }
 
             /* When the menu is open, slide it in */
             .navbar.is-open {
-                right: 0;
+                left: 0;
             }
 
             /* Change nav links to be a vertical list */
@@ -2133,8 +2172,9 @@
             const overlay = document.createElement('div');
             overlay.className = 'nav-overlay';
             body.appendChild(overlay);
-
             function toggleMenu() {
+                document.documentElement.classList.toggle('menu-open'); // <--- السطر الجديد
+                document.body.classList.toggle('menu-open');
                 mainNav.classList.toggle('is-open');
                 overlay.classList.toggle('is-open');
             }
