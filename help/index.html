@@ -177,8 +177,13 @@
                     ==============================================
                     */
         .header {
-            position: sticky;
+            position: fixed;
+            /* تغيير إلى fixed */
             top: 0;
+            left: 0;
+            /* إضافة */
+            right: 0;
+            /* إضافة */
             z-index: 1000;
             width: 100%;
             padding: 20px 0;
@@ -187,6 +192,11 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
+        }
+
+        main {
+            padding-top: 85px;
+            /* <--- إضافة هذه القاعدة الجديدة بالكامل */
         }
 
         .header.scrolled {
@@ -205,10 +215,6 @@
             height: 45px;
         }
 
-        .navbar {
-            display: flex;
-            /* Kept for desktop */
-        }
 
         .navbar ul {
             list-style: none;
@@ -414,6 +420,19 @@
             transition: opacity 0.4s ease;
         }
 
+        /* --- Custom styling for the header's main CTA button --- */
+        .header .btn-primary {
+            padding: 12px 28px;
+            /* تقليل الحشو الداخلي للزر */
+            font-size: 0.9rem;
+            /* تصغير حجم الخط قليلاً */
+        }
+
+        /* --- Definitive solution to lock page scroll --- */
+        html.menu-open {
+            overflow: hidden;
+        }
+
         /* Responsive styles for tablets */
         @media (max-width: 992px) {
             .help-article-grid {
@@ -452,23 +471,37 @@
                 /* Show the hamburger button */
             }
 
+            /* --- Custom styling for the header's main CTA button --- */
+            .header .btn-primary {
+                padding: 12px 28px;
+                /* تقليل الحشو الداخلي للزر */
+                font-size: 0.9rem;
+                /* تصغير حجم الخط قليلاً */
+            }
+
+            /* Style the navigation menu for mobile */
             .navbar {
-                display: block;
                 position: fixed;
                 top: 0;
-                right: -100%;
+                left: -100%;
+                /* تغيير */
                 width: 300px;
                 height: 100vh;
                 background-color: var(--white-color);
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 z-index: 999;
-                transition: right 0.4s ease-in-out;
+                transition: left 0.4s ease-in-out;
+                /* تغيير */
                 padding-top: 80px;
+                overflow-y: auto;
+                /* إضافة */
+                overscroll-behavior: contain;
+                /* إضافة */
             }
 
+            /* When the menu is open, slide it in */
             .navbar.is-open {
-                right: 0;
-                /* Slide in when open */
+                left: 0;
             }
 
             .navbar ul {
@@ -493,6 +526,12 @@
             .navbar ul li a.special-link {
                 margin: 10px auto;
                 width: fit-content;
+            }
+
+            /* --- Custom styling for the header's main CTA button --- */
+            .header .btn-primary {
+                padding: 12px 28px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -605,7 +644,7 @@
                             <p>هذه القائمة تعرض الشكل النهائي لرسالتك الترحيبية بالترتيب الذي سيتم إرساله. يمكنك سحب
                                 وإفلات أي عنصر (نص أو مرفق) لتغيير ترتيب إرساله، حذفه، أو تعديله.</p>
                             <div class="image-showcase animate-on-scroll fade-in-up">
-                                <img src="../img5.jpg" alt="قائمة تسلسل الرسائل">
+                                <img src="../img/5.jpg" alt="قائمة تسلسل الرسائل">
                             </div>
                         </div>
 
@@ -698,7 +737,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // Animation on scroll
+            // 1. Animation on scroll
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -711,16 +750,18 @@
             });
             animatedElements.forEach(el => { observer.observe(el); });
 
-            // Active link highlighting for sidebar
+
+            // 2. Active link highlighting for sidebar (for help.html)
             const navLinks = document.querySelectorAll('.help-sidebar a');
             const helpSections = document.querySelectorAll('.help-section');
 
             function updateActiveHelpLink() {
                 let currentSectionId = '';
+                const offset = window.innerHeight * 0.4; // 40% من ارتفاع الشاشة
+
                 helpSections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    // A different offset for article reading
-                    if (window.scrollY >= sectionTop - 200) {
+                    if (window.scrollY >= sectionTop - offset) {
                         currentSectionId = section.getAttribute('id');
                     }
                 });
@@ -728,31 +769,31 @@
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkHref = link.getAttribute('href');
-                    if (linkHref && linkHref.substring(1) === currentSectionId) {
+                    if (linkHref === '#' + currentSectionId) {
                         link.classList.add('active');
                     }
                 });
-                // --------------------------------------------------
-                // Mobile Menu Toggle Functionality
-                // --------------------------------------------------
-                const menuToggle = document.getElementById('mobile-menu-toggle');
-                const mainNav = document.getElementById('main-nav');
-                const body = document.body;
-
-                // Create the overlay div
-                const overlay = document.createElement('div');
-                overlay.className = 'nav-overlay';
-                body.appendChild(overlay);
-
-                function toggleMenu() {
-                    mainNav.classList.toggle('is-open');
-                    overlay.classList.toggle('is-open');
-                }
-
-                menuToggle.addEventListener('click', toggleMenu);
-                overlay.addEventListener('click', toggleMenu); // Close menu when clicking overlay
             }
             window.addEventListener('scroll', updateActiveHelpLink);
+
+
+            // 3. Mobile Menu Toggle Functionality (Correct Structure)
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            const body = document.body;
+            const overlay = document.createElement('div');
+            overlay.className = 'nav-overlay';
+            body.appendChild(overlay);
+
+            function toggleMenu() {
+                document.documentElement.classList.toggle('menu-open');
+                document.body.classList.toggle('menu-open');
+                mainNav.classList.toggle('is-open');
+                overlay.classList.toggle('is-open');
+            }
+            menuToggle.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
         });
     </script>
 </body>
