@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن | قصة وهدف HeytsApp</title>
+    <meta name="description"
+        content="تعرف على قصة AShop، الفريق وراء HeytsApp، وكيف نسعى لتمكين الشركات من خلال أتمتة واتساب بذكاء.">
+
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --primary: #3bae5e;
+            --primary-dark: #2a8c4a;
+            --dark: #0c2d32;
+            --light-bg: #f4f9f5;
+            --white-color: #FFFFFF;
+            --text-dark: #0c2d32;
+            --text-light: #556a6e;
+            --border-color: #e9eef2;
+            --radius: 12px;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--white-color);
+            color: var(--text-dark);
+            line-height: 1.8;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .btn-primary {
+            color: var(--white-color);
+            background-image: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-secondary {
+            color: var(--primary);
+            background-color: transparent;
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            color: var(--white-color);
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        main {
+            padding-top: 85px;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .navbar ul li a {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: var(--primary);
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer .logo img {
+            height: 50px;
+            margin: auto auto 20px;
+        }
+
+        .footer .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer .footer-links a {
+            margin: 0 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            transition: color .3s ease;
+        }
+
+        .footer .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer .copyright {
+            font-size: .9rem;
+            color: #aaa;
+            border-top: 1px solid #0c2d32;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        /* About Page Specific Styles */
+        .page-hero {
+            padding: 80px 0;
+            background-color: var(--dark);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            color: var(--white-color);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .story-section {
+            padding: 120px 0;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .story-grid img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .story-grid h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .story-grid p {
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .vision-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .vision-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .vision-section p {
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.2rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section .btn {
+            margin: 0 10px;
+        }
+
+        /* Mobile Styles */
+        .mobile-menu-toggle {
+            display: none;
+        }
+        /* --- Styling for the special 'Help' link --- */
+        .special-link {
+        padding: 6px 18px !important;
+        border: 2px solid var(--primary);
+        border-radius: 50px;
+        color: var(--primary) !important;
+        transition: all 0.3s ease;
+        }
+
+        .special-link:hover {
+            background-color: var(--primary);
+            color: var(--white-color) !important;
+        }
+
+        /* To remove the animated underline from the special link */
+        .special-link::after {
+            display: none !important;
+        }
+
+        @media (max-width: 992px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-grid img {
+                max-width: 80%;
+                margin: 0 auto 40px auto;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--dark);
+                font-size: 1.8rem;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--white-color);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                transition: left 0.4s ease-in-out;
+                padding-top: 80px;
+            }
+
+            .navbar.is-open {
+                left: 0;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar ul li a {
+                display: block;
+                padding: 15px;
+                width: 100%;
+                font-size: 1.2rem;
+            }
+
+            html.menu-open {
+                overflow: hidden;
+            }
+
+            .cta-section .btn {
+                display: block;
+                margin: 10px 0;
+            }
+            .navbar ul li a.special-link {
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/img/LOGO_2.png" alt="HeytsApp Logo">
+            </a>
+            <nav class="navbar" id="main-nav">
+                <ul>
+                    <li><a href="/#features">المميزات</a></li>
+                    <li><a href="/#process">كيف يعمل</a></li>
+                    <li><a href="/about/" class="active">من نحن</a></li>
+                    <li><a href="/download/">التنزيل</a></li>
+                    <li><a href="/help/">المساعدة</a></li>
+                    <li><a href="/privacy/">الخصوصية</a></li>
+                    <li><a href="/help" class="nav-link special-link">المساعدة</a></li>
+                </ul>
+            </nav>
+            <a href="/download/" class="btn btn-primary">ابدأ الآن</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-hero">
+            <div class="container">
+                <h1>قصتنا: من فكرة إلى أداة</h1>
+                <p>نحن في AShop نؤمن بأن التكنولوجيا يجب أن تكون في خدمة الإنسان، لا العكس. HeytsApp هو نتاج هذا
+                    الإيمان، وُلد من رحم الحاجة لحل حقيقي وفعّال لمشاكل التواصل اليومية التي تواجه رواد الأعمال في
+                    العالم العربي.</p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div>
+                        <h2>كيف بدأت الفكرة؟</h2>
+                        <p>لاحظنا أن أصحاب المتاجر والمسوقين يغرقون يوميًا في بحر من رسائل واتساب. استفسارات متكررة،
+                            متابعات مُهدرة، وعملاء محتملون يضيعون بسبب التأخر في الرد. كانت الفوضى هي السمة السائدة،
+                            والوقت الثمين يُهدر في مهام يدوية مملة. من هنا، تساءلنا: "لماذا لا توجد أداة ذكية، بسيطة،
+                            ومصممة خصيصًا للسوق العربي تضع حدًا لهذه المعاناة؟".</p>
+                    </div>
+                    <img src="/img/6.jpg" alt="صورة تعبر عن الفكرة والإلهام">
+                </div>
+            </div>
+        </section>
+
+        <section class="vision-section">
+            <div class="container">
+                <h2>رؤيتنا في AShop</h2>
+                <p>مهمتنا هي تمكين كل صاحب عمل، كبيرًا كان أم صغيرًا، من تحويل واتساب من مجرد تطبيق للمحادثة إلى أصل قوي
+                    ومصدر أساسي للنمو. نحن لا نبيع برامج فقط، بل نقدم حلولًا عملية توفر الوقت، تزيد الأرباح، وتبني
+                    علاقات أقوى مع العملاء. نعمل باستمرار على تطوير HeytsApp، مستمعين لملاحظاتكم، لنضمن أنه يبقى شريككم
+                    الرقمي الأذكى والأكثر فعالية.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>هل أنت جاهز لتكون جزءًا من قصتنا؟</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-light);">انضم إلى مئات
+                    المستخدمين الذين غيروا طريقة عملهم مع HeytsApp.</p>
+                <a href="/#features" class="btn btn-secondary">اكتشف كل المميزات</a>
+                <a href="/download/" class="btn btn-primary">حمّل البرنامج الآن</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+    </footer>
+
+    <script>
+        // Mobile menu script from previous steps
+    </script>
+</body>
+
+</html>
