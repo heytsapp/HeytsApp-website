@@ -7,7 +7,7 @@
     <title>الصفحة غير موجودة (404) | HeytsApp</title>
     <meta name="description" content="عفواً، الصفحة التي تبحث عنها غير موجودة في موقع HeytsApp.">
 
-    <link rel="icon" type="image/x-icon" href="img/icon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,138 +36,31 @@
             --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
 
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--white-color);
-            color: var(--text-dark);
-            line-height: 1.8;
-            text-align: right;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1240px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-align: center;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 50px;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        .btn-primary {
-            color: var(--white-color);
-            background-image: var(--gradient-primary);
-            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4);
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--white-color); color: var(--text-dark); line-height: 1.8; text-align: right; overflow-x: hidden; }
+        .container { width: 100%; max-width: 1240px; margin-left: auto; margin-right: auto; padding-left: 20px; padding-right: 20px; }
+        a { text-decoration: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .btn { display: inline-block; padding: 16px 40px; font-size: 1rem; font-weight: 700; text-align: center; cursor: pointer; border: 2px solid transparent; border-radius: 50px; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .btn-primary { color: var(--white-color); background-image: var(--gradient-primary); box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4); }
 
         /*
         ==============================================
         |               2. HEADER & FOOTER           |
         ==============================================
         */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            width: 100%;
-            padding: 20px 0;
-            transition: all 0.4s ease;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        main {
-            padding-top: 85px;
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 45px;
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            align-items: center;
-        }
-
-        .navbar ul li a {
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .navbar ul li a:hover {
-            color: var(--primary);
-        }
-
-        .footer {
-            background-color: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 60px 20px 30px;
-            text-align: center;
-        }
-
-        .footer .logo img {
-            height: 50px;
-            margin: auto auto 20px;
-        }
-
-        .footer .copyright {
-            font-size: .9rem;
-            color: #aaa;
-            border-top: 1px solid #0c2d32;
-            padding-top: 30px;
-            margin-top: 30px;
-        }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; width: 100%; padding: 20px 0; transition: all 0.4s ease; background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); }
+        main { padding-top: 85px; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 45px; }
+        .navbar ul { list-style: none; display: flex; gap: 35px; align-items: center; }
+        .navbar ul li a { font-weight: 700; color: var(--dark); }
+        .navbar ul li a:hover { color: var(--primary); }
+        .footer { background-color: var(--dark); color: rgba(255, 255, 255, 0.7); padding: 60px 20px 30px; text-align: center; }
+        .footer .logo img { height: 50px; margin: auto auto 20px; }
+        .footer .copyright { font-size: .9rem; color: #aaa; border-top: 1px solid #0c2d32; padding-top: 30px; margin-top: 30px; }
 
         /*
         ==============================================
@@ -179,14 +72,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            min-height: calc(100vh - 85px - 195px);
-            /* Full height minus header and footer */
+            min-height: calc(100vh - 85px - 195px); /* Full height minus header and footer */
             padding: 60px 0;
         }
-
         .error-code {
-            font-size: clamp(8rem, 25vw, 15rem);
-            /* Responsive font size */
+            font-size: clamp(8rem, 25vw, 15rem); /* Responsive font size */
             font-weight: 900;
             background-image: var(--gradient-primary);
             -webkit-background-clip: text;
@@ -195,104 +85,41 @@
             line-height: 1;
             margin: 0;
         }
-
         .error-title {
             font-size: clamp(2rem, 5vw, 3rem);
             color: var(--dark);
             margin-top: 10px;
             margin-bottom: 20px;
         }
-
         .error-description {
             font-size: 1.2rem;
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto 40px auto;
         }
-
         .error-section .btn i {
             margin-left: 10px;
         }
-
+        
         /*
         ==============================================
         |               4. MOBILE MENU               |
         ==============================================
         */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--dark);
-            font-size: 1.8rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease;
-        }
-
-        .nav-overlay.is-open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        html.menu-open {
-            overflow: hidden;
-        }
+        .mobile-menu-toggle { display: none; background: none; border: none; color: var(--dark); font-size: 1.8rem; cursor: pointer; z-index: 1001; }
+        .nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 998; opacity: 0; visibility: hidden; transition: opacity 0.4s ease; }
+        .nav-overlay.is-open { opacity: 1; visibility: visible; }
+        html.menu-open { overflow: hidden; }
 
         @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .navbar {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 300px;
-                height: 100vh;
-                background-color: var(--white-color);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-                transition: left 0.4s ease-in-out;
-                padding-top: 80px;
-                overflow-y: auto;
-            }
-
-            .navbar.is-open {
-                left: 0;
-            }
-
-            .navbar ul {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                gap: 10px;
-            }
-
-            .navbar ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .navbar ul li a {
-                display: block;
-                padding: 15px;
-                width: 100%;
-                font-size: 1.2rem;
-            }
+            .mobile-menu-toggle { display: block; }
+            .navbar { position: fixed; top: 0; left: -100%; width: 300px; height: 100vh; background-color: var(--white-color); box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 999; transition: left 0.4s ease-in-out; padding-top: 80px; overflow-y: auto; }
+            .navbar.is-open { left: 0; }
+            .navbar ul { flex-direction: column; align-items: center; width: 100%; gap: 10px; }
+            .navbar ul li { width: 100%; text-align: center; }
+            .navbar ul li a { display: block; padding: 15px; width: 100%; font-size: 1.2rem; }
         }
+
     </style>
 </head>
 
@@ -301,7 +128,7 @@
     <header id="header" class="header">
         <div class="container">
             <a href="/" class="logo">
-                <img src="img/LOGO_2.png" alt="HeytsApp Logo">
+                <img src="/img/LOGO_2.png" alt="HeytsApp Logo">
             </a>
             <nav class="navbar" id="main-nav">
                 <ul>
@@ -323,14 +150,10 @@
         <section class="error-section">
             <div class="container">
                 <h1 class="error-code">404</h1>
-
                 <h2 class="error-title">عفواً، الصفحة غير موجودة</h2>
-
                 <p class="error-description">
-                    يبدو أن الرابط الذي تبحث عنه قد تم حذفه أو لم يكن موجوداً أصلاً. لا تقلق، يمكنك العودة إلى بر الأمان
-                    من هنا.
+                    يبدو أن الرابط الذي تبحث عنه قد تم حذفه أو لم يكن موجوداً أصلاً. لا تقلق، يمكنك العودة إلى بر الأمان من هنا.
                 </p>
-
                 <a href="/" class="btn btn-primary">
                     <i class="fas fa-home"></i>
                     العودة إلى الصفحة الرئيسية
@@ -342,7 +165,7 @@
     <footer class="footer">
         <div class="container">
             <div class="logo">
-                <img src="img/LOGO_3.png" alt="HeytsApp Logo">
+                <img src="/img/LOGO_3.png" alt="HeytsApp Logo">
             </div>
             <div class="copyright">
                 <p>© 2025 AShop – جميع الحقوق محفوظة | HeytsApp v1.0</p>
@@ -351,7 +174,6 @@
     </footer>
 
     <script>
-        // هذا السكربت ضروري لعمل قائمة الهاتف المحمول
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('mobile-menu-toggle');
             const mainNav = document.getElementById('main-nav');
