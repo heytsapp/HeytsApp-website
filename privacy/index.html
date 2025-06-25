@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية وشروط الاستخدام | HeytsApp</title>
+    <meta name="description" content="اقرأ سياسة الخصوصية وشروط الاستخدام الرسمية لبرنامج HeytsApp.">
+
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --primary: #3bae5e;
+            --primary-dark: #2a8c4a;
+            --dark: #0c2d32;
+            --light-bg: #f4f9f5;
+            --white-color: #FFFFFF;
+            --text-dark: #0c2d32;
+            --text-light: #556a6e;
+            --border-color: #e9eef2;
+            --radius: 12px;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #fcfcfc;
+            color: var(--text-dark);
+            line-height: 1.8;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .btn-primary {
+            color: var(--white-color);
+            background-image: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        main {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .header .container {
+            max-width: 1240px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .navbar ul li a {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .navbar ul li a.active {
+            color: var(--primary);
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer .logo img {
+            height: 50px;
+            margin: auto auto 20px;
+        }
+
+        .footer .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer .footer-links a {
+            margin: 0 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .footer .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer .copyright {
+            font-size: .9rem;
+            color: #aaa;
+            border-top: 1px solid #0c2d32;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        /* Legal Page Specific Styles */
+        .legal-content-section {
+            padding: 40px;
+            background: var(--white-color);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-light);
+        }
+
+        .legal-content-section h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .legal-content-section .last-updated {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .legal-content-section .intro-heading {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .legal-content-section h2 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        .legal-content-section p,
+        .legal-content-section li {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        .legal-content-section ul {
+            list-style-type: none;
+            padding-right: 0;
+            margin-top: 20px;
+        }
+
+        .legal-content-section li {
+            margin-bottom: 15px;
+            padding-right: 25px;
+            position: relative;
+        }
+
+        .legal-content-section li::before {
+            content: '(أ)';
+            font-family: 'Tajawal', sans-serif;
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .legal-content-section li:nth-child(2)::before {
+            content: '(ب)';
+        }
+
+        .legal-content-section li:nth-child(3)::before {
+            content: '(ج)';
+        }
+
+        .legal-content-section li:nth-child(4)::before {
+            content: '(د)';
+        }
+
+        .legal-content-section li:nth-child(5)::before {
+            content: '(هـ)';
+        }
+
+        /* Mobile Styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        html.menu-open {
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--white-color);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                transition: left 0.4s ease-in-out;
+                padding-top: 80px;
+            }
+
+            .navbar.is-open {
+                left: 0;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar ul li a {
+                display: block;
+                padding: 15px;
+                width: 100%;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/img/LOGO_2.png" alt="HeytsApp Logo">
+            </a>
+            <nav class="navbar" id="main-nav">
+                <ul>
+                    <li><a href="/#features">المميزات</a></li>
+                    <li><a href="/#process">كيف يعمل</a></li>
+                    <li><a href="/#pricing">الأسعار</a></li>
+                    <li><a href="/download/">التنزيل</a></li>
+                    <li><a href="/help/">المساعدة</a></li>
+                    <li><a href="/privacy/" class="active">الخصوصية</a></li>
+                </ul>
+            </nav>
+            <a href="/download/" class="btn btn-primary">ابدأ الآن</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="legal-content-section">
+
+                <h1>سياسة الخصوصية وشروط الاستخدام لبرنامج Heytsapp</h1>
+                <p class="last-updated">تاريخ آخر تحديث: 25 يونيو 2025</p>
+
+                <h2 class="intro-heading">مقدمة تمهيدية</h2>
+                <p>تُشكل هذه الوثيقة ("الاتفاقية") عقدًا قانونيًا ملزمًا بينك ("المستخدم" أو "أنت") وبين مطور برنامج
+                    "Heytsapp" ("البرنامج"). تُحدد هذه الاتفاقية الشروط والأحكام التي تحكم وصولك واستخدامك للبرنامج
+                    وجميع الخدمات والميزات والوظائف المرتبطة به. إن تنصيب البرنامج أو استخدامه أو الوصول إليه بأي شكل من
+                    الأشكال، يُعد إقرارًا منك بقبول غير قابل للنقض لجميع البنود والشروط الواردة في هذه الاتفاقية.</p>
+
+                <h2>1. القبول الإلزامي للشروط</h2>
+                <p><strong>1.1. الموافقة الصريحة والضمنية:</strong> بمجرد استخدامك لهذا البرنامج، فإنك تُقر وتوافق بشكلٍ
+                    قطعي وغير قابلٍ للنقض على الالتزام الكامل بجميع بنود هذه الاتفاقية. استمرارك في استخدام البرنامج بعد
+                    أي تعديلات مستقبلية على هذه الشروط يُعد موافقة ضمنية ونهائية على تلك التعديلات، وتقع على عاتقك
+                    مسؤولية مراجعتها، سواء قمت بذلك فعليًا أم لا.</p>
+                <p><strong>1.2. الأهلية القانونية:</strong> أنت تقر بأنك تملك الأهلية القانونية الكاملة لإبرام هذه
+                    الاتفاقية والالتزام بها. إذا كنت تستخدم البرنامج نيابة عن كيان أو منظمة، فإنك تقر بأنك تملك السلطة
+                    اللازمة لإلزام ذلك الكيان بهذه الشروط.</p>
+
+                <h2>2. ترخيص الاستخدام الممنوح</h2>
+                <p><strong>2.1. طبيعة الترخيص:</strong> يُمنح لك ترخيص شخصي، غير حصري، غير قابل للتحويل، غير قابل
+                    للترخيص من الباطن، وقابل للإلغاء، لاستخدام البرنامج وفقًا لهذه الشروط فقط. هذا الترخيص مخصص
+                    للاستخدام على جهاز واحد فقط لكل عملية تفعيل.</p>
+                <p><strong>2.2. قيود الترخيص:</strong> يُمنع منعًا باتًا استخدام الترخيص على أجهزة متعددة بشكل متزامن.
+                    أي محاولة للتلاعب بآلية التفعيل، أو كسر حماية الترخيص، أو مشاركة بيانات التفعيل مع أطراف أخرى، تعتبر
+                    خرقًا جوهريًا لهذه الاتفاقية وتمنحنا الحق في إلغاء ترخيصك فورًا ودون إشعار مسبق، مع احتفاظنا بكامل
+                    حقوقنا القانونية.</p>
+
+                <h2>3. التزامات ومسؤوليات المستخدم</h2>
+                <p>يتحمل المستخدم وحده المسؤولية الكاملة عن جميع الأنشطة التي تتم من خلال استخدامه للبرنامج. ويتعهد
+                    المستخدم بالامتناع التام عن أي استخدام ينتهك القوانين السارية أو الأعراف الأخلاقية. ويشمل ذلك على
+                    سبيل المثال لا الحصر:</p>
+                <ul>
+                    <li>استخدام البرنامج في إرسال أو تداول أي محتوى يُصنف على أنه غير قانوني، أو تشهيري، أو فاضح، أو يحض
+                        على الكراهية، أو يميز ضد فئة معينة، أو ينتهك خصوصية الآخرين.</li>
+                    <li>توظيف البرنامج في أي حملات تسويقية أو سياسية أو دعائية غير مرغوب فيها (SPAM) والتي قد تؤدي إلى
+                        الإضرار بسمعة الخدمة أو تعريض حسابات المستخدمين للخطر.</li>
+                    <li>إساءة استخدام وظائف البرنامج لأغراض احتيالية، أو انتحال شخصية، أو التسبب في إزعاج متعمد لأطراف
+                        ثالثة.</li>
+                    <li>أي محاولة للتحايل على قيود البرنامج، أو التلاعب بآلية عمله، أو الوصول إلى وظائف غير مصرح بها.
+                    </li>
+                </ul>
+
+                <h2>4. حماية البيانات والخصوصية</h2>
+                <p>نحن نأخذ خصوصية المستخدم على محمل الجد. استخدامك للبرنامج هو إقرار منك بفهم وموافقة على المبادئ
+                    التالية:</p>
+                <p><strong>4.1. طبيعة البيانات:</strong> البرنامج مصمم ليعمل كأداة محلية على جهازك. نحن نؤكد بشكل قاطع
+                    أننا لا نقوم بجمع، أو تخزين، أو قراءة، أو تحليل، أو مشاركة أي من بياناتك الشخصية الحساسة، ويشمل ذلك:
+                    محتوى رسائلك، قوائم جهات اتصالك، الملفات الشخصية، أو أي بيانات أخرى خاصة بمحادثاتك.</p>
+                <p><strong>4.2. آلية عمل البرنامج:</strong> يتفاعل البرنامج مع مصادر خارجية لغرضين محددين فقط:
+                    <br>• تفعيل الترخيص: يتم التواصل مع خادم التراخيص للتحقق من صلاحية الاستخدام بناءً على بصمة الجهاز
+                    الرقمية.
+                    <br>• التحقق من التحديثات: يتم التواصل مع خادم التحديثات للتحقق من وجود إصدارات جديدة للبرنامج أو
+                    لمكوناته.
+                    <br>هذه العمليات لا تتضمن نقل أي بيانات شخصية أو حساسة من جهازك.
+                </p>
+                <p><strong>4.3. بصمة الجهاز الرقمية:</strong> لأغراض التفعيل، يعتمد البرنامج على إنشاء بصمة رقمية فريدة
+                    وغير شخصية لجهازك (Hardware ID) مشتقة من مكونات مادية مثل اللوحة الأم. هذه البصمة لا تكشف عن هويتك
+                    ولا يمكن استخدامها لتتبع نشاطك، وهدفها الوحيد هو ربط الترخيص بالجهاز المصرح له.</p>
+                <p><strong>4.4. الالتزام بالشفافية:</strong> نتعهد بعدم تضمين أي أدوات تتبع، أو ملفات خفية، أو عمليات
+                    تعمل في الخلفية بهدف مراقبة نشاط المستخدم أو جمع بياناته دون علمه. هذا الالتزام هو حجر الزاوية في
+                    علاقتنا مع مستخدمينا.</p>
+
+                <h2>5. التحديثات واستمرارية الخدمة</h2>
+                <p><strong>5.1. التوافق الديناميكي:</strong> نظرًا للطبيعة المتغيرة للمنصات الرقمية، فإننا نبذل قصارى
+                    جهدنا لضمان استمرارية عمل البرنامج وتوافقه مع التحديثات التي قد تطرأ على الخدمات المرتبطة به. يتم
+                    إصدار تحديثات دورية تهدف إلى تحسين الأداء وإصلاح أي مشاكل قد تظهر.</p>
+                <p><strong>5.2. إخلاء مسؤولية الاستمرارية:</strong> على الرغم من جهودنا، لا نقدم أي ضمان بأن البرنامج
+                    سيعمل بشكل متواصل أو خالٍ من الأخطاء في جميع الأوقات. قد تتأثر الخدمة بعوامل خارجة عن سيطرتنا، مثل
+                    تحديثات أنظمة التشغيل أو التغييرات الجذرية في المنصات المستهدفة.</p>
+
+                <h2>6. الملكية الفكرية والحقوق التجارية</h2>
+                <p>جميع الحقوق المتعلقة بالبرنامج، بما في ذلك على سبيل المثال لا الحصر: الشيفرة المصدرية، التصميمات،
+                    الواجهات الرسومية، النصوص، الشعارات، العلامات التجارية، والمواد التوثيقية المصاحبة، هي ملكية فكرية
+                    حصرية للمطور، ومحمية بموجب قوانين حقوق النشر والعلامات التجارية الدولية والمحلية. يمنع منعًا باتًا
+                    نسخ، أو إعادة توزيع، أو تأجير، أو بيع، أو تعديل، أو تفكيك، أو إجراء هندسة عكسية لأي جزء من البرنامج
+                    دون الحصول على إذن كتابي صريح ومسبق.</p>
+
+                <h2>7. تحديد وإخلاء المسؤولية</h2>
+                <p>إلى أقصى حد يسمح به القانون المعمول به، فإنك توافق على أن استخدامك للبرنامج يقع على مسؤوليتك الشخصية.
+                    يتم توفير البرنامج "كما هو" و "كما هو متاح" دون أي ضمانات من أي نوع، سواء كانت صريحة أو ضمنية.
+                    المطور لا يتحمل أي مسؤولية قانونية أو مالية عن أي أضرار مباشرة أو غير مباشرة قد تنشأ عن:</p>
+                <ul>
+                    <li>استخدام أو عدم القدرة على استخدام البرنامج.</li>
+                    <li>أي خلل فني، أو توقف في الخدمة، أو فقدان للبيانات.</li>
+                    <li>أي سلوك أو محتوى لطرف ثالث يتم التعامل معه عبر البرنامج.</li>
+                    <li>أي وصول غير مصرح به إلى بياناتك نتيجة ضعف أمان جهازك الشخصي.</li>
+                    <li>أي تبعات قانونية أو حظر للحسابات قد ينتج عن سوء استخدام البرنامج بما يخالف شروط الخدمة للمنصات
+                        الأخرى.</li>
+                </ul>
+
+                <h2>8. إنهاء الاتفاقية</h2>
+                <p>نحتفظ بالحق في إنهاء هذه الاتفاقية وإلغاء ترخيصك فورًا، ودون إشعار مسبق، في حال قمت بخرق أي بند من
+                    بنود هذه الشروط. عند الإنهاء، يجب عليك التوقف فورًا عن استخدام البرنامج وإزالة جميع نسخه من أجهزتك.
+                </p>
+
+                <h2>9. التعديلات على السياسة</h2>
+                <p>يحتفظ المطور بالحق الكامل والمطلق في مراجعة أو تعديل أو تحديث بنود هذه الاتفاقية في أي وقت يراه
+                    مناسبًا. سيتم نشر النسخة المحدثة على القنوات الرسمية للبرنامج. تقع على عاتقك مسؤولية المراجعة
+                    الدورية لهذه السياسة. استمرارية استخدامك للبرنامج بعد أي تعديل تعني موافقتك الكاملة والملزمة على
+                    الشروط الجديدة.</p>
+
+                <h2>10. القانون الحاكم وحل النزاعات</h2>
+                <p>تخضع هذه الاتفاقية ويتم تفسيرها وفقًا للقوانين المعمول بها في الولاية القضائية التي تم فيها إصدار
+                    البرنامج. أي نزاع أو مطالبة تنشأ عن هذه الاتفاقية سيتم السعي لحلها وديًا. في حال تعذر الحل الودي
+                    خلال فترة معقولة، يتم إحالة النزاع إلى المحاكم المختصة حصرًا في تلك الولاية القضائية.</p>
+
+                <h2>11. التواصل والدعم الفني</h2>
+                <p>لأية استفسارات تتعلق بهذه السياسة أو للحصول على الدعم الفني، يرجى استخدام قنوات التواصل الرسمية
+                    المتاحة داخل البرنامج أو على الموقع الرسمي. نحن نرحب دائمًا بملاحظاتك التي تساهم في تطوير البرنامج.
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="max-width: 1240px;">
+            <div class="logo">
+                <img src="/img/LOGO_3.png" alt="HeytsApp Logo">
+            </div>
+            <div class="footer-links">
+                <a href="/help/">مركز المساعدة</a>
+                <a href="/privacy/">سياسة الخصوصية</a>
+                <a href="/download/">التنزيل</a>
+            </div>
+            <div class="copyright">
+                <p>© 2025 AShop – جميع الحقوق محفوظة | HeytsApp v1.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu script
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            if (menuToggle) {
+                const mainNav = document.getElementById('main-nav');
+                const overlay = document.createElement('div');
+                overlay.className = 'nav-overlay';
+                document.body.appendChild(overlay);
+                function toggleMenu() {
+                    document.documentElement.classList.toggle('menu-open');
+                    mainNav.classList.toggle('is-open');
+                    overlay.classList.toggle('is-open');
+                }
+                menuToggle.addEventListener('click', toggleMenu);
+                overlay.addEventListener('click', toggleMenu);
+            }
+        });
+    </script>
+</body>
+
+</html>
