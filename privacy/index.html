@@ -81,13 +81,21 @@
         .btn-primary {
             color: var(--white-color);
             background-image: var(--gradient-primary);
+            background-size: 200% auto;
             box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4);
+            background-position: right center;
         }
-
+        .header .btn-primary {
+            padding: 12px 28px;
+            /* تقليل الحشو الداخلي للزر */
+            font-size: 0.9rem;
+            /* تصغير حجم الخط قليلاً */
+        }
         .header {
             position: fixed;
             top: 0;
@@ -284,7 +292,13 @@
             .mobile-menu-toggle {
                 display: block;
             }
-
+            /* --- Custom styling for the header's main CTA button --- */
+            .header .btn-primary {
+                padding: 6px 15px;
+                /* تقليل الحشو الداخلي للزر */
+                font-size: 0.7rem;
+                /* تصغير حجم الخط قليلاً */
+            }
             .navbar {
                 position: fixed;
                 top: 0;
@@ -341,7 +355,7 @@
                     <li><a href="/privacy/" class="active">الخصوصية</a></li>
                 </ul>
             </nav>
-            <a href="/download/" class="btn btn-primary">ابدأ الآن</a>
+            <a href="/download/" class="btn btn-primary"><i class="fas fa-download"></i> تنزيل الأن</a>
             <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
                 <i class="fas fa-bars"></i>
             </button>
