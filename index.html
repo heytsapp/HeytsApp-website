@@ -883,7 +883,83 @@
             font-weight: 700;
             color: var(--primary-dark);
         }
+        /* --- START: New Testimonial Slider Styles --- */
+        .testimonial-slider-wrapper {
+            position: relative;
+        }
 
+        .testimonial-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            padding: 20px 10px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory; /* Makes the scroll snap to elements */
+            -ms-overflow-style: none;  /* Hides scrollbar on IE and Edge */
+            scrollbar-width: none;  /* Hides scrollbar on Firefox */
+        }
+
+        /* Hides scrollbar on Chrome, Safari and Opera */
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-slider .testimonial-card {
+            flex: 0 0 350px; /* Each card has a fixed width and doesn't shrink */
+            scroll-snap-align: center; /* Snaps each card to the center */
+            transform: scale(0.95);
+            opacity: 0.7;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Optional: Make the centered card slightly larger and more opaque */
+        .testimonial-slider .testimonial-card:first-child,
+        .testimonial-slider .testimonial-card:last-child {
+            /* You can add special styles for first/last if needed */
+        }
+
+        /* This is a placeholder for a potential JS-driven active state */
+        .testimonial-slider .testimonial-card.is-active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .slider-nav button {
+            background-color: var(--primary);
+            color: var(--white-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .slider-nav button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .slider-nav button:disabled {
+            background-color: var(--border-color);
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        @media (max-width: 400px) {
+            .testimonial-slider .testimonial-card {
+                flex-basis: 90%; /* On very small screens, make cards take up more width */
+            }
+        }
+        /* --- END: New Testimonial Slider Styles --- */
         /*
         ==============================================
         |                                            |
@@ -1903,40 +1979,75 @@
         </div>
         </section>
 
-    <section id="testimonials" class="section">
-        <div class="container">
-            <div class="section-title fade-in-up animate-on-scroll">
-                <span class="section-tagline">آراء العملاء</span>
-                <h2>شاهد قصص النجاح التي صنعناها معًا</h2>
-                <p>عملاؤنا هم أكبر دليل على قوة وفعالية برنامجنا. نفخر بأن نكون جزءًا من نجاحهم.</p>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card fade-in-up animate-on-scroll">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="quote">"برنامج فعلاً أنقذ وقتي، سهل وسريع جداً. لم أعد أضيع أي فرصة بيع بسبب التأخر في
-                        الرد.
-                        المبيعات زادت بنسبة 30% تقريبًا بفضل المتابعة التلقائية وحدها."</p>
-                    <h4 class="testimonial-author">— محمد العتيبي، صاحب متجر إلكتروني</h4>
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">آراء العملاء</span>
+                    <h2>عملائنا راضون، وهذه قصصهم</h2>
+                    <p>لا شيء يصف قوة HeytsApp أفضل من تجارب عملائنا الفعلية. شاهد كيف ساهمنا في تبسيط أعمالهم.</p>
                 </div>
-                <div class="testimonial-card fade-in-up animate-on-scroll" style="transition-delay: 0.2s;">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        
+                <div class="testimonial-slider-wrapper">
+                    <div class="testimonial-slider">
+        
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"تبارك الله عليكم، هاد الأداة واعرة بزاف! كنت كنضيع سوايع فلاجوبة... دابا كلشي
+                                أوتوماتيك. الخدمة نقية ومجهود أقل."</p>
+                            <h4 class="testimonial-author">— يوسف العلمي، صاحب متجر إلكتروني</h4>
+                        </div>
+        
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"Franchement, un game-changer pour notre agence. Le suivi intelligent des prospects
+                                est la fonctionnalité clé. On a vu une augmentation de 25% de nos conversions. Très pro, je
+                                recommande."</p>
+                            <h4 class="testimonial-author">— Fatima Zahra Bennani, Directrice Marketing</h4>
+                        </div>
+        
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="quote">"Honestly, this app is amazing. As a freelancer, it makes me look so professional.
+                                The auto-reply is instant. خدمة نقية بزاف، شكرًا!"</p>
+                            <h4 class="testimonial-author">— Amine Cherkaoui, Consultant</h4>
+                        </div>
+        
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"واللهيلا ساهل فالخدمة، ما عنديش مع لانفورماتيك بزاف ولكن هادشي واضح وباين. البوت
+                                كايجاوب فالبلاصة وأنا كنرتاح."</p>
+                            <h4 class="testimonial-author">— Salma El Fassi, Gérante de boutique</h4>
+                        </div>
+        
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"La gestion multi-comptes est juste parfaite. Je gère les numéros de 3 projets
+                                différents depuis une seule interface. C'est un gain de temps énorme."</p>
+                            <h4 class="testimonial-author">— Karim Boujida, Entrepreneur</h4>
+                        </div>
+        
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"The software is great, but the support is even better. I had a small issue and
+                                their team was super helpful and fast via WhatsApp. Five stars!"</p>
+                            <h4 class="testimonial-author">— Kenza Tazi, E-commerce Manager</h4>
+                        </div>
+        
                     </div>
-                    <p class="quote">"أفضل تجربة إدارة واتساب على الإطلاق، خاصة للمتاجر الإلكترونية. المتابعة التلقائية
-                        وتجاهل العملاء الذين اشتروا بالفعل هي ميزة عبقرية توفر الكثير من الإحراج والوقت."</p>
-                    <h4 class="testimonial-author">— سارة عبدالله، مديرة تسويق</h4>
-                </div>
-                <div class="testimonial-card fade-in-up animate-on-scroll" style="transition-delay: 0.4s;">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="quote">"كنت أحتاج لمثل هذا البرنامج منذ زمن طويل! بعد يوم عمل طويل، أجد أن البوت قد رد على
-                        جميع الاستفسارات وتابع العملاء. الدعم الفني كان متعاونًا جدًا معي في البداية."</p>
-                    <h4 class="testimonial-author">— فهد الغامدي، مقدم خدمات</h4>
+                    <div class="slider-nav">
+                        <button class="prev-btn" aria-label="Previous Testimonial"><i class="fas fa-arrow-right"></i></button>
+                        <button class="next-btn" aria-label="Next Testimonial"><i class="fas fa-arrow-left"></i></button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            </section>
 
     <section id="gallery" class="section section-bg">
         <div class="container">
@@ -2364,6 +2475,37 @@
                 }
             }
             // --- END: New Simplified Toggle Functionality ---
+
+            // --- START: Testimonial Slider Functionality ---
+            const slider = document.querySelector('.testimonial-slider');
+            if (slider) {
+                const prevBtn = document.querySelector('.prev-btn');
+                const nextBtn = document.querySelector('.next-btn');
+
+                const scrollStep = slider.querySelector('.testimonial-card').offsetWidth + 30; // Card width + gap
+
+                nextBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: -scrollStep, behavior: 'smooth' }); // Negative for RTL
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: scrollStep, behavior: 'smooth' }); // Positive for RTL
+                });
+
+                // Optional: Disable buttons at ends (advanced)
+                slider.addEventListener('scroll', () => {
+                    // scrollLeft is 0 at the far right in RTL
+                    prevBtn.disabled = slider.scrollLeft === 0;
+                    // When max scroll is reached (far left)
+                    nextBtn.disabled = Math.abs(slider.scrollLeft) >= slider.scrollWidth - slider.clientWidth - 1;
+                });
+
+                // Initial check
+                if (slider.scrollLeft === 0) {
+                    prevBtn.disabled = true;
+                }
+            }
+            // --- END: Testimonial Slider Functionality ---
         });
         
 
