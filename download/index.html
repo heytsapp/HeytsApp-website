@@ -435,6 +435,28 @@
         .social-icons a:hover {
             color: var(--primary);
         }
+
+        /* --- Styling for the Free Trial Info Box --- */
+        .free-trial-info {
+            background-color: var(--light-bg);
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius);
+            padding: 15px 20px;
+            margin: 30px auto;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .free-trial-info i {
+            font-size: 1.3rem;
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
@@ -528,9 +550,13 @@
 
                 <div class="download-box">
                     <p class="version-info">الإصدار الرسمي</p>
-                    <h2>تنزيل HeytsApp v1.0</h2>
-                    <a href="heytsapp.com"
-                        class="btn btn-primary">
+                    <h2>تنزيل HeytsApp v1.0.0</h2>
+                
+                    <div class="free-trial-info">
+                        <i class="fas fa-check-circle"></i>
+                        <span>احصل على تجربة مجانية لمدة 7 أيام كاملة!</span>
+                    </div>
+                    <a href="heytsapp.com" class="btn btn-primary">
                         <i class="fab fa-windows"></i>
                         تحميل مباشر لنسخة ويندوز
                     </a>

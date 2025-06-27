@@ -764,14 +764,50 @@
             font-size: 1.5rem;
         }
 
+        /* --- START: 3D Flip Animation for Prices --- */
         .plan-price {
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--primary-dark);
             margin: 20px 0;
-            direction: ltr;
-            /* Keeps currency symbol correctly positioned */
+            perspective: 1000px; /* Creates the 3D space */
+            height: 50px; /* Set a fixed height for the container */
         }
+
+        .price-flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .price-card-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hides the back of the card */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .price-card-side span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #777;
+            margin-right: 5px;
+        }
+
+        .price-back {
+            transform: rotateY(180deg); /* Pre-rotates the back side */
+        }
+
+        /* This is the magic: Flips the card when the toggle is active */
+        #pricing.annual-view .price-flipper {
+            transform: rotateY(180deg);
+        }
+        /* --- END: 3D Flip Animation --- */
 
         .plan-price span {
             font-size: 1rem;
@@ -1238,7 +1274,62 @@
             padding-top: 30px;
             margin-top: 30px;
         }
+      /* --- START: New Pill-Shaped Toggle Styles (Reversed Colors) --- */
+        .pricing-toggle-pills {
+            display: inline-flex;
+            position: relative;
+            background-color: var(--light-bg);
+            border-radius: 50px;
+            padding: 5px;
+            margin: 0 auto 40px auto;
+            display: flex; /* To center it */
+            width: fit-content;
+        }
 
+        .toggle-option {
+            background: transparent;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-light); /* Color for inactive text */
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.4s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* ✅ This is the main change: Active text is now white */
+        .toggle-option.active {
+            color: var(--white-color); 
+        }
+
+        .toggle-highlighter {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 0; 
+            height: calc(100% - 10px);
+            /* ✅ This is the main change: Highlighter is now green */
+            background-image: var(--gradient-primary); 
+            border-radius: 50px;
+            box-shadow: 0 3px 10px rgba(59, 174, 94, 0.3);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1;
+        }
+
+        .toggle-option .save-badge {
+            background-color: #e0f2f1;
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+        /* --- END: New Pill-Shaped Toggle Styles --- */
+        /* --- END: New Pill-Shaped Toggle Styles --- */
         /*
         ==============================================
         |                                            |
@@ -1737,58 +1828,80 @@
     <section id="pricing" class="section section-bg">
         <div class="container">
             <div class="section-title fade-in-up animate-on-scroll">
-                <span class="section-tagline">خطط أسعار شفافة</span>
-                <h2>اختر الخطة التي تناسب نمو عملك</h2>
-                <p>استثمار بسيط لنمو كبير وعائد مضمون. اختر الباقة التي تلبي احتياجاتك اليوم، مع إمكانية الترقية في أي
-                    وقت.
-                </p>
+                <span class="section-tagline">خطط أسعار مرنة</span>
+                <h2>استثمار بسيط لنمو كبير في عملك</h2>
+                <p>اختر الباقة التي تلبي احتياجاتك اليوم، سواء بالدفع الشهري أو السنوي مع توفير كبير.</p>
             </div>
+    
+            <div class="pricing-toggle-pills fade-in-up animate-on-scroll">
+                <div class="toggle-highlighter"></div>
+                <button class="toggle-option active" data-period="monthly">شهري</button>
+                <button class="toggle-option" data-period="annual">سنوي <span class="save-badge">وفر 20%</span></button>
+            </div>
+    
             <div class="pricing-grid">
                 <div class="pricing-card fade-in-up animate-on-scroll" style="transition-delay: 0.1s;">
                     <h3>الخطة الأساسية</h3>
                     <p class="text-light">مثالية للأفراد والأنشطة الصغيرة</p>
-                    <div class="plan-price">49 <span>د.م./شهريا</span></div>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">$15 <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">$144 <span>/سنويا</span></div>
+                        </div>
+                    </div>
                     <ul>
                         <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i>إدارة حساب واتساب واحد</li>
                         <li><i class="fas fa-check-circle"></i>ردود تلقائية (ترحيب + متابعة)</li>
-                        <li><i class="fas fa-check-circle"></i>دعم كامل للمرفقات (صور، فيديو، PDF)</li>
-                        <li><i class="fas fa-check-circle"></i>تخصيص الفواصل الزمنية</li>
-                        <li><i class="fas fa-times-circle"></i>إدارة حسابات متعددة</li>
-                        <li><i class="fas fa-times-circle"></i>دعم فني عبر البريد الإلكتروني</li>
+                        <li><i class="fas fa-check-circle"></i>دعم كامل للمرفقات</li>
+                        <li><i class="fas fa-check-circle"></i>دعم فني عبر البريد الإلكتروني</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary">اختر هذه الخطة</a>
+                    <a href="https://heytsapp.com/download/" class="btn btn-secondary pricing-button">ابدأ تجربتك
+                        المجانية</a>
                 </div>
+    
                 <div class="pricing-card popular fade-in-up animate-on-scroll">
-                    <h3>الخطة الاحترافية</h3>
-                    <p class="text-light">الأكثر شيوعًا للشركات النامية</p>
-                    <div class="plan-price">99 <span>د.م./شهريا</span></div>
+                    <div class="popular-badge">الأكثر شيوعًا</div>
+                    <h3>الخطة الإحترافية</h3>
+                    <p class="text-light">للشركات النامية والمسوقين</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">$29 <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">$278 <span>/سنويا</span></div>
+                        </div>
+                    </div>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهازين اثنين</li>
+                        <li><i class="fas fa-check-circle"></i>إدارة حسابين واتساب</li>
                         <li><i class="fas fa-check-circle"></i>جميع مزايا الخطة الأساسية</li>
-                        <li><i class="fas fa-check-circle"></i>*إدارة حسابات متعددة (حتى 5)*</li>
-                        <li><i class="fas fa-check-circle"></i>*تصدير بيانات العملاء إلى Excel*</li>
-                        <li><i class="fas fa-check-circle"></i>*حفظ وإعادة استخدام القوالب*</li>
-                        <li><i class="fas fa-times-circle"></i>دعم فني فوري</li>
+                        <li><i class="fas fa-check-circle"></i>حفظ وإعادة استخدام القوالب</li>
+                        <li><i class="fas fa-check-circle"></i>دعم فني فوري</li>
                     </ul>
-                    <a href="#" class="btn btn-primary">ابدأ بالخطة الاحترافية</a>
+                    <a href="https://heytsapp.com/download/" class="btn btn-primary pricing-button">ابدأ تجربتك المجانية</a>
                 </div>
+    
                 <div class="pricing-card fade-in-up animate-on-scroll" style="transition-delay: 0.3s;">
                     <h3>خطة الشركات</h3>
                     <p class="text-light">حلول متكاملة للفرق الكبيرة</p>
-                    <div class="plan-price">199 <span>د.م./شهريا</span></div>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">$69 <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">$662 <span>/سنويا</span></div>
+                        </div>
+                    </div>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i>*ترخيص لجهازين اثنين*</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لخمسة أجهزة</li>
+                        <li><i class="fas fa-check-circle"></i>إدارة 5 حسابات واتساب</li>
                         <li><i class="fas fa-check-circle"></i>جميع مزايا الخطة الاحترافية</li>
-                        <li><i class="fas fa-check-circle"></i>*إدارة حسابات متعددة (غير محدود)*</li>
-                        <li><i class="fas fa-check-circle"></i>*تقارير أداء متقدمة*</li>
-                        <li><i class="fas fa-check-circle"></i>*دعم فني فوري ومخصص*</li>
+                        <li><i class="fas fa-check-circle"></i>تقارير أداء متقدمة</li>
                         <li><i class="fas fa-check-circle"></i>جلسة تدريبية للفريق</li>
                     </ul>
-                    <a href="#" class="btn btn-secondary">اختر هذه الخطة</a>
+                    <a href="https://heytsapp.com/download/" class="btn btn-secondary pricing-button">ابدأ تجربتك
+                        المجانية</a>
                 </div>
             </div>
         </div>
-    </section>
+        </section>
 
     <section id="testimonials" class="section">
         <div class="container">
@@ -2212,8 +2325,47 @@
                 });
             });
 
-        });
+           // --- START: New Simplified Toggle Functionality ---
+            const pricingToggleContainer = document.querySelector('.pricing-toggle-pills');
+            if (pricingToggleContainer) {
+                const toggleOptions = pricingToggleContainer.querySelectorAll('.toggle-option');
+                const highlighter = pricingToggleContainer.querySelector('.toggle-highlighter');
+                const pricingSection = document.getElementById('pricing');
 
+                function moveHighlighter(targetButton) {
+                    highlighter.style.width = `${targetButton.offsetWidth}px`;
+                    highlighter.style.left = `${targetButton.offsetLeft}px`;
+                }
+
+                toggleOptions.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Remove active class from all buttons
+                        toggleOptions.forEach(btn => btn.classList.remove('active'));
+                        // Add active class to the clicked button
+                        button.classList.add('active');
+
+                        const period = button.getAttribute('data-period');
+                        // Toggle class for the price flip animation
+                        if (period === 'annual') {
+                            pricingSection.classList.add('annual-view');
+                        } else {
+                            pricingSection.classList.remove('annual-view');
+                        }
+
+                        // Move the highlighter to the new active button
+                        moveHighlighter(button);
+                    });
+                });
+
+                // Initialize highlighter position on page load
+                const initiallyActiveButton = document.querySelector('.toggle-option.active');
+                if (initiallyActiveButton) {
+                    moveHighlighter(initiallyActiveButton);
+                }
+            }
+            // --- END: New Simplified Toggle Functionality ---
+        });
+        
 
     </script>
     <div id="imageLightbox" class="lightbox">
