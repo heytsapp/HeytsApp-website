@@ -18,6 +18,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
+        /* =================================================================
+         * 1. VARIABLES & GLOBAL RESETS (المتغيرات والأنماط العامة)
+         * ================================================================= */
         :root {
             --primary: #3bae5e;
             --primary-dark: #2a8c4a;
@@ -30,6 +33,7 @@
             --radius: 12px;
             --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
             --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
+            --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.1);
             --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
 
@@ -43,6 +47,11 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* يمنع سكرول الصفحة عند فتح القائمة الجانبية */
+        html.menu-open {
+            overflow: hidden;
         }
 
         body {
@@ -63,14 +72,128 @@
             padding-right: 20px;
         }
 
+        h1,
+        h2,
+        h3 {
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
         a {
             text-decoration: none;
             color: var(--primary);
         }
 
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+        }
+
+        .section-title p {
+            max-width: 850px;
+            margin: auto;
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* =================================================================
+         * 2. HEADER & NAVIGATION (الشريط العلوي والقائمة)
+         * ================================================================= */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: padding 0.3s ease;
+        }
+
+        main {
+            padding-top: 80px;
+            /* Adjust based on header height */
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .navbar ul li a {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .navbar ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar ul li a:hover::after,
+        .navbar ul li a.active::after {
+            width: 100%;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            /* Hidden on desktop */
+        }
+
+        .nav-overlay {
+            display: none;
+            /* Handled by JS */
+        }
+
+        /* =================================================================
+         * 3. BUTTONS (الأزرار)
+         * ================================================================= */
         .btn {
             display: inline-block;
-            padding: 16px 40px;
+            padding: 14px 35px;
             font-size: 1rem;
             font-weight: 700;
             text-align: center;
@@ -92,12 +215,6 @@
             box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4);
             background-position: right center;
         }
-        .header .btn-primary {
-            padding: 12px 28px;
-            /* تقليل الحشو الداخلي للزر */
-            font-size: 0.9rem;
-            /* تصغير حجم الخط قليلاً */
-        }
 
         .btn-secondary {
             color: var(--primary);
@@ -111,52 +228,239 @@
             transform: translateY(-3px);
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            width: 100%;
-            padding: 20px 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+        /* =================================================================
+         * 4. ANIMATIONS (الحركات الانسيابية)
+         * ================================================================= */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        main {
-            padding-top: 85px;
+        .fade-in-up {
+            transform: translateY(40px);
         }
 
-        .header .container {
-            display: flex;
-            justify-content: space-between;
+        .fade-in-right {
+            transform: translateX(-40px);
+        }
+
+        .fade-in-left {
+            transform: translateX(40px);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* =================================================================
+         * 5. PAGE SECTIONS (أقسام الصفحة)
+         * ================================================================= */
+
+        /* --- Hero Section --- */
+        .page-hero {
+            padding: 80px 0;
+            background-color: var(--dark);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            color: var(--white-color);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        /* --- Story Section --- */
+        .story-section {
+            padding: 120px 0;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
         }
 
-        .logo img {
-            height: 45px;
+        .story-grid img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
         }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            align-items: center;
+        .story-grid h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
         }
 
-        .navbar ul li a {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--dark);
+        .story-grid p {
+            font-size: 1.2rem;
+            line-height: 2;
         }
 
-        .navbar ul li a:hover,
-        .navbar ul li a.active {
+        /* --- Principles Section --- */
+        .principles-section {
+            background-color: var(--light-bg);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .principle-card {
+            background: var(--white-color);
+            padding: 40px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .principle-card .icon {
+            font-size: 3rem;
             color: var(--primary);
+            margin-bottom: 20px;
         }
 
+        .principle-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .principle-card p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* --- Journey Timeline --- */
+        .journey-section {
+            padding-bottom: 80px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary);
+            opacity: 0.2;
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            margin-right: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 0;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            right: 0;
+            padding-left: 50px;
+        }
+
+        .timeline-item:nth-child(even) {
+            right: 50%;
+            padding-right: 50px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 40px;
+            width: 46px;
+            height: 46px;
+            background-color: var(--light-bg);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.1) rotate(15deg);
+            background-color: var(--primary);
+            color: var(--white-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-icon {
+            left: -23px;
+            right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            right: -23px;
+            left: auto;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background-color: var(--white-color);
+            position: relative;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .timeline-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .timeline-content img {
+            width: 100%;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+        }
+
+        .cta-section .btn {
+            margin: 0 10px;
+        }
+
+        /* =================================================================
+         * 6. FOOTER (الفوتر)
+         * ================================================================= */
         .footer {
             background-color: var(--dark);
             color: rgba(255, 255, 255, 0.7);
@@ -184,108 +488,6 @@
             color: var(--primary);
         }
 
-        .footer .copyright {
-            font-size: .9rem;
-            color: #aaa;
-            border-top: 1px solid #0c2d32;
-            padding-top: 30px;
-            margin-top: 30px;
-        }
-
-        /* About Page Specific Styles */
-        .page-hero {
-            padding: 80px 0;
-            background-color: var(--dark);
-            text-align: center;
-        }
-
-        .page-hero h1 {
-            color: var(--white-color);
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-
-        .page-hero p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .story-section {
-            padding: 120px 0;
-        }
-
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .story-grid img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .story-grid h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .story-grid p {
-            font-size: 1.2rem;
-            line-height: 2;
-        }
-
-        .vision-section {
-            padding: 100px 0;
-            background-color: var(--light-bg);
-            text-align: center;
-        }
-
-        .vision-section h2 {
-            margin-bottom: 20px;
-        }
-
-        .vision-section p {
-            max-width: 850px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.2rem;
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .cta-section .btn {
-            margin: 0 10px;
-        }
-
-        /* Mobile Styles */
-        .mobile-menu-toggle {
-            display: none;
-        }
-        /* --- Styling for the special 'Help' link --- */
-        .special-link {
-        padding: 6px 18px !important;
-        border: 2px solid var(--primary);
-        border-radius: 50px;
-        color: var(--primary) !important;
-        transition: all 0.3s ease;
-        }
-
-        .special-link:hover {
-            background-color: var(--primary);
-            color: var(--white-color) !important;
-        }
-
-        /* To remove the animated underline from the special link */
-        .special-link::after {
-            display: none !important;
-        }
         .social-icons {
             margin-bottom: 20px;
         }
@@ -294,12 +496,27 @@
             color: #fff;
             font-size: 1.5rem;
             margin: 0 12px;
-            transition: color .3s ease;
+            transition: color .3s ease, transform .3s ease;
         }
 
         .social-icons a:hover {
             color: var(--primary);
+            transform: scale(1.2);
         }
+
+        .footer .copyright {
+            font-size: .9rem;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        /* =================================================================
+         * 7. RESPONSIVE & MOBILE (التجاوب مع الشاشات الصغيرة)
+         * ================================================================= */
+
+        /* --- Tablet (e.g., iPads) --- */
         @media (max-width: 992px) {
             .story-grid {
                 grid-template-columns: 1fr;
@@ -312,51 +529,55 @@
             }
         }
 
+        /* --- Mobile (e.g., iPhones, Android phones) --- */
         @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-                background: none;
-                border: none;
-                color: var(--dark);
-                font-size: 1.8rem;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            /* --- Custom styling for the header's main CTA button --- */
-            .header .btn-primary {
-                padding: 6px 15px;
-                /* تقليل الحشو الداخلي للزر */
-                font-size: 0.7rem;
-                /* تصغير حجم الخط قليلاً */
+            h1 {
+                font-size: 2.5rem;
             }
 
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .story-section {
+                padding: 80px 0;
+            }
+
+            /* Header & Mobile Menu */
             .navbar {
                 position: fixed;
                 top: 0;
-                left: -100%;
+                right: -100%;
+                /* Start off-screen to the right for RTL */
                 width: 300px;
                 height: 100vh;
                 background-color: var(--white-color);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
                 z-index: 999;
-                transition: left 0.4s ease-in-out;
-                padding-top: 80px;
+                transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                padding: 100px 20px 40px;
+                display: flex;
+                flex-direction: column;
             }
 
             .navbar.is-open {
-                left: 0;
+                right: 0;
+                /* Slide in from the right */
             }
 
             .navbar ul {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
+                gap: 5px;
                 width: 100%;
-                gap: 10px;
             }
 
             .navbar ul li {
                 width: 100%;
-                text-align: center;
             }
 
             .navbar ul li a {
@@ -364,19 +585,79 @@
                 padding: 15px;
                 width: 100%;
                 font-size: 1.2rem;
+                text-align: right;
             }
 
-            html.menu-open {
-                overflow: hidden;
+            .navbar ul li a::after {
+                display: none;
             }
 
+            /* Remove underline effect on mobile */
+
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: none;
+                border: none;
+                color: var(--dark);
+                font-size: 1.8rem;
+                cursor: pointer;
+                z-index: 1001;
+                width: 45px;
+                height: 45px;
+            }
+
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 998;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.4s ease;
+            }
+
+            .nav-overlay.is-visible {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /* CTA Section Mobile */
             .cta-section .btn {
                 display: block;
-                margin: 10px 0;
+                margin: 15px 0;
             }
-            .navbar ul li a.special-link {
-                margin: 10px auto;
-                width: fit-content;
+
+            /* Timeline Mobile */
+            .timeline::after {
+                right: 15px;
+                margin-right: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                right: auto;
+                left: auto;
+                padding-left: 0;
+                padding-right: 50px;
+            }
+
+            .timeline-icon,
+            .timeline-item:nth-child(odd) .timeline-icon,
+            .timeline-item:nth-child(even) .timeline-icon {
+                right: -7px;
+                left: auto;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -391,64 +672,141 @@
             </a>
             <nav class="navbar" id="main-nav">
                 <ul>
-                    <li><a href="#features" class="nav-link">المميزات</a></li>
-                    <li><a href="#process" class="nav-link">كيف يعمل</a></li>
-                    <li><a href="#pricing" class="nav-link">الأسعار</a></li>
-                    <li><a href="#testimonials" class="nav-link">الآراء</a></li>
-                    <li><a href="#faq" class="nav-link">الأسئلة</a></li>
-                    <li><a href="/help" class="nav-link special-link">المساعدة</a></li>
-                    <li><a href="/contact/">اتصل بنا</a></li>
+                    <li><a href="/" class="nav-link">الرئيسية</a></li>
+                    <li><a href="/help/" class="nav-link">المساعدة</a></li>
+                    <li><a href="/download/" class="nav-link">التنزيلات</a></li>
+                    <li><a href="/contact/" class="nav-link">اتصل بنا</a></li>
                 </ul>
             </nav>
             <a href="/download/" class="btn btn-primary"><i class="fas fa-download"></i> تنزيل الأن</a>
             <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
-                <i class="fas fa-bars"></i> </button>
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
     <main>
 
         <section class="page-hero">
-            <div class="container">
-                <h1>قصتنا: من فكرة إلى أداة</h1>
-                <p>نحن في AShop نؤمن بأن التكنولوجيا يجب أن تكون في خدمة الإنسان، لا العكس. HeytsApp هو نتاج هذا
-                    الإيمان، وُلد من رحم الحاجة لحل حقيقي وفعّال لمشاكل التواصل اليومية التي تواجه رواد الأعمال في
-                    العالم العربي.</p>
+            <div class="container animate-on-scroll fade-in-up">
+                <h1>قصتنا: من إحساس بالحاجة إلى أداة للتمكين</h1>
+                <p>لم نكن مجرد شركة برمجيات، بل كنا في يوم من الأيام مكانكم. HeytsApp ليس مجرد برنامج، بل هو خلاصة
+                    تجربتنا، وشغفنا، وإيماننا بأن التكنولوجيا يجب أن تكون جسرًا للنجاح، لا عائقًا أمامه.</p>
             </div>
         </section>
 
         <section class="story-section">
             <div class="container">
                 <div class="story-grid">
-                    <div>
-                        <h2>كيف بدأت الفكرة؟</h2>
-                        <p>لاحظنا أن أصحاب المتاجر والمسوقين يغرقون يوميًا في بحر من رسائل واتساب. استفسارات متكررة،
-                            متابعات مُهدرة، وعملاء محتملون يضيعون بسبب التأخر في الرد. كانت الفوضى هي السمة السائدة،
-                            والوقت الثمين يُهدر في مهام يدوية مملة. من هنا، تساءلنا: "لماذا لا توجد أداة ذكية، بسيطة،
-                            ومصممة خصيصًا للسوق العربي تضع حدًا لهذه المعاناة؟".</p>
+                    <div class="animate-on-scroll fade-in-right">
+                        <h2>شرارة الفكرة: "لا بد من وجود طريقة أفضل"</h2>
+                        <p>كرواد أعمال ومسوقين، عشنا بأنفسنا فوضى إدارة واتساب. رسائل لا تنتهي، متابعات تضيع في زحمة
+                            المحادثات، وعملاء نفد صبرهم بسبب التأخر في الرد. كانت تلك الفوضى هي وقودنا، وذلك الإحساس
+                            بالإحباط هو الذي أشعل فينا السؤال: "كيف يمكننا تحويل هذه الأداة اليومية إلى آلة منظمة لتنمية
+                            الأعمال؟". لم نجد الحل الذي يناسب طموحاتنا في السوق، فقررنا أن نبنيه بأنفسنا.</p>
                     </div>
-                    <img src="/img/6.jpg" alt="صورة تعبر عن الفكرة والإلهام">
+                    <div class="animate-on-scroll fade-in-left">
+                        <img src="/img/6.jpg" alt="صورة تعبر عن الفكرة والإلهام">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="vision-section">
+        <section class="principles-section">
             <div class="container">
-                <h2>رؤيتنا في AShop</h2>
-                <p>مهمتنا هي تمكين كل صاحب عمل، كبيرًا كان أم صغيرًا، من تحويل واتساب من مجرد تطبيق للمحادثة إلى أصل قوي
-                    ومصدر أساسي للنمو. نحن لا نبيع برامج فقط، بل نقدم حلولًا عملية توفر الوقت، تزيد الأرباح، وتبني
-                    علاقات أقوى مع العملاء. نعمل باستمرار على تطوير HeytsApp، مستمعين لملاحظاتكم، لنضمن أنه يبقى شريككم
-                    الرقمي الأذكى والأكثر فعالية.</p>
+                <div class="section-title animate-on-scroll fade-in-up">
+                    <h2>مبادئنا التي تقودنا</h2>
+                    <p>HeytsApp ليس مجرد كود، بل هو مجموعة من المبادئ التي نؤمن بها ونطبقها في كل تفصيلة.</p>
+                </div>
+                <div class="principles-grid">
+                    <div class="principle-card animate-on-scroll fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="icon"><i class="fas fa-magic"></i></div>
+                        <h3>البساطة أولًا</h3>
+                        <p>نؤمن بأن أقوى الأدوات هي أسهلها استخدامًا. نصمم كل ميزة لتكون واضحة، مباشرة، ولا تتطلب أي
+                            خبرة تقنية مسبقة.</p>
+                    </div>
+                    <div class="principle-card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>الفعالية على أرض الواقع</h3>
+                        <p>كل ميزة في البرنامج وُجدت لتحل مشكلة حقيقية وتزيد من نتائجك. نحن لا نضيف الميزات للمباهاة، بل
+                            لتحقيق أثر ملموس في عملك.</p>
+                    </div>
+                    <div class="principle-card animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h3>شراكة مع مستخدمينا</h3>
+                        <p>أنتم لستم مجرد عملاء، بل شركاء في التطوير. نستمع لآرائكم ومقترحاتكم بشغف، فهي التي توجه بوصلة
+                            تحديثاتنا المستقبلية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey-section">
+            <div class="container">
+                <div class="section-title animate-on-scroll fade-in-up">
+                    <h2>رحلة التطوير: قصة من الإصرار والابتكار</h2>
+                    <p>لم يولد HeytsApp مكتملًا، بل نما وتطور بفضل العمل الدؤوب وآرائكم القيمة. هذه لمحات من رحلتنا معكم
+                        ولأجلكم.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item animate-on-scroll fade-in-right">
+                        <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="timeline-content">
+                            <h3>المرحلة الأولى: حجر الأساس (فبراير 2025)</h3>
+                            <p>الانطلاقة الأولى كانت عبارة عن وميض أمل. واجهة بسيطة وميزة واحدة: إرسال رسالة ترحيبية
+                                آلية. كانت هذه الخطوة هي الإثبات بأن الفكرة قابلة للتحقيق، وأن بإمكاننا تحويل الفوضى إلى
+                                نظام.</p>
+                            <img src="/img/1.jpg" alt="النسخة الأولية من البرنامج">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll fade-in-left">
+                        <div class="timeline-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="timeline-content">
+                            <h3>المرحلة الثانية: بناء القوة (مارس - أبريل 2025)</h3>
+                            <p>هنا بدأ المحرك الحقيقي بالعمل. أضفنا أدوات قوية مثل سجلات الإرسال المفصلة، قوائم
+                                الاستثناءات، والقدرة على تصدير البيانات. بدأ HeytsApp يتحول من مجرد مرسل للرسائل إلى
+                                نظام ذكي للمراقبة والتحكم.</p>
+                            <img src="/img/3.jpg" alt="إضافة سجل الإرسال">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll fade-in-right">
+                        <div class="timeline-icon"><i class="fas fa-palette"></i></div>
+                        <div class="timeline-content">
+                            <h3>المرحلة الثالثة: ثورة في التجربة (مايو 2025)</h3>
+                            <p>كانت هذه المرحلة نقلة نوعية في فلسفة التصميم. أطلقنا لوحة التحكم التفاعلية ونظام
+                                "التسلسل" المبتكر الذي جعل إعداد الرسائل المعقدة متعة حقيقية، وأضفنا لمسة شخصية عبر
+                                متغيرات الأسماء.</p>
+                            <img src="/img/4.jpg" alt="واجهة التسلسل الجديدة">
+                        </div>
+                    </div>
+
+                    <div class="timeline-item animate-on-scroll fade-in-left">
+                        <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="timeline-content">
+                            <h3>المرحلة الرابعة: الإطلاق الرسمي (يوليو 2025)</h3>
+                            <p>بعد أشهر من التطوير والتحسين المستمر بناءً على آرائكم، أطلقنا النسخة الرسمية 1.0.0. لم
+                                تكن مجرد نهاية رحلة، بل بداية عهد جديد من الثقة، الاستقرار، والقوة بين أيديكم لمواجهة
+                                تحديات السوق.</p>
+                            <img src="/img/11.jpg" alt="البرنامج في إصداره الرسمي">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="cta-section">
             <div class="container">
-                <h2>هل أنت جاهز لتكون جزءًا من قصتنا؟</h2>
-                <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-light);">انضم إلى مئات
-                    المستخدمين الذين غيروا طريقة عملهم مع HeytsApp.</p>
-                <a href="/#features" class="btn btn-secondary">اكتشف كل المميزات</a>
-                <a href="/download/" class="btn btn-primary">حمّل البرنامج الآن</a>
+                <h2 class="animate-on-scroll fade-in-up">هل أنت جاهز لتكون جزءًا من قصتنا؟</h2>
+                <p class="animate-on-scroll fade-in-up"
+                    style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-light); transition-delay: 0.1s;">
+                    انضم إلى مئات المستخدمين الذين غيروا طريقة عملهم مع HeytsApp.</p>
+                <div class="animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                    <a href="/#features" class="btn btn-secondary">اكتشف كل المميزات</a>
+                    <a href="/download/" class="btn btn-primary">حمّل البرنامج الآن</a>
+                </div>
             </div>
         </section>
 
@@ -465,12 +823,9 @@
                 <a href="/contact/">اتصل بنا</a>
             </div>
             <div class="social-icons">
-                <a href="https://www.youtube.com/@HeytsApp" aria-label="Instagram" target="_blank"><i
-                        class="fab fa-youtube"></i></a>
-                <a href="https://web.facebook.com/profile.php?id=61577249973061" aria-label="Facebook" target="_blank"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/212778136191" aria-label="Twitter" target="_blank"><i
-                        class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <div class="copyright">
                 <p>© 2025 AShop – جميع الحقوق محفوظة | HeytsApp v1.0</p>
@@ -479,7 +834,60 @@
     </footer>
 
     <script>
-        // Mobile menu script from previous steps
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --- Animation on Scroll ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            if (window.IntersectionObserver) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                animatedElements.forEach(el => { observer.observe(el); });
+            } else {
+                // Fallback for older browsers
+                animatedElements.forEach(el => el.classList.add('is-visible'));
+            }
+
+            // --- Mobile Menu ---
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            const navOverlay = document.createElement('div');
+            navOverlay.className = 'nav-overlay';
+            document.body.appendChild(navOverlay);
+
+            function closeMenu() {
+                mainNav.classList.remove('is-open');
+                navOverlay.classList.remove('is-visible');
+                document.documentElement.classList.remove('menu-open');
+            }
+
+            function openMenu() {
+                mainNav.classList.add('is-open');
+                navOverlay.classList.add('is-visible');
+                document.documentElement.classList.add('menu-open');
+            }
+
+            menuToggle.addEventListener('click', function () {
+                if (mainNav.classList.contains('is-open')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+
+            navOverlay.addEventListener('click', closeMenu);
+
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+        });
     </script>
 </body>
 
