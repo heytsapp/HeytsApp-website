@@ -49,7 +49,6 @@
             scroll-behavior: smooth;
         }
 
-        /* يمنع سكرول الصفحة عند فتح القائمة الجانبية */
         html.menu-open {
             overflow: hidden;
         }
@@ -61,6 +60,7 @@
             line-height: 1.8;
             text-align: right;
             overflow-x: hidden;
+            /* يمنع السحب الأفقي للصفحة */
         }
 
         .container {
@@ -123,7 +123,7 @@
         }
 
         main {
-            padding-top: 80px;
+            padding-top: 76px;
             /* Adjust based on header height */
         }
 
@@ -133,7 +133,7 @@
             align-items: center;
         }
 
-        .logo img {
+        .header .logo img {
             height: 45px;
             transition: transform 0.3s ease;
         }
@@ -180,12 +180,10 @@
 
         .mobile-menu-toggle {
             display: none;
-            /* Hidden on desktop */
         }
 
         .nav-overlay {
             display: none;
-            /* Handled by JS */
         }
 
         /* =================================================================
@@ -226,6 +224,11 @@
             color: var(--white-color);
             background-color: var(--primary);
             transform: translateY(-3px);
+        }
+
+        .header .btn-primary {
+            padding: 12px 28px;
+            /* تصغير حجم الزر في الهيدر قليلاً */
         }
 
         /* =================================================================
@@ -290,6 +293,7 @@
         }
 
         .story-grid img {
+            width: 100%;
             border-radius: var(--radius);
             box-shadow: var(--shadow-heavy);
         }
@@ -375,7 +379,6 @@
             padding: 10px 0;
             position: relative;
             width: 50%;
-            box-sizing: border-box;
         }
 
         .timeline-item:nth-child(odd) {
@@ -520,59 +523,69 @@
         @media (max-width: 992px) {
             .story-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .story-grid img {
                 max-width: 80%;
-                margin: 0 auto 40px auto;
+                margin: 0 auto;
                 order: -1;
             }
         }
 
         /* --- Mobile (e.g., iPhones, Android phones) --- */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+
+            /* === 1. إصلاحات عامة === */
+            h1,
+            .page-hero h1 {
+                font-size: 2.3rem;
             }
 
-            h2 {
-                font-size: 2rem;
+            h2,
+            .story-grid h2,
+            .section-title h2 {
+                font-size: 1.9rem;
             }
 
             section {
                 padding: 60px 0;
             }
 
-            .story-section {
-                padding: 80px 0;
+            .page-hero p {
+                font-size: 1.1rem;
             }
 
-            /* Header & Mobile Menu */
+            /* === 2. إصلاح الهيدر والقائمة الجانبية بالكامل === */
+            .header .btn-primary {
+                padding: 6px 15px;
+                font-size: 0.7rem;
+            }
+
             .navbar {
                 position: fixed;
                 top: 0;
-                right: -100%;
-                /* Start off-screen to the right for RTL */
+                left: -100%;
                 width: 300px;
+                max-width: 90%;
                 height: 100vh;
                 background-color: var(--white-color);
                 box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
                 z-index: 999;
-                transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-                padding: 100px 20px 40px;
+                transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+                padding: 80px 20px 40px;
                 display: flex;
                 flex-direction: column;
             }
 
             .navbar.is-open {
-                right: 0;
-                /* Slide in from the right */
+                left: 0;
             }
 
             .navbar ul {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
+                align-items: center;
+                gap: 10px;
                 width: 100%;
             }
 
@@ -585,14 +598,12 @@
                 padding: 15px;
                 width: 100%;
                 font-size: 1.2rem;
-                text-align: right;
+                text-align: center;
             }
 
             .navbar ul li a::after {
                 display: none;
             }
-
-            /* Remove underline effect on mobile */
 
             .mobile-menu-toggle {
                 display: flex;
@@ -626,38 +637,68 @@
                 visibility: visible;
             }
 
-            /* CTA Section Mobile */
+            /*************************************************************************
+             * === 3. (إصلاح نهائي) إعادة هيكلة الخط الزمني بالكامل للهاتف (آمن 100%) === *
+             *************************************************************************/
+
+            /* 1. إخفاء الخط العمودي الوهمي على الهاتف لأنه لم يعد ضرورياً */
+            .timeline::after {
+                display: none;
+            }
+
+            /* 2. تحويل كل عنصر في الخط الزمني إلى بطاقة مستقلة بسيطة */
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                display: block;
+                /* جعله عنصر كتلة بسيط */
+                width: 100%;
+                /* يأخذ العرض الكامل للشاشة */
+                padding: 0;
+                /* إزالة كل المساحات الداخلية المعقدة */
+                margin-bottom: 30px;
+                /* مسافة بين البطاقات */
+                right: auto !important;
+                /* ضمان عدم التأثر بتنسيق الحاسوب */
+                left: auto !important;
+            }
+
+            /* 3. دمج الأيقونة داخل البطاقة لتكون جزءاً من المحتوى */
+            .timeline-icon {
+                position: static;
+                /* أهم تغيير: إلغاء التموضع المطلق الخطير */
+                float: right;
+                /* وضع الأيقونة على يمين المحتوى بشكل طبيعي */
+                margin-left: 20px;
+                /* مسافة بين الأيقونة والنص لتجنب التلاصق */
+                margin-bottom: 10px;
+                /* مسافة سفلية في حال كان النص قصيراً */
+                transform: none;
+                /* إلغاء أي تأثيرات تحويل سابقة */
+            }
+
+            .timeline-item:hover .timeline-icon {
+                transform: scale(1.1);
+                /* الحفاظ على حركة بسيطة عند مرور الفأرة */
+            }
+
+
+            /* === 4. إصلاح أزرار وروابط الأقسام السفلية === */
             .cta-section .btn {
                 display: block;
-                margin: 15px 0;
+                margin: 15px auto;
+                max-width: 300px;
             }
 
-            /* Timeline Mobile */
-            .timeline::after {
-                right: 15px;
-                margin-right: 0;
+            .footer .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                margin-bottom: 25px;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                right: auto;
-                left: auto;
-                padding-left: 0;
-                padding-right: 50px;
-            }
-
-            .timeline-icon,
-            .timeline-item:nth-child(odd) .timeline-icon,
-            .timeline-item:nth-child(even) .timeline-icon {
-                right: -7px;
-                left: auto;
-                width: 40px;
-                height: 40px;
+            .footer .footer-links a {
+                margin: 0;
             }
         }
     </style>
@@ -848,9 +889,10 @@
                 }, {
                     threshold: 0.1
                 });
-                animatedElements.forEach(el => { observer.observe(el); });
+                animatedElements.forEach(el => {
+                    observer.observe(el);
+                });
             } else {
-                // Fallback for older browsers
                 animatedElements.forEach(el => el.classList.add('is-visible'));
             }
 
