@@ -275,6 +275,62 @@
             width: 100%;
             display: block;
         }
+        /* WhatsApp Call to Action Styling */
+        .whatsapp-cta {
+            background-image: var(--gradient-primary);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin: 40px 0;
+            color: var(--white-color);
+            box-shadow: var(--shadow-medium);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .whatsapp-cta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(42, 140, 74, 0.4);
+        }
+
+        .whatsapp-cta .info-block {
+            margin-bottom: 0;
+            align-items: center;
+        }
+
+        .whatsapp-cta .icon {
+            font-size: 2.8rem; /* A larger icon */
+            color: var(--white-color);
+            margin-top: 0;
+        }
+
+        .whatsapp-cta h4 {
+            color: var(--white-color);
+            font-size: 1.5rem; /* Larger title */
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        .whatsapp-cta .btn-whatsapp {
+            display: inline-block;
+            padding: 6px 15px;
+            background-color: var(--white-color);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .whatsapp-cta .btn-whatsapp:hover {
+            background-color: var(--light-bg);
+            color: var(--dark);
+        }
 
         @media (max-width: 992px) {
             .contact-grid {
@@ -379,22 +435,28 @@
                             <div>
                                 <h4>الدعم عبر البريد</h4>
                                 <p>للأسئلة الفنية والمبيعات، راسلنا على:</p>
-                                <a href="mailto:support@heytsapp.com">support@heytsapp.com</a>
+                                <a href="mailto:heytsapp@gmail.com">heytsapp@gmail.com</a>
                             </div>
                         </div>
-                        <div class="info-block">
-                            <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                            <div>
-                                <h4>واتساب للأعمال</h4>
-                                <p>للدعم الفوري والاستفسارات السريعة:</p>
-                                <a href="https://wa.me/212778136191" target="_blank">اضغط هنا للمحادثة الفورية</a>
+                    
+                        <div class="whatsapp-cta">
+                            <div class="info-block">
+                                <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                                <div>
+                                    <h4>واتساب للأعمال</h4>
+                                    <p>للدعم الفوري والاستفسارات السريعة، تواصل معنا مباشرة!</p>
+                                    <a href="https://wa.me/212778136191" target="_blank" class="btn btn-whatsapp">
+                                        اضغط هنا للمحادثة الفورية
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                    
                         <div class="info-block">
                             <div class="icon"><i class="fas fa-clock"></i></div>
                             <div>
                                 <h4>أوقات الرد</h4>
-                                <p>نسعى للرد على جميع الاستفسارات خلال 24 ساعة عمل من الأحد إلى الجمعة.</p>
+                                <p>نسعى للرد على جميع الاستفسارات خلال 24 ساعة عمل من الإثنين إلى السبت.</p>
                             </div>
                         </div>
                     </div>
