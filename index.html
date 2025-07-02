@@ -1404,6 +1404,35 @@
             font-size: 0.8rem;
             margin-right: 8px;
         }
+                /*
+        ==============================================
+        |                                            |
+        |           VIDEO EXPLAINER SECTION          |
+        |                 (قسم الفيديو)                |
+        |                                            |
+        ==============================================
+        */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* للتحكم في أقصى عرض للفيديو */
+            margin: 0 auto;
+            padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+            background-color: #000; /* خلفية سوداء احتياطية أثناء تحميل الفيديو */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
         /* --- END: New Pill-Shaped Toggle Styles --- */
         /* --- END: New Pill-Shaped Toggle Styles --- */
         /*
@@ -1635,7 +1664,6 @@
                     <li><a href="#faq" class="nav-link">الأسئلة</a></li>
                     <li><a href="/help" class="nav-link special-link">المساعدة</a></li>
                     <li><a href="/about/">من نحن</a></li>
-                    <li><a href="/contact/">اتصل بنا</a></li>
                 </ul>
             </nav>
             <a href="/download/" class="btn btn-primary"><i class="fas fa-download"></i> تنزيل الأن</a>
@@ -1659,6 +1687,24 @@
                     <div class="hero-image animate-on-load">
                         <img src="img/1.jpg" alt="HeytsApp Dashboard">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-explainer" class="section section-bg">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">شاهد بنفسك</span>
+                    <h2>نظرة سريعة على قوة HeytsApp</h2>
+                    <p>في أقل من دقيقتين، اكتشف كيف يمكن لـ HeytsApp أن يغير طريقة عملك، ويوفر وقتك، ويزيد من أرباحك بكل سهولة.
+                    </p>
+                </div>
+        
+                <div class="video-wrapper fade-in-up animate-on-scroll" style="transition-delay: 0.2s;">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -2084,104 +2130,148 @@
             <div class="section-title fade-in-up animate-on-scroll is-visible">
                 <span class="section-tagline">هل لديك أسئلة؟</span>
                 <h2>نجيب على استفساراتك</h2>
-                <p>جمعنا هنا أكثر الأسئلة التي تصلنا لمساعدتك في اتخاذ قرار مستنير. إذا لم تجد إجابتك، لا تتردد في
-                    التواصل
+                <p>جمعنا هنا أكثر الأسئلة التي تصلنا لمساعدتك في اتخاذ قرار مستنير. إذا لم تجد إجابتك، لا تتردد في التواصل
                     معنا مباشرة. فريق الدعم لدينا جاهز للمساعدة في أي وقت.</p>
             </div>
+    
+        <div class="faq-accordion-grid">
 
-            <div class="faq-accordion-grid">
+            <!-- العمود الأول -->
+            <div class="faq-column">
 
-                <div class="faq-column">
-                    <div class="faq-item">
-                        <button class="faq-question">هل أحتاج إلى اتصال دائم بالإنترنت؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>نعم، يجب أن يبقى جهاز الكمبيوتر الذي يعمل عليه البرنامج متصلاً بالإنترنت طوال فترة تشغيل
-                                البوت لضمان استقبال وإرسال الرسائل بشكل فوري.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكنني إدارة أكثر من حساب واتساب؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>نعم، يتيح لك البرنامج إدارة حتى 4 حسابات واتساب في نفس الوقت من واجهة واحدة منظمة، مع
-                                إعدادات
-                                وسجلات منفصلة لكل حساب.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل بياناتي ومحادثاتي آمنة؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>نعم، الأمان أولويتنا. البرنامج يعمل محلياً على جهازك، وجميع بياناتك تبقى مخزنة على جهازك
-                                الخاص ولا تتم مشاركتها مع أي طرف ثالث.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكنني تخصيص الرسائل باسم العميل؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>بكل تأكيد. يدعم HeytsApp تخصيص الرسائل تلقائيًا باستخدام اسم العميل، ما يعزز الشعور
-                                بالتواصل
-                                الشخصي ويزيد من معدل التفاعل.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل هناك تحديثات مستقبلية للبرنامج؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>نعم بالطبع. نحن نعمل باستمرار على تطوير البرنامج وإضافة ميزات جديدة. جميع التحديثات تكون
-                                مجانية ومتاحة لجميع المشتركين خلال فترة اشتراكهم.</p>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكن أن يتعرض رقمي للحظر عند استخدام HeytsApp؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نحن في HeytsApp نهتم جدًا بالسلامة، ولهذا قمنا بإضافة عدة طبقات حماية داخل البرنامج، مثل:
+                        <br>• محاكاة الكتابة والرد الطبيعي.
+                        <br>• إمكانية ضبط فترات خمول وتأخير بين الرسائل.
+                        <br>• عدم إرسال أي رسالة إلا بعد تفاعل العميل معك أولًا (إلا إذا قمت بتفعيل المتابعة التلقائية بنفسك).
+                        <br><br>
+                        ومع ذلك، من المهم أن تعرف أن <strong>قرار الحظر يعود بالكامل إلى أنظمة واتساب نفسها</strong>، وهو يتأثر بعدة عوامل خارجة عن تحكمنا، مثل:
+                        <br>• طريقة استخدامك للبرنامج.
+                        <br>• عدد الرسائل المرسلة خلال فترة قصيرة.
+                        <br>• تاريخ رقمك وسجله السابق في الاستخدام.
+                        <br><br>
+                        نحن نوفر لك الأدوات التي تساعد على الاستخدام الآمن، ولكن <strong>المسؤولية النهائية تعتمد على أسلوبك في الاستخدام</strong>.</p>
                     </div>
                 </div>
 
-                <div class="faq-column">
-                    <div class="faq-item">
-                        <button class="faq-question">هل يعمل البرنامج على أجهزة الماك؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>النسخة الحالية مصممة للعمل على أنظمة ويندوز (10 و 11). نعمل حاليًا على تطوير نسخ متوافقة
-                                مع
-                                أنظمة أخرى في المستقبل القريب.</p>
-                        </div>
+                <div class="faq-item">
+                    <button class="faq-question">هل أحتاج إلى إنترنت دائم لتشغيل البرنامج؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يجب أن يكون الجهاز الذي يعمل عليه HeytsApp متصلًا بالإنترنت طوال فترة التشغيل لضمان استلام وإرسال الرسائل في الوقت الحقيقي.</p>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن للبرنامج أن يتعرض للحظر؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>لا، لأن البرنامج يرد فقط عندما يراسلك العميل أولاً، مما يجعله متوافقًا مع سياسة واتساب.
-                                كما
-                                يتيح لك التحكم الكامل في التوقيتات لمحاكاة التفاعل البشري.</p>
-                        </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل أحتاج لمسح QR كل مرة؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>لا، HeytsApp يحفظ جلسة واتساب تلقائيًا، لذلك لن تحتاج لإعادة ربط الحساب إلا إذا خرجت يدويًا من واتساب أو حذفت الجلسة.</p>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل يقوم البرنامج بإرسال رسائل متابعة؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>نعم، يمكنك ضبط رسائل متابعة ترسل تلقائيًا بعد مدة معينة، مع نظام ذكي يتجاهل العملاء الذين
-                                أتموا الشراء لمنع إزعاجهم.</p>
-                        </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكنني ربط أكثر من حساب واتساب؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك ربط عدة حسابات واتساب من نفس الواجهة، والتنقل بينها بسهولة عبر التبويبات. عدد الحسابات يعتمد على باقتك.</p>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكنني حفظ قوالب الرسائل؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>نعم، يمكنك حفظ الرسائل التي أثبتت فعاليتها كقوالب قابلة لإعادة الاستخدام، ويمكنك
-                                استيرادها
-                                على أي حساب بسهولة لتوفير الوقت.</p>
-                        </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكن استيراد الأرقام من Excel؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>بالتأكيد. HeytsApp يتيح لك رفع ملف Excel وتحليل الأرقام تلقائيًا، مع تنقيح الأرقام الخاطئة أو المكررة.</p>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">ماذا يحدث بعد انتهاء الاشتراك؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>عند انتهاء الاشتراك، سيتوقف البوت عن العمل، ولكن ستبقى جميع إعداداتك ورسائلك محفوظة.
-                                بمجرد
-                                تجديد الاشتراك، يمكنك استئناف العمل فورًا.</p>
-                        </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يدعم إرسال الصور والفيديو والملفات؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك إرسال صور، فيديوهات، ملفات PDF، وحتى تسجيلات صوتية تظهر وكأنها مسجّلة لحظيًا من الميكروفون.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكن تخصيص الرسالة باسم العميل؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك استخدام المتغير {name} ليظهر اسم العميل داخل الرسالة تلقائيًا — مما يعزز التفاعل والثقة.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكن تجاهل عملاء معينين تلقائيًا؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>بالتأكيد. يمكنك تحديد تسميات مثل "تم الشراء"، وسيقوم البرنامج بتجاهل هؤلاء العملاء تلقائيًا في الحملات والمتابعة.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- العمود الثاني -->
+            <div class="faq-column">
+
+                <div class="faq-item">
+                    <button class="faq-question">هل هناك قائمة سوداء لمنع إرسال الرسائل؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك إضافة أي رقم إلى "قائمة الاستثناءات" وسيقوم البرنامج بتجاهله تمامًا وعدم إرسال أي رسائل له.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل البرنامج يعمل على أنظمة غير ويندوز؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>الإصدار الحالي مخصص لأنظمة Windows 10 و11. نعمل حاليًا على تطوير نسخة تدعم أنظمة أخرى في المستقبل القريب.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكن حفظ القوالب والإعدادات؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك حفظ إعداداتك ورسائلك كقوالب، ثم استيرادها لأي حساب بسهولة لتوفير الوقت وتوحيد الأداء.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكنني تشغيل البرنامج تلقائيًا مع الويندوز؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، يمكنك تفعيل خيار "تشغيل تلقائي مع بدء النظام" ليبدأ HeytsApp فور تشغيل الجهاز دون تدخل منك.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يدعم البرنامج رسائل متابعة تلقائية؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>بكل تأكيد. يمكنك إعداد تسلسل متابعة زمني، بحيث يتم إرسال رسالة بعد يوم أو يومين من الرسالة الترحيبية، تلقائيًا أو حسب تفاعل العميل.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل البرنامج يعرض لي تقارير الأداء؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، ستحصل على لوحة تحكم تفاعلية تعرض عدد الرسائل، التفاعل، جهات الاتصال الجديدة، وحتى الأوقات الأكثر نشاطًا في اليوم.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">هل يمكن إيقاف الحملة أو تعديلها أثناء الإرسال؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>نعم، لديك حرية كاملة. يمكنك إيقاف الحملة مؤقتًا، تعديل محتواها، استئنافها لاحقًا، أو إلغاؤها نهائيًا متى شئت.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">ماذا يحدث عند انتهاء الاشتراك؟<span class="icon"></span></button>
+                    <div class="faq-answer">
+                        <p>يتوقف البوت عن العمل، لكن تظل جميع بياناتك محفوظة داخل البرنامج. عند تجديد الاشتراك، تعود للعمل فورًا بدون فقدان أي شيء.</p>
                     </div>
                 </div>
 
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+    
 
     <section class="final-cta-section" id="download">
         <div class="container fade-in-up animate-on-scroll">
@@ -2211,7 +2301,7 @@
             </div>
            
             <div class="copyright">
-                <p>© 2025 AShop – جميع الحقوق محفوظة | HeytsApp v1.0</p>
+                <p>© 2025 AShop – جميع الحقوق محفوظة | HeytsApp</p>
             </div>
         </div>
     </footer>
