@@ -356,14 +356,49 @@
             color: var(--primary);
         }
 
-        /* تنسيق رابط الفيديو في القائمة الجانبية */
+
+        /* 1. تعديل الحشو لجميع الروابط الفرعية لإعطاء مساحة كافية وموحدة */
+        .help-index-list .sub-menu li a {
+            padding: 8px 35px 8px 10px; /* زيادة الحشو الأيمن إلى 35px */
+            font-size: 1rem;
+            font-weight: 500;
+            border-right: none;
+            margin-right: 0;
+        }
+
+        /* 2. قاعدة موحدة لموضع الأيقونة/النقطة */
+        .help-index-list .sub-menu li a::before {
+            position: absolute;
+            top: 50%;
+            right: 8px; /* تحديد موضع موحد للجميع */
+            transform: translateY(-50%);
+            line-height: 1;
+            width: 20px; /* إعطاء مساحة عرض ثابتة للأيقونة */
+            text-align: center; /* توسيط الأيقونة داخل هذه المساحة */
+        }
+
+        /* 3. تحديد شكل النقطة */
+        .help-index-list .sub-menu li a:not(.video-link)::before {
+            content: '\2022';
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* 4. تحديد شكل أيقونة الفيديو */
         .help-index-list .sub-menu li a.video-link::before {
             font-family: "Font Awesome 6 Free";
-            content: '\f03d'; /* أيقونة كاميرا الفيديو */
-            font-weight: 400; /* وزن أخف للأيقونة */
-            font-size: 1rem;
+            content: '\f144';
+            font-weight: 900;
+            font-size: 0.9rem;
             color: var(--primary-dark);
-            right: 8px; /* ضبط الموضع */
+        }
+
+        /* 5. حالة الرابط النشط في القائمة الفرعية (بدون تغيير) */
+        .help-index-list .sub-menu li a.active {
+            color: var(--primary);
+            background-color: var(--light-bg);
+            transform: translateX(-3px);
+            border-right-color: transparent;
         }
 
         .help-content ul {
@@ -663,34 +698,7 @@
             margin-right: -3px; /* لمطابقة الحدود */
         }
 
-        /* روابط القائمة الفرعية */
-        .help-index-list .sub-menu li a {
-            padding: 8px 25px 8px 10px; /* تعديل الحشو لإعطاء مساحة للنقطة */
-            font-size: 1rem;
-            font-weight: 500;
-            border-right: none; /* لا تحتاج لحد خاص بها */
-            margin-right: 0;
-        }
 
-/* النقطة التي تظهر بجانب الروابط الفرعية (باستثناء روابط الفيديو) */
-        .help-index-list .sub-menu li a:not(.video-link)::before {
-            content: '\2022'; /* رمز النقطة */
-            color: var(--primary);
-            font-size: 1.2rem;
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            line-height: 1;
-        }
-
-        /* حالة الرابط النشط في القائمة الفرعية */
-        .help-index-list .sub-menu li a.active {
-            color: var(--primary);
-            background-color: var(--light-bg);
-            transform: translateX(-3px); /* تحريك أقل */
-            border-right-color: transparent; /* التأكد من عدم وجود حد ملون */
-        }
 
         /* Responsive styles for tablets */
         @media (max-width: 992px) {
