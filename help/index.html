@@ -337,6 +337,34 @@
             margin-top: 40px;
             margin-bottom: 20px;
         }
+        /* تنسيق عنوان الفيديو الجديد */
+        .help-content h4 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .help-content h4::before {
+            font-family: "Font Awesome 6 Free";
+            content: '\f144'; /* أيقونة تشغيل الفيديو */
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        /* تنسيق رابط الفيديو في القائمة الجانبية */
+        .help-index-list .sub-menu li a.video-link::before {
+            font-family: "Font Awesome 6 Free";
+            content: '\f03d'; /* أيقونة كاميرا الفيديو */
+            font-weight: 400; /* وزن أخف للأيقونة */
+            font-size: 1rem;
+            color: var(--primary-dark);
+            right: 8px; /* ضبط الموضع */
+        }
 
         .help-content ul {
             list-style-position: inside;
@@ -644,8 +672,8 @@
             margin-right: 0;
         }
 
-        /* النقطة التي تظهر بجانب الروابط الفرعية */
-        .help-index-list .sub-menu li a::before {
+/* النقطة التي تظهر بجانب الروابط الفرعية (باستثناء روابط الفيديو) */
+        .help-index-list .sub-menu li a:not(.video-link)::before {
             content: '\2022'; /* رمز النقطة */
             color: var(--primary);
             font-size: 1.2rem;
@@ -799,57 +827,70 @@
                 <div class="help-article-grid">
                     <aside class="help-sidebar">
                         <ul class="help-index-list">
-                            <ul>
-                                <li>
-                                    <a href="#section1" class="active">1. التثبيت والتفعيل</a> <ul class="sub-menu">
-                                        <li><a href="#step-install">الخطوة الأولى: تثبيت البرنامج</a></li>
-                                        <li><a href="#step-activation">الخطوة الثانية: التفعيل</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#section2">2. إضافة وإدارة الحسابات</a> <ul class="sub-menu">
-                                        <li><a href="#add-first-account">إضافة حسابك الأول</a></li>
-                                        <li><a href="#add-multiple-accounts">توسيع نطاق عملك: إضافة حسابات متعددة</a></li>
-                                        <li><a href="#manage-accounts">التحكم الكامل: إدارة حساباتك</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#section3">3. جولة في لوحة التحكم</a> <ul class="sub-menu">
-                                        <li><a href="#top-menu-bar">شريط القوائم العلوي</a></li>
-                                        <li><a href="#main-dashboard">التبويب الرئيسي</a></li>
-                                        <li><a href="#other-tabs">لمحة سريعة على التبويبات الأخرى</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#section4">4. الرسالة الترحيبية</a> <ul class="sub-menu">
-                                        <li><a href="#build-message-components">بناء مكونات رسالتك</a></li>
-                                        <li><a href="#control-sequence">التحكم في التسلسل النهائي وإطلاق الحملات</a></li>
-                                        <li><a href="#manual-campaigns">ميزة القوة: إطلاق حملات ترحيبية يدوية</a></li>
-                                        <li><a href="#ignore-labels">ميزة احترافية: تجاهل التسميات</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#section5">5. رسالة المتابعة</a> <ul class="sub-menu">
-                                        <li><a href="#follow-up-content">إعداد محتوى الرسالة</a></li>
-                                        <li><a href="#smart-timing">التحكم الذكي في توقيت الإرسال</a></li>
-                                        <li><a href="#automatic-followup-date">تاريخ المتابعة التلقائية</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#section6">6. تبويب الإعدادات</a> <ul class="sub-menu">
-                                        <li><a href="#general-settings">إعدادات التشغيل والسلوك العام</a></li>
-                                        <li><a href="#number-lists">إدارة قوائم الأرقام</a></li>
-                                        <li><a href="#logs-data">السجلات والبيانات</a></li>
-                                        <li><a href="#live-bot-log">سجل أحداث البوت المباشر</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#section7">7. تفعيل البوت ومشاهدته</a> <ul class="sub-menu">
-                                        <li><a href="#bot-activation-status">مفتاح التشغيل وحالة البوت</a></li>
-                                        <li><a href="#customer-journey">رحلة العميل داخل نظام HeytsApp</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <li>
+                                <a href="#section1">1. التثبيت والتفعيل</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#step-install">الخطوة الأولى: تثبيت البرنامج</a></li>
+                                    <li><a href="#step-activation">الخطوة الثانية: التفعيل</a></li>
+                                    <li><a href="#video-activation" class="video-link">فيديو شرح التفعيل</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section2">2. إضافة وإدارة الحسابات</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#add-first-account">إضافة حسابك الأول</a></li>
+                                    <li><a href="#add-multiple-accounts">إضافة حسابات متعددة</a></li>
+                                    <li><a href="#manage-accounts">إدارة حساباتك</a></li>
+                                    <li><a href="#video-manage-accounts" class="video-link">فيديو شرح إدارة الحسابات</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section3">3. جولة في لوحة التحكم</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#top-menu-bar">شريط القوائم العلوي</a></li>
+                                    <li><a href="#main-dashboard">التبويب الرئيسي</a></li>
+                                    <li><a href="#other-tabs">لمحة سريعة على التبويبات</a></li>
+                                    <li><a href="#video-dashboard-tour" class="video-link">فيديو شرح لوحة التحكم</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section4">4. الرسالة الترحيبية</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#build-message-components">بناء مكونات رسالتك</a></li>
+                                    <li><a href="#control-sequence">التحكم في التسلسل</a></li>
+                                    <li><a href="#manual-campaigns">الحملات اليدوية</a></li>
+                                    <li><a href="#ignore-labels">ميزة تجاهل التسميات</a></li>
+                                    <li><a href="#video-welcome-message" class="video-link">فيديو شرح الرسالة الترحيبية</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section5">5. رسالة المتابعة</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#follow-up-content">إعداد محتوى الرسالة</a></li>
+                                    <li><a href="#smart-timing">التحكم الذكي بالتوقيت</a></li>
+                                    <li><a href="#automatic-followup-date">تاريخ المتابعة التلقائية</a></li>
+                                    <li><a href="#video-follow-up" class="video-link">فيديو شرح رسالة المتابعة</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section6">6. تبويب الإعدادات</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#general-settings">إعدادات التشغيل العامة</a></li>
+                                    <li><a href="#number-lists">إدارة قوائم الأرقام</a></li>
+                                    <li><a href="#logs-data">السجلات والبيانات</a></li>
+                                    <li><a href="#live-bot-log">سجل أحداث البوت المباشر</a></li>
+                                    <li><a href="#video-settings" class="video-link">فيديو شرح الإعدادات</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section7">7. تفعيل البوت ومشاهدته</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#bot-activation-status">مفتاح التشغيل وحالة البوت</a></li>
+                                    <li><a href="#customer-journey">رحلة العميل داخل النظام</a></li>
+                                    <li><a href="#video-customer-journey" class="video-link">فيديو شرح رحلة العميل</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </aside>
 
                     <article class="help-content">
@@ -874,7 +915,7 @@
                             <h3 id="step-activation">الخطوة الثانية: التفعيل - مفتاحك الخاص لتشغيل القوة الكاملة</h3>
                             <p>عند تشغيل HeytsApp للمرة الأولى، يقوم البرنامج بعملية تمهيد ذكية لضمان حصولك على أفضل
                                 تجربة ممكنة. إليك ما يمكن توقعه:</p>
-                            <h4>1. محاولة التفعيل التلقائي (للتجربة)</h4>
+                            <h3>1. محاولة التفعيل التلقائي (للتجربة)</h3>
                             <p>لتسهيل بدايتك، سيحاول البرنامج تلقائيًا منحك ترخيصًا تجريبيًا فوريًا.</p>
                             <ul>
                                 <li><strong>في حال النجاح:</strong> سيتم نقلك مباشرة إلى لوحة التحكم الرئيسية للبرنامج
@@ -882,7 +923,7 @@
                                 <li><strong>في حال عدم النجاح:</strong> لا تقلق، ستظهر لك "نافذة التفعيل" لإتمام العملية
                                     يدويًا بخطوات بسيطة.</li>
                             </ul>
-                            <h4>2. التعامل مع "نافذة التفعيل"</h4>
+                            <h3>2. التعامل مع "نافذة التفعيل"</h3>
                             <p>إذا ظهرت لك هذه النافذة، فهي بوابتك لتفعيل نسختك بشكل دائم. ستجد فيها حقلين أساسيين:</p>
                             <p><strong>معرّف الجهاز (Your Device ID):</strong><br>
                                 هذا الرمز هو بصمة رقمية فريدة لجهاز الكمبيوتر الخاص بك، يقوم البرنامج بتوليدها
@@ -901,10 +942,9 @@
                             <p>تهانينا! أنت الآن جاهز بالكامل. الخطوة التالية هي إضافة حسابك الأول والبدء في رحلة
                                 الأتمتة.</p>
                     
+                            <h4 id="video-activation">فيديو شرح: التفعيل</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>
                     
@@ -947,10 +987,9 @@
                             <p><strong>تحذير:</strong> كن حذرًا، فهذه العملية نهائية ولا يمكن التراجع عنها. سيطلب منك
                                 البرنامج تأكيد الحذف قبل المتابعة.</p>
                     
+                            <h4 id="video-manage-accounts">فيديو شرح: إدارة الحسابات</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>
                     
@@ -1016,8 +1055,9 @@
                             </ul>
                             <p>كل تبويب من هذه هو ورشة عمل متكاملة سنتعمق فيها بالتفصيل في الأقسام القادمة.</p>
                     
+                            <h4 id="video-dashboard-tour">فيديو شرح: جولة في لوحة التحكم</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen></iframe>
                             </div>
@@ -1097,8 +1137,9 @@
                                 <strong>الفائدة:</strong> أي شخص في قائمة جهات اتصالك لديه إحدى هذه التسميات المحددة، لن يستقبل الرسالة الترحيبية التلقائية أبدًا، حتى لو تواصل معك لأول مرة. هذا يضمن أنك لا ترسل رسائل ترحيب لعملائك الدائمين عن طريق الخطأ.
                             </p>
                     
+                            <h4 id="video-welcome-message">فيديو شرح: الرسالة الترحيبية</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen></iframe>
                             </div>
@@ -1197,8 +1238,9 @@
                     
                     
                     
+                            <h4 id="video-follow-up">فيديو شرح: رسالة المتابعة</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen></iframe>
                             </div>
@@ -1277,10 +1319,9 @@
                                 مثل: "تم تشغيل البوت"، "تم استلام رسالة جديدة من الرقم..."، "جاري إرسال التسلسل...". إنه
                                 يجعلك على اطلاع دائم بما يحدث في الكواليس.</p>
                     
+                            <h4 id="video-settings">فيديو شرح: الإعدادات</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>
                     
@@ -1340,10 +1381,9 @@
                             <p><strong>تهانينا!</strong> أنت الآن لا تعرف فقط كيفية استخدام كل ميزة على حدة، بل تفهم
                                 تمامًا كيف تعمل معًا لتحقيق أفضل النتائج لعملك.</p>
                     
+                            <h4 id="video-customer-journey">فيديو شرح: رحلة العميل</h4>
                             <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="شرح فيديو توضيحي" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>
                     
@@ -1381,171 +1421,160 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-                // 1. Animation on scroll (No changes)
-                const animatedElements = document.querySelectorAll('.animate-on-scroll');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                        }
-                    });
-                }, { threshold: 0.1 });
-                animatedElements.forEach(el => { observer.observe(el); });
+            // 1. Animation on scroll (No changes)
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => { observer.observe(el); });
 
-                // ===================================================================
-                // 2. Main Navigation & Help Index Logic
-                // ===================================================================
-                const header = document.getElementById('header');
-                const helpIndexList = document.querySelector('.help-index-list');
+            // ===================================================================
+            // 2. Main Navigation & Help Index Logic
+            // ===================================================================
+            const header = document.getElementById('header');
+            const helpIndexList = document.querySelector('.help-index-list');
 
-                // -- SHARED FUNCTIONS --
+            // -- SHARED FUNCTIONS --
+            function scrollToSection(targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+                const headerHeight = header.offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerHeight - 20;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
 
-                // Universal function to scroll to a section smoothly
-                function scrollToSection(targetId) {
-                    const targetElement = document.querySelector(targetId);
-                    if (!targetElement) return;
+            let isDesktopClickScrolling = false;
+            const onPageScroll = () => {
+                if (isDesktopClickScrolling) return;
 
-                    const headerHeight = header.offsetHeight;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - headerHeight - 20;
+                const detectionLine = window.scrollY + header.offsetHeight + (window.innerHeight * 0.25);
+                let newActiveHref = '';
+                document.querySelectorAll('.help-section, .help-section h3[id], .help-section h4[id]').forEach(target => {
+                    if (target.offsetTop <= detectionLine) {
+                        newActiveHref = '#' + target.id;
+                    }
+                });
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                const allLinks = helpIndexList.querySelectorAll('a');
+                if (window.scrollY < 200 && allLinks.length > 0) {
+                    newActiveHref = allLinks[0].getAttribute('href');
                 }
 
-                // This is the global scroll handler for both mobile and desktop
-                let isDesktopClickScrolling = false; // Flag for desktop only
-                const onPageScroll = () => {
-                    if (isDesktopClickScrolling) return;
+                allLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const parentLink = link.closest('.sub-menu')?.previousElementSibling;
+                    if (parentLink) parentLink.classList.remove('active');
+                });
 
-                    const detectionLine = window.scrollY + header.offsetHeight + (window.innerHeight * 0.25);
-                    let newActiveHref = '';
-                    document.querySelectorAll('.help-section, .help-section h3[id]').forEach(target => {
-                        if (target.offsetTop <= detectionLine) {
-                            newActiveHref = '#' + target.id;
-                        }
-                    });
-
-                    const allLinks = helpIndexList.querySelectorAll('a');
-                    if (window.scrollY < 200 && allLinks.length > 0) {
-                        newActiveHref = allLinks[0].getAttribute('href');
-                    }
-
-                    allLinks.forEach(link => {
-                        link.classList.remove('active');
+                allLinks.forEach(link => {
+                    if (link.getAttribute('href') === newActiveHref) {
+                        link.classList.add('active');
                         const parentLink = link.closest('.sub-menu')?.previousElementSibling;
-                        if (parentLink) parentLink.classList.remove('active');
-                    });
+                        if (parentLink) parentLink.classList.add('active');
 
-                    allLinks.forEach(link => {
-                        if (link.getAttribute('href') === newActiveHref) {
-                            link.classList.add('active');
-                            const parentLink = link.closest('.sub-menu')?.previousElementSibling;
-                            if (parentLink) parentLink.classList.add('active');
-
-                            // --- DESKTOP ONLY --- Auto-scroll the sidebar
-                            if (window.innerWidth > 992) {
-                                const sidebar = document.querySelector('.help-sidebar');
-                                const helpGrid = document.querySelector('.help-article-grid');
-                                const sidebarRect = sidebar.getBoundingClientRect();
-                                const helpGridRect = helpGrid.getBoundingClientRect();
-                                const isSidebarAtBottom = sidebarRect.bottom.toFixed(0) >= helpGridRect.bottom.toFixed(0);
-
-                                if (!isSidebarAtBottom) {
-                                    const linkRect = link.getBoundingClientRect();
-                                    if (linkRect.top < sidebarRect.top || linkRect.bottom > sidebarRect.bottom) {
-                                        link.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                    }
+                        if (window.innerWidth > 992) {
+                            const sidebar = document.querySelector('.help-sidebar');
+                            const helpGrid = document.querySelector('.help-article-grid');
+                            if (!sidebar || !helpGrid) return;
+                            const sidebarRect = sidebar.getBoundingClientRect();
+                            const helpGridRect = helpGrid.getBoundingClientRect();
+                            const isSidebarAtBottom = sidebarRect.bottom.toFixed(0) >= helpGridRect.bottom.toFixed(0);
+                            if (!isSidebarAtBottom) {
+                                const linkRect = link.getBoundingClientRect();
+                                if (linkRect.top < sidebarRect.top || linkRect.bottom > sidebarRect.bottom) {
+                                    link.scrollIntoView({ behavior: 'smooth', block: 'center' });
                                 }
                             }
                         }
-                    });
-                };
-
-                // Attach the scroll listener globally
-                window.addEventListener('scroll', onPageScroll);
-                window.addEventListener('load', onPageScroll);
-
-                // --- VIEWPORT-SPECIFIC SETUP ---
-                if (window.innerWidth <= 992) {
-                    // MOBILE-SPECIFIC SETUP
-                    const trigger = document.getElementById('mobile-nav-trigger');
-                    const menu = document.getElementById('mobile-nav-menu');
-                    const closeBtn = document.getElementById('mobile-nav-close');
-                    const mobileContent = document.getElementById('mobile-nav-content');
-                    const mainHtml = document.documentElement;
-
-                    if (helpIndexList) {
-                        mobileContent.appendChild(helpIndexList);
                     }
+                });
+            };
 
-                    const openMobileMenu = () => {
-                        menu.classList.add('is-open');
-                        mainHtml.classList.add('menu-open');
-                    };
+            window.addEventListener('scroll', onPageScroll);
+            window.addEventListener('load', onPageScroll);
 
-                    const closeMobileMenu = () => {
-                        menu.classList.remove('is-open');
-                        mainHtml.classList.remove('menu-open');
-                    };
+            // --- VIEWPORT-SPECIFIC SETUP ---
+            if (window.innerWidth <= 992) {
+                // MOBILE SETUP
+                const trigger = document.getElementById('mobile-nav-trigger');
+                const menu = document.getElementById('mobile-nav-menu');
+                const closeBtn = document.getElementById('mobile-nav-close');
+                const mobileContent = document.getElementById('mobile-nav-content');
+                const mainHtml = document.documentElement;
 
-                    trigger.addEventListener('click', openMobileMenu);
-                    closeBtn.addEventListener('click', closeMobileMenu);
+                if (helpIndexList) mobileContent.appendChild(helpIndexList);
 
-                    mobileContent.querySelectorAll('a').forEach(link => {
-                        link.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            const targetId = link.getAttribute('href');
-                            closeMobileMenu();
-                            setTimeout(() => scrollToSection(targetId), 250);
-                        });
-                    });
+                const openMobileMenu = () => { menu.classList.add('is-open'); mainHtml.classList.add('menu-open'); };
+                const closeMobileMenu = () => { menu.classList.remove('is-open'); mainHtml.classList.remove('menu-open'); };
 
-                } else {
-                    // DESKTOP-SPECIFIC SETUP
-                    let scrollTimeout;
-                    helpIndexList.querySelectorAll('a').forEach(link => {
-                        link.addEventListener('click', function (e) {
-                            e.preventDefault();
-                            isDesktopClickScrolling = true;
-                            const targetId = this.getAttribute('href');
+                trigger.addEventListener('click', openMobileMenu);
+                closeBtn.addEventListener('click', closeMobileMenu);
 
-                            this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            scrollToSection(targetId);
-
-                            clearTimeout(scrollTimeout);
-                            scrollTimeout = setTimeout(() => {
-                                isDesktopClickScrolling = false;
-                                onPageScroll(); // Final update after scroll
-                            }, 800);
-                        });
-                    });
-                }
-
-                // 3. Original Mobile Menu for main site navigation (No changes)
-                const menuToggle = document.getElementById('mobile-menu-toggle');
-                const mainNav = document.getElementById('main-nav');
-                const overlay = document.createElement('div');
-                overlay.className = 'nav-overlay';
-                document.body.appendChild(overlay);
-
-                function toggleMenu() {
-                    document.documentElement.classList.toggle('menu-open');
-                    mainNav.classList.toggle('is-open');
-                    overlay.classList.toggle('is-open');
-                }
-                menuToggle.addEventListener('click', toggleMenu);
-                overlay.addEventListener('click', toggleMenu);
-
-                mainNav.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (mainNav.classList.contains('is-open')) toggleMenu();
+                mobileContent.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href');
+                        closeMobileMenu();
+                        setTimeout(() => scrollToSection(targetId), 250);
                     });
                 });
-            });
+            } else {
+                // DESKTOP SETUP
+                let scrollTimeout;
+                helpIndexList.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        isDesktopClickScrolling = true;
+                        const targetId = this.getAttribute('href');
 
+                        // ** FIX: Manually and definitively set the active classes on click **
+                        helpIndexList.querySelectorAll('a').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        const parentLink = this.closest('.sub-menu')?.previousElementSibling;
+                        if (parentLink) parentLink.classList.add('active');
+
+                        // Scroll the containers
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        scrollToSection(targetId);
+
+                        // Release the scroll lock after a delay
+                        clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => {
+                            isDesktopClickScrolling = false;
+                        }, 900); // Increased timeout for safety
+                    });
+                });
+            }
+
+            // 3. Original Mobile Menu for main site navigation (No changes)
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            const overlay = document.createElement('div');
+            overlay.className = 'nav-overlay';
+            document.body.appendChild(overlay);
+
+            function toggleMenu() {
+                document.documentElement.classList.toggle('menu-open');
+                mainNav.classList.toggle('is-open');
+                overlay.classList.toggle('is-open');
+            }
+            menuToggle.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
+
+            mainNav.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mainNav.classList.contains('is-open')) toggleMenu();
+                });
+            });
+        });
     </script>
     <div class="mobile-nav-trigger" id="mobile-nav-trigger">
         <i class="fas fa-book-open"></i>
