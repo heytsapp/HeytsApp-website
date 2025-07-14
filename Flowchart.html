@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>مخطط سير عمل Heytsapp (الحل النهائي)</title>
+
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Tajawal', sans-serif;
+            background-color: #eef2f5;
+            overflow: hidden;
+        }
+
+        #myDiagramDiv {
+            width: 100%;
+            height: 100vh;
+            background-color: #fdfdfd;
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="myDiagramDiv"></div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const $ = go.GraphObject.make;
+
+            const colors = {
+                primary: "#3bae5e", dark: "#0c2d32", textLight: "#556a6e",
+                border: "#AEB6BF", decision: "#8e44ad", endSuccess: "#27ae60",
+                endFail: "#c0392b", log: "#7f8c8d", white: "#ffffff",
+                decisionBg: "#f3e5f5", endSuccessBg: "#e8f8ee", endFailBg: "#fdecea",
+                logBg: "#eceff1", actionBg: "#f4f6f7"
+            };
+
+            const diagram = $(go.Diagram, "myDiagramDiv", {
+                isReadOnly: true,
+                "toolManager.mouseWheelBehavior": go.ToolManager.WheelScroll,
+
+                layout: $(go.TreeLayout, {
+                    angle: 90,
+                    alignment: go.TreeLayout.AlignmentCenterChildren,
+                    layerSpacing: 100,
+                    nodeSpacing: 80
+                }),
+
+                "InitialLayoutCompleted": function (e) {
+                    const diagram = e.diagram;
+                    const startNode = diagram.findNodeForKey("1");
+
+                    if (startNode) {
+                        const topMargin = 50;
+                        const newX = startNode.actualBounds.centerX - (diagram.viewportBounds.width / 2);
+                        const newY = startNode.actualBounds.y - topMargin;
+                        diagram.position = new go.Point(newX, newY);
+                    }
+
+                    // --- بداية التعديل: طريقة جديدة لتحديد حدود التمرير ---
+                    setTimeout(() => {
+                        const docBounds = diagram.computeBounds();
+                        // رقم كبير جدًا لمحاكاة اللانهاية
+                        const largeNumber = 1000000;
+
+                        // تحديد منطقة التمرير
+                        diagram.fixedBounds = new go.Rect(
+                            // إعطاء مساحة كبيرة جدًا على اليسار
+                            docBounds.x - largeNumber,
+                            // تقييد البداية من الأعلى
+                            docBounds.y,
+                            // إعطاء عرض كبير جدًا (لليمين واليسار)
+                            docBounds.width + (largeNumber * 2),
+                            // تقييد الارتفاع
+                            docBounds.height
+                        );
+                    }, 1);
+                    // --- نهاية التعديل ---
+                }
+            });
+
+            function nodeColor(category) {
+                switch (category) {
+                    case "decision": return colors.decisionBg;
+                    case "end-success": return colors.endSuccessBg;
+                    case "end-fail": return colors.endFailBg;
+                    case "log": return colors.logBg;
+                    case "action": return colors.actionBg;
+                    default: return colors.white;
+                }
+            }
+
+            function borderColor(category) {
+                switch (category) {
+                    case "start": return colors.primary;
+                    case "decision": return colors.decision;
+                    case "end-success": return colors.endSuccess;
+                    case "end-fail": return colors.endFail;
+                    case "log": return colors.log;
+                    case "action": return colors.border;
+                    default: return colors.border;
+                }
+            }
+
+            function getIcon(name) {
+                const icons = {
+                    start: "\uf011", receive: "\uf0e0", exception: "\uf505",
+                    search: "\uf1c0", new_client: "\uf234", welcome: "\uf1d8",
+                    follow_up: "\uf044", wait: "\uf254", ignore_label: "\uf02b",
+                    send_follow_up: "\uf1d8", end_success: "\uf058", end_fail: "\uf05e", end_wait: "\uf017"
+                };
+                return icons[name] || "\uf128";
+            }
+
+            diagram.nodeTemplate =
+                $(go.Node, "Auto", { width: 250 },
+                    $(go.Shape, "RoundedRectangle", { strokeWidth: 2.5, portId: "", parameter1: 12 },
+                        new go.Binding("fill", "cat", nodeColor),
+                        new go.Binding("stroke", "cat", borderColor)
+                    ),
+                    $(go.Panel, "Vertical", { padding: 15 },
+                        $(go.TextBlock, { font: "900 32px 'Font Awesome 6 Free'", margin: new go.Margin(0, 0, 8, 0), alignment: go.Spot.Center },
+                            new go.Binding("text", "icon", getIcon),
+                            new go.Binding("stroke", "cat", borderColor)
+                        ),
+                        $(go.TextBlock, { font: "800 15px 'Tajawal'", stroke: colors.dark, textAlign: "center" },
+                            new go.Binding("text", "text")
+                        ),
+                        $(go.TextBlock, { font: "500 12px 'Tajawal'", stroke: colors.textLight, textAlign: "center", margin: new go.Margin(5, 0, 0, 0), visible: false },
+                            new go.Binding("text", "desc"),
+                            new go.Binding("visible", "desc", d => !!d)
+                        )
+                    )
+                );
+
+            diagram.linkTemplate =
+                $(go.Link, { routing: go.Link.Orthogonal, corner: 10 },
+                    $(go.Shape, { stroke: colors.border, strokeWidth: 2.5 }),
+                    $(go.Shape, { toArrow: "standard", stroke: colors.border, fill: colors.border }),
+                    $(go.Panel, "Auto", { segmentOffset: new go.Point(0, -15), background: "#fdfdfd" },
+                        $(go.TextBlock, { font: "700 13px 'Tajawal'", stroke: colors.dark, margin: new go.Margin(2, 8, 2, 8) },
+                            new go.Binding("text", "label")
+                        )
+                    )
+                );
+
+            diagram.model = new go.GraphLinksModel(
+                [
+                    { key: "1", text: "بداية الدورة", cat: "start", icon: "start", desc: "البوت نشط وفي وضع الاستعداد" },
+                    { key: "2", text: "استلام رسالة جديدة", cat: "action", icon: "receive", desc: "يتم كشف رسالة واردة من رقم معين" },
+                    { key: "3", text: "هل الرقم في قائمة الاستثناءات؟", cat: "decision", icon: "exception" },
+                    { key: "4", text: "نهاية: تجاهل الرقم", cat: "end-fail", icon: "end_fail" },
+                    { key: "5", text: "البحث في سجل العملاء", cat: "log", icon: "search" },
+                    { key: "6", text: "هل هو عميل جديد؟", cat: "decision", icon: "new_client" },
+                    { key: "7", text: "تنفيذ تسلسل الترحيب", cat: "action", icon: "welcome", desc: "إرسال النصوص والصور المحددة" },
+                    { key: "8", text: "نهاية", cat: "end-success", icon: "end_success", desc: "تم الترحيب بالعميل بنجاح" },
+                    { key: "9", text: "هل المتابعة مفعلة؟", cat: "decision", icon: "follow_up" },
+                    { key: "10", text: "هل مر الوقت المحدد للمتابعة؟", cat: "decision", icon: "wait" },
+                    { key: "11", text: "نهاية", cat: "end-fail", icon: "end_wait", desc: "لم يحن وقت المتابعة بعد" },
+                    { key: "12", text: "هل لديه 'تسمية تجاهل'؟", cat: "decision", icon: "ignore_label", desc: "(مثل: تم الشراء)" },
+                    { key: "13", text: "نهاية", cat: "end-fail", icon: "end_fail", desc: "تجاهل العميل بسبب التسمية" },
+                    { key: "14", text: "إرسال رسالة المتابعة", cat: "action", icon: "send_follow_up" },
+                    { key: "15", text: "نهاية", cat: "end-success", icon: "end_success", desc: "تمت المتابعة بنجاح" },
+                ],
+                [
+                    { from: "1", to: "2" }, { from: "2", to: "3" },
+                    { from: "3", to: "4", label: "نعم" }, { from: "3", to: "5", label: "لا" },
+                    { from: "5", to: "6" },
+                    { from: "6", to: "7", label: "نعم" }, { from: "7", to: "8" },
+                    { from: "6", to: "9", label: "لا" },
+                    { from: "9", to: "10" },
+                    { from: "10", to: "12", label: "نعم" }, { from: "10", to: "11", label: "لا" },
+                    { from: "12", to: "13", label: "نعم" }, { from: "12", to: "14", label: "لا" },
+                    { from: "14", to: "15" },
+                ]
+            );
+        });
+    </script>
+</body>
+
+</html>
