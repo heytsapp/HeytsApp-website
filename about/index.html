@@ -359,26 +359,26 @@
             border-radius: 2px;
         }
 
+        /* --- TIMELINE MODIFICATION START --- */
         .timeline-item {
-            padding: 10px 0;
+            padding: 20px 0;
             position: relative;
-            width: 50%;
-            box-sizing: border-box;
+            width: 100%;
         }
 
-        .timeline-item:nth-child(odd) {
-            right: 0;
-            padding-left: 50px;
-        }
-
-        .timeline-item:nth-child(even) {
-            right: 50%;
-            padding-right: 50px;
+        /* Add a clearfix */
+        .timeline-item::after {
+            content: "";
+            display: table;
+            clear: both;
         }
 
         .timeline-icon {
             position: absolute;
             top: 40px;
+            left: 50%;
+            /* Center the icon on the timeline axis */
+            transform: translateX(-50%);
             width: 46px;
             height: 46px;
             background-color: var(--light-bg);
@@ -394,19 +394,9 @@
         }
 
         .timeline-item:hover .timeline-icon {
-            transform: scale(1.1) rotate(15deg);
+            transform: translateX(-50%) scale(1.1) rotate(15deg);
             background-color: var(--primary);
             color: var(--white-color);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-icon {
-            left: -23px;
-            right: auto;
-        }
-
-        .timeline-item:nth-child(even) .timeline-icon {
-            right: -23px;
-            left: auto;
         }
 
         .timeline-content {
@@ -416,6 +406,35 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow-medium);
             border: 1px solid var(--border-color);
+            width: calc(50% - 45px);
+            /* Half width minus gap */
+        }
+
+        .timeline-content-image {
+            padding: 0;
+            background-color: transparent;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        /* ODD items: text left, image right */
+        .timeline-item:nth-child(odd) .timeline-content-text {
+            float: left;
+            text-align: right;
+            /* Text remains right-aligned */
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content-image {
+            float: right;
+        }
+
+        /* EVEN items: image left, text right */
+        .timeline-item:nth-child(even) .timeline-content-image {
+            float: left;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content-text {
+            float: right;
+            text-align: right;
         }
 
         .timeline-content h3 {
@@ -426,16 +445,20 @@
 
         .timeline-content p {
             font-size: 1.1rem;
-            margin-bottom: 20px;
+            margin-bottom: 0;
+            /* Adjusted margin */
             color: var(--text-light);
         }
 
         .timeline-content img {
             width: 100%;
+            display: block;
+            /* Ensures image fits container */
             border-radius: var(--radius);
-            margin-top: 20px;
             border: 1px solid var(--border-color);
         }
+
+        /* --- TIMELINE MODIFICATION END --- */
 
         .cta-section {
             text-align: center;
@@ -581,6 +604,7 @@
                 margin: 15px 0;
             }
 
+            /* --- TIMELINE MOBILE VIEW MODIFICATION START --- */
             .timeline::after {
                 right: 15px;
                 margin-right: 0;
@@ -589,24 +613,40 @@
             .timeline-item {
                 width: 100%;
                 padding: 10px 0;
-            }
-
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                right: auto;
-                left: auto;
-                padding-left: 0;
+                /* Reset padding */
                 padding-right: 50px;
+                /* Space for the stacked content */
             }
 
-            .timeline-icon,
-            .timeline-item:nth-child(odd) .timeline-icon,
-            .timeline-item:nth-child(even) .timeline-icon {
+            .timeline-icon {
+                /* Position icon on the right line */
                 right: -7px;
                 left: auto;
                 width: 40px;
                 height: 40px;
+                transform: none;
+                /* Reset transform */
             }
+
+            .timeline-item:hover .timeline-icon {
+                transform: scale(1.1) rotate(15deg);
+                /* Keep hover effect, but without translateX */
+            }
+
+            .timeline-content {
+                width: 100%;
+                /* Full width to stack */
+                float: none;
+                /* Disable floating */
+                margin-bottom: 15px;
+                /* Add space between stacked blocks */
+            }
+
+            .timeline-content-image {
+                box-shadow: var(--shadow-medium);
+            }
+
+            /* --- TIMELINE MOBILE VIEW MODIFICATION END --- */
         }
     </style>
 </head>
@@ -621,10 +661,12 @@
             <nav class="navbar" id="main-nav">
                 <ul>
                     <li><a href="/" class="nav-link">الرئيسية</a></li>
-                    <li><a href="/about/" class="nav-link active">من نحن</a></li>
-                    <li><a href="/help/" class="nav-link">المساعدة</a></li>
-                    <li><a href="/download/" class="nav-link">التنزيلات</a></li>
-                    <li><a href="/contact/" class="nav-link">اتصل بنا</a></li>
+                    <li><a href="/about/">من نحن</a></li>
+                    <li><a href="/download/">التنزيل</a></li>
+                    <li><a href="/help/">المساعدة</a></li>
+                    <li><a href="/privacy/">الخصوصية</a></li>
+                    <li><a href="/contact/" class="active">اتصل بنا</a></li>
+                    <li><a href="/about/">من نحن</a></li>
                 </ul>
             </nav>
             <a href="/download/" class="btn btn-primary"><i class="fas fa-download"></i> تنزيل الأن</a>
@@ -701,46 +743,54 @@
                     </div>
 
                     <div class="timeline">
-                        <div class="timeline-item animate-on-scroll fade-in-right">
+                        <div class="timeline-item animate-on-scroll fade-in-up">
                             <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
-                            <div class="timeline-content">
+                            <div class="timeline-content timeline-content-text">
                                 <h3>حجر الأساس: الكوخ الخشبي (فبراير 2025)</h3>
                                 <p>الانطلاقة كانت فكرة بريئة: سكربت بسيط يرسل رسالة "مرحبًا" ويتوقف. كان يعمل بقوة
                                     الإرادة والدعاء، وكانت واجهته تتجمد لتعطينا وقتًا للتأمل. كان بسيطًا، لكنه كان
                                     الدليل على أن المستحيل ممكن.</p>
+                            </div>
+                            <div class="timeline-content timeline-content-image">
                                 <img src="/img/1.jpg" alt="النسخة الأولية من البرنامج">
                             </div>
                         </div>
 
-                        <div class="timeline-item animate-on-scroll fade-in-left">
+                        <div class="timeline-item animate-on-scroll fade-in-up">
                             <div class="timeline-icon"><i class="fas fa-cogs"></i></div>
-                            <div class="timeline-content">
+                            <div class="timeline-content timeline-content-image">
+                                <img src="/img/3.jpg" alt="إضافة سجل الإرسال">
+                            </div>
+                            <div class="timeline-content timeline-content-text">
                                 <h3>بناء القلعة: فوضى منظمة (مارس - أبريل 2025)</h3>
                                 <p>هنا بدأ "الوحش" ينمو. اكتشفنا الخيوط المتعددة QThreads لإنقاذ الواجهة من التجمد،
                                     وبدأنا في بناء سجلات لتتبع كل شيء. كانت مرحلة فوضوية، لكنها كانت ضرورية لبناء أساس
                                     قوي.</p>
-                                <img src="/img/3.jpg" alt="إضافة سجل الإرسال">
                             </div>
                         </div>
 
-                        <div class="timeline-item animate-on-scroll fade-in-right">
+                        <div class="timeline-item animate-on-scroll fade-in-up">
                             <div class="timeline-icon"><i class="fas fa-palette"></i></div>
-                            <div class="timeline-content">
+                            <div class="timeline-content timeline-content-text">
                                 <h3>صقل الجوهرة: ولادة الذكاء (مايو - يونيو 2025)</h3>
                                 <p>هذه كانت النقلة النوعية. أطلقنا لوحة التحكم التفاعلية، ونظام "التسلسل" الذكي، ومتغير
                                     {name}. تحول البرنامج من مجرد أداة إلى مساعد شخصي يفهم ما تريد.</p>
+                            </div>
+                            <div class="timeline-content timeline-content-image">
                                 <img src="/img/4.jpg" alt="واجهة التسلسل الجديدة">
                             </div>
                         </div>
 
-                        <div class="timeline-item animate-on-scroll fade-in-left">
+                        <div class="timeline-item animate-on-scroll fade-in-up">
                             <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-                            <div class="timeline-content">
+                            <div class="timeline-content timeline-content-image">
+                                <img src="/img/11.jpg" alt="البرنامج في إصداره الرسمي">
+                            </div>
+                            <div class="timeline-content timeline-content-text">
                                 <h3>الإطلاق الرسمي: سفينة الفضاء (يوليو 2025)</h3>
                                 <p>بعد أشهر من التصحيحات، وبعد حل مشاكل "السباق" و"التكرار"، وبعد بناء نظام حماية
                                     وتحديثات آمن، أطلقنا النسخة الرسمية. لم تكن نهاية الرحلة، بل كانت بداية تمكينك أنت
                                     بالأداة التي تستحقها.</p>
-                                <img src="/img/11.jpg" alt="البرنامج في إصداره الرسمي">
                             </div>
                         </div>
                     </div>
@@ -771,7 +821,7 @@
                     <a href="/">الرئيسية</a>
                     <a href="/help/">مركز المساعدة</a>
                     <a href="/privacy/">سياسة الخصوصية</a>
-                <a href="/Refund_Policy/">سياسة استرداد الأموال</a>
+                    <a href="/Refund_Policy/">سياسة استرداد الأموال</a>
                     <a href="/contact/">اتصل بنا</a>
                 </div>
                 <div class="social-icons">
@@ -780,7 +830,7 @@
                     <a href="#" aria-label="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="copyright">
-                    <p>© 2025  – جميع الحقوق محفوظة | HeytsApp v1.0</p>
+                    <p>© 2025 – جميع الحقوق محفوظة | HeytsApp v1.0</p>
                 </div>
             </div>
         </footer>
