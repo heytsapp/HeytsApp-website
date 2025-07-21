@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قصتنا | HeytsApp - من فكرة إلى أداة تمكين</title>
+    <title>مركز المساعدة - دليل استخدام HeytsApp</title>
     <meta name="description"
-        content="تعرف على قصة ، الفريق وراء HeytsApp، وكيف نسعى لتمكين الشركات من خلال أتمتة واتساب بذكاء.">
+        content="دليلك الكامل خطوة بخطوة لإتقان برنامج HeytsApp، من التثبيت والربط وحتى إعداد الرسائل التلقائية والمتابعة الذكية.">
 
-    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
+    <link rel="icon" type="image/x-icon" href="../img/icon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+
     <style>
+        /*
+                    ==============================================
+                    |                                            |
+                    |          1. GLOBAL STYLES & VARIABLES      |
+                    |          (الأنماط العامة والمتغيرات)         |
+                    |                                            |
+                    ==============================================
+                    */
         :root {
+            /* HeytsApp Official Color Palette */
             --primary: #3bae5e;
             --primary-dark: #2a8c4a;
             --dark: #0c2d32;
@@ -32,22 +43,21 @@
             --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
             --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.1);
             --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #1c2541 100%);
         }
 
+        /* Basic Reset & Body */
         *,
         *::before,
         *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
-        }
-
-        html.menu-open {
-            overflow-y: hidden;
         }
 
         body {
@@ -56,16 +66,13 @@
             color: var(--text-dark);
             line-height: 1.8;
             text-align: right;
-        }
-
-        .page-wrapper {
-            width: 100%;
             overflow-x: hidden;
         }
 
+        /* General Components */
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1240px;
             margin-left: auto;
             margin-right: auto;
             padding-left: 20px;
@@ -74,9 +81,20 @@
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4,
+        h5,
+        h6 {
             font-weight: 800;
-            line-height: 1.4;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
         }
 
         a {
@@ -84,8 +102,19 @@
             color: var(--primary);
         }
 
-        section {
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section {
             padding: 100px 0;
+            position: relative;
+        }
+
+        .section-bg {
+            background-color: var(--light-bg);
         }
 
         .section-title {
@@ -94,100 +123,18 @@
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
+            margin-bottom: 1rem;
         }
 
         .section-title p {
-            max-width: 850px;
-            margin: auto;
-            font-size: 1.2rem;
-            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            width: 100%;
-            padding: 15px 0;
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            transition: padding 0.3s ease;
-        }
-
-        main {
-            padding-top: 80px;
-        }
-
-        .header .container,
-        .navbar ul,
-        .navbar ul li a,
-        .btn,
-        .footer {}
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 45px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            align-items: center;
-        }
-
-        .navbar ul li a {
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--dark);
-        }
-
-        .navbar ul li a:hover,
-        .navbar ul li a.active {
-            color: var(--primary);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-        }
-
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease, visibility 0s 0.4s;
-        }
-
-        .nav-overlay.is-open {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.4s ease;
-        }
-
+        /* Buttons Styling */
         .btn {
             display: inline-block;
-            padding: 14px 35px;
+            padding: 16px 40px;
             font-size: 1rem;
             font-weight: 700;
             text-align: center;
@@ -212,36 +159,19 @@
 
         .header .btn-primary {
             padding: 12px 28px;
+            /* تقليل الحشو الداخلي للزر */
             font-size: 0.9rem;
+            /* تصغير حجم الخط قليلاً */
         }
 
-        .btn-secondary {
-            color: var(--primary);
-            background-color: transparent;
-            border-color: var(--primary);
-        }
-
-        .btn-secondary:hover {
-            color: var(--white-color);
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
+        /* Animation initial states */
         .animate-on-scroll {
             opacity: 0;
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in-up {
-            transform: translateY(40px);
-        }
-
-        .fade-in-right {
-            transform: translateX(-40px);
-        }
-
-        .fade-in-left {
-            transform: translateX(40px);
+            transform: translateY(50px);
         }
 
         .animate-on-scroll.is-visible {
@@ -249,201 +179,280 @@
             transform: translate(0, 0);
         }
 
-        .page-hero {
-            padding: 80px 0;
-            background-color: var(--dark);
-            text-align: center;
+        /*
+                    ==============================================
+                    |          2. HEADER & NAVIGATION              |
+                    |             (الشريط العلوي والقائمة)          |
+                    ==============================================
+                    */
+        .header {
+            position: fixed;
+            /* تغيير إلى fixed */
+            top: 0;
+            left: 0;
+            /* إضافة */
+            right: 0;
+            /* إضافة */
+            z-index: 1000;
+            width: 100%;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
         }
 
-        .page-hero h1 {
-            color: var(--white-color);
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+        main {
+            padding-top: 85px;
+            /* <--- إضافة هذه القاعدة الجديدة بالكامل */
         }
 
-        .page-hero p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: auto;
+        .header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-medium);
+            border-bottom-color: var(--border-color);
         }
 
-        .story-section {
-            padding: 120px 0;
-        }
-
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+        .header .container {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .story-grid img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-heavy);
+        .logo img {
+            height: 45px;
         }
 
-        .story-grid h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
 
-        .story-grid p {
-            font-size: 1.2rem;
-            line-height: 2;
-        }
-
-        .principles-section {
-            background-color: var(--light-bg);
-        }
-
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .principle-card {
-            background: var(--white-color);
-            padding: 40px;
-            border-radius: var(--radius);
-            text-align: center;
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .principle-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-heavy);
-        }
-
-        .principle-card .icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .principle-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        .principle-card p {
-            font-size: 1.1rem;
-            color: var(--text-light);
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
             margin: 0;
+            padding: 0;
+            align-items: center;
         }
 
-        .journey-section {
-            padding-bottom: 80px;
+        .navbar ul li a {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            text-decoration: none;
         }
 
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
+        .navbar ul li a:hover {
+            color: var(--primary);
         }
 
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
+        .special-link {
+            padding: 6px 18px !important;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .special-link:hover {
             background-color: var(--primary);
-            opacity: 0.2;
-            top: 0;
-            bottom: 0;
-            right: 50%;
-            margin-right: -2px;
-            border-radius: 2px;
+            color: var(--white-color) !important;
         }
 
-        .timeline-item {
-            padding: 10px 0;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
+        /*
+                    ==============================================
+                    |         3. HELP PAGE SPECIFIC STYLES         |
+                    |            (تنسيقات صفحة المساعدة)           |
+                    ==============================================
+                    */
+        .help-page-section {
+            overflow: visible !important;
+            /* Fix for Sticky Sidebar */
         }
 
-        .timeline-item:nth-child(odd) {
-            right: 0;
-            padding-left: 50px;
+        .help-article-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+        .help-sidebar {
+            position: sticky;
+            top: 120px;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            /* --- تم تعديل هذه الأسطر لجعل التلاشي أخف ومحدود أكثر --- */
+            mask-image: linear-gradient(
+                to bottom,
+                transparent 0%,  /* يبدأ شفافًا */
+                black 2%,        /* يصبح معتمًا بالكامل عند 2% (بدلًا من 5%) */
+                black 98%,       /* يبدأ بالتلاشي للشفافية عند 98% (بدلًا من 95%) */
+                transparent 100% /* ينتهي شفافًا */
+            );
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 2%,
+                black 98%,
+                transparent 100%
+            );
+
+            /* إخفاء شريط التمرير (لا تغيير هنا) */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
-        .timeline-item:nth-child(even) {
-            right: 50%;
-            padding-right: 50px;
+        /* لا تغيير هنا أيضًا */
+        .help-sidebar::-webkit-scrollbar {
+            display: none;
         }
 
-        .timeline-icon {
-            position: absolute;
-            top: 40px;
-            width: 46px;
-            height: 46px;
-            background-color: var(--light-bg);
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            z-index: 1;
+ 
+        .help-content .help-section {
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 80px;
+            scroll-margin-top: 120px; /* <--- أضف هذا السطر */
+
+        }
+        
+
+        .help-content .help-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .help-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .help-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        /* تنسيق عنوان الفيديو الجديد */
+        .help-content h4 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted var(--border-color);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            gap: 12px;
+        }
+        .help-content h4::before {
+            font-family: "Font Awesome 6 Free";
+            content: '\f144'; /* أيقونة تشغيل الفيديو */
+            font-weight: 900;
             color: var(--primary);
-            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
-        .timeline-item:hover .timeline-icon {
-            transform: scale(1.1) rotate(15deg);
-            background-color: var(--primary);
-            color: var(--white-color);
+
+        /* 1. تعديل الحشو لجميع الروابط الفرعية لإعطاء مساحة كافية وموحدة */
+        .help-index-list .sub-menu li a {
+            padding: 8px 35px 8px 10px; /* زيادة الحشو الأيمن إلى 35px */
+            font-size: 1rem;
+            font-weight: 500;
+            border-right: none;
+            margin-right: 0;
         }
 
-        .timeline-item:nth-child(odd) .timeline-icon {
-            left: -23px;
-            right: auto;
+        /* 2. قاعدة موحدة لموضع الأيقونة/النقطة */
+        .help-index-list .sub-menu li a::before {
+            position: absolute;
+            top: 50%;
+            right: 8px; /* تحديد موضع موحد للجميع */
+            transform: translateY(-50%);
+            line-height: 1;
+            width: 20px; /* إعطاء مساحة عرض ثابتة للأيقونة */
+            text-align: center; /* توسيط الأيقونة داخل هذه المساحة */
         }
 
-        .timeline-item:nth-child(even) .timeline-icon {
-            right: -23px;
-            left: auto;
+        /* 3. تحديد شكل النقطة */
+        .help-index-list .sub-menu li a:not(.video-link)::before {
+            content: '\2022';
+            color: var(--primary);
+            font-size: 1.2rem;
         }
 
-        .timeline-content {
-            padding: 30px;
-            background-color: var(--white-color);
-            position: relative;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--border-color);
-        }
-
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        /* 4. تحديد شكل أيقونة الفيديو */
+        .help-index-list .sub-menu li a.video-link::before {
+            font-family: "Font Awesome 6 Free";
+            content: '\f144';
+            font-weight: 900;
+            font-size: 0.9rem;
             color: var(--primary-dark);
         }
 
-        .timeline-content p {
+        /* 5. حالة الرابط النشط في القائمة الفرعية (بدون تغيير) */
+        .help-index-list .sub-menu li a.active {
+            color: var(--primary);
+            background-color: var(--light-bg);
+            transform: translateX(-3px);
+            border-right-color: transparent;
+        }
+
+        .help-content ul {
+            list-style-position: inside;
+            padding-right: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+        .help-content ul li,
+        .help-content ol li {
+            margin-bottom: 0.8rem;
             font-size: 1.1rem;
-            margin-bottom: 20px;
             color: var(--text-light);
         }
 
-        .timeline-content img {
-            width: 100%;
-            border-radius: var(--radius);
-            margin-top: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        .cta-section {
+        .help-content .image-showcase {
+            margin: 30px 0;
             text-align: center;
         }
 
-        .cta-section .btn {
-            margin: 0 10px;
+        .help-content .image-showcase img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+            max-width: 90%;
+            margin: auto;
         }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+            margin: 40px 0;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /*
+                    ==============================================
+                    |        4. FOOTER & GENERAL COMPONENTS        |
+                    |            (الفوتر ومكونات عامة)             |
+                    ==============================================
+                    */
 
         .footer {
             background-color: var(--dark);
@@ -465,11 +474,166 @@
             margin: 0 15px;
             color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
-            transition: color .3s ease;
         }
 
         .footer .footer-links a:hover {
             color: var(--primary);
+        }
+
+        .footer .copyright {
+            font-size: .9rem;
+            color: #aaa;
+            border-top: 1px solid #0c2d32;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+        /*
+        ==============================================
+        |         6. ADVANCED MOBILE HELP NAV          |
+        |      (قائمة المساعدة المتقدمة للهاتف)        |
+        ==============================================
+        */
+
+        /* الزر العائم في الأسفل */
+        .mobile-nav-trigger {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            background-image: var(--gradient-primary);
+            color: var(--white-color);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-heavy);
+            cursor: pointer;
+            display: none; /* مخفي افتراضياً */
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        .mobile-nav-trigger:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 174, 94, 0.4);
+        }
+        .mobile-nav-trigger i {
+            font-size: 1.2rem;
+        }
+
+        /* النافذة المنبثقة للقائمة */
+        .mobile-nav-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 85vh; /* ارتفاع القائمة 85% من الشاشة */
+            background-color: var(--white-color);
+            z-index: 1002;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: var(--shadow-heavy);
+            display: flex;
+            flex-direction: column;
+            transform: translateY(100%); /* تبدأ مخفية أسفل الشاشة */
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .mobile-nav-menu.is-open {
+            transform: translateY(0); /* تظهر عند إضافة كلاس is-open */
+        }
+
+        /* رأس القائمة المنبثقة */
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+        .mobile-nav-header h4 {
+            margin: 0;
+            color: var(--dark);
+        }
+        .mobile-nav-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--text-light);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* محتوى القائمة (الذي سيحتوي على الفهرس) */
+        .mobile-nav-content {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+        /* إخفاء القناع الذي أضفناه سابقاً على الهاتف */
+        .mobile-nav-content ul {
+            mask-image: none !important;
+            -webkit-mask-image: none !important;
+        }
+
+
+        /* قواعد التحكم في العرض حسب حجم الشاشة */
+        @media (max-width: 992px) {
+            /* إخفاء القائمة الجانبية القديمة بالكامل على الأجهزة اللوحية والهواتف */
+            .help-sidebar {
+                display: none;
+            }
+            .header .btn-primary {
+                padding: 7px 15px; /* تقليل الحشو الداخلي للزر */
+                font-size: 0.50rem; /* تصغير حجم الخط */
+            }
+            /* إظهار الزر العائم الجديد */
+            .mobile-nav-trigger {
+                display: flex;
+            }
+        }
+        /*
+                    ==============================================
+                    |        5. MOBILE NAVIGATION & RESPONSIVE     |
+                    |            (قائمة الهاتف والتجاوب)           |
+                    ==============================================
+                    */
+
+        /* Base style for the hamburger button (hidden on desktop) */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* The dark overlay for when the menu is open */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0s 0.4s;
+        }
+
+        .nav-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s ease;
+        }
+
+
+        /* --- Definitive solution to lock page scroll --- */
+        html.menu-open {
+            overflow: hidden;
         }
 
         .social-icons {
@@ -480,64 +644,114 @@
             color: #fff;
             font-size: 1.5rem;
             margin: 0 12px;
-            transition: color .3s ease, transform .3s ease;
+            transition: color .3s ease;
         }
 
         .social-icons a:hover {
             color: var(--primary);
-            transform: scale(1.2);
+        }
+        /* ==============================================
+        |     تنسيقات قائمة الفهرس المستقلة        |
+        ============================================== */
+
+        /* النمط الأساسي للحاوية ul */
+        .help-index-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-right: 3px solid var(--border-color);
         }
 
-        .footer .copyright {
-            font-size: .9rem;
-            color: #aaa;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            margin-top: 30px;
+        /* نمط الروابط الرئيسية والفرعية */
+        .help-index-list li a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-light);
+            font-weight: 700;
+            border-right: 3px solid transparent;
+            margin-right: -3px;
+            transition: all 0.3s ease;
+            position: relative; /* مهم للخطوات التالية */
         }
 
+        /* تأثير المرور (Hover) */
+        .help-index-list li a:hover {
+            color: var(--primary);
+            background-color: var(--light-bg);
+        }
+
+        /* نمط الرابط النشط (الحالي) */
+        .help-index-list li a.active {
+            color: var(--primary-dark);
+            border-right-color: var(--primary);
+            background-color: var(--light-bg);
+            transform: translateX(-5px);
+        }
+
+        /* تنسيق القائمة الفرعية (sub-menu) */
+        .help-index-list .sub-menu {
+            list-style: none;
+            padding-right: 25px;
+            margin-top: 5px;
+            display: block;
+            border-right: 2px dashed var(--border-color);
+            margin-right: -3px; /* لمطابقة الحدود */
+        }
+
+
+
+        /* Responsive styles for tablets */
         @media (max-width: 992px) {
-            .story-grid {
+            .help-article-grid {
                 grid-template-columns: 1fr;
             }
 
-            .story-grid img {
-                max-width: 80%;
-                margin: 0 auto 40px auto;
-                order: -1;
+            .help-sidebar {
+                position: static;
+                width: 100%;
+                margin-bottom: 40px;
             }
+
+
         }
 
+        /* Responsive styles for mobile phones */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+
+            .mobile-menu-toggle {
+                display: block;
+                /* Show the hamburger button */
             }
 
-            h2 {
-                font-size: 2rem;
+            /* --- Custom styling for the header's main CTA button --- */
+            .header .btn-primary {
+                padding: 12px 28px;
+                /* تقليل الحشو الداخلي للزر */
+                font-size: 0.9rem;
+                /* تصغير حجم الخط قليلاً */
             }
 
-            section {
-                padding: 60px 0;
-            }
-
-            .story-section {
-                padding: 80px 0;
-            }
-
+            /* Style the navigation menu for mobile */
             .navbar {
                 position: fixed;
                 top: 0;
                 left: -100%;
+                /* تغيير */
                 width: 300px;
                 height: 100vh;
                 background-color: var(--white-color);
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 z-index: 999;
                 transition: left 0.4s ease-in-out;
+                /* تغيير */
                 padding-top: 80px;
+                overflow-y: auto;
+                /* إضافة */
+                overscroll-behavior: contain;
+                /* إضافة */
             }
 
+            /* When the menu is open, slide it in */
             .navbar.is-open {
                 left: 0;
             }
@@ -561,54 +775,22 @@
                 font-size: 1.2rem;
             }
 
-            .mobile-menu-toggle {
-                display: block;
-                background: none;
-                border: none;
-                color: var(--dark);
-                font-size: 1.8rem;
-                cursor: pointer;
-                z-index: 1001;
+            .navbar ul li a.special-link {
+                margin: 10px auto;
+                width: fit-content;
             }
 
+            /* --- Custom styling for the header's main CTA button --- */
             .header .btn-primary {
                 padding: 6px 15px;
+                /* تقليل الحشو الداخلي للزر */
                 font-size: 0.7rem;
-            }
-
-            .cta-section .btn {
-                display: block;
-                margin: 15px 0;
-            }
-
-            .timeline::after {
-                right: 15px;
-                margin-right: 0;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                right: auto;
-                left: auto;
-                padding-left: 0;
-                padding-right: 50px;
-            }
-
-            .timeline-icon,
-            .timeline-item:nth-child(odd) .timeline-icon,
-            .timeline-item:nth-child(even) .timeline-icon {
-                right: -7px;
-                left: auto;
-                width: 40px;
-                height: 40px;
+                /* تصغير حجم الخط قليلاً */
             }
         }
     </style>
+
+
 </head>
 
 <body>
@@ -620,227 +802,801 @@
             </a>
             <nav class="navbar" id="main-nav">
                 <ul>
-                    <li><a href="/" class="nav-link">الرئيسية</a></li>
+                    <li><a href="#features" class="nav-link">المميزات</a></li>
+                    <li><a href="#process" class="nav-link">كيف يعمل</a></li>
+                    <li><a href="#pricing" class="nav-link">الأسعار</a></li>
+                    <li><a href="#testimonials" class="nav-link">الآراء</a></li>
+                    <li><a href="#faq" class="nav-link">الأسئلة</a></li>
                     <li><a href="/about/">من نحن</a></li>
-                    <li><a href="/download/">التنزيل</a></li>
-                    <li><a href="/help/">المساعدة</a></li>
-                    <li><a href="/privacy/">الخصوصية</a></li>
-                    <li><a href="/contact/" class="active">اتصل بنا</a></li>
-                    <li><a href="/about/">من نحن</a></li>
+                    <li><a href="/contact/">اتصل بنا</a></li>
                 </ul>
             </nav>
             <a href="/download/" class="btn btn-primary"><i class="fas fa-download"></i> تنزيل الأن</a>
             <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
-                <i class="fas fa-bars"></i>
-            </button>
+                <i class="fas fa-bars"></i> </button>
         </div>
     </header>
 
-    <div class="page-wrapper">
-        <main>
-            <section class="page-hero">
-                <div class="container animate-on-scroll fade-in-up">
-                    <h1>قصتنا: لم نبنِ برنامجًا، بل خضنا معركة من أجل كل ثانية ضائعة</h1>
-                    <p>لم تبدأ حكاية HeytsApp في اجتماعٍ رسمي لشركة برمجيات، بل وُلدت من رحم الفوضى اليومية التي يعرفها
-                        كل مسوق ورائد أعمال. بدأت من شاشة واتساب مزدحمة، ومن إحساس بالإحباط أمام رسائل لا تنتهي، وفرص
-                        تضيع بسبب التأخير في الرد. لم نكن نبحث عن أداة، بل كنا نبحث عن حل لمعاناتنا الشخصية، وعندما لم
-                        نجده... قررنا أن نبنيه بأنفسنا، سطرًا بسطر.</p>
-                </div>
-            </section>
-
-            <section class="story-section">
-                <div class="container">
-                    <div class="story-grid">
-                        <div class="animate-on-scroll fade-in-right">
-                            <h2>شرارة الفكرة: "لا بد من وجود طريقة أفضل"</h2>
-                            <p>كرواد أعمال ومسوقين، عشنا بأنفسنا فوضى إدارة واتساب. رسائل لا تنتهي، متابعات تضيع في زحمة
-                                المحادثات، وعملاء نفد صبرهم بسبب التأخر في الرد. كانت تلك الفوضى هي وقودنا، وذلك الإحساس
-                                بالإحباط هو الذي أشعل فينا السؤال: "كيف يمكننا تحويل هذه الأداة اليومية إلى آلة منظمة
-                                لتنمية الأعمال؟". لم نجد الحل الذي يناسب طموحاتنا في السوق، فقررنا أن نبنيه بأنفسنا.</p>
-                        </div>
-                        <div class="animate-on-scroll fade-in-left">
-                            <img src="/img/6.jpg" alt="صورة تعبر عن الفكرة والإلهام">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="principles-section">
-                <div class="container">
-                    <div class="section-title animate-on-scroll fade-in-up">
-                        <h2>مبادئنا التي صنعت الفارق</h2>
-                        <p>HeytsApp ليس مجرد كود، بل هو مجموعة من المبادئ التي نؤمن بها ونطبقها في كل تفصيلة.</p>
-                    </div>
-                    <div class="principles-grid">
-                        <div class="principle-card animate-on-scroll fade-in-up" style="transition-delay: 0.1s;">
-                            <div class="icon"><i class="fas fa-magic"></i></div>
-                            <h3>البساطة هي القوة</h3>
-                            <p>نؤمن بأن أقوى الأدوات هي أسهلها استخدامًا. كل ميزة في البرنامج، مهما كانت معقدة في
-                                كواليسها، تم تصميمها لتكون واضحة ومباشرة لك، ولا تتطلب منك أي خبرة تقنية.</p>
-                        </div>
-                        <div class="principle-card animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
-                            <div class="icon"><i class="fas fa-bullseye"></i></div>
-                            <h3>حلول لمشاكل حقيقية</h3>
-                            <p>كل خيار في HeytsApp وُجد ليحل مشكلة عانينا منها شخصيًا. نحن لا نضيف الميزات للمباهاة، بل
-                                نضيفها لتحقيق أثر ملموس في عملك اليومي: توفير وقتك، وزيادة مبيعاتك.</p>
-                        </div>
-                        <div class="principle-card animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
-                            <div class="icon"><i class="fas fa-users"></i></div>
-                            <h3>شراكة، لا مجرد برنامج</h3>
-                            <p>أنت لست مجرد مستخدم، بل شريك في هذه الرحلة. آراؤك، اقتراحاتك، وحتى شكواك، هي البوصلة التي
-                                توجه تحديثاتنا المستقبلية وتجعل البرنامج أفضل مع كل إصدار.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="journey-section">
-                <div class="container">
-                    <div class="section-title animate-on-scroll fade-in-up">
-                        <h2>رحلة التطوير: قصة من الإصرار، الفوضى، والانتصار</h2>
-                        <p>لم يولد HeytsApp مكتملًا، بل نما وتطور عبر مراحل من التجربة، الخطأ، والكثير من الإصرار. هذه
-                            لمحات من رحلتنا معكم ولأجلكم.</p>
-                    </div>
-
-                    <div class="timeline">
-                        <div class="timeline-item animate-on-scroll fade-in-right">
-                            <div class="timeline-icon"><i class="fas fa-lightbulb"></i></div>
-                            <div class="timeline-content">
-                                <h3>حجر الأساس: الكوخ الخشبي (فبراير 2025)</h3>
-                                <p>الانطلاقة كانت فكرة بريئة: سكربت بسيط يرسل رسالة "مرحبًا" ويتوقف. كان يعمل بقوة
-                                    الإرادة والدعاء، وكانت واجهته تتجمد لتعطينا وقتًا للتأمل. كان بسيطًا، لكنه كان
-                                    الدليل على أن المستحيل ممكن.</p>
-                                <img src="/img/1.jpg" alt="النسخة الأولية من البرنامج">
-                            </div>
-                        </div>
-
-                        <div class="timeline-item animate-on-scroll fade-in-left">
-                            <div class="timeline-icon"><i class="fas fa-cogs"></i></div>
-                            <div class="timeline-content">
-                                <h3>بناء القلعة: فوضى منظمة (مارس - أبريل 2025)</h3>
-                                <p>هنا بدأ "الوحش" ينمو. اكتشفنا الخيوط المتعددة QThreads لإنقاذ الواجهة من التجمد،
-                                    وبدأنا في بناء سجلات لتتبع كل شيء. كانت مرحلة فوضوية، لكنها كانت ضرورية لبناء أساس
-                                    قوي.</p>
-                                <img src="/img/3.jpg" alt="إضافة سجل الإرسال">
-                            </div>
-                        </div>
-
-                        <div class="timeline-item animate-on-scroll fade-in-right">
-                            <div class="timeline-icon"><i class="fas fa-palette"></i></div>
-                            <div class="timeline-content">
-                                <h3>صقل الجوهرة: ولادة الذكاء (مايو - يونيو 2025)</h3>
-                                <p>هذه كانت النقلة النوعية. أطلقنا لوحة التحكم التفاعلية، ونظام "التسلسل" الذكي، ومتغير
-                                    {name}. تحول البرنامج من مجرد أداة إلى مساعد شخصي يفهم ما تريد.</p>
-                                <img src="/img/4.jpg" alt="واجهة التسلسل الجديدة">
-                            </div>
-                        </div>
-
-                        <div class="timeline-item animate-on-scroll fade-in-left">
-                            <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-                            <div class="timeline-content">
-                                <h3>الإطلاق الرسمي: سفينة الفضاء (يوليو 2025)</h3>
-                                <p>بعد أشهر من التصحيحات، وبعد حل مشاكل "السباق" و"التكرار"، وبعد بناء نظام حماية
-                                    وتحديثات آمن، أطلقنا النسخة الرسمية. لم تكن نهاية الرحلة، بل كانت بداية تمكينك أنت
-                                    بالأداة التي تستحقها.</p>
-                                <img src="/img/11.jpg" alt="البرنامج في إصداره الرسمي">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cta-section">
-                <div class="container">
-                    <h2 class="animate-on-scroll fade-in-up">هل أنت جاهز لتكون جزءًا من هذه القصة؟</h2>
-                    <p class="animate-on-scroll fade-in-up"
-                        style="max-width: 600px; margin: 0 auto 30px auto; color: var(--text-light); transition-delay: 0.1s;">
-                        HeytsApp هو أكثر من مجرد برنامج، إنه نتاج رحلة حقيقية من التحدي والإصرار. انضم إلى مجتمعنا من
-                        المستخدمين الذين قرروا تحويل الفوضى إلى فرصة، والوقت الضائع إلى أرباح.</p>
-                    <div class="animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
-                        <a href="/#features" class="btn btn-secondary">اكتشف كل المميزات</a>
-                        <a href="/download/" class="btn btn-primary">حمّل البرنامج الآن وابدأ رحلتك</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="container" style="max-width: 1240px;">
-                <div class="logo">
-                    <img src="/img/LOGO_3.png" alt="HeytsApp Logo">
-                </div>
-                <div class="footer-links">
-                    <a href="/">الرئيسية</a>
-                    <a href="/help/">مركز المساعدة</a>
-                    <a href="/privacy/">سياسة الخصوصية</a>
-                <a href="/Refund_Policy/">سياسة استرداد الأموال</a>
-                    <a href="/contact/">اتصل بنا</a>
-                </div>
-                <div class="social-icons">
-                    <a href="#" aria-label="Youtube" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <div class="copyright">
-                    <p>© 2025  – جميع الحقوق محفوظة | HeytsApp v1.0</p>
+    <main>
+        <section class="section-bg" style="padding: 80px 0;">
+            <div class="container">
+                <div class="section-title">
+                    <span class="section-tagline">مركز المساعدة</span>
+                    <h1>دليلك الكامل لإتقان HeytsApp</h1>
+                    <p>مرحباً بك! هذا الدليل سيأخذ بيدك خطوة بخطوة، من لحظة تثبيت البرنامج وحتى إطلاق العنان لكامل
+                        إمكانياته، لمساعدتك على تنمية أعمالك عبر واتساب.</p>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
+
+        <section class="section help-page-section" style="padding-top: 60px;">
+            <div class="container">
+                <div class="help-article-grid">
+                    <aside class="help-sidebar">
+                        <ul class="help-index-list">
+                            <li>
+                                <a href="#section1">1. التثبيت والتفعيل</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#step-install">الخطوة الأولى: تثبيت البرنامج</a></li>
+                                    <li><a href="#step-activation">الخطوة الثانية: التفعيل</a></li>
+                                    <li><a href="#video-activation" class="video-link">فيديو شرح التفعيل</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section2">2. إضافة وإدارة الحسابات</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#add-first-account">إضافة حسابك الأول</a></li>
+                                    <li><a href="#add-multiple-accounts">إضافة حسابات متعددة</a></li>
+                                    <li><a href="#manage-accounts">إدارة حساباتك</a></li>
+                                    <li><a href="#video-manage-accounts" class="video-link">فيديو شرح إدارة الحسابات</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section3">3. جولة في لوحة التحكم</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#top-menu-bar">شريط القوائم العلوي</a></li>
+                                    <li><a href="#main-dashboard">التبويب الرئيسي</a></li>
+                                    <li><a href="#other-tabs">لمحة سريعة على التبويبات</a></li>
+                                    <li><a href="#video-dashboard-tour" class="video-link">فيديو شرح لوحة التحكم</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section4">4. الرسالة الترحيبية</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#build-message-components">بناء مكونات رسالتك</a></li>
+                                    <li><a href="#control-sequence">التحكم في التسلسل</a></li>
+                                    <li><a href="#manual-campaigns">الحملات اليدوية</a></li>
+                                    <li><a href="#ignore-labels">ميزة تجاهل التسميات</a></li>
+                                    <li><a href="#video-welcome-message" class="video-link">فيديو شرح الرسالة الترحيبية</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section5">5. رسالة المتابعة</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#follow-up-content">إعداد محتوى الرسالة</a></li>
+                                    <li><a href="#smart-timing">التحكم الذكي بالتوقيت</a></li>
+                                    <li><a href="#automatic-followup-date">تاريخ المتابعة التلقائية</a></li>
+                                    <li><a href="#video-follow-up" class="video-link">فيديو شرح رسالة المتابعة</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section6">6. تبويب الإعدادات</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#general-settings">إعدادات التشغيل العامة</a></li>
+                                    <li><a href="#number-lists">إدارة قوائم الأرقام</a></li>
+                                    <li><a href="#logs-data">السجلات والبيانات</a></li>
+                                    <li><a href="#live-bot-log">سجل أحداث البوت المباشر</a></li>
+                                    <li><a href="#video-settings" class="video-link">فيديو شرح الإعدادات</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#section7">7. تفعيل البوت ومشاهدته</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#bot-activation-status">مفتاح التشغيل وحالة البوت</a></li>
+                                    <li><a href="#customer-journey">رحلة العميل داخل النظام</a></li>
+                                    <li><a href="#video-customer-journey" class="video-link">فيديو شرح رحلة العميل</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <article class="help-content">
+
+                        <div id="section1" class="help-section">
+                            <h2>القسم الأول: التثبيت والتفعيل</h2>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/1.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                            <h3 id="step-install">الخطوة الأولى: تثبيت البرنامج - بداية سهلة وفي دقائق</h3>
+                            <p>مرحبًا بك في عالم HeytsApp! البدء في استخدام برنامجنا سهل للغاية. عملية التثبيت مصممة
+                                لتكون سريعة ومباشرة، تمامًا مثل أي برنامج آخر قمت بتثبيته من قبل.</p>
+                            <ul>
+                                <li>قم بالنقر المزدوج على ملف التثبيت الذي قمت بتحميله.</li>
+                                <li>اتبع التعليمات التي تظهر على الشاشة بالضغط على "التالي" (Next).</li>
+                                <li>عند الانتهاء، اضغط على "إنهاء" (Finish).</li>
+                            </ul>
+                            <p>هذا كل شيء! أصبح البرنامج الآن على جهازك، وأنت على بعد خطوة واحدة من إطلاق العنان لقوة
+                                الأتمتة.</p>
+                    
+                    
+                            <h3 id="step-activation">الخطوة الثانية: التفعيل - مفتاحك الخاص لتشغيل القوة الكاملة</h3>
+                            <p>عند تشغيل HeytsApp للمرة الأولى، يقوم البرنامج بعملية تمهيد ذكية لضمان حصولك على أفضل
+                                تجربة ممكنة. إليك ما يمكن توقعه:</p>
+                            <h3>1. محاولة التفعيل التلقائي (للتجربة)</h3>
+                            <p>لتسهيل بدايتك، سيحاول البرنامج تلقائيًا منحك ترخيصًا تجريبيًا فوريًا.</p>
+                            <ul>
+                                <li><strong>في حال النجاح:</strong> سيتم نقلك مباشرة إلى لوحة التحكم الرئيسية للبرنامج
+                                    دون الحاجة لأي خطوات إضافية.</li>
+                                <li><strong>في حال عدم النجاح:</strong> لا تقلق، ستظهر لك "نافذة التفعيل" لإتمام العملية
+                                    يدويًا بخطوات بسيطة.</li>
+                            </ul>
+                            <h3>2. التعامل مع "نافذة التفعيل"</h3>
+                            <p>إذا ظهرت لك هذه النافذة، فهي بوابتك لتفعيل نسختك بشكل دائم. ستجد فيها حقلين أساسيين:</p>
+                            <p><strong>معرّف الجهاز (Your Device ID):</strong><br>
+                                هذا الرمز هو بصمة رقمية فريدة لجهاز الكمبيوتر الخاص بك، يقوم البرنامج بتوليدها
+                                تلقائيًا.<br>
+                                <strong>المطلوب:</strong> كل ما عليك فعله هو الضغط على زر "📋 نسخ" لنسخ هذا المعرّف.
+                                ستحتاج إلى إرسال هذا الرمز لفريق الدعم لدينا للحصول على مفتاح التنشيط.
+                            </p>
+                            <p><strong>مفتاح التنشيط (License Key):</strong><br>
+                                بعد أن تستلم مفتاح التنشيط من فريق الدعم، قم بنسخه.<br>
+                                <strong>المطلوب:</strong> في نافذة التفعيل، قم بلصق المفتاح في الصندوق المخصص له. يمكنك
+                                استخدام زر "📋 لصق" لسهولة الاستخدام.
+                            </p>
+                            <p>أخيرًا، اضغط على زر "تنشيط الآن".</p>
+                            <p>بمجرد الضغط على زر التنشيط، ستظهر لك رسالة تأكيد بالنجاح، وستفتح الواجهة الرئيسية
+                                للبرنامج فورًا.</p>
+                            <p>تهانينا! أنت الآن جاهز بالكامل. الخطوة التالية هي إضافة حسابك الأول والبدء في رحلة
+                                الأتمتة.</p>
+                    
+                            <h4 id="video-activation">فيديو شرح: التفعيل</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                        <div id="section2" class="help-section">
+                            <h2>القسم الثاني: إضافة وإدارة حساباتك - مركز التحكم الخاص بك</h2>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/2.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                            <p>بعد تفعيل البرنامج، ستجد نفسك أمام واجهة نظيفة جاهزة لاستقبال حساباتك في واتساب. كل حساب
+                                تضيفه سيظهر في "تبويب" منفصل في الأعلى، مما يمنحك تنظيمًا وسهولة في التنقل.</p>
+                            <h3 id="add-first-account">إضافة حسابك الأول: خطوة الربط الأساسية</h3>
+                            <p>عندما يكون البرنامج فارغًا، سيطلب منك تلقائيًا إضافة حسابك الأول.</p>
+                            <p><strong>اختر اسمًا للحساب:</strong> ستظهر لك نافذة صغيرة تطلب منك "إدخال اسم للحساب". هذا
+                                الاسم هو لتمييز الحسابات داخل البرنامج فقط، لذا اختر اسمًا يسهل عليك تذكره.<br>
+                                <strong>مثال:</strong> "المتجر الرئيسي"، "رقم الدعم الفني"، "حملة إعلانية".
+                            </p>
+                            <p><strong>ربط حساب واتساب:</strong> بعد إدخال الاسم، سيفتح البرنامج متصفحًا جديدًا يعرض
+                                صفحة WhatsApp Web مع رمز الاستجابة السريعة (QR Code).<br>
+                                امسك هاتفك، افتح تطبيق واتساب، واذهب إلى: الإعدادات > الأجهزة المرتبطة > ربط جهاز.<br>
+                                قم بتوجيه كاميرا هاتفك لمسح الرمز المربع الذي ظهر على شاشة الكمبيوتر.</p>
+                            <p><strong>هل يجب أن أقوم بذلك في كل مرة؟</strong><br>
+                                لا، هذه الخطوة مطلوبة مرة واحدة فقط لكل حساب. سيقوم HeytsApp بحفظ جلسة الدخول بأمان، وفي
+                                المرات القادمة سيتصل بالحساب تلقائيًا دون الحاجة لمسح الرمز مجددًا.</p>
+                    
+                    
+                            <h3 id="add-multiple-accounts">توسيع نطاق عملك: إضافة حسابات متعددة</h3>
+                            <p>هل لديك أكثر من رقم واتساب؟ لا مشكلة! يمكنك إضافة حسابات متعددة بسهولة.</p>
+                            <p><strong>كيف؟</strong> في شريط التبويبات العلوي، ستجد دائمًا تبويبة بعلامة "+".<br>
+                                عند النقر على هذه التبويبة، ستتكرر نفس العملية: سيُطلب منك إدخال اسم للحساب الجديد، ثم
+                                مسح رمز QR الخاص برقم واتساب الجديد.</p>
+                            <p><strong>ملاحظة هامة:</strong> عدد الحسابات التي يمكنك إضافتها يعتمد على خطة اشتراكك. إذا
+                                حاولت إضافة حساب فوق الحد المسموح به، سيقوم البرنامج بتنبيهك.</p>
+                            <h3 id="manage-accounts">التحكم الكامل: إدارة حساباتك بضغطة زر</h3>
+                            <p>لكل حساب تضيفه، لديك مجموعة من الخيارات السريعة للتحكم فيه. ببساطة، انقر بزر الماوس
+                                الأيمن على أي تبويب حساب لتظهر لك قائمة الإدارة:</p>
+                            <ul>
+                                <li><strong>🗑️ حذف الحساب (Delete Account):</strong> هذا الخيار يقوم بإزالة الحساب
+                                    بالكامل من البرنامج، بما في ذلك جميع إعداداته وجلسة الدخول المحفوظة.</li>
+                            </ul>
+                            <p><strong>تحذير:</strong> كن حذرًا، فهذه العملية نهائية ولا يمكن التراجع عنها. سيطلب منك
+                                البرنامج تأكيد الحذف قبل المتابعة.</p>
+                    
+                            <h4 id="video-manage-accounts">فيديو شرح: إدارة الحسابات</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                        <div id="section3" class="help-section">
+                            <h2>القسم الثالث: جولة في لوحة التحكم - فهم الواجهة الرئيسية</h2>
+                    
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/3.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                    
+                            <p>واجهة HeytsApp الرئيسية هي مركز قيادتك. تم تصميمها لتكون واضحة ومنظمة، حيث تجد كل ما
+                                تحتاجه في مكان واحد.</p>
+                            <h3 id="top-menu-bar">شريط القوائم العلوي: أدواتك السريعة</h3>
+                            <p>في أعلى النافذة، ستجد شريط قوائم بسيط يحتوي على أدوات مهمة ومفيدة:</p>
+                            <ul>
+                                <li><strong>القالب:</strong> هل قمت بإعداد رسائل وإعدادات مثالية؟ يمكنك من هنا حفظ كل
+                                    هذا العمل في ملف واحد. لاحقًا، يمكنك تحميل هذا القالب على أي حساب آخر لتطبيق نفس
+                                    الإعدادات فورًا، مما يوفر عليك وقتًا ثمينًا.</li>
+                                <li><strong>الترخيص:</strong> يعرض لك نافذة تحتوي على كل تفاصيل ترخيصك: حالة التفعيل،
+                                    تاريخ انتهاء الصلاحية، وعدد الحسابات المسموح بها في باقتك.</li>
+                                <li><strong>حول البرنامج:</strong> ينقلك مباشرة إلى موقعنا الإلكتروني الرسمي
+                                    https://www.google.com/search?q=HeytsApp.com.</li>
+                                <li><strong>كيف يعمل:</strong> هل تحتاج إلى دليل مساعدة أو تذكير سريع؟ هذا الخيار يفتح
+                                    لك صفحة الشروحات والدعم الفني مباشرة.</li>
+                                <li><strong>التحقق من التحديثات:</strong> من هنا، يمكنك أن تتأكد دائمًا من أنك تستخدم
+                                    أحدث إصدار من البرنامج ومكوناته، وتنزيل أي تحديثات متوفرة بضغطة زر.</li>
+                            </ul>
+                            <p><strong>زر إخفاء إلى شريط النظام (أيقونة التصغير):</strong> في الركن العلوي الأيمن، ستجد
+                                هذه الأداة الصغيرة والمفيدة جدًا. عند الضغط عليها، تختفي نافذة البرنامج الرئيسية من على
+                                سطح المكتب وتتحول إلى أيقونة صغيرة في شريط النظام بجانب الساعة. هذا يتيح لك العمل على
+                                حاسوبك بحرية تامة بينما يواصل البوت عمله بصمت في الخلفية دون أي إزعاج. لإعادة إظهار
+                                البرنامج، كل ما عليك فعله هو النقر على تلك الأيقونة الصغيرة.</p>
+                    
+                    
+                    
+                            <h3 id="main-dashboard">التبويب الرئيسي: نبض نشاطك التجاري في لحظة</h3>
+                            <p>هذا هو أول تبويب تراه وهو لوحة قيادتك الحية. يعطيك صورة شاملة وفورية عن أداء البوت الخاص
+                                بك.</p>
+                            <p><strong>بطاقات الإحصائيات (في الأعلى):</strong><br>
+                                تعرض لك أرقامًا مباشرة لأهم المؤشرات: إجمالي الرسائل المرسلة، عدد رسائل الترحيب، عدد
+                                رسائل المتابعة، إجمالي الرسائل التي استقبلتها، وعدد جهات الاتصال الجديدة التي تواصلت
+                                معك.</p>
+                            <p><strong>الرسم البياني للنشاط (في المنتصف):</strong><br>
+                                هذا ليس مجرد رسم بياني عادي! إنه يوضح لك ساعة بساعة عدد الرسائل التي أرسلها البوت
+                                (باللون الأخضر) مقابل الرسائل التي استقبلها (باللون البرتقالي).<br>
+                                <strong>الفائدة الكبرى:</strong> يمكنك بسهولة تحديد "أوقات الذروة" في عملك. هل يستقبل
+                                عملاؤك الرسائل ويتفاعلون أكثر في الصباح أم في المساء؟ هذه المعلومة تساعدك على تركيز
+                                جهودك ووقتك في الأوقات الأكثر فعالية.
+                            </p>
+                            <p><strong>فلاتر التاريخ (أسفل البطاقات):</strong><br>
+                                هل تريد رؤية أداء اليوم فقط؟ أو آخر أسبوع؟ أو حتى تحديد فترة مخصصة؟ بنقرة واحدة على أي
+                                من هذه الأزرار (اليوم، آخر 7 أيام، آخر 30 يومًا...)، سيتم تحديث كل من بطاقات الإحصائيات
+                                والرسم البياني فورًا ليعرض لك البيانات الخاصة بالفترة التي اخترتها فقط.</p>
+                            <h3 id="other-tabs">لمحة سريعة على التبويبات الأخرى</h3>
+                            <p>بجانب تبويب "الرئيسية"، ستجد ثلاثة تبويبات أساسية أخرى:</p>
+                            <ul>
+                                <li><strong>تبويب الرسالة الترحيبية:</strong> هنا تقوم بإعداد رسالة الانطباع الأول التي
+                                    تصل لكل عميل جديد.</li>
+                                <li><strong>تبويب رسالة المتابعة:</strong> هذا هو المكان الذي تجهز فيه رسالتك الذكية
+                                    لإعادة استهداف العملاء.</li>
+                                <li><strong>تبويب الإعدادات:</strong> هنا تضبط سلوك البوت، وتدير سجلاته، وتتحكم في أدق
+                                    التفاصيل.</li>
+                            </ul>
+                            <p>كل تبويب من هذه هو ورشة عمل متكاملة سنتعمق فيها بالتفصيل في الأقسام القادمة.</p>
+                    
+                            <h4 id="video-dashboard-tour">فيديو شرح: جولة في لوحة التحكم</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                        <div id="section4" class="help-section">
+                            <h2>القسم الرابع: إعداد الرسالة الترحيبية - الانطباع الأول المثالي</h2>
+                    
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/4.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                    
+                            <p>عندما تفتح "تبويب الرسالة الترحيبية"، ستجد واجهة قوية ومرنة، مقسمة إلى جزأين رئيسيين لتحقيق أقصى قدر من التحكم:</p>
+                            <ul>
+                                <li><strong>على اليمين "منطقة الإعداد":</strong> هنا تقوم بتجهيز وبناء كل قطعة من رسالتك (نصوص، مرفقات...).</li>
+                                <li><strong>على اليسار "منطقة التحكم بالتسلسل والحملات":</strong> هنا ترى الشكل النهائي لرسالتك، وتعيد ترتيبها، والأهم من ذلك، تطلق منها حملاتك الاستباقية.</li>
+                            </ul>
+                    
+                            <h3 id="build-message-components">1. بناء مكونات رسالتك (الجانب الأيمن)</h3>
+                            <p>هنا تقوم بتجهيز كل قطعة من رسالتك بشكل منفصل قبل إضافتها للتسلسل النهائي. هذه المكونات ستُستخدم في كل من الردود التلقائية والحملات اليدوية.</p>
+                    
+                            <p><strong>إضافة نص جذاب:</strong><br>
+                                في "محرر النص"، اكتب رسالتك الترحيبية. يمكنك أن تكون مبدعًا كما تشاء. عند الانتهاء، اضغط على زر "➕ إضافة نص للتسلسل"، وستراه يظهر فورًا في القائمة على اليسار.
+                            </p>
+                    
+                            <p><strong>إدراج اسم العميل بذكاء <code>{name}</code>:</strong><br>
+                                لجعل رسالتك شخصية، اضغط على زر "👤 إدراج {name}" لإضافة المتغير <code>{name}</code>. سيقوم HeytsApp تلقائيًا باستبداله باسم العميل المحفوظ في جهات اتصاله.</p>
+                    
+                            <p><strong>ميزة احترافية:</strong> ماذا لو لم يكن للعميل اسم مسجل؟ انقر بزر الماوس الأيمن على زر "إدراج اسم العميل" لتظهر لك إعدادات متقدمة. يمكنك أن تختار:</p>
+                            <ul>
+                                <li>إدراج رقم الهاتف: كخيار بديل.</li>
+                                <li>إدراج نص مخصص: مثل "عميلنا العزيز" أو أي نص آخر تختاره.</li>
+                                <li>تركه فارغًا: لعدم إدراج أي شيء.</li>
+                            </ul>
+                    
+                            <p><strong>إضافة المرفقات (صور، فيديوهات، ملفات):</strong><br>
+                                اضغط على "📎 إضافة مرفق/مرفقات للتسلسل". يمكنك الآن اختيار صورة، فيديو، أو ملف PDF. سيتم إضافة المرفق مباشرة إلى قائمة التسلسل على اليسار. لتعديل التعليق الخاص به، انقر عليه بزر الماوس الأيمن في القائمة. الفائدة: سيتم إرسال التعليق مع الصورة في رسالة واحدة، مما يجعلها تبدو أكثر احترافية.</p>
+                    
+                            <p><strong>إرسال رسائل صوتية احترافية (PTT):</strong><br>
+                                عندما تضيف ملفًا صوتيًا (مثل MP3 أو OGG)، لن يقوم HeytsApp بإرساله كملف عادي. بدلًا من ذلك، سيقوم بإرساله كما لو كنت قد سجلته للتو من الميكروفون.<br>
+                                <strong>الفائدة:</strong> ستصل رسالتك الصوتية للعميل مع أيقونة الميكروفون الخضراء، مما يعطي انطباعًا شخصيًا وفوريًا، ويزيد من احتمالية استماع العميل لها.
+                            </p>
+                    
+                            <h3 id="control-sequence">2. التحكم في التسلسل النهائي وإطلاق الحملات (الجانب الأيسر)</h3>
+                            <p>هذه القائمة هي مركز التحكم النهائي. هي التي تعرض الترتيب الدقيق الذي سيتم به إرسال رسائلك، ومنها تنطلق قوتك التسويقية.</p>
+                            <ul>
+                                <li><strong>إعادة الترتيب بالسحب والإفلات:</strong> هل تريد إرسال النص قبل الصورة؟ أم الفيديو أولاً؟ بكل بساطة، انقر على أي عنصر واسحبه إلى الأعلى أو الأسفل لتغيير ترتيبه فورًا.</li>
+                                <li><strong>الحذف السريع:</strong> بجانب كل عنصر، ستجد علامة (X) صغيرة. نقرة واحدة عليها كفيلة بحذف العنصر من التسلسل.</li>
+                                <li><strong>التعديل الفوري:</strong> هل أخطأت في كتابة نص أو تريد تغيير تعليق صورة؟ انقر بزر الماوس الأيمن على أي عنصر في هذه القائمة، وستظهر لك نافذة تتيح لك "تعديل" النص أو المرفق بسهولة دون الحاجة لحذفه وإضافته من جديد.</li>
+                            </ul>
+                    
+                            <h3 id="manual-campaigns">3.ميزة القوة: إطلاق حملات ترحيبية يدوية</h3>
+                            <p>أسفل قائمة التسلسل مباشرة، ستجد الزر المميز "✍️ إنشاء حملة يدوية" بلون مغاير. هذا الزر هو بوابتك للانتقال من الردود التفاعلية إلى التسويق الاستباقي.</p>
+                            <ul>
+                                <li><strong>فتح نافذة الحملة:</strong> عند الضغط عليه، ستفتح نافذة جديدة مخصصة لإعداد حملتك.</li>
+                                <li><strong>إضافة الأرقام:</strong> يمكنك إضافة قائمة المستلمين بطريقتين:
+                                    <ul style="padding-right: 20px; margin-top: 10px;">
+                                        <li>لصق الأرقام مباشرة: في صندوق النص المخصص، مع مراعاة وضع كل رقم في سطر وكتابته مع رمز الدولة (مثال: 212).</li>
+                                        <li>استيراد من Excel: بالضغط على زر "📂 تحميل من ملف Excel".</li>
+                                    </ul>
+                                </li>
+                                <li><strong>المعالجة الذكية:</strong> عند الضغط على زر "🔄 تحديث ومعالجة القائمة"، سيقوم البرنامج بفحص الأرقام:
+                                    <ul style="padding-right: 20px; margin-top: 10px;">
+                                        <li>سيستبعد أي رقم يبدأ بـ 0 أو طوله غير كافٍ (لأنه لا يحتوي على رمز دولة).</li>
+                                        <li>سيستبعد أي أرقام مكررة أو موجودة مسبقًا في سجل الإرسال الخاص بك.</li>
+                                        <li>سيعرض لك قائمة نهائية بالأرقام الصالحة للإرسال، وقائمة أخرى بالأرقام المستبعدة مع ذكر سبب الاستبعاد.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>التحكم الكامل:</strong> قبل الإرسال، يمكنك ضبط تأخير عشوائي بين كل رسالة والأخرى (مثلاً بين 5 و 15 ثانية) لزيادة أمان حسابك.</li>
+                                <li><strong>مراقبة حية:</strong> بمجرد بدء الحملة، تتحول النافذة إلى لوحة تقارير حية تعرض لك شريط تقدم، وعدادات للرسائل الناجحة والفاشلة، وقوائم تفصيلية بالأرقام.</li>
+                                <li><strong>إيقاف وإلغاء:</strong> يمكنك إيقاف الحملة مؤقتًا، استئنافها، أو إلغاؤها بالكامل في أي لحظة عبر أزرار التحكم.</li>
+                            </ul>
+                    
+                            <h3 id="ignore-labels">4. ميزة احترافية: تجاهل التسميات</h3>
+                            <p>في أعلى الشاشة، ستجد زر "🏷️ تجاهل تسميات الترحيب". هذه أداة قوية لمنع إرسال الرسائل الترحيبية التلقائية لجهات اتصال معينة.</p>
+                            <p><strong>كيف تعمل؟</strong> عند الضغط عليه، سيقوم البرنامج بجلب كل التسميات (Labels) من حسابك في واتساب. يمكنك اختيار تسمية أو أكثر (مثل "عميل حالي" أو "قائمة سوداء").<br>
+                                <strong>الفائدة:</strong> أي شخص في قائمة جهات اتصالك لديه إحدى هذه التسميات المحددة، لن يستقبل الرسالة الترحيبية التلقائية أبدًا، حتى لو تواصل معك لأول مرة. هذا يضمن أنك لا ترسل رسائل ترحيب لعملائك الدائمين عن طريق الخطأ.
+                            </p>
+                    
+                            <h4 id="video-welcome-message">فيديو شرح: الرسالة الترحيبية</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                        <div id="section5" class="help-section">
+                            <h2>القسم الخامس: رسالة المتابعة - أداتك الذكية لزيادة المبيعات</h2>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/6.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                    
+                            <p>هذا التبويب هو ورشة عملك لإعداد رسالة ذكية تُرسل للعملاء الذين تفاعلوا معك لكنهم لم
+                                يتخذوا قرار الشراء بعد. إنها فرصتك الثانية لتذكيرهم بمنتجك، تقديم عرض خاص، أو الإجابة
+                                على تردداتهم.</p>
+                            <h3 id="follow-up-content">إعداد محتوى الرسالة: نفس السهولة، هدف مختلف</h3>
+                            <p>إنشاء محتوى رسالة المتابعة يتبع نفس الخطوات السهلة والممتعة التي تعلمتها في قسم الرسالة
+                                الترحيبية. يمكنك:</p>
+                            <ul>
+                                <li>إضافة نصوص ومرفقات (صور، فيديوهات، ملفات).</li>
+                                <li>إرسال رسائل صوتية احترافية تظهر كأنها مسجلة للتو.</li>
+                                <li>استخدام متغير {name} لجعل الرسالة شخصية.</li>
+                                <li>ترتيب وحذف وتعديل عناصر التسلسل بالسحب والإفلات أو بالنقر بزر الماوس الأيمن.</li>
+                                <li>استخدام ميزة "🏷️ تجاهل التسميات" لتجنب إرسال المتابعة لعملاء معينين (مثلاً من لديهم
+                                    تسمية "تم الشراء").</li>
+                            </ul>
+                            <p>الفرق هنا يكمن في الهدف؛ فبدلاً من الترحيب، هدفك الآن هو الإقناع وإتمام الصفقة.</p>
+                    
+                    
+                    
+                            <h3 id="smart-timing">التحكم الذكي في توقيت الإرسال: هنا يكمن السحر</h3>
+                            <p>الجزء العلوي من هذا التبويب هو لوحة تحكمك الدقيقة لتوقيت إرسال المتابعة. لنستعرضها بذكاء:
+                            </p>
+                            <p><strong>تفعيل رسالة المتابعة:</strong><br>
+                                هذا هو مفتاح التشغيل الرئيسي. يجب عليك أولاً وضع علامة "صح" على "تفعيل رسالة المتابعة"
+                                لتنشيط كل الخيارات التالية.</p>
+                            <p><strong>ضبط مدة الانتظار:</strong><br>
+                                باستخدام حقلي الأيام والساعات، يمكنك تحديد المدة التي يجب على البوت انتظارها بعد إرسال
+                                الرسالة الترحيبية قبل أن تصبح المتابعة جاهزة للإرسال.<br>
+                                <strong>مثال:</strong> إذا وضعت يومين و 5 ساعات، فسيضع البوت هذا العميل في قائمة
+                                الانتظار لهذه المدة.
+                            </p>
+                            <p>والآن، كيف سترسل المتابعة؟ لديك طريقتان:</p>
+                            <h4>الطريقة الأولى: المتابعة العادية (ذكية وغير مزعجة)</h4>
+                            <p>هذه هي الطريقة التي تعمل عندما يكون خيار "تفعيل رسالة المتابعة" محددًا، ولكن خيار
+                                "تلقائية" غير محدد.</p>
+                            <p><strong>كيف تعمل؟</strong> حتى لو مرت مدة الانتظار التي حددتها (مثلاً، يومان)، فإن البوت
+                                لن يرسل أي شيء من تلقاء نفسه. لن يزعج العميل أبدًا، بل سينتظر بصمت.</p>
+                            <p><strong>متى يستيقظ البوت؟</strong> يستيقظ البوت ويرسل رسالة المتابعة فقط عندما يتخذ
+                                العميل الخطوة الأولى مجددًا، كأن يرسل لك رسالة أخرى (مثلاً "هل المنتج لازال متوفرًا؟")
+                                أو ينقر على إعلانك مرة أخرى.</p>
+                            <p><strong>مثال عملي:</strong> عميل تلقى رسالة ترحيب ولم يشترِ. بعد 3 أيام، عاد وسألك
+                                سؤالاً. هنا، بما أن مدة الانتظار قد مرت والعميل هو من بادر بالكلام مجددًا، سيقوم
+                                HeytsApp فورًا بإرسال رسالة المتابعة المُقنعة التي أعددتها، مما يزيد من فرصة إتمام البيع
+                                في اللحظة التي عاد فيها اهتمامه.</p>
+                            <h4>الطريقة الثانية: المتابعة التلقائية (استراتيجية ومُبادِرة)</h4>
+                            <p>هذه هي الطريقة التي تعمل عندما تضع علامة "صح" على خيار "تلقائية". أنت هنا تطلق العنان
+                                للقوة الحقيقية لـ HeytsApp.</p>
+                            <p><strong>كيف تعمل؟</strong> بعد انتهاء مدة الانتظار التي حددتها، سيقوم البوت تلقائيًا بفحص
+                                قائمة العملاء المنتظرين. إذا لم يقم العميل خلال هذه الفترة بأي عملية شراء، فسيقوم البوت
+                                بإرسال رسالة المتابعة له دون أي تدخل منك.</p>
+                            <p><strong>مثال عملي:</strong> عميل جديد تواصل معك اليوم وحصل على رسالة ترحيب. لقد ضبطت
+                                المتابعة التلقائية لتعمل بعد 3 أيام. إذا مرّت 3 أيام ولم يشترِ العميل، سيقوم HeytsApp في
+                                اليوم الثالث بإرسال رسالة المتابعة له التي قد تحتوي على عرض خاص أو تذكير، مما قد يحفزه
+                                على الشراء.</p>
+                    
+                    
+                            <h3 id="automatic-followup-date">ميزة احترافية: "📅 تاريخ المتابعة التلقائية"</h3>
+                            <p>هذه الميزة ليست مجرد مؤقت، بل هي بوابة تفعيل ذكية لحملات المتابعة التلقائية. هي تسمح لك بتحديد "خط بداية" زمني، لضمان أن المتابعات تُرسَل فقط للعملاء الذين يستحقونها ضمن إطار حملتك الجديدة.</p>
+                            <h4>كيف تعمل بالضبط؟</h4>
+                            <p>لكل عميل، يقوم البوت بحساب "تاريخ استحقاق المتابعة" الخاص به بناءً على المعادلة التالية: تاريخ استحقاق المتابعة = تاريخ إرسال الرسالة الترحيبية + مدة الانتظار (الأيام والساعات التي تحددها)</p>
+                            <p>عندما تحدد تاريخًا ووقتًا في هذه الميزة، فأنت تضع قاعدة واضحة للبوت: "لا تقم بإرسال رسالة متابعة تلقائية لأي عميل، إلا إذا كان تاريخ استحقاق متابعته المحسوب يأتي بعد تاريخ ووقت التفعيل الذي حددته هنا."</p>
+                            <p>لتوضيح الفكرة، إليك نفس السيناريو الذي ذكرته:</p>
+                            <ul>
+                                <li>مدة الانتظار للمتابعة: يومان (48 ساعة).</li>
+                                <li>تاريخ تفعيل المتابعة التلقائية المحدد: 1 يوليو.</li>
+                            </ul>
+                            <p><strong>مثال 1 (سيتم تجاهله):</strong></p>
+                            <ul>
+                                <li>عميل استلم الرسالة الترحيبية يوم 25 يونيو.</li>
+                                <li>تاريخ استحقاق متابعته هو 25 يونيو + يومان = 27 يونيو.</li>
+                                <li><strong>القرار:</strong> بما أن تاريخ استحقاقه (27 يونيو) يأتي قبل تاريخ التفعيل (1 يوليو)، فإن البوت سيتجاهل هذا العميل نهائيًا ولن يرسل له رسالة المتابعة.</li>
+                            </ul>
+                            <p><strong>مثال 2 (سيتم الإرسال):</strong></p>
+                            <ul>
+                                <li>عميل استلم الرسالة الترحيبية يوم 30 يونيو.</li>
+                                <li>تاريخ استحقاق متابعته هو 30 يونيو + يومان = 2 يوليو.</li>
+                                <li><strong>القرار:</strong> بما أن تاريخ استحقاقه (2 يوليو) يأتي بعد تاريخ التفعيل (1 يوليو)، فإن البوت سيقوم بإرسال رسالة المتابعة له في تاريخها المحدد، أي يوم 2 يوليو.</li>
+                            </ul>
+                            <p>إذًا، الفائدة الحقيقية لهذه الميزة هي إطلاق حملات متابعة جديدة ومنظمة. هي تضمن أن العملاء القدامى (الذين انتهت فترة متابعتهم قبل إطلاق حملتك) لن يتم إزعاجهم، بينما يتم التعامل مع العملاء الجدد أو الذين ما زالوا في فترة الانتظار بشكل صحيح بعد تاريخ التفعيل.</p>
+                            <p>⚠️ <strong>تحذير شديد اللهجة: تعامل مع هذه الميزة بمسؤولية!</strong></p>
+                            <p>هذه الأداة قوية جدًا ولكنها قد تكون خطيرة إذا أسيء استخدامها. الاستخدام الخاطئ لهذه الميزة هو السبب الأول الذي قد يؤدي إلى حظر رقمك.</p>
+                            <p><strong>السيناريو الخطير:</strong> تخيل أنك قمت بتعيين تاريخ البدء على تاريخ قديم بالخطأ (مثلاً، قبل شهر من الآن)، ولديك 1000 عميل في سجل الإرسال يستحقون المتابعة بعد هذا التاريخ.</p>
+                            <p><strong>ماذا سيحدث؟</strong> في لحظة تفعيلك لهذه القاعدة، سيقوم البوت بجدولة إرسال 1000 رسالة. ولمنع الحظر، تمت إضافة ميزة أمان جديدة تقوم بإضافة تأخير زمني عشوائي (بين 10 إلى 25 ثانية افتراضيًا) بين كل رسالة وأخرى. هذا يحول الإرسال من دفعة واحدة سريعة ومدمرة إلى إرسال متقطع وبطيء يحاكي السلوك البشري.</p>
+                            <p>ولكن، رغم أن ميزة الأمان الجديدة هذه تقلل من خطر الحظر بشكل كبير، إلا أن إطلاق عدد هائل من الرسائل بناءً على أمر واحد خاط منك يبقى سلوكًا يجب الحذر منه. أنت المسؤول الأول عن الإجراءات التي يتخذها البوت.</p>
+                            <p>لذا، يرجى التعامل مع هذه الميزة بحذر شديد والتأكد من التاريخ والوقت مرتين قبل الحفظ. تأكد دائمًا من أنك تختار تاريخًا ووقتًا في المستقبل.</p>
+                    
+                    
+                    
+                            <h4 id="video-follow-up">فيديو شرح: رسالة المتابعة</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                        <div id="section6" class="help-section">
+                            <h2>القسم السادس: تبويب الإعدادات - مركز التحكم الدقيق في البوت</h2>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/8.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                            <p>هذا التبويب لا يحتوي على رسائل، بل على أدوات قوية للتحكم والإدارة.</p>
+                            <h3 id="general-settings">1. إعدادات التشغيل والسلوك العام</h3>
+                            <p><strong>تشغيل تلقائي مع بدء تشغيل النظام:</strong><br>
+                                عند تفعيل هذا الخيار، سيبدأ HeytsApp بالعمل تلقائيًا فور تشغيلك لجهاز الكمبيوتر.<br>
+                                <strong>الفائدة:</strong> لا داعي لتذكر تشغيل البرنامج يدويًا كل يوم. إنه مفيد جدًا في
+                                حال انقطاع الكهرباء أو إعادة تشغيل الجهاز فجأة، حيث يضمن أن البوت سيعود للعمل مباشرة.
+                            </p>
+                            <p><strong>زر تشغيل/إيقاف البوت:</strong><br>
+                                هذا هو نفس زر التحكم الرئيسي الموجود في الواجهة، تم وضعه هنا لسهولة الوصول.</p>
+                            <p><strong>⏱️ ضبط أوقات الخمول التفصيلية:</strong><br>
+                                عند الضغط على هذا الزر، تفتح نافذة تتيح لك التحكم في سلوك البوت ليبدو طبيعيًا وإنسانيًا
+                                قدر الإمكان. يمكنك ضبط:</p>
+                            <ul>
+                                <li>التأخير قبل الرد: كم ثانية ينتظر البوت قبل إرسال الرسالة الترحيبية أو المتابعة.</li>
+                                <li>التأخير قبل أن يقرر ارسال الصوت.</li>
+                                <li>محاكاة "جاري الكتابة...": المدة التي تظهر فيها هذه الحالة للعميل قبل وصول الرسالة
+                                    النصية أو مرفق مع تعليق.</li>
+                                <li>محاكاة تسجيل الصوت: المدة التي تظهر فيها حالة "يسجل مقطعًا صوتيًا..." قبل إرسال
+                                    رسالتك الصوتية.</li>
+                                <li>الانتظار بين الرسائل: الفترة الفاصلة بين كل عنصر وآخر في تسلسل رسائلك.</li>
+                            </ul>
+                            <p><strong>الفائدة:</strong> هذه التفاصيل الدقيقة تجعل تجربة العميل طبيعية، وكأنه يتحدث مع
+                                شخص حقيقي، وليس مع بوت آلي سريع جدًا.</p>
+                            <p><strong>⚠️ نصيحة هامة لتفادي الحظر:</strong> استخدم هذه الإعدادات بحكمة وعقلانية. الهدف
+                                من إعدادات الخمول هو تجنب إرسال الرسائل بسرعة البرق. تذكر دائمًا أن إرسال عدد كبير من
+                                الرسائل بسرعة فائقة هو أحد الأسباب الرئيسية التي تعتبرها واتساب سلوكًا غير مرغوب فيه وقد
+                                تؤدي إلى حظر رقمك. إعداد فترات خمول واقعية (وتفادي جعل محاكاة الكتابة أو محاكاة تسجيل
+                                الصوت أطول) هو ما يفرق بين الاستخدام الآمن والاحترافي وبين خطر الحظر.</p>
+                    
+                    
+                            <h3 id="number-lists">2. إدارة قوائم الأرقام</h3>
+                            <p>هنا يمكنك التعامل مع قوائم أرقام الهواتف بشكل مسبق.</p>
+                            <p><strong>✍️ إضافة يدوية للمرحلة:</strong><br>
+                                هل لديك قائمة أرقام لعملاء حاليين وتريد أن تبدأ معهم حملة متابعة مباشرة؟ هذا هو
+                                خيارك.<br>
+                                يتيح لك إضافة قائمة أرقام (يدويًا، بالنسخ واللصق، أو من ملف Excel) وتعيينهم مباشرة إما
+                                لـ "مرحلة الترحيب" أو "مرحلة المتابعة".<br>
+                                <strong>مثال:</strong> لديك 100 رقم لعملاء لم يشتروا منذ فترة. يمكنك إضافتهم مباشرة إلى
+                                "مرحلة المتابعة"، وسيبدأ البوت في إرسال رسالة المتابعة لهم حسب الإعدادات التي ضبطتها.
+                            </p>
+                            <p><strong>🚫 قائمة الاستثناءات:</strong><br>
+                                هذه هي قائمتك الدائمة للأرقام التي لا تريد أن يتواصل معها البوت نهائيًا، بغض النظر عن أي
+                                شيء.<br>
+                                يمكنك إضافة الأرقام بنفس الطرق (يدويًا، لصق، أو ملف Excel)، كما يمكنك حذف أي رقم من
+                                القائمة في أي وقت.</p>
+                            <h3 id="logs-data">3. السجلات والبيانات</h3>
+                            <p><strong>📄 عرض سجل الإرسال:</strong><br>
+                                هذه ليست مجرد قائمة، بل نافذة تحليل متكاملة. عند فتحها، ستجد جدولاً بكل الأرقام التي
+                                تواصل معها البوت.<br>
+                                <strong>الألوان:</strong> الأرقام التي تلقت رسالة ترحيب تظهر باللون الأخضر، والتي تلقت
+                                رسالة متابعة باللون البرتقالي.<br>
+                                <strong>فلاتر وبحث:</strong> يمكنك فلترة السجل لعرض أرقام اليوم، الأمس، أو أي فترة
+                                تختارها، بالإضافة إلى صندوق بحث فوري للوصول لرقم أو اسم معين.<br>
+                                <strong>تحكم كامل:</strong> بالنقر على أي رقم، يمكنك حذفه من السجل، أو إعادة تعيينه
+                                لمرحلة سابقة.<br>
+                                <strong>تصدير مستقل:</strong> يمكنك تصدير قائمة أرقام الترحيب وحدها، أو قائمة أرقام
+                                المتابعة وحدها.<br>
+                                <strong>إجراءات جماعية:</strong> في الأسفل، توجد أزرار قوية لإعادة تعيين كل الأرقام إلى
+                                مرحلة الترحيب أو المتابعة دفعة واحدة، أو حتى حذف السجل بالكامل والبدء من جديد.
+                            </p>
+                            <p><strong>📤 تصدير الأرقام المحفوظة:</strong><br>
+                                زر سريع ومباشر يقوم بتصدير كل الأرقام الموجودة في "سجل الإرسال" (الترحيبية والمتابعة
+                                معًا) إلى ملف Excel واحد.</p>
+                            <h3 id="live-bot-log">4. سجل أحداث البوت المباشر</h3>
+                            <p>في أسفل الشاشة، ستجد صندوق نص يعرض لك كل ما يفعله البوت في الوقت الفعلي. ستجد فيه رسائل
+                                مثل: "تم تشغيل البوت"، "تم استلام رسالة جديدة من الرقم..."، "جاري إرسال التسلسل...". إنه
+                                يجعلك على اطلاع دائم بما يحدث في الكواليس.</p>
+                    
+                            <h4 id="video-settings">فيديو شرح: الإعدادات</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                        <div id="section7" class="help-section">
+                            <h2>القسم السابع: تفعيل البوت ومشاهدته وهو يعمل - الصورة الكاملة</h2>
+                            <div class="image-showcase animate-on-scroll fade-in-up">
+                                <img src="../img/11.jpg" alt="شرح توضيحي للخطوة">
+                            </div>
+                            <p>لقد قمت بإعداد رسائلك وضبط إعداداتك، والآن حان وقت إطلاق القوة الحقيقية لـ HeytsApp.</p>
+                            <h3 id="bot-activation-status">مفتاح التشغيل وحالة البوت</h3>
+                            <p><strong>زر التشغيل/الإيقاف:</strong><br>
+                                هذا هو مفتاح الإشعال. عندما تضغط عليه ويصبح لونه أخضر، فهذا يعني أن البوت قد بدأ في
+                                المراقبة الفعالة، وهو الآن ينتظر أي رسالة جديدة للتعامل معها فورًا حسب القواعد التي
+                                وضعتها.</p>
+                            <p><strong>حالة الاتصال:</strong><br>
+                                في تبويب "الرئيسية"، ستجد عبارة توضح حالة الاتصال. عندما ترى "🟢 البوت جاهز للعمل"، فهذا
+                                هو تأكيدك بأن كل شيء على ما يرام، والبرنامج متصل بحسابك في واتساب وجاهز لاستقبال الرسائل
+                                والرد عليها.</p>
+                            <p><strong>العمل في الخلفية بصمت:</strong><br>
+                                بمجرد أن يصبح البوت جاهزًا للعمل، ستلاحظ أن نافذة المتصفح التي استخدمتها لمسح الرمز في
+                                البداية قد تختفي. لا تقلق، فهذا طبيعي تمامًا. لقد انتقل البرنامج لمواصلة عمله بصمت في
+                                خلفية جهازك، مما يحرر شاشتك ويتيح لك التركيز على مهامك الأخرى.</p>
+                    
+                    
+                            <h3 id="customer-journey">رحلة العميل داخل نظام HeytsApp (خطوة بخطوة)</h3>
+                            <p>دعنا نلخص ما يحدث بالضبط منذ لحظة وصول رسالة من عميل جديد:</p>
+                            <ol>
+                                <li><strong>الخطوة 1: وصول رسالة جديدة</strong><br>عميل محتمل يرسل رسالة إلى رقمك في
+                                    واتساب.</li>
+                                <li><strong>الخطوة 2: الفحص الفوري (الحماية)</strong><br>قبل أي رد فعل، يقوم HeytsApp
+                                    أولاً بالتحقق من "🚫 قائمة الاستثناءات". إذا كان رقم العميل موجودًا في هذه القائمة،
+                                    سيتجاهله البوت تمامًا وينتهي كل شيء هنا.</li>
+                                <li><strong>الخطوة 3: الرسالة الترحيبية</strong><br>إذا لم يكن الرقم في قائمة
+                                    الاستثناءات، يتحقق البوت من "🏷️ تجاهل التسميات" الخاصة بالرسالة الترحيبية. إذا لم
+                                    يكن لدى العميل أي من هذه التسميات، يقوم البوت فورًا بإرسال "تسلسل الرسالة الترحيبية"
+                                    الكامل الذي أعددته.<br>الآن، أصبح هذا العميل مصنفًا في النظام على أنه "تم الترحيب
+                                    به".</li>
+                                <li><strong>الخطوة 4: مرحلة الانتظار</strong><br>يدخل العميل الآن في "فترة الانتظار"
+                                    التي حددتها في إعدادات رسالة المتابعة (مثلاً: 3 أيام).</li>
+                                <li><strong>الخطوة 5: قرار المتابعة الذكي</strong><br>بعد انتهاء فترة الانتظار، يقوم
+                                    البوت باتخاذ قرار بناءً على الوضع الذي اخترته:
+                                    <ul>
+                                        <li><strong>وضع المتابعة العادية:</strong> سينتظر البوت بصمت. لن يرسل شيئًا حتى
+                                            يقوم العميل نفسه بإرسال رسالة أخرى، عندها فقط سيرسل البوت رسالة المتابعة.
+                                        </li>
+                                        <li><strong>وضع المتابعة التلقائية:</strong> سيقوم البوت بالمبادرة. سيفحص ما إذا
+                                            كان العميل قد اشترى (أو حصل على تسمية متجاهلة). إذا لم يكن كذلك، فسيرسل له
+                                            تسلسل "رسالة المتابعة" تلقائيًا لإعادة استهدافه.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>الخطوة 6: التسجيل والانتهاء</strong><br>بمجرد إرسال رسالة المتابعة، تكتمل
+                                    دورة هذا العميل. ويتم تسجيل كل هذه الأحداث بدقة في "📄 سجل الإرسال" لتتمكن من
+                                    مراجعتها وتحليلها لاحقًا.</li>
+                            </ol>
+                            <p>وبهذه الطريقة، يعمل HeytsApp كنظام ذكي ومتكامل، يتخذ قرارات مدروسة بناءً على الإعدادات
+                                الدقيقة التي وضعتها أنت.</p>
+                            <p><strong>تهانينا!</strong> أنت الآن لا تعرف فقط كيفية استخدام كل ميزة على حدة، بل تفهم
+                                تمامًا كيف تعمل معًا لتحقيق أفضل النتائج لعملك.</p>
+                    
+                            <h4 id="video-customer-journey">فيديو شرح: رحلة العميل</h4>
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="شرح فيديو توضيحي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="max-width: 1240px;">
+            <div class="logo">
+                <img src="/img/LOGO_3.png" alt="HeytsApp Logo">
+            </div>
+            <div class="footer-links">
+                <a href="/help/">مركز المساعدة</a>
+                <a href="/privacy/">سياسة الخصوصية</a>
+                <a href="/Refund_Policy/">سياسة استرداد الأموال</a>
+                <a href="/contact/">اتصل بنا</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@HeytsApp" aria-label="Instagram" target="_blank"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://web.facebook.com/profile.php?id=61577249973061" aria-label="Facebook"
+                    target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/212" aria-label="Twitter" target="_blank"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="copyright">
+                <p>© 2025  – جميع الحقوق محفوظة | HeytsApp v1.0</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // --- Animation on Scroll ---
+            // 1. Animation on scroll (No changes)
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            if (window.IntersectionObserver) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                        }
-                    });
-                }, {
-                    threshold: 0.1
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
                 });
-                animatedElements.forEach(el => { observer.observe(el); });
-            } else {
-                animatedElements.forEach(el => el.classList.add('is-visible'));
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => { observer.observe(el); });
+
+            // ===================================================================
+            // 2. Main Navigation & Help Index Logic
+            // ===================================================================
+            const header = document.getElementById('header');
+            const helpIndexList = document.querySelector('.help-index-list');
+
+            // -- SHARED FUNCTIONS --
+            function scrollToSection(targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (!targetElement) return;
+                const headerHeight = header.offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - headerHeight - 20;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
 
-            // --- Mobile Menu ---
+            let isDesktopClickScrolling = false;
+            const onPageScroll = () => {
+                if (isDesktopClickScrolling) return;
+
+                const detectionLine = window.scrollY + header.offsetHeight + (window.innerHeight * 0.25);
+                let newActiveHref = '';
+                document.querySelectorAll('.help-section, .help-section h3[id], .help-section h4[id]').forEach(target => {
+                    if (target.offsetTop <= detectionLine) {
+                        newActiveHref = '#' + target.id;
+                    }
+                });
+
+                const allLinks = helpIndexList.querySelectorAll('a');
+                if (window.scrollY < 200 && allLinks.length > 0) {
+                    newActiveHref = allLinks[0].getAttribute('href');
+                }
+
+                allLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const parentLink = link.closest('.sub-menu')?.previousElementSibling;
+                    if (parentLink) parentLink.classList.remove('active');
+                });
+
+                allLinks.forEach(link => {
+                    if (link.getAttribute('href') === newActiveHref) {
+                        link.classList.add('active');
+                        const parentLink = link.closest('.sub-menu')?.previousElementSibling;
+                        if (parentLink) parentLink.classList.add('active');
+
+                        if (window.innerWidth > 992) {
+                            const sidebar = document.querySelector('.help-sidebar');
+                            const helpGrid = document.querySelector('.help-article-grid');
+                            if (!sidebar || !helpGrid) return;
+                            const sidebarRect = sidebar.getBoundingClientRect();
+                            const helpGridRect = helpGrid.getBoundingClientRect();
+                            const isSidebarAtBottom = sidebarRect.bottom.toFixed(0) >= helpGridRect.bottom.toFixed(0);
+                            if (!isSidebarAtBottom) {
+                                const linkRect = link.getBoundingClientRect();
+                                if (linkRect.top < sidebarRect.top || linkRect.bottom > sidebarRect.bottom) {
+                                    link.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', onPageScroll);
+            window.addEventListener('load', onPageScroll);
+
+            // --- VIEWPORT-SPECIFIC SETUP ---
+            if (window.innerWidth <= 992) {
+                // MOBILE SETUP
+                const trigger = document.getElementById('mobile-nav-trigger');
+                const menu = document.getElementById('mobile-nav-menu');
+                const closeBtn = document.getElementById('mobile-nav-close');
+                const mobileContent = document.getElementById('mobile-nav-content');
+                const mainHtml = document.documentElement;
+
+                if (helpIndexList) mobileContent.appendChild(helpIndexList);
+
+                const openMobileMenu = () => { menu.classList.add('is-open'); mainHtml.classList.add('menu-open'); };
+                const closeMobileMenu = () => { menu.classList.remove('is-open'); mainHtml.classList.remove('menu-open'); };
+
+                trigger.addEventListener('click', openMobileMenu);
+                closeBtn.addEventListener('click', closeMobileMenu);
+
+                mobileContent.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href');
+                        closeMobileMenu();
+                        setTimeout(() => scrollToSection(targetId), 250);
+                    });
+                });
+            } else {
+                // DESKTOP SETUP
+                let scrollTimeout;
+                helpIndexList.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        isDesktopClickScrolling = true;
+                        const targetId = this.getAttribute('href');
+
+                        // ** FIX: Manually and definitively set the active classes on click **
+                        helpIndexList.querySelectorAll('a').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        const parentLink = this.closest('.sub-menu')?.previousElementSibling;
+                        if (parentLink) parentLink.classList.add('active');
+
+                        // Scroll the containers
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        scrollToSection(targetId);
+
+                        // Release the scroll lock after a delay
+                        clearTimeout(scrollTimeout);
+                        scrollTimeout = setTimeout(() => {
+                            isDesktopClickScrolling = false;
+                        }, 900); // Increased timeout for safety
+                    });
+                });
+            }
+
+            // 3. Original Mobile Menu for main site navigation (No changes)
             const menuToggle = document.getElementById('mobile-menu-toggle');
             const mainNav = document.getElementById('main-nav');
-            const body = document.body;
-
             const overlay = document.createElement('div');
             overlay.className = 'nav-overlay';
-            body.appendChild(overlay);
+            document.body.appendChild(overlay);
 
             function toggleMenu() {
                 document.documentElement.classList.toggle('menu-open');
                 mainNav.classList.toggle('is-open');
                 overlay.classList.toggle('is-open');
             }
+            menuToggle.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu);
 
-            if (menuToggle) {
-                menuToggle.addEventListener('click', toggleMenu);
-            }
-
-            if (overlay) {
-                overlay.addEventListener('click', toggleMenu);
-            }
-
-            const menuNavLinks = document.querySelectorAll('.navbar .nav-link');
-            menuNavLinks.forEach(link => {
+            mainNav.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (mainNav.classList.contains('is-open')) {
-                        toggleMenu();
-                    }
+                    if (mainNav.classList.contains('is-open')) toggleMenu();
                 });
             });
-
         });
     </script>
+    <div class="mobile-nav-trigger" id="mobile-nav-trigger">
+        <i class="fas fa-book-open"></i>
+        <span>فهرس المحتوى</span>
+    </div>
+    
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <div class="mobile-nav-header">
+            <h4>فهرس المحتوى</h4>
+            <button class="mobile-nav-close" id="mobile-nav-close" aria-label="إغلاق">&times;</button>
+        </div>
+        <div class="mobile-nav-content" id="mobile-nav-content">
+        </div>
+    </div>
 </body>
 
 </html>
