@@ -411,9 +411,10 @@
         }
 
         .timeline-content-image {
-            padding: 0;
-            background-color: transparent;
-            box-shadow: var(--shadow-heavy);
+            background: transparent; /* جعل الخلفية شفافة */
+            padding: 0;              /* إزالة الحشو الداخلي الذي يسبب مساحة فارغة */
+            border: none;            /* إزالة الإطار (الكونتور) بشكل نهائي */
+            box-shadow: none;        /* إزالة الظل */
         }
 
         /* ODD items: text left, image right */
@@ -453,9 +454,8 @@
         .timeline-content img {
             width: 100%;
             display: block;
-            /* Ensures image fits container */
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
+            border-radius: 0; /* إلغاء استدارة الحواف */
+            border: none;     /* التأكيد على عدم وجود إطار على الصورة */
         }
 
         /* --- TIMELINE MODIFICATION END --- */
@@ -752,14 +752,14 @@
                                     الدليل على أن المستحيل ممكن.</p>
                             </div>
                             <div class="timeline-content timeline-content-image">
-                                <img src="/img/1.jpg" alt="النسخة الأولية من البرنامج">
+                                <img src="/img/about_1.png" alt="النسخة الأولية من البرنامج">
                             </div>
                         </div>
 
                         <div class="timeline-item animate-on-scroll fade-in-up">
                             <div class="timeline-icon"><i class="fas fa-cogs"></i></div>
                             <div class="timeline-content timeline-content-image">
-                                <img src="/img/3.jpg" alt="إضافة سجل الإرسال">
+                                <img src="/img/about_2.png" alt="إضافة سجل الإرسال">
                             </div>
                             <div class="timeline-content timeline-content-text">
                                 <h3>بناء القلعة: فوضى منظمة (مارس - أبريل 2025)</h3>
@@ -777,14 +777,14 @@
                                     {name}. تحول البرنامج من مجرد أداة إلى مساعد شخصي يفهم ما تريد.</p>
                             </div>
                             <div class="timeline-content timeline-content-image">
-                                <img src="/img/4.jpg" alt="واجهة التسلسل الجديدة">
+                                <img src="/img/about_3.png" alt="واجهة التسلسل الجديدة">
                             </div>
                         </div>
 
                         <div class="timeline-item animate-on-scroll fade-in-up">
                             <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
                             <div class="timeline-content timeline-content-image">
-                                <img src="/img/11.jpg" alt="البرنامج في إصداره الرسمي">
+                                <img src="/img/about_4.png" alt="البرنامج في إصداره الرسمي">
                             </div>
                             <div class="timeline-content timeline-content-text">
                                 <h3>الإطلاق الرسمي: سفينة الفضاء (يوليو 2025)</h3>
