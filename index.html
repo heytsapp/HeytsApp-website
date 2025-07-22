@@ -730,50 +730,102 @@
         |                                            |
         |     10. PRICING TABLE (RTL PERFECTED)      |
         |              (جدول الأسعار)                |
+        |           (تعديل ليناسب 4 بطاقات)           |
         |                                            |
         ==============================================
         */
+
+        /* إزالة القاعدة القديمة: لم نعد بحاجة لإخفاء البطاقة المجانية
+        تأكد من حذف هذه القاعدة إذا كانت موجودة:
+        #pricing.annual-view .free-plan-card { display: none; }
+        */
+
+        /* القاعدة الجديدة لشبكة الأسعار لجعلها مرنة */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            /* هذا هو السطر الأهم: يقوم بإنشاء أعمدة مرنة */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px; /* تقليل المسافة قليلًا بين البطاقات */
             align-items: center;
         }
 
         .pricing-card {
             background: var(--white-color);
             border-radius: var(--radius);
-            padding: 40px;
+            padding: 30px; /* تقليل الحشو الداخلي قليلًا لتصغير البطاقة */
             text-align: center;
             border: 2px solid var(--border-color);
             transition: all 0.3s ease;
             box-shadow: var(--shadow-light);
+            display: flex; /* يساعد على محاذاة المحتوى الداخلي بشكل أفضل */
+            flex-direction: column;
+            height: 100%; /* يجعل كل البطاقات بنفس الارتفاع */
         }
+
+        /* نجعل القائمة تأخذ المساحة المتاحة لتساعد في دفع الزر للأسفل */
+        .pricing-card ul {
+            flex-grow: 1; 
+        }
+
 
         .pricing-card:hover {
             transform: translateY(-10px);
         }
 
         .pricing-card.popular {
-            transform: scale(1.05);
-            border-color: var(--primary);
+            background-image: var(--gradient-primary); /* إضافة التدرج الأخضر للخلفية */
+            border-color: var(--primary-dark); /* تغيير لون الحدود إلى أخضر داكن */
+            transform: scale(1.05); /* زيادة حجم البطاقة قليلاً لجعلها أكثر بروزًا */
             box-shadow: var(--shadow-heavy);
         }
 
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05); /* الحفاظ على تأثير الرفع مع الحجم */
+        }
+
+        .pricing-card.popular h3,
+        .pricing-card.popular p,
+        .pricing-card.popular ul li,
+        .pricing-card.popular .plan-price,
+        .pricing-card.popular .plan-price span {
+            color: var(--white-color); /* جعل النصوص بيضاء */
+        }
+
+        .pricing-card.popular ul li i {
+            color: var(--white-color); /* جعل الأيقونات بيضاء */
+        }
+
+        .pricing-card.popular .popular-badge {
+            background-color: var(--white-color); /* خلفية الشعار الأبيض */
+            color: var(--primary-dark); /* نص الشعار الأخضر الداكن */
+        }
+
+        .pricing-card.popular .btn.btn-primary {
+            background-color: var(--white-color); /* خلفية زر أبيض */
+            color: var(--primary-dark); /* نص زر أخضر داكن */
+            border-color: var(--white-color); /* حدود زر بيضاء */
+        }
+
+        .pricing-card.popular .btn.btn-primary:hover {
+            background-color: #f0f0f0; /* تغيير طفيف عند المرور */
+        }
+
         .pricing-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem; /* تصغير حجم الخط قليلًا */
+            margin-bottom: 0.5rem;
         }
 
         /* --- START: 3D Flip Animation for Prices --- */
         .plan-price {
-            font-size: 2.5rem;
+            font-size: 2.2rem; /* تصغير حجم خط السعر قليلًا */
             font-weight: 800;
             color: var(--primary-dark);
-            margin: 20px 0;
-            perspective: 1000px; /* Creates the 3D space */
-            height: 50px; /* Set a fixed height for the container */
+            margin: 15px 0;
+            perspective: 1000px; 
+            height: 45px; /* تقليل ارتفاع حاوية السعر */
         }
 
+        /* (باقي كود flip animation يبقى كما هو) */
         .price-flipper {
             position: relative;
             width: 100%;
@@ -786,46 +838,40 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden; /* Hides the back of the card */
+            backface-visibility: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            line-height: 1;
         }
 
         .price-card-side span {
-            font-size: 1rem;
+            font-size: 0.9rem; /* تصغير خط "/شهريا" */
             font-weight: 500;
             color: #777;
             margin-right: 5px;
         }
 
         .price-back {
-            transform: rotateY(180deg); /* Pre-rotates the back side */
+            transform: rotateY(180deg);
         }
 
-        /* This is the magic: Flips the card when the toggle is active */
         #pricing.annual-view .price-flipper {
             transform: rotateY(180deg);
         }
         /* --- END: 3D Flip Animation --- */
 
-        .plan-price span {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #777;
-        }
 
         .pricing-card ul {
             list-style: none;
-            margin: 30px 0;
+            margin: 25px 0;
             text-align: right;
-            direction: rtl;
-            /* Ensure list items are RTL */
+            direction: rtl; 
         }
 
         .pricing-card ul li {
-            margin-bottom: 15px;
-            font-size: 1rem;
+            margin-bottom: 12px; /* تقليل المسافة بين الميزات */
+            font-size: 0.95rem; /* تصغير خط الميزات قليلًا */
             display: flex;
             align-items: center;
             gap: 10px;
@@ -1270,7 +1316,129 @@
             color: #bbb;
             text-decoration: none;
         }
+        /*
+        ==============================================
+        |                                            |
+        |   تنسيق بطاقات الأسعار النهائي والمصحح      |
+        |                                            |
+        ==============================================
+        */
 
+
+        /* إعادة البطاقة المجانية إلى شكلها الأساسي أولاً */
+        .free-plan-card {
+            background-color: var(--white-color) !important; 
+            border: 2px solid var(--primary) !important; /* إضافة إطار أخضر مميز */
+            transform: scale(1.03); /* تكبيرها قليلاً لتمييزها */
+        }
+
+        /* إعادة ألوان النصوص والأيقونات داخلها إلى اللون الأصلي */
+        .free-plan-card h3,
+        .free-plan-card p,
+        .free-plan-card ul li,
+        .free-plan-card .plan-price,
+        .free-plan-card .plan-price span {
+            color: var(--text-dark) !important;
+        }
+
+        .free-plan-card ul li i {
+            color: var(--primary) !important;
+        }
+
+        /* إعادة تنسيق الزر إلى الشكل الثانوي القياسي */
+        .free-plan-card .btn.btn-secondary {
+            background-color: transparent !important;
+            color: var(--primary) !important;
+            border-color: var(--primary) !important;
+        }
+
+        .free-plan-card .btn.btn-secondary:hover {
+            background-color: var(--primary) !important;
+            color: var(--white-color) !important;
+        }
+
+
+        /* --- 2. تنسيق الخطة الثنائية (الأكثر شيوعًا) بالألوان المعكوسة --- */
+
+        .pricing-card.popular {
+            background-image: var(--gradient-primary) !important; /* الخلفية الخضراء المميزة */
+            border-color: var(--primary-dark) !important;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        /* عكس ألوان النصوص والأيقونات لتصبح بيضاء */
+        .pricing-card.popular h3,
+        .pricing-card.popular p,
+        .pricing-card.popular ul li,
+        .pricing-card.popular .plan-price,
+        .pricing-card.popular .plan-price span {
+            color: var(--white-color) !important;
+        }
+
+        .pricing-card.popular ul li i {
+            color: var(--white-color) !important;
+        }
+
+        /* تنسيق شارة "الأكثر شيوعًا" */
+        .pricing-card.popular .popular-badge {
+            background-color: var(--white-color);
+            color: var(--primary-dark);
+        }
+
+        /* --- تعديل زر الخطة الثنائية (الأكثر شيوعًا) --- */
+
+        .pricing-card.popular .btn.btn-primary {
+            background-image: none !important;      /* <-- السطر الجديد والمهم لإزالة التدرج اللوني */
+            background-color: var(--white-color) !important; /* خلفية الزر البيضاء */
+            color: var(--primary-dark) !important;   /* لون النص الأخضر الداكن */
+            border-color: var(--white-color) !important;     /* لون الإطار الأبيض */
+        }
+
+        /* تعديل تأثير المرور (hover) ليتناسب مع التصميم الجديد */
+        .pricing-card.popular .btn.btn-primary:hover {
+            background-color: #f0f0f0 !important; /* تغيير طفيف في لون الخلفية عند المرور */
+            color: var(--dark) !important;
+        }
+        /*
+        ==============================================
+        |                                            |
+        |   تصميم شارة "الأكثر شيوعًا" بشكل مبتكر      |
+        |                                            |
+        ==============================================
+        */
+
+        /* --- 1. تهيئة البطاقة الحاضنة للشريط --- */
+        .pricing-card.popular {
+            position: relative; /* ضروري لتثبيت الشريط بالنسبة للبطاقة */
+            overflow: hidden;   /* ضروري لإخفاء أجزاء الشريط الزائدة خارج البطاقة */
+            padding-top: 65px; /* ✅ السطر الجديد: لدفع المحتوى للأسفل */
+
+        }
+
+        /* --- 2. تصميم شريط الزاوية نفسه --- */
+        .popular-badge {
+            position: absolute;
+            top: 25px;       /* المسافة من الأعلى */
+            right: -55px;      /* المسافة من اليمين (بالسالب لإخراجه خارج الحدود) */
+            width: 200px;      /* عرض الشريط، يجب أن يكون كافيًا ليغطي الزاوية */
+            
+            transform: rotate(45deg); /* أهم خاصية: لتدوير الشريط بزاوية 45 درجة */
+            
+            /* تنسيقات جمالية */
+            background-color: var(--white-color);
+            color: var(--primary-dark);
+            padding: 8px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 10; /* لضمان ظهوره فوق أي عناصر أخرى */
+        }
         /*
         ==============================================
         |                                            |
@@ -1540,6 +1708,37 @@
             /* تقليل الحشو الداخلي للزر */
             font-size: 0.9rem;
             /* تصغير حجم الخط قليلاً */
+        }
+        /*
+        ==============================================
+        |                                            |
+        |   محاذاة المحتوى الداخلي لبطاقات الأسعار     |
+        |                                            |
+        ==============================================
+        */
+
+        /* 1. تطبيق Flexbox على البطاقة لجعلها الحاوية الرئيسية */
+        .pricing-card {
+            display: flex;
+            flex-direction: column; /* ترتيب العناصر بشكل عمودي */
+            height: 100%;
+        }
+
+        /* 2. جعل قائمة الميزات تتمدد لملء الفراغ */
+        .pricing-card ul {
+            flex-grow: 1; /* هذا هو الجزء الأهم: يجبر القائمة على التمدد ودفع الزر إلى الأسفل */
+        }
+
+        /* 3. (اختياري ولكنه يحسن الشكل) توحيد ارتفاع منطقة العنوان والوصف */
+        .pricing-card h3 {
+            min-height: 50px; /* يضمن أن العناوين الطويلة والقصيرة تأخذ نفس المساحة */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pricing-card p.text-light {
+            min-height: 70px; /* يضمن أن نصوص الوصف تأخذ نفس المساحة */
         }
        /*
         ==============================================
@@ -2041,91 +2240,104 @@
         </section>
     </main>
 
-    <section id="pricing" class="section section-bg">
-        <div class="container">
-            <div class="section-title fade-in-up animate-on-scroll">
-                <span class="section-tagline">خطط أسعار مرنة</span>
-                <h2>استثمار بسيط لنمو كبير في عملك</h2>
-                <p>اختر الباقة التي تلبي احتياجاتك اليوم، سواء بالدفع الشهري أو السنوي مع توفير كبير.</p>
+
+<section id="pricing" class="section section-bg">
+    <div class="container">
+        <div class="section-title fade-in-up animate-on-scroll">
+            <span class="section-tagline">خطط أسعار مرنة</span>
+            <h2>استثمار بسيط لنمو كبير في عملك</h2>
+            <p>اختر الباقة التي تلبي احتياجاتك اليوم، سواء بالدفع الشهري أو السنوي مع توفير كبير.</p>
+        </div>
+
+        <div class="pricing-toggle-pills fade-in-up animate-on-scroll">
+            <div class="toggle-highlighter"></div>
+            <button class="toggle-option active" data-period="monthly">شهري</button>
+            <button class="toggle-option" data-period="annual">سنوي <span class="save-badge">وفر 20%</span></button>
+        </div>
+
+        <div class="pricing-grid">
+
+            <!-- الخطة المجانية -->
+            <div class="pricing-card free-plan-card fade-in-up animate-on-scroll">
+                <h3>الخطة المجانية</h3>
+                <p class="text-light">لبداية آمنة وتجربة كاملة بدون التزام</p>
+                <div class="plan-price">
+                    <div class="price-card-side price-front" style="position: static; backface-visibility: visible;">0
+                        $ <span>/لمدة 7 أيام</span></div>
+                </div>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
+                    <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                </ul>
+                <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">جربها مجاناً</a>
             </div>
-    
-            <div class="pricing-toggle-pills fade-in-up animate-on-scroll">
-                <div class="toggle-highlighter"></div>
-                <button class="toggle-option active" data-period="monthly">شهري</button>
-                <button class="toggle-option" data-period="annual">سنوي <span class="save-badge">وفر 30%</span></button>
+
+            <!-- الخطة الفردية -->
+            <div class="pricing-card fade-in-up animate-on-scroll">
+                <h3>الخطة الفردية</h3>
+                <p class="text-light">مثالية لمن يدير مشروعًا واحدًا</p>
+                <div class="plan-price">
+                    <div class="price-flipper">
+                        <div class="price-card-side price-front">3 $ <span>/شهريا</span></div>
+                        <div class="price-card-side price-back">28 $ <span>/سنويا</span></div>
+                    </div>
+                </div>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
+                    <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                </ul>
+                <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
             </div>
-    
-            <div class="pricing-grid">
-                <div class="pricing-card fade-in-up animate-on-scroll" style="transition-delay: 0.1s;">
-                    <h3>الخطة الأساسية</h3>
-                    <p class="text-light">مثالية للأفراد والأنشطة الصغيرة</p>
-                    <div class="plan-price">
-                        <div class="price-flipper">
-                            <div class="price-card-side price-front">$3 <span>/شهريا</span></div>
-                            <div class="price-card-side price-back">$25 <span>/سنويا</span></div>
-                        </div>
+
+            <!-- الخطة الثنائية -->
+            <div class="pricing-card popular fade-in-up animate-on-scroll">
+                <div class="popular-badge">الأكثر شيوعًا</div>
+                <h3>الخطة الثنائية</h3>
+                <p class="text-light">أفضل لمن يدير عدة أرقام في عمله</p>
+                <div class="plan-price">
+                    <div class="price-flipper">
+                        <div class="price-card-side price-front">5 $ <span>/شهريا</span></div>
+                        <div class="price-card-side price-back">48 $ <span>/سنويا</span></div>
                     </div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
-                        <li><i class="fas fa-check-circle"></i>إدارة حساب واتساب واحد</li>
-                        <li><i class="fas fa-check-circle"></i>ردود تلقائية (ترحيب + متابعة)</li>
-                        <li><i class="fas fa-check-circle"></i>دعم كامل للمرفقات</li>
-                        <li><i class="fas fa-check-circle"></i>دعم فني عبر البريد الإلكتروني</li>
-                    </ul>
-                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">ابدأ تجربتك
-                        المجانية</a>
                 </div>
-    
-                <div class="pricing-card popular fade-in-up animate-on-scroll">
-                    <div class="popular-badge">الأكثر شيوعًا</div>
-                    <h3>الخطة الإحترافية</h3>
-                    <p class="text-light">للشركات النامية والمسوقين</p>
-                    <div class="plan-price">
-                        <div class="price-flipper">
-                            <div class="price-card-side price-front">$5 <span>/شهريا</span></div>
-                            <div class="price-card-side price-back">$42 <span>/سنويا</span></div>
-                        </div>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 3 حسابات واتساب</li>
+                    <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                </ul>
+                <a href="https://HeytsApp.com/download/" class="btn btn-primary pricing-button">اشترك الآن</a>
+            </div>
+
+            <!-- الخطة الشاملة -->
+            <div class="pricing-card fade-in-up animate-on-scroll">
+                <h3>الخطة الشاملة</h3>
+                <p class="text-light">خيار مثالي للفرق أو الوكالات التجارية</p>
+                <div class="plan-price">
+                    <div class="price-flipper">
+                        <div class="price-card-side price-front">9 $ <span>/شهريا</span></div>
+                        <div class="price-card-side price-back">85 $ <span>/سنويا</span></div>
                     </div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i>ترخيص لجهازين اثنين</li>
-                        <li><i class="fas fa-check-circle"></i>إدارة حسابين واتساب</li>
-                        <li><i class="fas fa-check-circle"></i>جميع مزايا الخطة الأساسية</li>
-                        <li><i class="fas fa-check-circle"></i>حفظ وإعادة استخدام القوالب</li>
-                        <li><i class="fas fa-check-circle"></i>دعم فني فوري</li>
-                    </ul>
-                    <a href="https://HeytsApp.com/download/" class="btn btn-primary pricing-button">ابدأ تجربتك المجانية</a>
                 </div>
-    
-                <div class="pricing-card fade-in-up animate-on-scroll" style="transition-delay: 0.3s;">
-                    <h3>خطة الشركات</h3>
-                    <p class="text-light">حلول متكاملة للفرق الكبيرة</p>
-                    <div class="plan-price">
-                        <div class="price-flipper">
-                            <div class="price-card-side price-front">$7 <span>/شهريا</span></div>
-                            <div class="price-card-side price-back">$58 <span>/سنويا</span></div>
-                        </div>
-                    </div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i>ترخيص لخمسة أجهزة</li>
-                        <li><i class="fas fa-check-circle"></i>إدارة 5 حسابات واتساب</li>
-                        <li><i class="fas fa-check-circle"></i>جميع مزايا الخطة الاحترافية</li>
-                        <li><i class="fas fa-check-circle"></i>تقارير أداء متقدمة</li>
-                        <li><i class="fas fa-check-circle"></i>جلسة تدريبية للفريق</li>
-                    </ul>
-                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">ابدأ تجربتك
-                        المجانية</a>
-                </div>
-                
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> حتى 5 حسابات واتساب</li>
+                    <li><i class="fas fa-check-circle"></i> ترخيص على جهازين</li>
+                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                </ul>
+                <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
             </div>
         </div>
+
         <div class="container fade-in-up animate-on-scroll" style="text-align: center; margin-top: 60px;">
             <p style="max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
-                <strong style="color: var(--primary-dark);">لماذا الاشتراك وليس الدفع لمرة واحدة؟</strong><br>
-                نظرًا لتحديثات واتساب المستمرة، يتطلب برنامجنا صيانة وتطويراً دورياً لضمان عمله بكفاءة دائمة. اشتراكك يضمن لك
-                الحصول على أحدث التحديثات والتحسينات، ودعم فني متواصل، مما يحافظ على فعالية أدواتك التسويقية دون انقطاع.
+                <strong style="color: var(--primary-dark);">جميع الخطط تحتوي على كل الميزات. الاختلاف فقط في عدد
+                    الحسابات والأجهزة المدعومة.</strong><br>
+                ابدأ بالخطة التي تناسب حجم نشاطك التجاري وابدأ اليوم.
             </p>
         </div>
-        </section>
+    </div>
+</section>
 
 
 
@@ -2415,11 +2627,15 @@
                     </div>
 
                     <div class="faq-item">
-                        <button class="faq-question">هل يمكن إيقاف الحملة أو تعديلها أثناء الإرسال؟<span class="icon"></span></button>
+                        <button class="faq-question">هل يوجد دفع لمرة واحدة؟<span class="icon"></span></button>
                         <div class="faq-answer">
-                            <p>نعم، لديك حرية كاملة. يمكنك إيقاف الحملة مؤقتًا، تعديل محتواها، استئنافها لاحقًا، أو إلغاؤها نهائيًا متى شئت.</p>
+                            <p>لا، لأن البرنامج يعتمد على تحديثات مستمرة لمواكبة تغييرات واتساب. الاشتراك يضمن لك عمل البرنامج دائمًا
+                                بكفاءة، مع دعم فني وتطوير متواصل.</p>
                         </div>
                     </div>
+
+
+
 
                     <div class="faq-item">
                         <button class="faq-question">ماذا يحدث عند انتهاء الاشتراك؟<span class="icon"></span></button>
