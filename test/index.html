@@ -1,0 +1,3185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "sjometrg4h");
+    </script>
+
+    
+        <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBFJ5VYPCK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-MBFJ5VYPCK');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeytsApp – الحل الشامل لأتمتة واتساب وزيادة المبيعات</title>
+    <meta name="description"
+        content="حوّل واتساب إلى آلة مبيعات ذكية مع HeytsApp. ردود تلقائية، متابعة ذكية، إدارة حسابات متعددة، وإحصائيات دقيقة لنمو أعمالك.">
+
+    <link rel="icon" type="image/x-icon" href="img/icon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /*
+        ==============================================
+        |                                            |
+        |       1. GLOBAL STYLES & HeytsApp COLORS   |
+        |       (الأنماط العامة وألوان هايتسآب)        |
+        |                                            |
+        ==============================================
+        */
+
+        :root {
+            /* HeytsApp Official Color Palette from your index.html */
+            --primary: #3bae5e;
+            --primary-dark: #2a8c4a;
+            --dark: #0c2d32;
+            --mid-navy: #0c2d32;
+            /* Kept for gradients */
+            --light-bg: #f4f9f5;
+            --white-color: #FFFFFF;
+            --text-dark: #0c2d32;
+            --text-light: #556a6e;
+            --border-color: #e9eef2;
+            --stars-color: #FFD700;
+
+            /* Shadows & Effects */
+            --radius: 12px;
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
+            --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.1);
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #0c2d32 100%);
+        }
+
+        /* Basic Reset - إعادة تعيين أساسية */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            /* <--- أضف هذا السطر المهم جداً */
+
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--white-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.8;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        /* Main Container */
+        .container {
+            width: 100%;
+            max-width: 1240px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-tagline {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Buttons Styling */
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            user-select: none;
+        }
+
+        .btn-primary {
+            color: var(--white-color);
+            background-image: var(--gradient-primary);
+            background-size: 200% auto;
+            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4);
+            background-position: right center;
+        }
+
+        .btn-secondary {
+            color: var(--primary);
+            background-color: transparent;
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            color: var(--white-color);
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* General Section Styling */
+        .section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-bg {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |           2. JAVASCRIPT ANIMATIONS         |
+        |          (تأثيرات الحركة بالجافا)           |
+        |                                            |
+        ==============================================
+        */
+
+        /* Initial states for scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up {
+            transform: translateY(50px);
+        }
+
+        .fade-in-down {
+            transform: translateY(-50px);
+        }
+
+        .slide-in-right {
+            transform: translateX(-100px);
+        }
+
+        .slide-in-left {
+            transform: translateX(100px);
+        }
+
+        /* The state when the element is visible */
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* Mask Reveal Animation for Images */
+        .reveal-mask {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+
+        .reveal-mask::after {
+            display: none;
+            /* <--- أضف هذا السطر لإخفاء الطبقة الملونة */
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transform: scaleX(1);
+            transform-origin: right;
+            transition: transform 1.2s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .is-visible .reveal-mask::after {
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        .reveal-mask img {
+            opacity: 1;
+            /* <--- هذا هو التعديل الوحيد المطلوب */
+            transition: opacity 0.1s 0.5s;
+        }
+
+        .is-visible .reveal-mask img {
+            opacity: 1;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |               3. HEADER                    |
+        |                 (الشريط العلوي)              |
+        |                                            |
+        ==============================================
+        */
+        .header {
+            position: fixed;
+            /* تغيير sticky إلى fixed لضمان الثبات المطلق */
+            top: 0;
+            left: 0;
+            /* إضافة لضمان المحاذاة الصحيحة */
+            right: 0;
+            /* إضافة لضمان المحاذاة الصحيحة */
+            z-index: 1000;
+            width: 100%;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid transparent;
+        }
+
+        main {
+            padding-top: 85px;
+            /* قيمة تقريبية لارتفاع الهيدر */
+        }
+
+        .header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-medium);
+            border-bottom-color: var(--border-color);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            transition: transform .3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            /* Reduced gap for more items */
+        }
+
+        .navbar ul li a {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--primary);
+        }
+
+        .navbar ul li a.active {
+            color: var(--primary);
+        }
+
+        /* --- New Animated Underline for Active Nav Link --- */
+
+        /* This sets up the base line for all links, but keeps it hidden (width: 0) */
+        .navbar ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            /* يبدأ بعرض صفر (مخفي) */
+            height: 3px;
+            /* سمك الخط */
+            background-color: var(--primary);
+            bottom: 0;
+            right: 0;
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            /* حركة ناعمة لتغيير العرض */
+        }
+
+        /* When a link becomes active, this rule makes the line expand to full width */
+        .navbar ul li a.active::after {
+            width: 100%;
+            /* يتم شحن الخط ليملأ 100% من عرض الرابط */
+        }
+
+        /* --- Styling for the special 'Help' link --- */
+        .special-link {
+            padding: 6px 18px !important;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            color: var(--primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .special-link:hover {
+            background-color: var(--primary);
+            color: var(--white-color) !important;
+        }
+
+        /* To remove the animated underline from the special link */
+        .special-link::after {
+            display: none !important;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |               4. HERO SECTION              |
+        |                  (القسم الرئيسي)             |
+        |                                            |
+        ==============================================
+        */
+        .hero {
+            padding: 120px 0;
+            background-image: var(--gradient-dark);
+            color: var(--white-color);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-content h1 {
+            color: var(--white-color);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+        }
+
+        .hero-content h1 .highlight {
+            background-image: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding: 0 5px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-image {
+            perspective: 1500px;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius);
+            /* box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);*/ 
+            transform: rotateY(-20deg) rotateX(10deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: rotateY(0) rotateX(0);
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |         5. DETAILED FEATURE SPOTLIGHT      |
+        |            (شرح المميزات بالتفصيل)          |
+        |                                            |
+        ==============================================
+        */
+        .feature-spotlight {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            /* Give text slightly more space */
+            align-items: center;
+            gap: 80px;
+        }
+
+        .feature-spotlight-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .feature-spotlight-content h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2rem;
+        }
+
+        .feature-spotlight-content h3 .icon {
+            color: var(--primary);
+        }
+
+        .feature-spotlight-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        .feature-spotlight-content ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .feature-spotlight-content ul i {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 5px;
+        }
+
+        /* Alternating layout for variety */
+        .feature-spotlight.alt-layout {
+            direction: ltr;
+        }
+
+        .feature-spotlight.alt-layout .feature-spotlight-content {
+            direction: rtl;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |          6. CLIENT LOGOS SECTION           |
+        |                  (قسم العملاء)               |
+        |                                            |
+        ==============================================
+        */
+
+        /* --- 1. أولاً، ننسق القسم الرئيسي --- */
+        .clients-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* --- 2. ثانياً، نجعل الحاوية (.container) مركزية وقوية (هذا هو التغيير الأهم) --- */
+        .clients-section .container {
+            display: flex;
+            flex-direction: column;
+            /* لوضع العنوان فوق شبكة الأيقونات */
+            align-items: center;
+            /* هذا السطر يجبر كل شيء على التوسيط أفقيًا */
+        }
+
+        /* --- 3. ثالثًا، تنسيق شبكة الأيقونات نفسها --- */
+        .clients-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-top: 20px;
+            /* لإضافة مسافة تحت العنوان */
+            /* لم نعد بحاجة إلى margin: 0 auto; هنا لأن الأب يقوم بالتوسيط */
+        }
+
+        /* --- 4. رابعًا، تنسيق الصور داخل الشبكة --- */
+        .clients-grid img {
+            height: 40px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+            margin: 0;
+            /* نتأكد من عدم وجود هوامش قديمة */
+        }
+
+        .clients-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |       7. 'HOW IT WORKS' (NEW DESIGN)       |
+        |           (قسم "كيف يعمل" - تصميم جديد)      |
+        |                                            |
+        ==============================================
+        */
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-step-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .process-step-content .step-number {
+            display: inline-block;
+            background-image: var(--gradient-primary);
+            color: var(--white-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.8rem;
+        }
+
+        .process-step:nth-child(even) .process-step-image {
+            order: 2;
+        }
+
+        .process-step:nth-child(even) .process-step-content {
+            order: 1;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |           8. BEFORE & AFTER SECTION        |
+        |                (قسم قبل وبعد)              |
+        |                                            |
+        ==============================================
+        */
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+        }
+
+        .comparison-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .comparison-card.before {
+            border-color: #ff8a80;
+        }
+
+        .comparison-card.before h3 {
+            color: #c62828;
+        }
+
+        .comparison-card.before i {
+            color: #c62828;
+        }
+
+        .comparison-card.after {
+            border-color: var(--primary);
+        }
+
+        .comparison-card.after h3 {
+            color: var(--primary-dark);
+        }
+
+        .comparison-card.after i {
+            color: var(--primary);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .comparison-card ul li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |             9. STATS SECTION               |
+        |                 (قسم الإحصائيات)             |
+        |                                            |
+        ==============================================
+        */
+        /* --- Enhanced Stats Section with Faint Background Image --- */
+        /* --- Enhanced Stats Section with Correct Background Size --- */
+        .stats-section {
+            /* ... (background-image and other properties remain the same) ... */
+            background-image: linear-gradient(rgba(12, 45, 50, 0.98), rgba(12, 45, 50, 0.98)), url('img/Capture d’écran 2025-06-12 155454.jpg');
+
+            background-size: 100% auto;
+            /* <-- هذا هو التعديل الوحيد المطلوب */
+
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white-color);
+            margin-bottom: 5px;
+            font-weight: 900;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |          NEW: Countdown Banner Styles      |
+        |           (تنسيقات شريط العد التنازلي)       |
+        |                                            |
+        ==============================================
+        */
+        .countdown-banner {
+            background-image: var(--gradient-dark); /* خلفية مشابهة لقسم الأبطال أو الهيدر */
+            color: var(--white-color);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 50px; /* مسافة بين الشريط ومحول الأسعار */
+            box-shadow: var(--shadow-medium);
+        }
+
+        .countdown-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .countdown-banner p:last-child {
+            margin-bottom: 0; /* إزالة الهامش السفلي من الفقرة الأخيرة */
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .countdown-banner strong {
+            color: var(--primary); /* استخدام اللون الأساسي للأبرز */
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* مسافة بين عناصر العد التنازلي */
+            margin-bottom: 25px;
+            flex-wrap: wrap; /* للسماح بالعناصر بالنزول لسطر جديد في الشاشات الصغيرة */
+            direction: ltr; /* هذا السطر هو المهم: لعكس اتجاه العرض من اليسار لليمين بصريًا */
+        }
+
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة لعناصر العد */
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            min-width: 90px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem; /* حجم كبير للأرقام */
+            font-weight: 900;
+            color: var(--white-color);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem; /* حجم أصغر للتسميات (أيام، ساعات) */
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        /* responsive for countdown */
+        @media (max-width: 480px) {
+            .countdown-item {
+                padding: 10px 15px;
+                min-width: 70px;
+            }
+            .countdown-value {
+                font-size: 2rem;
+            }
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            .countdown-banner p {
+                font-size: 1rem;
+            }
+            .countdown-banner p.offer-guarantee {
+                font-size: 0.9rem;
+            }
+        }
+        /*
+        ==============================================
+        |                                            |
+        |     10. PRICING TABLE (RTL PERFECTED)      |
+        |              (جدول الأسعار)                |
+        |           (تعديل ليناسب 4 بطاقات)           |
+        |                                            |
+        ==============================================
+        */
+
+        /* إزالة القاعدة القديمة: لم نعد بحاجة لإخفاء البطاقة المجانية
+        تأكد من حذف هذه القاعدة إذا كانت موجودة:
+        #pricing.annual-view .free-plan-card { display: none; }
+        */
+
+        /* القاعدة الجديدة لشبكة الأسعار لجعلها مرنة */
+        .pricing-grid {
+            display: grid;
+            /* هذا هو السطر الأهم: يقوم بإنشاء أعمدة مرنة */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px; /* تقليل المسافة قليلًا بين البطاقات */
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--white-color);
+            border-radius: var(--radius);
+            padding: 30px; /* تقليل الحشو الداخلي قليلًا لتصغير البطاقة */
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+            display: flex; /* يساعد على محاذاة المحتوى الداخلي بشكل أفضل */
+            flex-direction: column;
+            height: 100%; /* يجعل كل البطاقات بنفس الارتفاع */
+        }
+
+        /* نجعل القائمة تأخذ المساحة المتاحة لتساعد في دفع الزر للأسفل */
+        .pricing-card ul {
+            flex-grow: 1; 
+        }
+
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            background-image: var(--gradient-primary); /* إضافة التدرج الأخضر للخلفية */
+            border-color: var(--primary-dark); /* تغيير لون الحدود إلى أخضر داكن */
+            transform: scale(1.05); /* زيادة حجم البطاقة قليلاً لجعلها أكثر بروزًا */
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05); /* الحفاظ على تأثير الرفع مع الحجم */
+        }
+
+        .pricing-card.popular h3,
+        .pricing-card.popular p,
+        .pricing-card.popular ul li,
+        .pricing-card.popular .plan-price,
+        .pricing-card.popular .plan-price span {
+            color: var(--white-color); /* جعل النصوص بيضاء */
+        }
+
+        .pricing-card.popular ul li i {
+            color: var(--white-color); /* جعل الأيقونات بيضاء */
+        }
+
+        .pricing-card.popular .popular-badge {
+            background-color: var(--white-color); /* خلفية الشعار الأبيض */
+            color: var(--primary-dark); /* نص الشعار الأخضر الداكن */
+        }
+
+        .pricing-card.popular .btn.btn-primary {
+            background-color: var(--white-color); /* خلفية زر أبيض */
+            color: var(--primary-dark); /* نص زر أخضر داكن */
+            border-color: var(--white-color); /* حدود زر بيضاء */
+        }
+
+        .pricing-card.popular .btn.btn-primary:hover {
+            background-color: #f0f0f0; /* تغيير طفيف عند المرور */
+        }
+
+        .pricing-card h3 {
+            font-size: 1.4rem; /* تصغير حجم الخط قليلًا */
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- START: 3D Flip Animation for Prices --- */
+        .plan-price {
+            font-size: 2.2rem; /* تصغير حجم خط السعر قليلًا */
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 15px 0;
+            perspective: 1000px; 
+            height: 45px; /* تقليل ارتفاع حاوية السعر */
+        }
+
+        /* (باقي كود flip animation يبقى كما هو) */
+        .price-flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .price-card-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .price-card-side span {
+            font-size: 0.9rem; /* تصغير خط "/شهريا" */
+            font-weight: 500;
+            color: #777;
+            margin-right: 5px;
+        }
+
+        .price-back {
+            transform: rotateY(180deg);
+        }
+
+        #pricing.annual-view .price-flipper {
+            transform: rotateY(180deg);
+        }
+        /* --- END: 3D Flip Animation --- */
+
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 25px 0;
+            text-align: right;
+            direction: rtl; 
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 12px; /* تقليل المسافة بين الميزات */
+            font-size: 0.95rem; /* تصغير خط الميزات قليلًا */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .pricing-card ul li i.fa-times-circle {
+            color: #ccc;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |        10. TESTIMONIALS SECTION            |
+        |              (قسم آراء العملاء)             |
+        |                                            |
+        ==============================================
+        */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white-color);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+        }
+
+        .testimonial-card .stars {
+            color: var(--stars-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-card .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        /* --- START: New Testimonial Slider Styles --- */
+        .testimonial-slider-wrapper {
+            position: relative;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto; /* Enables horizontal scrolling */
+            padding: 20px 10px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory; /* Makes the scroll snap to elements */
+            -ms-overflow-style: none;  /* Hides scrollbar on IE and Edge */
+            scrollbar-width: none;  /* Hides scrollbar on Firefox */
+        }
+
+        /* Hides scrollbar on Chrome, Safari and Opera */
+        .testimonial-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-slider .testimonial-card {
+            flex: 0 0 350px; /* Each card has a fixed width and doesn't shrink */
+            scroll-snap-align: center; /* Snaps each card to the center */
+            transform: scale(0.95);
+            opacity: 0.7;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Optional: Make the centered card slightly larger and more opaque */
+        .testimonial-slider .testimonial-card:first-child,
+        .testimonial-slider .testimonial-card:last-child {
+            /* You can add special styles for first/last if needed */
+        }
+
+        /* This is a placeholder for a potential JS-driven active state */
+        .testimonial-slider .testimonial-card.is-active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .slider-nav button {
+            background-color: var(--primary);
+            color: var(--white-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .slider-nav button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .slider-nav button:disabled {
+            background-color: var(--border-color);
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        @media (max-width: 400px) {
+            .testimonial-slider .testimonial-card {
+                flex-basis: 90%; /* On very small screens, make cards take up more width */
+            }
+        }
+
+
+        /*
+==============================================
+|                                            |
+|        12. FAQ SECTION (NEW ELEGANT DESIGN) |
+|         (قسم الأسئلة - تصميم جديد وأنيق)     |
+|                                            |
+==============================================
+*/
+        /* This is the new main container for the accordion grid */
+        .faq-accordion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Two equal columns */
+            gap: 25px;
+            /* Gap between columns */
+            align-items: flex-start;
+            /* Align items to the top */
+            margin-top: 50px;
+        }
+
+        /* This is a column inside the grid */
+        .faq-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            /* Gap between FAQ items inside a column */
+        }
+
+        /* Styling for each individual question card */
+        .faq-item {
+            background-color: var(--white-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 10px 25px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--primary);
+        }
+
+        /* The button that holds the question text */
+        .faq-question {
+            width: 100%;
+            text-align: right;
+            padding: 15px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            /* Slightly reduced for better fit */
+            font-weight: 700;
+            color: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* The '+' icon at the end of the question */
+        .faq-question .icon {
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            flex-shrink: 0;
+            margin-right: 20px;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .faq-question .icon::before {
+            content: '\f067';
+            /* Font Awesome plus icon */
+        }
+
+        /* When the item is active/open */
+        .faq-item.active .faq-question {
+            color: var(--primary-dark);
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(135deg);
+            /* Rotates the plus to look like a close icon */
+        }
+
+        /* The container for the answer text */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-top: 15px;
+            /* Add padding only when open */
+            border-top-color: var(--border-color);
+        }
+
+        .faq-answer p {
+            padding-bottom: 10px;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 12px;
+            transition: color .3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        /* Responsive adjustments for the new FAQ design */
+        @media (max-width: 768px) {
+            .faq-accordion-grid {
+                grid-template-columns: 1fr;
+                /* Stack to one column on smaller screens */
+            }
+        }
+
+        /*
+==============================================
+|     الحل النهائي والقوي لتوسيط قسم العملاء     |
+==============================================
+*/
+
+        /* --- 1. أولاً، ننسق القسم الرئيسي --- */
+        .clients-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* --- 2. ثانياً، نجعل الحاوية (.container) مركزية وقوية (هذا هو التغيير الأهم) --- */
+        .clients-section .container {
+            display: flex;
+            flex-direction: column;
+            /* لوضع العنوان فوق شبكة الأيقونات */
+            align-items: center;
+            /* هذا السطر يجبر كل شيء على التوسيط أفقيًا */
+        }
+
+        /* --- 3. ثالثًا، تنسيق شبكة الأيقونات نفسها --- */
+        .clients-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            margin-top: 20px;
+            /* لإضافة مسافة تحت العنوان */
+            /* لم نعد بحاجة إلى margin: 0 auto; هنا لأن الأب يقوم بالتوسيط */
+        }
+
+        /* --- 4. رابعًا، تنسيق الصور داخل الشبكة --- */
+        .clients-grid img {
+            height: 40px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.4s ease;
+            margin: 0;
+            /* نتأكد من عدم وجود هوامش قديمة */
+        }
+
+        .clients-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* --- 5. خامسًا، تنسيق الهاتف (يبقى كما هو لأنه يعمل جيدًا) --- */
+        @media (max-width: 768px) {
+            .clients-grid {
+                flex-wrap: nowrap;
+                /* منع النزول لسطر جديد في الهاتف */
+                overflow-x: auto;
+                /* إضافة التمرير الأفقي */
+                justify-content: flex-start;
+                /* جعلها تبدأ من اليمين في الهاتف */
+                padding: 20px 10px;
+                gap: 0;
+                /* إلغاء المسافات القديمة في الهاتف */
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            .clients-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .clients-grid img {
+                height: 40px;
+                width: auto;
+                flex-shrink: 0;
+                margin-left: 50px;
+                /* استخدام الهامش للمسافة في الهاتف */
+            }
+
+            .clients-grid img:last-child {
+                margin-left: 0;
+            }
+        }
+
+        /*
+        ==============================================
+        |                                            |
+        |           13. FINAL CTA SECTION            |
+        |           (الدعوة الأخيرة للعمل)            |
+        |                                            |
+        ==============================================
+        */
+        .final-cta-section {
+            padding: 80px 20px;
+            background-image: var(--gradient-primary);
+            color: #fff;
+            text-align: center;
+        }
+
+        .final-cta-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .final-cta-section .btn {
+            background: #fff;
+            color: var(--primary-dark);
+            box-shadow: none;
+        }
+
+        .final-cta-section .btn:hover {
+            background: #f0f0f0;
+            color: var(--dark);
+        }
+
+        /*
+==============================================
+|         LIGHTBOX STYLING - تنسيق نافذة الصور        |
+==============================================
+*/
+
+        /* --- The overlay background --- */
+        .lightbox {
+            display: none;
+            /* يكون مخفيًا بشكل افتراضي */
+            position: fixed;
+            /* يجعله يغطي كامل الشاشة */
+            z-index: 2000;
+            /* يضمن ظهوره فوق كل شيء */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* يسمح بالتمرير إذا كانت الصورة كبيرة جدا */
+            background-color: rgba(12, 45, 50, 0.9);
+            /* خلفية داكنة شبه شفافة */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- The image inside the lightbox --- */
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 85%;
+            max-height: 85vh;
+            animation-name: zoomIn;
+            animation-duration: 0.5s;
+            border-radius: 5px;
+        }
+
+        /* --- The animation for the popup effect --- */
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* --- The close button (X) --- */
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #f1f1f1;
+            font-size: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        /*
+        ==============================================
+        |                                            |
+        |   تنسيق بطاقات الأسعار النهائي والمصحح      |
+        |                                            |
+        ==============================================
+        */
+
+
+        /* إعادة البطاقة المجانية إلى شكلها الأساسي أولاً */
+        .free-plan-card {
+            background-color: var(--white-color) !important; 
+            border: 2px solid var(--primary) !important; /* إضافة إطار أخضر مميز */
+            transform: scale(1.03); /* تكبيرها قليلاً لتمييزها */
+        }
+
+        /* إعادة ألوان النصوص والأيقونات داخلها إلى اللون الأصلي */
+        .free-plan-card h3,
+        .free-plan-card p,
+        .free-plan-card ul li,
+        .free-plan-card .plan-price,
+        .free-plan-card .plan-price span {
+            color: var(--text-dark) !important;
+        }
+
+        .free-plan-card ul li i {
+            color: var(--primary) !important;
+        }
+
+        /* إعادة تنسيق الزر إلى الشكل الثانوي القياسي */
+        .free-plan-card .btn.btn-secondary {
+            background-color: transparent !important;
+            color: var(--primary) !important;
+            border-color: var(--primary) !important;
+        }
+
+        .free-plan-card .btn.btn-secondary:hover {
+            background-color: var(--primary) !important;
+            color: var(--white-color) !important;
+        }
+
+
+        /* --- 2. تنسيق الخطة الثنائية (الأكثر شيوعًا) بالألوان المعكوسة --- */
+
+        .pricing-card.popular {
+            background-image: var(--gradient-primary) !important; /* الخلفية الخضراء المميزة */
+            border-color: var(--primary-dark) !important;
+            transform: scale(1.05);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .pricing-card.popular:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        /* عكس ألوان النصوص والأيقونات لتصبح بيضاء */
+        .pricing-card.popular h3,
+        .pricing-card.popular p,
+        .pricing-card.popular ul li,
+        .pricing-card.popular .plan-price,
+        .pricing-card.popular .plan-price span {
+            color: var(--white-color) !important;
+        }
+
+        .pricing-card.popular ul li i {
+            color: var(--white-color) !important;
+        }
+
+        /* تنسيق شارة "الأكثر شيوعًا" */
+        .pricing-card.popular .popular-badge {
+            background-color: var(--white-color);
+            color: var(--primary-dark);
+        }
+
+        /* --- تعديل زر الخطة الثنائية (الأكثر شيوعًا) --- */
+
+        .pricing-card.popular .btn.btn-primary {
+            background-image: none !important;      /* <-- السطر الجديد والمهم لإزالة التدرج اللوني */
+            background-color: var(--white-color) !important; /* خلفية الزر البيضاء */
+            color: var(--primary-dark) !important;   /* لون النص الأخضر الداكن */
+            border-color: var(--white-color) !important;     /* لون الإطار الأبيض */
+        }
+
+        /* تعديل تأثير المرور (hover) ليتناسب مع التصميم الجديد */
+        .pricing-card.popular .btn.btn-primary:hover {
+            background-color: #f0f0f0 !important; /* تغيير طفيف في لون الخلفية عند المرور */
+            color: var(--dark) !important;
+        }
+        /*
+        ==============================================
+        |                                            |
+        |   تصميم شارة "الأكثر شيوعًا" بشكل مبتكر      |
+        |                                            |
+        ==============================================
+        */
+
+        /* --- 1. تهيئة البطاقة الحاضنة للشريط --- */
+        .pricing-card.popular {
+            position: relative; /* ضروري لتثبيت الشريط بالنسبة للبطاقة */
+            overflow: hidden;   /* ضروري لإخفاء أجزاء الشريط الزائدة خارج البطاقة */
+            padding-top: 65px; /* ✅ السطر الجديد: لدفع المحتوى للأسفل */
+
+        }
+
+        /* --- 2. تصميم شريط الزاوية نفسه --- */
+        .popular-badge {
+            position: absolute;
+            top: 25px;       /* المسافة من الأعلى */
+            right: -55px;      /* المسافة من اليمين (بالسالب لإخراجه خارج الحدود) */
+            width: 200px;      /* عرض الشريط، يجب أن يكون كافيًا ليغطي الزاوية */
+            
+            transform: rotate(45deg); /* أهم خاصية: لتدوير الشريط بزاوية 45 درجة */
+            
+            /* تنسيقات جمالية */
+            background-color: var(--white-color);
+            color: var(--primary-dark);
+            padding: 8px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 10; /* لضمان ظهوره فوق أي عناصر أخرى */
+        }
+        /*
+        ==============================================
+        |                                            |
+        |               14. FOOTER                   |
+        |                (الجزء السفلي)               |
+        |                                            |
+        ==============================================
+        */
+
+        .footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer .logo img {
+            height: 50px;
+            margin: auto auto 20px;
+        }
+
+        .footer .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer .footer-links a {
+            margin: 0 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .footer .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer .copyright {
+            font-size: .9rem;
+            color: #aaa;
+            border-top: 1px solid #0c2d32;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+      /* --- START: New Pill-Shaped Toggle Styles (Reversed Colors) --- */
+        .pricing-toggle-pills {
+            display: inline-flex;
+            position: relative;
+            background-color: var(--light-bg);
+            border-radius: 50px;
+            padding: 5px;
+            margin: 0 auto 40px auto;
+            display: flex; /* To center it */
+            width: fit-content;
+        }
+
+        .toggle-option {
+            background: transparent;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-light); /* Color for inactive text */
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.4s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* ✅ This is the main change: Active text is now white */
+        .toggle-option.active {
+            color: var(--white-color); 
+        }
+
+        .toggle-highlighter {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 0; 
+            height: calc(100% - 10px);
+            /* ✅ This is the main change: Highlighter is now green */
+            background-image: var(--gradient-primary); 
+            border-radius: 50px;
+            box-shadow: 0 3px 10px rgba(59, 174, 94, 0.3);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1;
+        }
+
+        .toggle-option .save-badge {
+            background-color: #e0f2f1;
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+                /*
+        ==============================================
+        |                                            |
+        |           VIDEO EXPLAINER SECTION          |
+        |                 (قسم الفيديو)                |
+        |                                            |
+        ==============================================
+        */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* للتحكم في أقصى عرض للفيديو */
+            margin: 0 auto;
+            padding-bottom: 56.25%; /* نسبة العرض إلى الارتفاع 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-heavy);
+            background-color: #000; /* خلفية سوداء احتياطية أثناء تحميل الفيديو */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* --- END: New Pill-Shaped Toggle Styles --- */
+        /* --- END: New Pill-Shaped Toggle Styles --- */
+        /*
+        ==============================================
+        |                                            |
+        |           15. RESPONSIVE DESIGN            |
+        |              (التصميم المتجاوب)             |
+        |                                            |
+        ==============================================
+        */
+        @media (max-width: 1024px) {
+            .navbar ul {
+                gap: 25px;
+            }
+
+            .hero-grid,
+            .feature-spotlight,
+            .process-step {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content,
+            .feature-spotlight-content,
+            .process-step-content {
+                order: 2;
+            }
+
+            .hero-image,
+            .feature-spotlight-image,
+            .process-step-image {
+                order: 1;
+                margin: 0 auto 40px auto;
+            }
+
+            .hero-image img {
+                transform: rotateY(0) rotateX(0);
+            }
+
+            .feature-spotlight.alt-layout {
+                direction: rtl;
+            }
+
+            /* Reset for mobile */
+            .process-step:nth-child(even) .process-step-image {
+                order: 1;
+            }
+
+            .process-step:nth-child(even) .process-step-content {
+                order: 2;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: auto;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1.05);
+            }
+
+
+        }
+
+        @media (max-width: 768px) {
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                /* Change to a single column on mobile */
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+
+        }
+
+        /* --- Hide Mobile Tap Highlight --- */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ==============================================
+|         MOBILE NAVIGATION MENU STYLES          |
+|            (تنسيقات قائمة الهاتف)             |
+==============================================
+*/
+        /* Prevents the page from scrolling when the mobile menu is open */
+        /* Lock page scroll when mobile menu is open */
+        /* --- The definitive solution to lock page scroll --- */
+        /* --- The definitive solution to lock page scroll (v2) --- */
+        html.menu-open {
+            overflow: hidden;
+        }
+
+        /* The hamburger button itself */
+        .mobile-menu-toggle {
+            display: none;
+            /* Hidden on desktop */
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* The overlay that darkens the page */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0s 0.4s;
+        }
+
+        .nav-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s ease;
+        }
+
+        /* --- Custom styling for the header's main CTA button --- */
+        .header .btn-primary {
+            padding: 12px 28px;
+            /* تقليل الحشو الداخلي للزر */
+            font-size: 0.9rem;
+            /* تصغير حجم الخط قليلاً */
+        }
+        /*
+        ==============================================
+        |                                            |
+        |   محاذاة المحتوى الداخلي لبطاقات الأسعار     |
+        |                                            |
+        ==============================================
+        */
+
+        /* 1. تطبيق Flexbox على البطاقة لجعلها الحاوية الرئيسية */
+        .pricing-card {
+            display: flex;
+            flex-direction: column; /* ترتيب العناصر بشكل عمودي */
+            height: 100%;
+        }
+
+        /* 2. جعل قائمة الميزات تتمدد لملء الفراغ */
+        .pricing-card ul {
+            flex-grow: 1; /* هذا هو الجزء الأهم: يجبر القائمة على التمدد ودفع الزر إلى الأسفل */
+        }
+
+        /* 3. (اختياري ولكنه يحسن الشكل) توحيد ارتفاع منطقة العنوان والوصف */
+        .pricing-card h3 {
+            min-height: 50px; /* يضمن أن العناوين الطويلة والقصيرة تأخذ نفس المساحة */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pricing-card p.text-light {
+            min-height: 70px; /* يضمن أن نصوص الوصف تأخذ نفس المساحة */
+        }
+       /*
+        ==============================================
+        |                                            |
+        |    11.5. API VS HeytsApp (VIBRANT STYLE)     |
+        |         (نمط حيوي وجذاب للمقارنة)           |
+        |                                            |
+        ==============================================
+        */
+
+        /* إزالة الهوامش الافتراضية لتحكم كامل */
+        .comparison-table-wrapper {
+            margin: 60px 0;
+            overflow-x: auto; /* <-- هذا هو السطر المهم الذي تم إرجاعه */
+            padding-bottom: 15px; /* <-- مسافة بسيطة أسفل الجدول لتحسين الشكل */
+        }
+
+        /* 1. الجدول الرئيسي: تصميم عصري بدون حدود خارجية */
+        .comparison-table-wrapper table {
+            width: 100%;
+            border-collapse: separate; /* مهم جداً للتصميم الجديد */
+            border-spacing: 0 10px; /* مسافة رأسية بين صفوف المقارنة */
+            min-width: 700px;
+        }
+
+        /* 2. رأس الجدول: استخدام التدرج اللوني الأساسي لجعله قوياً وجذاباً */
+        .comparison-table-wrapper thead th {
+            background-image: var(--gradient-dark); /* تدرج لوني داكن وأنيق */
+            color: var(--white-color);
+            font-size: 1.2rem;
+            padding: 25px;
+            text-align: center;
+        }
+
+        /* 3. تطبيق الحواف الدائرية بشكل صحيح على الرأس */
+        .comparison-table-wrapper thead th:first-child {
+            border-top-right-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+        }
+        .comparison-table-wrapper thead th:last-child {
+            border-top-left-radius: var(--radius);
+            border-bottom-left-radius: var(--radius);
+        }
+
+        /* 4. خلايا الجدول: تصميم كبطاقات منفصلة لكل صف */
+        .comparison-table-wrapper tbody td {
+            padding: 25px;
+            background-color: var(--white-color);
+            box-shadow: var(--shadow-light);
+            vertical-align: top;
+            line-height: 1.8;
+            color: var(--text-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* 5. تمييز عمود HeytsApp: جعله أكثر بروزاً وحيوية */
+        .comparison-table-wrapper tbody td:last-child {
+            background-color: #f4f9f5; /* لون الخلفية الأخضر الفاتح جداً */
+            border-right: 4px solid var(--primary); /* خط جانبي بلون الهوية */
+        }
+
+        /* 6. تنسيق الخلية الأولى (اسم الميزة) */
+        .comparison-table-wrapper tbody td:first-child {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.05rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* 7. تطبيق الحواف الدائرية على خلايا الجسم أيضاً */
+        .comparison-table-wrapper tbody td:first-child {
+            border-top-right-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+        }
+        .comparison-table-wrapper tbody td:last-child {
+            border-top-left-radius: var(--radius);
+            border-bottom-left-radius: var(--radius);
+        }
+
+        /* 8. تأثير بسيط عند مرور الماوس فوق الصف */
+        .comparison-table-wrapper tbody tr:hover td {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+
+        /* 9. تصميم جديد لقسم الخلاصة ليتماشى مع النمط الحيوي */
+        .comparison-summary {
+            margin-top: 60px;
+            padding: 40px;
+            background: var(--white-color);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            border-top: 5px solid var(--primary); /* خط علوي قوي بلون الهوية */
+            box-shadow: var(--shadow-medium);
+        }
+
+        .comparison-summary h3 {
+            color: var(--dark);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        /* إضافة أيقونة للعنوان */
+        .comparison-summary h3::before {
+            content: '\f005'; /* أيقونة النجمة من FontAwesome */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+
+        .comparison-summary ul {
+            list-style: none;
+            padding-right: 0;
+            margin: 25px 0;
+        }
+
+        .comparison-summary ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .comparison-summary ul li i {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+
+            /* Show the hamburger button on mobile */
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            /* --- Custom styling for the header's main CTA button --- */
+            .header .btn-primary {
+                padding: 6px 15px;
+                /* تقليل الحشو الداخلي للزر */
+                font-size: 0.7rem;
+                /* تصغير حجم الخط قليلاً */
+            }
+
+            /* Style the navigation menu for mobile */
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                /* Start off-screen (for RTL) */
+                width: 300px;
+                height: 100vh;
+                background-color: var(--white-color);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                transition: left 0.4s ease-in-out;
+                padding-top: 80px;
+                overflow-y: auto;
+                overscroll-behavior: contain;
+            }
+
+            /* When the menu is open, slide it in */
+            .navbar.is-open {
+                left: 0;
+            }
+
+            /* Change nav links to be a vertical list */
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar ul li a {
+                display: block;
+                padding: 15px;
+                width: 100%;
+                font-size: 1.2rem;
+            }
+
+            .navbar ul li a.special-link {
+                margin: 10px auto;
+                width: fit-content;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header id="header" class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="img/LOGO_2.png" alt="HeytsApp Logo">
+            </a>
+            <nav class="navbar" id="main-nav">
+                <ul>
+                    <li><a href="#features" class="nav-link">المميزات</a></li>
+                    <li><a href="#process" class="nav-link">كيف يعمل</a></li>
+                    <li><a href="#pricing" class="nav-link">الأسعار</a></li>
+                    <li><a href="#api-comparison" class="nav-link">المقارنة</a></li>
+                    <li><a href="#testimonials" class="nav-link">الآراء</a></li>
+                    <li><a href="#faq" class="nav-link">الأسئلة</a></li>
+                    <li><a href="/help" class="nav-link special-link">المساعدة</a></li>
+                    <li><a href="/about/">من نحن</a></li>
+                </ul>
+            </nav>
+            <a href="/download/" class="btn btn-primary"><i class="fas fa-download"></i> تنزيل الأن</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i> </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content fade-in-up animate-on-load">
+                        <h1>شريكك الرقمي لـتحويل <span class="highlight">محادثات واتساب</span> إلى أرباح!</h1>
+                        <p>هل تجد نفسك غارقًا في عشرات الرسائل اليومية وتفقد السيطرة؟ نقدم لك HeytsApp، الحل
+                            الثوري الذي يحول واتساب الخاص بك إلى آلة تسويق ومبيعات ذكية تعمل من أجلك 24/7.</p>
+                        <a href="#pricing" class="btn btn-primary"><i class="fas fa-rocket"></i> ابدأ في زيادة مبيعاتك
+                            اليوم</a>
+                    </div>
+                    <div class="hero-image animate-on-load">
+                        <img src="img/1.gif" alt="HeytsApp Dashboard">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-explainer" class="section section-bg">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">شاهد بنفسك</span>
+                    <h2>نظرة سريعة على قوة HeytsApp</h2>
+                    <p>في أقل من دقيقتين، اكتشف كيف يمكن لـ HeytsApp أن يغير طريقة عملك، ويوفر وقتك، ويزيد من أرباحك بكل سهولة.
+                    </p>
+                </div>
+        
+                <div class="video-wrapper fade-in-up animate-on-scroll" style="transition-delay: 0.2s;">
+                    <iframe src="https://www.youtube.com/embed/V0oN9rVARIY" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="clients-section">
+            <div class="container">
+                <h3 class="section-title" style="font-size: 1.2rem; color: var(--text-light); margin-bottom: 40px;">يثق
+                    به أكثر من 100+ مسوق وصاحب متجر في الوطن العربي</h3>
+                <div class="clients-grid">
+                    <img src="img/C1.png" alt="شعار عميل " style="height: 40px;">
+                    <img src="img/C2.png" alt="شعار عميل " style="height: 40px;">
+                    <img src="img/C3.png" alt="شعار عميل " style="height: 40px;">
+                    <img src="img/C4.png" alt="شعار عميل " style="height: 40px;">
+                    <img src="img/C5.png" alt="شعار عميل " style="height: 40px;">
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section section" id="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item fade-in-up animate-on-scroll">
+                        <h3 class="counter" data-target="95">0</h3>
+                        <p>% زيادة في سرعة الرد</p>
+                    </div>
+                    <div class="stat-item fade-in-up animate-on-scroll" style="transition-delay: 0.1s;">
+                        <h3 class="counter" data-target="80">0</h3>
+                        <p>% من المبيعات عبر المتابعة</p>
+                    </div>
+                    <div class="stat-item fade-in-up animate-on-scroll" style="transition-delay: 0.2s;">
+                        <h3 class="counter" data-target="24">0</h3>
+                        <p>ساعة عمل يوميًا</p>
+                    </div>
+                    <div class="stat-item fade-in-up animate-on-scroll" style="transition-delay: 0.3s;">
+                        <h3 class="counter" data-target="5">0</h3>
+                        <p>حسابات في آن واحد</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">الحل الأمثل لك</span>
+                    <h2>مصمم خصيصًا لمواجهة تحدياتك اليومية</h2>
+                </div>
+                <div class="feature-spotlight">
+                    <div class="reveal-mask animate-on-scroll">
+                        <img src="img/2p.png" alt="فرق العمل والعملاء">
+                    </div>
+                    <div class="feature-spotlight-content slide-in-right animate-on-scroll">
+                        <h3>سواء كنت فريقًا كبيرًا أو شخصًا واحدًا</h3>
+                        <p>تم تصميم HeytsApp ليكون مرنًا وقويًا، ليساعد كل من يسعى للنمو وتحقيق أقصى استفادة من
+                            واتساب كقناة تسويقية:</p>
+                        <ul>
+                            <li><i class="fas fa-store"></i>
+                                <div>
+                                    <h4>أصحاب المتاجر الإلكترونية والمسوقين</h4>
+                                    <p>الذين يديرون حملات إعلانية ويستقبلون مئات الاستفسارات يوميًا.</p>
+                                </div>
+                            </li>
+                            <li><i class="fas fa-headset"></i>
+                                <div>
+                                    <h4>فرق المبيعات وخدمة العملاء</h4>
+                                    <p>الذين يحتاجون إلى أداة لتوحيد التواصل مع العملاء وتسريع وتيرة الردود.</p>
+                                </div>
+                            </li>
+                            <li><i class="fas fa-user-tie"></i>
+                                <div>
+                                    <h4>مقدمو الخدمات والمستقلون</h4>
+                                    <p>الراغبون في ترك انطباع احترافي ومتابعة عملائهم بفعالية دون إهدار الوقت.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section section-bg">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">المميزات والفوائد</span>
+                    <h2>لماذا HeytsApp هو خيارك الأفضل؟</h2>
+                    <p>استثمر في وقتك وعملائك. توقف عن مطاردة العملاء، ودع التكنولوجيا الذكية تعمل من أجلك، شاهد كيف
+                        يمكن لكل ميزة أن تغير طريقة عملك.</p>
+                </div>
+
+                <div class="feature-spotlight alt-layout" style="margin-bottom: 120px;">
+                    <div class="reveal-mask animate-on-scroll">
+                        <img src="img/3.gif" alt="رد تلقائي فوري واحترافي">
+                    </div>
+                    <div class="feature-spotlight-content slide-in-left animate-on-scroll">
+                        <h3><span class="icon"><i class="fas fa-reply-all"></i></span> رد تلقائي فوري واحترافي</h3>
+                        <p>لا تفقد أي عميل محتمل بعد اليوم بسبب التأخر في الرد. بمجرد أن يراسلك عميل جديد، يقوم البرنامج
+                            بالرد عليه فورًا برسالة ترحيبية مخصصة يمكنك إرفاق الصور، الفيديوهات، وملفات PDF معها لتقديم
+                            عرض متكامل.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> *تخصيص الرسائل:* استخدم اسم العميل تلقائيًا في
+                                الرسالة لزيادة التفاعل.</li>
+                            <li><i class="fas fa-check-circle"></i> *مرفقات غنية:* أرسل الكتالوجات، صور المنتجات، أو
+                                فيديوهات توضيحية.</li>
+                            <li><i class="fas fa-check-circle"></i> *انطباع أول قوي:* اترك انطباعًا احترافيًا ومميزًا
+                                لدى عملائك من أول لحظة.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-spotlight" style="margin-bottom: 120px;">
+                    <div class="reveal-mask animate-on-scroll">
+                        <img src="img/4.jpg" alt="نظام متابعة ذكي">
+                    </div>
+                    <div class="feature-spotlight-content slide-in-right animate-on-scroll">
+                        <h3><span class="icon"><i class="fas fa-user-clock"></i></span> نظام متابعة ذكي لإغلاق الصفقات
+                        </h3>
+                        <p>أكثر من 80% من المبيعات تحدث بعد عملية المتابعة، ولكنها المهمة الأكثر إرهاقًا. برنامجنا يقوم
+                            بهذه المهمة عنك بذكاء!</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> *متابعة مؤتمتة:* أرسل رسالة متابعة تلقائيًا بعد
+                                فترة زمنية تحددها بنفسك.</li>
+                            <li><i class="fas fa-check-circle"></i> *تجاهل ذكي:* هل اشترى العميل؟ ما عليك سوى إضافة
+                                "تسمية" (Label) له في واتساب، وسيتجاهله البرنامج من المتابعة.</li>
+                            <li><i class="fas fa-check-circle"></i> *زيادة المبيعات:* حوّل العملاء المترددين إلى
+                                مشترين فعليين دون أي مجهود يدوي.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-spotlight alt-layout">
+                    <div class="reveal-mask animate-on-scroll">
+                        <img src="img/5.jpg" alt="إدارة جميع الحسابات">
+                    </div>
+                    <div class="feature-spotlight-content slide-in-left animate-on-scroll">
+                        <h3><span class="icon"><i class="fas fa-sitemap"></i></span> إدارة جميع حساباتك من مكان واحد
+                        </h3>
+                        <p>هل لديك أكثر من رقم واتساب للعمل؟ لا مشكلة! يمكنك إضافة وإدارة عدة حسابات واتساب في واجهة
+                            واحدة منظمة، مما يمنحك سيطرة كاملة على جميع قنوات التواصل دون تداخل.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> *واجهة مركزية:* تنقل بين حساباتك بسهولة عبر نظام
+                                التبويبات.</li>
+                            <li><i class="fas fa-check-circle"></i> *إعدادات منفصلة:* كل حساب له رسائله، سجلاته،
+                                وإعداداته الخاصة.</li>
+                            <li><i class="fas fa-check-circle"></i> *تنظيم فائق:* تخلص من فوضى فتح نوافذ متعددة وركز
+                                على ما هو مهم.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="section">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">خطوات بسيطة</span>
+                    <h2>4 خطوات فقط تفصلك عن أتمتة عملك</h2>
+                    <p>لا حاجة لخبرة تقنية، لقد صممنا البرنامج ليكون سهل الاستخدام ومباشرًا. قم بتثبيته وابدأ العمل في
+                        دقائق معدودة.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-image reveal-mask animate-on-scroll">
+                        <img src="img/6.jpg" alt="تفعيل البرنامج">
+                    </div>
+                    <div class="process-step-content slide-in-right animate-on-scroll">
+                        <span class="step-number">1</span>
+                        <h3>التفعيل الفوري والآمن</h3>
+                        <p>بعد تثبيت البرنامج، كل ما عليك هو إدخال رمز التفعيل الفريد الذي تحصل عليه عند الشراء. يتم ربط
+                            الرخصة بجهازك بشكل آمن لمرة واحدة فقط.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-image reveal-mask animate-on-scroll">
+                        <img src="img/7.jpg" alt="ربط حساب واتساب">
+                    </div>
+                    <div class="process-step-content slide-in-left animate-on-scroll">
+                        <span class="step-number">2</span>
+                        <h3>ربط حسابات الواتساب</h3>
+                        <p>اذهب إلى قسم "الحسابات" واضغط على "إضافة حساب". سيظهر لك رمز QR، قم بمسحه من تطبيق واتساب على
+                            هاتفك، تمامًا كما تفعل عند استخدام واتساب ويب.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-image reveal-mask animate-on-scroll">
+                        <img src="img/8.jpg" alt="إعداد الرسائل التلقائية">
+                    </div>
+                    <div class="process-step-content slide-in-right animate-on-scroll">
+                        <span class="step-number">3</span>
+                        <h3>إعداد الرسائل الذكية</h3>
+                        <p>اكتب رسائل الترحيب والمتابعة في الأقسام المخصصة. يمكنك إضافة نصوص، صور، فيديوهات، وملفات،
+                            وضبط الفاصل الزمني بين الرسائل بدقة.</p>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="process-step-image reveal-mask animate-on-scroll">
+                        <img src="img/9.jpg" alt="تشغيل البوت">
+                    </div>
+                    <div class="process-step-content slide-in-left animate-on-scroll">
+                        <span class="step-number">4</span>
+                        <h3>تشغيل البوت والانطلاق</h3>
+                        <p>بعد إعداد كل شيء، اضغط على زر "بدء البوت". سيبدأ HeytsApp بالعمل في الخلفية، ليرد على عملائك
+                            ويتابعهم بينما تركز أنت على تنمية أعمالك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="section section-bg">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">شاهد الفرق</span>
+                    <h2>تحوّل من الفوضى إلى النظام والكفاءة</h2>
+                    <p>قارن بين طريقة العمل اليدوية المجهدة والطريقة الآلية الذكية التي يقدمها HeytsApp.</p>
+                </div>
+                <div class="comparison-grid">
+                    <div class="comparison-card before animate-on-scroll fade-in-up">
+                        <h3><i class="fas fa-exclamation-triangle"></i> قبل HeytsApp (العمل اليدوي)</h3>
+                        <ul>
+                            <li><i class="fas fa-times"></i> ضياع رسائل العملاء في زحمة المحادثات.</li>
+                            <li><i class="fas fa-times"></i> تأخر في الرد يؤدي إلى فقدان عملاء محتملين.</li>
+                            <li><i class="fas fa-times"></i> إهدار ساعات طويلة في نسخ ولصق نفس الردود.</li>
+                            <li><i class="fas fa-times"></i> صعوبة في متابعة العملاء المترددين.</li>
+                            <li><i class="fas fa-times"></i> عدم وجود بيانات واضحة عن أداء المبيعات.</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card after animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
+                        <h3><i class="fas fa-check-double"></i> بعد HeytsApp (العمل الآلي)</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> رد فوري على كل عميل جديد يترك انطباعًا رائعًا.</li>
+                            <li><i class="fas fa-check"></i> متابعة تلقائية لكل عميل لم يقم بالشراء.</li>
+                            <li><i class="fas fa-check"></i> توفير 90% من وقت الرد على الاستفسارات المتكررة.</li>
+                            <li><i class="fas fa-check"></i> زيادة ملحوظة في نسبة إغلاق الصفقات.</li>
+                            <li><i class="fas fa-check"></i> رؤية واضحة لأداء المبيعات عبر الإحصائيات.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <section id="pricing" class="section section-bg">
+        <div class="container">
+            <div class="section-title fade-in-up animate-on-scroll">
+                <span class="section-tagline">خطط أسعار مرنة</span>
+                <h2>استثمار بسيط لنمو كبير في عملك</h2>
+                <p>اختر الباقة التي تلبي احتياجاتك اليوم، سواء بالدفع الشهري أو السنوي مع توفير كبير.</p>
+            </div>
+    
+            <div class="countdown-banner fade-in-up animate-on-scroll">
+                <p>هذه الأسعار <strong style="color: var(--white-color);">عروض حصرية ولفترة محدودة جداً!</strong> يتبقى
+                    لانتهاء العرض:</p>
+                <div id="countdown" class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">يوم</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">ساعة</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">دقيقة</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">ثانية</span>
+                    </div>
+                </div>
+                <p class="offer-guarantee">
+                    <strong style="color: var(--white-color);">ضمان السعر مدى الحياة:</strong>
+                    جميع المشتركين بهذه الأسعار الحالية سيحتفظون بنفس السعر عند التجديد أو الترقية، حتى بعد انتهاء العرض.
+                </p>
+            </div>
+            <div class="pricing-toggle-pills fade-in-up animate-on-scroll">
+                <div class="toggle-highlighter"></div>
+                <button class="toggle-option active" data-period="monthly">شهري</button>
+                <button class="toggle-option" data-period="annual">سنوي <span class="save-badge">وفر 20%</span></button>
+            </div>
+    
+            <div class="pricing-grid">
+    
+                <div class="pricing-card free-plan-card fade-in-up animate-on-scroll">
+                    <h3>الخطة المجانية</h3>
+                    <p class="text-light">لبداية آمنة وتجربة كاملة بدون التزام</p>
+                    <div class="plan-price">
+                        <div class="price-card-side price-front" style="position: static; backface-visibility: visible;">0
+                            $ <span>/لمدة 7 أيام</span></div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">جربها مجاناً</a>
+                </div>
+    
+                <div class="pricing-card fade-in-up animate-on-scroll">
+                    <h3>الخطة الفردية</h3>
+                    <p class="text-light">مثالية لمن يدير مشروعًا واحدًا</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">3 $ <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">28 $ <span>/سنويا</span></div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                </div>
+    
+                <div class="pricing-card popular fade-in-up animate-on-scroll">
+                    <div class="popular-badge">الأكثر شيوعًا</div>
+                    <h3>الخطة الثنائية</h3>
+                    <p class="text-light">أفضل لمن يدير عدة أرقام في عمله</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">5 $ <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">48 $ <span>/سنويا</span></div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 3 حسابات واتساب</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-primary pricing-button">اشترك الآن</a>
+                </div>
+    
+                <div class="pricing-card fade-in-up animate-on-scroll">
+                    <h3>الخطة الشاملة</h3>
+                    <p class="text-light">خيار مثالي للفرق أو الوكالات التجارية</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">9 $ <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">85 $ <span>/سنويا</span></div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> حتى 5 حسابات واتساب</li>
+                        <li><i class="fas fa-check-circle"></i> ترخيص على جهازين</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                </div>
+            </div>
+            <div class="payhip-embed-page" data-key="tzQE8">...</div>
+            <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
+            <a href="https://payhip.com/b/tzQE8" class="payhip-buy-button" data-target-variant="1754033567958" data-theme="green" data-product="tzQE8">اشتري الأن</a>
+            <div class="container fade-in-up animate-on-scroll" style="text-align: center; margin-top: 60px;">
+                <p style="max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
+                    <strong style="color: var(--primary-dark);">جميع الخطط تحتوي على كل الميزات. الاختلاف فقط في عدد
+                        الحسابات والأجهزة المدعومة.</strong><br>
+                    ابدأ بالخطة التي تناسب حجم نشاطك التجاري وابدأ اليوم.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="api-comparison" class="section">
+        <div class="container">
+            <div class="section-title fade-in-up animate-on-scroll">
+                <span class="section-tagline">الخيار الذكي لعملك</span>
+                <h2>أتمتة واتساب: أي طريق هو الأنسب لعملك؟</h2>
+                <p>مقارنة شاملة بين HeytsApp و WhatsApp Business API الرسمي لمساعدتك على اتخاذ القرار الأنسب الذي يخدم
+                    أهدافك التجارية.</p>
+            </div>
+    
+            <div class="comparison-table-wrapper fade-in-up animate-on-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الميزة / جانب المقارنة</th>
+                            <th>منصة WhatsApp Business API الرسمية</th>
+                            <th>برنامج HeytsApp (الحل الذكي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>نوع الرقم المطلوب</strong></td>
+                            <td>رقم جديد تمامًا، لا يمكن استخدامه على الهاتف أو واتساب ويب. تفقد رقمك الشخصي.</td>
+                            <td>رقمك الحالي! سواء كان شخصيًا أو تجاريًا، يمكنك الاستمرار في استخدامه على هاتفك كالمعتاد.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>حرية بدء المحادثة</strong></td>
+                            <td>مقيد للغاية. لا يمكن بدء محادثة إلا باستخدام قالب رسالة مدفوع وموافق عليه مسبقًا من Meta.
+                            </td>
+                            <td>حرية كاملة. يمكنك بدء المحادثة مع أي رقم بأي رسالة وفي أي وقت، تمامًا كما تفعل من هاتفك.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>قيد "نافذة الـ 24 ساعة"</strong></td>
+                            <td>قيد صارم. بعد 24 ساعة من آخر رسالة للعميل، يُمنع الرد عليه برسالة حرة، ويجب استخدام قالب
+                                مدفوع آخر.</td>
+                            <td>لا وجود لهذا القيد. يمكنك متابعة عملائك بعد يوم، أسبوع، أو شهر. أنت من يضع القواعد.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التكلفة</strong></td>
+                            <td>مكلفة ومتغيرة. تدفع لكل محادثة، وتختلف الأسعار حسب الدولة، مما يجعل التكلفة الشهرية غير
+                                متوقعة.</td>
+                            <td>ثابتة ومعقولة. اشتراك واضح ومحدد للبرنامج، مع عدد غير محدود من الرسائل والمحادثات.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>سهولة الإعداد والتشغيل</strong></td>
+                            <td>معقدة جدًا. تتطلب التحقق من مدير أعمال فيسبوك، موافقات، وغالبًا مطور برامج أو أدوات وسيطة.
+                            </td>
+                            <td>بسيط ومباشر. قم بتنزيل البرنامج، تفعيله، وربط حسابك في دقائق. لا حاجة لأي خبرة تقنية.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الاستقرار والأمان الرسمي</strong></td>
+                            <td>عالية جدًا وقانونية 100%. الخدمة رسمية من Meta، مما يضمن استقرارًا تامًا وعدم وجود أي خطر
+                                على الحساب.</td>
+                            <td>تعتمد على استقرار واتساب ويب. بما أنه غير رسمي، يوجد خطر نظري للحظر إذا تم استخدامه بشكل غير
+                                مسؤول.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الوصول إلى المحادثات</strong></td>
+                            <td>لا يمكنك رؤية محادثاتك أو الرد يدويًا من هاتفك أو واتساب ويب على الإطلاق.</td>
+                            <td>وصول كامل. كل محادثاتك تبقى على هاتفك، ويمكنك التدخل والرد يدويًا في أي لحظة.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="comparison-summary fade-in-up animate-on-scroll">
+                <h3>الخلاصة: من هو الفائز في هذه المقارنة؟</h3>
+                <p>بعد استعراض هذه الفروقات، يتضح أن الخيارين يخدمان فئتين مختلفتين تمامًا من المستخدمين. منصة WhatsApp
+                    Business API الرسمية مصممة للشركات الضخمة (مثل البنوك وشركات الطيران) التي تحتاج لإشعارات رسمية ومستعدة
+                    للتخلي عن المرونة والتحكم مقابل تكاليف عالية وختم "رسمي".</p>
+                <p>أما برنامج HeytsApp، فقد تم تصميمه خصيصًا لرواد الأعمال، المسوقين، وأصحاب المتاجر الصغيرة والمتوسطة الذين
+                    يحتاجون إلى:</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>المرونة والسرعة:</strong> القدرة على إطلاق حملة أو تعديل
+                        رسالة في دقائق.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>التحكم الكامل:</strong> استخدام أرقامهم الحالية والبقاء
+                        على تواصل مباشر مع عملائهم.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>التكلفة المعقولة:</strong> نموذج اشتراك واضح لا يعاقبهم
+                        على نمو أعمالهم.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>الحرية التسويقية:</strong> عدم التقيد بنافذة 24 ساعة
+                        والقدرة على المتابعة الذكية.</li>
+                </ul>
+                <p>الاختيار في النهاية ليس بين "جيد" و "سيء"، بل بين "أداة ضخمة ومقيدة للشركات الكبرى" و "أداة ذكية ومرنة لرواد الأعمال
+                الطموحين". HeytsApp مصمم ليمنحك القوة والمرونة، دون تعقيدات وتكاليف النظام الرسمي.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-title fade-in-up animate-on-scroll">
+                <span class="section-tagline">آراء العملاء</span>
+                <h2>عملائنا راضون، وهذه قصصهم</h2>
+                <p>لا شيء يصف قوة HeytsApp أفضل من تجارب عملائنا الفعلية. شاهد كيف ساهمنا في تبسيط أعمالهم.</p>
+            </div>
+    
+            <div class="testimonial-slider-wrapper">
+                <div class="testimonial-slider">
+    
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="quote">"تبارك الله عليكم، هاد الأداة واعرة بزاف! كنت كنضيع سوايع فلاجوبة... دابا كلشي
+                            أوتوماتيك. الخدمة نقية ومجهود أقل."</p>
+                        <h4 class="testimonial-author">— يوسف العلمي، صاحب متجر إلكتروني</h4>
+                    </div>
+    
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="quote">"Franchement, un game-changer pour notre agence. Le suivi intelligent des prospects
+                            est la fonctionnalité clé. On a vu une augmentation de 25% de nos conversions. Très pro, je
+                            recommande."</p>
+                        <h4 class="testimonial-author">— Fatima Zahra Bennani, Directrice Marketing</h4>
+                    </div>
+    
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="quote">"Honestly, this app is amazing. As a freelancer, it makes me look so professional.
+                            The auto-reply is instant. خدمة نقية بزاف، شكرًا!"</p>
+                        <h4 class="testimonial-author">— Amine Cherkaoui, Consultant</h4>
+                    </div>
+    
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="quote">"واللهيلا ساهل فالخدمة، ما عنديش مع لانفورماتيك بزاف ولكن هادشي واضح وباين. البوت
+                            كايجاوب فالبلاصة وأنا كنرتاح."</p>
+                        <h4 class="testimonial-author">— Salma El Fassi, Gérante de boutique</h4>
+                    </div>
+    
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="quote">"La gestion multi-comptes est juste parfaite. Je gère les numéros de 3 projets
+                            différents depuis une seule interface. C'est un gain de temps énorme."</p>
+                        <h4 class="testimonial-author">— Karim Boujida, Entrepreneur</h4>
+                    </div>
+    
+                    <div class="testimonial-card">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="quote">"The software is great, but the support is even better. I had a small issue and
+                            their team was super helpful and fast via WhatsApp. Five stars!"</p>
+                        <h4 class="testimonial-author">— Kenza Tazi, E-commerce Manager</h4>
+                    </div>
+    
+                </div>
+                <div class="slider-nav">
+                    <button class="prev-btn" aria-label="Previous Testimonial"><i class="fas fa-arrow-right"></i></button>
+                    <button class="next-btn" aria-label="Next Testimonial"><i class="fas fa-arrow-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section section-bg">
+        <div class="container">
+            <div class="section-title fade-in-up animate-on-scroll is-visible">
+                <span class="section-tagline">هل لديك أسئلة؟</span>
+                <h2>نجيب على استفساراتك</h2>
+                <p>جمعنا هنا أكثر الأسئلة التي تصلنا لمساعدتك في اتخاذ قرار مستنير. إذا لم تجد إجابتك، لا تتردد في التواصل
+                    معنا مباشرة. فريق الدعم لدينا جاهز للمساعدة في أي وقت.</p>
+            </div>
+            <div class="faq-accordion-grid">
+    
+                <div class="faq-column">
+    
+                    <div class="faq-item">
+                        <button class="faq-question">لماذا يجب تشغيل HeytsApp على الحاسوب وإبقاؤه شغالًا طوال الوقت؟ لماذا
+                            لا يعمل مثل موقع أو خدمة سحابية؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>
+                                لأننا نضع خصوصيتك فوق كل اعتبار.<br>
+                                الأنظمة السحابية تتطلب إرسال محادثاتك وأرقام عملائك إلى سيرفرات خارجية لا تعرف من يملكها أو
+                                ماذا يفعل بها لاحقًا.<br>
+                                في HeytsApp، كل شيء يبقى داخل جهازك فقط: لا يتم رفع أي رسالة أو رقم إلى أي جهة.<br>
+                                كما أن تسجيل الدخول من سيرفر بعيد يُعتبر نشاطًا مريبًا لدى واتساب (IP مختلف، جهاز غير فعلي)،
+                                مما يرفع احتمال الحظر.<br>
+                                نعم، يتطلب أن يبقى الحاسوب شغالًا 24/7، لكن هذا مقابل حماية بياناتك من التسريب، وضمان
+                                استقرار وآمان رقمك.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يمكن أن يتعرض رقمي للحظر عند استخدام HeytsApp؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نحن في HeytsApp نهتم جدًا بالسلامة، ولهذا قمنا بإضافة عدة طبقات حماية داخل البرنامج، مثل:
+                                <br>• محاكاة الكتابة والرد الطبيعي.
+                                <br>• إمكانية ضبط فترات خمول وتأخير بين الرسائل.
+                                <br>• عدم إرسال أي رسالة إلا بعد تفاعل العميل معك أولًا (إلا إذا قمت بتفعيل المتابعة
+                                التلقائية بنفسك).
+                                <br><br>
+                                ومع ذلك، من المهم أن تعرف أن <strong>قرار الحظر يعود بالكامل إلى أنظمة واتساب
+                                    نفسها</strong>، وهو يتأثر بعدة عوامل خارجة عن تحكمنا، مثل:
+                                <br>• طريقة استخدامك للبرنامج.
+                                <br>• عدد الرسائل المرسلة خلال فترة قصيرة.
+                                <br>• تاريخ رقمك وسجله السابق في الاستخدام.
+                                <br><br>
+                                نحن نوفر لك الأدوات التي تساعد على الاستخدام الآمن، ولكن <strong>المسؤولية النهائية تعتمد
+                                    على أسلوبك في الاستخدام</strong>.
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل أحتاج إلى إنترنت دائم لتشغيل البرنامج؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، يجب أن يكون الجهاز الذي يعمل عليه HeytsApp متصلًا بالإنترنت طوال فترة التشغيل لضمان
+                                استلام وإرسال الرسائل في الوقت الحقيقي.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل أحتاج لمسح QR كل مرة؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>لا، HeytsApp يحفظ جلسة واتساب تلقائيًا، لذلك لن تحتاج لإعادة ربط الحساب إلا إذا خرجت يدويًا
+                                من واتساب أو حذفت الجلسة.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يمكنني ربط أكثر من حساب واتساب؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، يمكنك ربط عدة حسابات واتساب من نفس الواجهة، والتنقل بينها بسهولة عبر التبويبات. عدد
+                                الحسابات يعتمد على باقتك.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يمكن استيراد الأرقام من Excel؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>بالتأكيد. HeytsApp يتيح لك رفع ملف Excel وتحليل الأرقام تلقائيًا، مع تنقيح الأرقام الخاطئة أو
+                                المكررة.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يدعم إرسال الصور والفيديو والملفات؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، يمكنك إرسال صور، فيديوهات، ملفات PDF، وحتى تسجيلات صوتية تظهر وكأنها مسجّلة لحظيًا من
+                                الميكروفون.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يمكن تخصيص الرسالة باسم العميل؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، يمكنك استخدام المتغير {name} ليظهر اسم العميل داخل الرسالة تلقائيًا — مما يعزز التفاعل
+                                والثقة.</p>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="faq-column">
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يمكن تجاهل عملاء معينين تلقائيًا؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>بالتأكيد. يمكنك تحديد تسميات مثل "تم الشراء"، وسيقوم البرنامج بتجاهل هؤلاء العملاء تلقائيًا
+                                في الحملات والمتابعة.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل هناك قائمة سوداء لمنع إرسال الرسائل؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، يمكنك إضافة أي رقم إلى "قائمة الاستثناءات" وسيقوم البرنامج بتجاهله تمامًا وعدم إرسال أي
+                                رسائل له.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل البرنامج يعمل على أنظمة غير ويندوز؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>الإصدار الحالي مخصص لأنظمة Windows 10 و11. نعمل حاليًا على تطوير نسخة تدعم أنظمة أخرى في
+                                المستقبل القريب.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يمكنني تشغيل البرنامج تلقائيًا مع الويندوز؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، يمكنك تفعيل خيار "تشغيل تلقائي مع بدء النظام" ليبدأ HeytsApp فور تشغيل الجهاز دون تدخل
+                                منك.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يدعم البرنامج رسائل متابعة تلقائية؟<span
+                                class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>بكل تأكيد. يمكنك إعداد تسلسل متابعة زمني، بحيث يتم إرسال رسالة بعد يوم أو يومين من الرسالة
+                                الترحيبية، تلقائيًا أو حسب تفاعل العميل.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل البرنامج يعرض لي تقارير الأداء؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>نعم، ستحصل على لوحة تحكم تفاعلية تعرض عدد الرسائل، التفاعل، جهات الاتصال الجديدة، وحتى
+                                الأوقات الأكثر نشاطًا في اليوم.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">هل يوجد دفع لمرة واحدة؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>لا، لأن البرنامج يعتمد على تحديثات مستمرة لمواكبة تغييرات واتساب. الاشتراك يضمن لك عمل
+                                البرنامج دائمًا
+                                بكفاءة، مع دعم فني وتطوير متواصل.</p>
+                        </div>
+                    </div>
+    
+                    <div class="faq-item">
+                        <button class="faq-question">ماذا يحدث عند انتهاء الاشتراك؟<span class="icon"></span></button>
+                        <div class="faq-answer">
+                            <p>يتوقف البوت عن العمل، لكن تظل جميع بياناتك محفوظة داخل البرنامج. عند تجديد الاشتراك، تعود
+                                للعمل فورًا بدون فقدان أي شيء.</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-section" id="download">
+        <div class="container fade-in-up animate-on-scroll">
+            <h2>هل أنت جاهز لتوفير وقتك وزيادة مبيعاتك؟</h2>
+            <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: auto; margin-bottom: 30px;">توقف عن العمل
+                اليدوي الممل ودع HeytsApp يدير محادثاتك بذكاء. انضم إلى مئات المستخدمين الراضين اليوم.</p>
+            <a href="/download/" class="btn"><i class="fas fa-download"></i> ابدأ تجربتك الآن</a>
+
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container" style="max-width: 1240px;">
+            <div class="logo">
+                <img src="/img/LOGO_3.png" alt="HeytsApp Logo">
+            </div>
+            <div class="footer-links">
+                <a href="/help/">مركز المساعدة</a>
+                <a href="/privacy/">سياسة الخصوصية</a>
+                <a href="/Refund_Policy/">سياسة استرداد الأموال</a>
+                <a href="/contact/">اتصل بنا</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.youtube.com/@HeytsApp" aria-label="Instagram" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://web.facebook.com/61578299563205" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/212766194903" aria-label="Twitter" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+           
+            <div class="copyright">
+                <p>© 2025  – جميع الحقوق محفوظة | HeytsApp</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // This script ensures all animations and interactive elements work smoothly.
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --------------------------------------------------
+            // 1. Header Scroll Effect
+            // Hides and shows the header based on scroll direction for a cleaner view.
+            // --------------------------------------------------
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // --------------------------------------------------
+            // 2. Intersection Observer for Scroll Animations
+            // This is the core of the animation system. It detects when an element
+            // enters the viewport and adds a 'is-visible' class to trigger the CSS animation.
+            // This is highly efficient as it doesn't run animations on elements that are off-screen.
+            // --------------------------------------------------
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Animation triggers when 10% of the element is visible.
+            });
+            animatedElements.forEach(el => { observer.observe(el); });
+
+            // --------------------------------------------------
+            // 3. Active Navigation Link on Scroll
+            // This script automatically highlights the navigation link that corresponds
+            // to the section currently being viewed by the user.
+            // --------------------------------------------------
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            // --------------------------------------------------
+            // 3. Active Navigation Link on Scroll (IMPROVED LOGIC)
+            // This new function keeps the last known active link highlighted
+            // even when scrolling over sections that are not in the nav menu.
+            // --------------------------------------------------
+            function updateActiveLink() {
+                let bestMatchId = ''; // This will store the ID of the last section that HAS a nav link
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionId = section.getAttribute('id');
+
+                    // Check if a navigation link for the current section actually exists in the header
+                    const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+                    if (window.scrollY >= sectionTop - 80) {
+                        // We only update our 'best match' if the section we're in has a real link in the nav
+                        if (correspondingLink) {
+                            bestMatchId = sectionId;
+                        }
+                        // If there's no corresponding link (like for the 'comparison' section),
+                        // we do nothing, so 'bestMatchId' keeps its previous value (e.g., 'process').
+                        // This is exactly what we want.
+                    }
+                });
+
+                // Now, we highlight the link that matches the last known valid section
+                navLinks.forEach(link => {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === '#' + bestMatchId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', updateActiveLink);
+
+            // --------------------------------------------------
+            // 4. Statistics Counter Animation
+            // Animates numbers from 0 to the target number when the stats section
+            // becomes visible, creating a dynamic effect.
+            // --------------------------------------------------
+            const statsSection = document.getElementById('stats-section');
+            const counters = document.querySelectorAll('.counter');
+            let hasCounterAnimated = false; // Ensures the animation runs only once
+
+            const startCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                if (target === 0) return; // Don't animate if target is 0
+                const duration = 2000; // Animation duration in milliseconds
+                const stepTime = Math.max(1, Math.floor(duration / target));
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += 1;
+                    if (current >= target) {
+                        counter.textContent = target; // Ensure it ends on the exact number
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = current;
+                    }
+                }, stepTime);
+            };
+
+            // Use Intersection Observer to trigger the counter only when visible
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !hasCounterAnimated) {
+                        counters.forEach(startCounter);
+                        hasCounterAnimated = true; // Prevents re-animation on subsequent scrolls
+                    }
+                });
+            }, { threshold: 0.8 }); // Trigger when 80% of the section is visible
+
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+
+            // --------------------------------------------------
+            // 5. FAQ Accordion Functionality
+            // This script controls the open/close mechanism of the FAQ section,
+            // ensuring only one question is open at a time for a clean user experience.
+            // --------------------------------------------------
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                if (question && answer) {
+                    question.addEventListener('click', () => {
+                        const isActive = item.classList.contains('active');
+
+                        // First, close all other items
+                        faqItems.forEach(i => {
+                            if (i !== item) {
+                                i.classList.remove('active');
+                                i.querySelector('.faq-answer').style.maxHeight = null;
+                            }
+                        });
+
+                        // Then, toggle the clicked item
+                        if (!isActive) {
+                            item.classList.add('active');
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                        } else {
+                            item.classList.remove('active');
+                            answer.style.maxHeight = null;
+                        }
+                    });
+                }
+            });
+            // --------------------------------------------------
+            // 6. Image Gallery Lightbox Functionality
+            // This code handles the popup for the gallery images.
+            // --------------------------------------------------
+            const lightbox = document.getElementById('imageLightbox');
+            if (lightbox) {
+                const lightboxImage = document.getElementById('lightboxImage');
+                const galleryImages = document.querySelectorAll('.gallery-item img');
+                const closeBtn = document.querySelector('.lightbox-close');
+
+                galleryImages.forEach(img => {
+                    img.addEventListener('click', function () {
+                        lightbox.style.display = 'flex';
+                        lightboxImage.src = this.src;
+                    });
+                });
+
+                // Function to close the lightbox
+                function closeLightbox() {
+                    lightbox.style.display = 'none';
+                }
+
+                // Close when clicking the 'X' button
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closeLightbox);
+                }
+
+                // Close when clicking on the dark background area
+                lightbox.addEventListener('click', function (event) {
+                    if (event.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            }
+            // --------------------------------------------------
+            // Mobile Menu Toggle Functionality
+            // --------------------------------------------------
+            const menuToggle = document.getElementById('mobile-menu-toggle');
+            const mainNav = document.getElementById('main-nav');
+            const body = document.body;
+
+            // Create the overlay div
+            const overlay = document.createElement('div');
+            overlay.className = 'nav-overlay';
+            body.appendChild(overlay);
+            function toggleMenu() {
+                document.documentElement.classList.toggle('menu-open'); // <--- السطر الجديد
+                document.body.classList.toggle('menu-open');
+                mainNav.classList.toggle('is-open');
+                overlay.classList.toggle('is-open');
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            overlay.addEventListener('click', toggleMenu); // Close menu when clicking overlay
+
+            // --- (إضافة جديدة) إغلاق القائمة تلقائيًا عند النقر على رابط ---
+            const menuNavLinks = document.querySelectorAll('.navbar .nav-link');
+
+            menuNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // التأكد من أن القائمة مفتوحة قبل محاولة إغلاقها
+                    if (mainNav.classList.contains('is-open')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+           // --- START: New Simplified Toggle Functionality ---
+            const pricingToggleContainer = document.querySelector('.pricing-toggle-pills');
+            if (pricingToggleContainer) {
+                const toggleOptions = pricingToggleContainer.querySelectorAll('.toggle-option');
+                const highlighter = pricingToggleContainer.querySelector('.toggle-highlighter');
+                const pricingSection = document.getElementById('pricing');
+
+                function moveHighlighter(targetButton) {
+                    highlighter.style.width = `${targetButton.offsetWidth}px`;
+                    highlighter.style.left = `${targetButton.offsetLeft}px`;
+                }
+
+                toggleOptions.forEach(button => {
+                    button.addEventListener('click', () => {
+                        // Remove active class from all buttons
+                        toggleOptions.forEach(btn => btn.classList.remove('active'));
+                        // Add active class to the clicked button
+                        button.classList.add('active');
+
+                        const period = button.getAttribute('data-period');
+                        // Toggle class for the price flip animation
+                        if (period === 'annual') {
+                            pricingSection.classList.add('annual-view');
+                        } else {
+                            pricingSection.classList.remove('annual-view');
+                        }
+
+                        // Move the highlighter to the new active button
+                        moveHighlighter(button);
+                    });
+                });
+
+                // Initialize highlighter position on page load
+                const initiallyActiveButton = document.querySelector('.toggle-option.active');
+                if (initiallyActiveButton) {
+                    moveHighlighter(initiallyActiveButton);
+                }
+            }
+            // --- END: New Simplified Toggle Functionality ---
+
+            // --- START: Testimonial Slider Functionality ---
+            const slider = document.querySelector('.testimonial-slider');
+            if (slider) {
+                const prevBtn = document.querySelector('.prev-btn');
+                const nextBtn = document.querySelector('.next-btn');
+
+                const scrollStep = slider.querySelector('.testimonial-card').offsetWidth + 30; // Card width + gap
+
+                nextBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: -scrollStep, behavior: 'smooth' }); // Negative for RTL
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: scrollStep, behavior: 'smooth' }); // Positive for RTL
+                });
+
+                // Optional: Disable buttons at ends (advanced)
+                slider.addEventListener('scroll', () => {
+                    // scrollLeft is 0 at the far right in RTL
+                    prevBtn.disabled = slider.scrollLeft === 0;
+                    // When max scroll is reached (far left)
+                    nextBtn.disabled = Math.abs(slider.scrollLeft) >= slider.scrollWidth - slider.clientWidth - 1;
+                });
+
+                // Initial check
+                if (slider.scrollLeft === 0) {
+                    prevBtn.disabled = true;
+                }
+            }
+            // --- END: Testimonial Slider Functionality ---
+        });
+        
+        // NEW: Countdown Timer Functionality
+            document.addEventListener('DOMContentLoaded', function () {
+                const countdownElement = document.getElementById('countdown');
+                if (countdownElement) {
+                    // Set the date we're counting down to (مثال: شهرين من تاريخ 1 أغسطس 2025)
+                    // يمكنك تغيير هذا التاريخ إلى التاريخ الذي تريده لانتهاء العرض
+                    const countdownDate = new Date("October 1, 2025 00:00:00").getTime();
+
+                    const x = setInterval(function () {
+                        const now = new Date().getTime();
+                        const distance = countdownDate - now;
+
+                        // حساب الأيام والساعات والدقائق والثواني
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        // عرض النتائج في العناصر المخصصة
+                        document.getElementById("days").innerHTML = (days < 10 ? "0" : "") + days;
+                        document.getElementById("hours").innerHTML = (hours < 10 ? "0" : "") + hours;
+                        document.getElementById("minutes").innerHTML = (minutes < 10 ? "0" : "") + minutes;
+                        document.getElementById("seconds").innerHTML = (seconds < 10 ? "0" : "") + seconds;
+
+                        // إذا انتهى العد التنازلي، أظهر رسالة
+                        if (distance < 0) {
+                            clearInterval(x);
+                            countdownElement.innerHTML = "<p>انتهى العرض الخاص!</p>";
+                            countdownElement.style.color = "var(--white-color)";
+                            countdownElement.style.fontSize = "1.5rem";
+                            countdownElement.style.fontWeight = "bold";
+                        }
+                    }, 1000);
+                }
+            });
+
+    </script>
+    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+    <div id="imageLightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImage">
+    </div>
+
+    
+</body>
+
+</html>
