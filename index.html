@@ -746,6 +746,94 @@
         /*
         ==============================================
         |                                            |
+        |          NEW: Countdown Banner Styles      |
+        |           (تنسيقات شريط العد التنازلي)       |
+        |                                            |
+        ==============================================
+        */
+        .countdown-banner {
+            background-image: var(--gradient-dark); /* خلفية مشابهة لقسم الأبطال أو الهيدر */
+            color: var(--white-color);
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-bottom: 50px; /* مسافة بين الشريط ومحول الأسعار */
+            box-shadow: var(--shadow-medium);
+        }
+
+        .countdown-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .countdown-banner p:last-child {
+            margin-bottom: 0; /* إزالة الهامش السفلي من الفقرة الأخيرة */
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .countdown-banner strong {
+            color: var(--primary); /* استخدام اللون الأساسي للأبرز */
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* مسافة بين عناصر العد التنازلي */
+            margin-bottom: 25px;
+            flex-wrap: wrap; /* للسماح بالعناصر بالنزول لسطر جديد في الشاشات الصغيرة */
+            direction: ltr; /* هذا السطر هو المهم: لعكس اتجاه العرض من اليسار لليمين بصريًا */
+        }
+
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة لعناصر العد */
+            padding: 15px 25px;
+            border-radius: var(--radius);
+            min-width: 90px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown-value {
+            font-size: 2.5rem; /* حجم كبير للأرقام */
+            font-weight: 900;
+            color: var(--white-color);
+            display: block;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem; /* حجم أصغر للتسميات (أيام، ساعات) */
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        /* responsive for countdown */
+        @media (max-width: 480px) {
+            .countdown-item {
+                padding: 10px 15px;
+                min-width: 70px;
+            }
+            .countdown-value {
+                font-size: 2rem;
+            }
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            .countdown-banner p {
+                font-size: 1rem;
+            }
+            .countdown-banner p.offer-guarantee {
+                font-size: 0.9rem;
+            }
+        }
+        /*
+        ==============================================
+        |                                            |
         |     10. PRICING TABLE (RTL PERFECTED)      |
         |              (جدول الأسعار)                |
         |           (تعديل ليناسب 4 بطاقات)           |
@@ -2259,103 +2347,125 @@
     </main>
 
 
-<section id="pricing" class="section section-bg">
-    <div class="container">
-        <div class="section-title fade-in-up animate-on-scroll">
-            <span class="section-tagline">خطط أسعار مرنة</span>
-            <h2>استثمار بسيط لنمو كبير في عملك</h2>
-            <p>اختر الباقة التي تلبي احتياجاتك اليوم، سواء بالدفع الشهري أو السنوي مع توفير كبير.</p>
-        </div>
-
-        <div class="pricing-toggle-pills fade-in-up animate-on-scroll">
-            <div class="toggle-highlighter"></div>
-            <button class="toggle-option active" data-period="monthly">شهري</button>
-            <button class="toggle-option" data-period="annual">سنوي <span class="save-badge">وفر 20%</span></button>
-        </div>
-
-        <div class="pricing-grid">
-
-            <!-- الخطة المجانية -->
-            <div class="pricing-card free-plan-card fade-in-up animate-on-scroll">
-                <h3>الخطة المجانية</h3>
-                <p class="text-light">لبداية آمنة وتجربة كاملة بدون التزام</p>
-                <div class="plan-price">
-                    <div class="price-card-side price-front" style="position: static; backface-visibility: visible;">0
-                        $ <span>/لمدة 7 أيام</span></div>
-                </div>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
-                    <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
-                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
-                </ul>
-                <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">جربها مجاناً</a>
+    <section id="pricing" class="section section-bg">
+        <div class="container">
+            <div class="section-title fade-in-up animate-on-scroll">
+                <span class="section-tagline">خطط أسعار مرنة</span>
+                <h2>استثمار بسيط لنمو كبير في عملك</h2>
+                <p>اختر الباقة التي تلبي احتياجاتك اليوم، سواء بالدفع الشهري أو السنوي مع توفير كبير.</p>
             </div>
-
-            <!-- الخطة الفردية -->
-            <div class="pricing-card fade-in-up animate-on-scroll">
-                <h3>الخطة الفردية</h3>
-                <p class="text-light">مثالية لمن يدير مشروعًا واحدًا</p>
-                <div class="plan-price">
-                    <div class="price-flipper">
-                        <div class="price-card-side price-front">3 $ <span>/شهريا</span></div>
-                        <div class="price-card-side price-back">28 $ <span>/سنويا</span></div>
+    
+            <div class="countdown-banner fade-in-up animate-on-scroll">
+                <p>هذه الأسعار <strong style="color: var(--white-color);">عروض حصرية ولفترة محدودة جداً!</strong> يتبقى
+                    لانتهاء العرض:</p>
+                <div id="countdown" class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">يوم</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">ساعة</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">دقيقة</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">ثانية</span>
                     </div>
                 </div>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
-                    <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
-                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
-                </ul>
-                <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                <p class="offer-guarantee">
+                    <strong style="color: var(--white-color);">ضمان السعر مدى الحياة:</strong>
+                    جميع المشتركين بهذه الأسعار الحالية سيحتفظون بنفس السعر عند التجديد أو الترقية، حتى بعد انتهاء العرض.
+                </p>
             </div>
-
-            <!-- الخطة الثنائية -->
-            <div class="pricing-card popular fade-in-up animate-on-scroll">
-                <div class="popular-badge">الأكثر شيوعًا</div>
-                <h3>الخطة الثنائية</h3>
-                <p class="text-light">أفضل لمن يدير عدة أرقام في عمله</p>
-                <div class="plan-price">
-                    <div class="price-flipper">
-                        <div class="price-card-side price-front">5 $ <span>/شهريا</span></div>
-                        <div class="price-card-side price-back">48 $ <span>/سنويا</span></div>
-                    </div>
-                </div>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> 3 حسابات واتساب</li>
-                    <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
-                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
-                </ul>
-                <a href="https://HeytsApp.com/download/" class="btn btn-primary pricing-button">اشترك الآن</a>
+            <div class="pricing-toggle-pills fade-in-up animate-on-scroll">
+                <div class="toggle-highlighter"></div>
+                <button class="toggle-option active" data-period="monthly">شهري</button>
+                <button class="toggle-option" data-period="annual">سنوي <span class="save-badge">وفر 20%</span></button>
             </div>
-
-            <!-- الخطة الشاملة -->
-            <div class="pricing-card fade-in-up animate-on-scroll">
-                <h3>الخطة الشاملة</h3>
-                <p class="text-light">خيار مثالي للفرق أو الوكالات التجارية</p>
-                <div class="plan-price">
-                    <div class="price-flipper">
-                        <div class="price-card-side price-front">9 $ <span>/شهريا</span></div>
-                        <div class="price-card-side price-back">85 $ <span>/سنويا</span></div>
+    
+            <div class="pricing-grid">
+    
+                <div class="pricing-card free-plan-card fade-in-up animate-on-scroll">
+                    <h3>الخطة المجانية</h3>
+                    <p class="text-light">لبداية آمنة وتجربة كاملة بدون التزام</p>
+                    <div class="plan-price">
+                        <div class="price-card-side price-front" style="position: static; backface-visibility: visible;">0
+                            $ <span>/لمدة 7 أيام</span></div>
                     </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">جربها مجاناً</a>
                 </div>
-                <ul>
-                    <li><i class="fas fa-check-circle"></i> حتى 5 حسابات واتساب</li>
-                    <li><i class="fas fa-check-circle"></i> ترخيص على جهازين</li>
-                    <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
-                </ul>
-                <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+    
+                <div class="pricing-card fade-in-up animate-on-scroll">
+                    <h3>الخطة الفردية</h3>
+                    <p class="text-light">مثالية لمن يدير مشروعًا واحدًا</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">3 $ <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">28 $ <span>/سنويا</span></div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i>1 حساب واتساب</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                </div>
+    
+                <div class="pricing-card popular fade-in-up animate-on-scroll">
+                    <div class="popular-badge">الأكثر شيوعًا</div>
+                    <h3>الخطة الثنائية</h3>
+                    <p class="text-light">أفضل لمن يدير عدة أرقام في عمله</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">5 $ <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">48 $ <span>/سنويا</span></div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 3 حسابات واتساب</li>
+                        <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-primary pricing-button">اشترك الآن</a>
+                </div>
+    
+                <div class="pricing-card fade-in-up animate-on-scroll">
+                    <h3>الخطة الشاملة</h3>
+                    <p class="text-light">خيار مثالي للفرق أو الوكالات التجارية</p>
+                    <div class="plan-price">
+                        <div class="price-flipper">
+                            <div class="price-card-side price-front">9 $ <span>/شهريا</span></div>
+                            <div class="price-card-side price-back">85 $ <span>/سنويا</span></div>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> حتى 5 حسابات واتساب</li>
+                        <li><i class="fas fa-check-circle"></i> ترخيص على جهازين</li>
+                        <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
+                    </ul>
+                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                </div>
+            </div>
+    
+            <div class="container fade-in-up animate-on-scroll" style="text-align: center; margin-top: 60px;">
+                <p style="max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
+                    <strong style="color: var(--primary-dark);">جميع الخطط تحتوي على كل الميزات. الاختلاف فقط في عدد
+                        الحسابات والأجهزة المدعومة.</strong><br>
+                    ابدأ بالخطة التي تناسب حجم نشاطك التجاري وابدأ اليوم.
+                </p>
             </div>
         </div>
-
-        <div class="container fade-in-up animate-on-scroll" style="text-align: center; margin-top: 60px;">
-            <p style="max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
-                <strong style="color: var(--primary-dark);">جميع الخطط تحتوي على كل الميزات. الاختلاف فقط في عدد
-                    الحسابات والأجهزة المدعومة.</strong><br>
-                ابدأ بالخطة التي تناسب حجم نشاطك التجاري وابدأ اليوم.
-            </p>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -3024,12 +3134,49 @@
             // --- END: Testimonial Slider Functionality ---
         });
         
+        // NEW: Countdown Timer Functionality
+            document.addEventListener('DOMContentLoaded', function () {
+                const countdownElement = document.getElementById('countdown');
+                if (countdownElement) {
+                    // Set the date we're counting down to (مثال: شهرين من تاريخ 1 أغسطس 2025)
+                    // يمكنك تغيير هذا التاريخ إلى التاريخ الذي تريده لانتهاء العرض
+                    const countdownDate = new Date("October 1, 2025 00:00:00").getTime();
+
+                    const x = setInterval(function () {
+                        const now = new Date().getTime();
+                        const distance = countdownDate - now;
+
+                        // حساب الأيام والساعات والدقائق والثواني
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        // عرض النتائج في العناصر المخصصة
+                        document.getElementById("days").innerHTML = (days < 10 ? "0" : "") + days;
+                        document.getElementById("hours").innerHTML = (hours < 10 ? "0" : "") + hours;
+                        document.getElementById("minutes").innerHTML = (minutes < 10 ? "0" : "") + minutes;
+                        document.getElementById("seconds").innerHTML = (seconds < 10 ? "0" : "") + seconds;
+
+                        // إذا انتهى العد التنازلي، أظهر رسالة
+                        if (distance < 0) {
+                            clearInterval(x);
+                            countdownElement.innerHTML = "<p>انتهى العرض الخاص!</p>";
+                            countdownElement.style.color = "var(--white-color)";
+                            countdownElement.style.fontSize = "1.5rem";
+                            countdownElement.style.fontWeight = "bold";
+                        }
+                    }, 1000);
+                }
+            });
 
     </script>
     <div id="imageLightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightboxImage">
     </div>
+
+    
 </body>
 
 </html>
