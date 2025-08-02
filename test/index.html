@@ -10,7 +10,8 @@
         })(window, document, "clarity", "script", "sjometrg4h");
     </script>
 
-    
+    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+    <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
         <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBFJ5VYPCK"></script>
     <script>
@@ -2085,6 +2086,8 @@
                     <div class="hero-image animate-on-load">
                         <img src="img/1.gif" alt="HeytsApp Dashboard">
                     </div>
+                    <div class="payhip-embed-page" data-key="tzQE8"></div>
+
                 </div>
             </div>
         </section>
@@ -2456,19 +2459,20 @@
                     <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
                 </div>
             </div>
-            <div class="payhip-embed-page" data-key="tzQE8">...</div>
-            <script type="text/javascript" src="https://payhip.com/embed-page.js?v=24u68984"></script>
-            <a href="https://payhip.com/b/tzQE8" class="payhip-buy-button" data-target-variant="1754033567958" data-theme="green" data-product="tzQE8">اشتري الأن</a>
-            <div class="container fade-in-up animate-on-scroll" style="text-align: center; margin-top: 60px;">
+            <a href="https://payhip.com/b/tzQE8" class="payhip-buy-button" data-target-variant="1754033567958" data-theme="green"
+                data-product="tzQE8">Buy Now</a>
+                <div class="container fade-in-up animate-on-scroll" style="text-align: center; margin-top: 60px;">
                 <p style="max-width: 900px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8; color: var(--text-dark);">
                     <strong style="color: var(--primary-dark);">جميع الخطط تحتوي على كل الميزات. الاختلاف فقط في عدد
                         الحسابات والأجهزة المدعومة.</strong><br>
                     ابدأ بالخطة التي تناسب حجم نشاطك التجاري وابدأ اليوم.
                 </p>
+                <div class="payhip-embed-page" data-key="tzQE8"></div>
+
             </div>
+
         </div>
     </section>
-
 
 
     <section id="api-comparison" class="section">
@@ -2828,6 +2832,7 @@
             <div class="footer-links">
                 <a href="/help/">مركز المساعدة</a>
                 <a href="/privacy/">سياسة الخصوصية</a>
+                <a href="/terms/">شروط الاستخدام</a>
                 <a href="/Refund_Policy/">سياسة استرداد الأموال</a>
                 <a href="/contact/">اتصل بنا</a>
             </div>
@@ -3136,44 +3141,45 @@
             // --- END: Testimonial Slider Functionality ---
         });
         
-        // NEW: Countdown Timer Functionality
-            document.addEventListener('DOMContentLoaded', function () {
-                const countdownElement = document.getElementById('countdown');
-                if (countdownElement) {
-                    // Set the date we're counting down to (مثال: شهرين من تاريخ 1 أغسطس 2025)
-                    // يمكنك تغيير هذا التاريخ إلى التاريخ الذي تريده لانتهاء العرض
-                    const countdownDate = new Date("October 1, 2025 00:00:00").getTime();
+    // NEW: Countdown Timer Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                // Set the date we're counting down to (مثال: شهرين من تاريخ 1 أغسطس 2025)
+                // يمكنك تغيير هذا التاريخ إلى التاريخ الذي تريده لانتهاء العرض
+                const countdownDate = new Date("October 1, 2025 00:00:00").getTime();
 
-                    const x = setInterval(function () {
-                        const now = new Date().getTime();
-                        const distance = countdownDate - now;
+                const x = setInterval(function () {
+                    const now = new Date().getTime();
+                    const distance = countdownDate - now;
 
-                        // حساب الأيام والساعات والدقائق والثواني
-                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    // حساب الأيام والساعات والدقائق والثواني
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                        // عرض النتائج في العناصر المخصصة
-                        document.getElementById("days").innerHTML = (days < 10 ? "0" : "") + days;
-                        document.getElementById("hours").innerHTML = (hours < 10 ? "0" : "") + hours;
-                        document.getElementById("minutes").innerHTML = (minutes < 10 ? "0" : "") + minutes;
-                        document.getElementById("seconds").innerHTML = (seconds < 10 ? "0" : "") + seconds;
+                    // عرض النتائج في العناصر المخصصة
+                    document.getElementById("days").innerHTML = (days < 10 ? "0" : "") + days;
+                    document.getElementById("hours").innerHTML = (hours < 10 ? "0" : "") + hours;
+                    document.getElementById("minutes").innerHTML = (minutes < 10 ? "0" : "") + minutes;
+                    document.getElementById("seconds").innerHTML = (seconds < 10 ? "0" : "") + seconds;
 
-                        // إذا انتهى العد التنازلي، أظهر رسالة
-                        if (distance < 0) {
-                            clearInterval(x);
-                            countdownElement.innerHTML = "<p>انتهى العرض الخاص!</p>";
-                            countdownElement.style.color = "var(--white-color)";
-                            countdownElement.style.fontSize = "1.5rem";
-                            countdownElement.style.fontWeight = "bold";
-                        }
-                    }, 1000);
-                }
-            });
-
+                    // إذا انتهى العد التنازلي، أظهر رسالة
+                    if (distance < 0) {
+                        clearInterval(x);
+                        countdownElement.innerHTML = "<p>انتهى العرض الخاص!</p>";
+                        countdownElement.style.color = "var(--white-color)";
+                        countdownElement.style.fontSize = "1.5rem";
+                        countdownElement.style.fontWeight = "bold";
+                    }
+                }, 1000);
+            }
+        });
+        (function (d, t) { t = d.createElement('script'); t.setAttribute('src', 'https://payhip.com/js/payhip.js?v=24u69014'); d.getElementsByTagName('head')[0].appendChild(t); t = d.createElement('script'); t.setAttribute('src', 'https://payhip.com/js/json2.js?v=24u69014'); d.getElementsByTagName('head')[0].appendChild(t); })(document);
     </script>
-    <script type="text/javascript" src="https://payhip.com/payhip.js"></script>
+
+
     <div id="imageLightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightboxImage">
