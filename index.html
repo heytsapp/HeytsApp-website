@@ -2404,6 +2404,7 @@
                     <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">جربها مجاناً</a>
                 </div>
     
+                <!-- الخطة الفردية -->
                 <div class="pricing-card fade-in-up animate-on-scroll">
                     <h3>الخطة الفردية</h3>
                     <p class="text-light">مثالية لمن يدير مشروعًا واحدًا</p>
@@ -2418,9 +2419,10 @@
                         <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
                         <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
                     </ul>
-                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                    <a href="#" id="individual-plan-btn" class="btn btn-secondary pricing-button">اشترك الآن</a>
                 </div>
-    
+                
+                <!-- الخطة الثنائية -->
                 <div class="pricing-card popular fade-in-up animate-on-scroll">
                     <div class="popular-badge">الأكثر شيوعًا</div>
                     <h3>الخطة الثنائية</h3>
@@ -2436,9 +2438,10 @@
                         <li><i class="fas fa-check-circle"></i>ترخيص لجهاز واحد</li>
                         <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
                     </ul>
-                    <a href="https://HeytsApp.com/download/" class="btn btn-primary pricing-button">اشترك الآن</a>
+                    <a href="#" id="dual-plan-btn" class="btn btn-primary pricing-button">اشترك الآن</a>
                 </div>
-    
+                
+                <!-- الخطة الشاملة -->
                 <div class="pricing-card fade-in-up animate-on-scroll">
                     <h3>الخطة الشاملة</h3>
                     <p class="text-light">خيار مثالي للفرق أو الوكالات التجارية</p>
@@ -2453,7 +2456,7 @@
                         <li><i class="fas fa-check-circle"></i> ترخيص على جهازين</li>
                         <li><i class="fas fa-check-circle"></i> تشمل جميع ميزات البرنامج بالكامل</li>
                     </ul>
-                    <a href="https://HeytsApp.com/download/" class="btn btn-secondary pricing-button">اشترك الآن</a>
+                    <a href="#" id="comprehensive-plan-btn" class="btn btn-secondary pricing-button">اشترك الآن</a>
                 </div>
             </div>
     
@@ -3070,35 +3073,75 @@
                 const highlighter = pricingToggleContainer.querySelector('.toggle-highlighter');
                 const pricingSection = document.getElementById('pricing');
 
+
+                // =================================================================
+                // ==  هنا تضع روابطك الستة المختلفة (بالإضافة إلى الرابط المجاني في الأعلى)  ==
+                // =================================================================
+                const planLinks = {
+                    individual: {
+                        monthly: "https://payhip.com/b/R8XCt",    // <-- الرابط (2): فردي شهري
+                        annual: "https://payhip.com/b/Whtoi"       // <-- الرابط (3): فردي سنوي
+                    },
+                    dual: {
+                        monthly: "https://payhip.com/b/LRnk6",          // <-- الرابط (4): ثنائي شهري
+                        annual: "https://payhip.com/b/K0lpL"             // <-- الرابط (5): ثنائي سنوي
+                    },
+                    comprehensive: {
+                        monthly: "https://payhip.com/b/GSFnL",// <-- الرابط (6): شامل شهري
+                        annual: "https://payhip.com/b/3kXrm"    // <-- الرابط (7): شامل سنوي
+                    }
+                };
+                // =================================================================
+
+                // --- الوصول إلى الأزرار عبر الـ ID ---
+                const individualBtn = document.getElementById('individual-plan-btn');
+                const dualBtn = document.getElementById('dual-plan-btn');
+                const comprehensiveBtn = document.getElementById('comprehensive-plan-btn');
+                
+
+
+
                 function moveHighlighter(targetButton) {
                     highlighter.style.width = `${targetButton.offsetWidth}px`;
                     highlighter.style.left = `${targetButton.offsetLeft}px`;
                 }
 
+                function updateButtonLinks(period) {
+                    if (individualBtn) {
+                        individualBtn.href = planLinks.individual[period];
+                    }
+                    if (dualBtn) {
+                        dualBtn.href = planLinks.dual[period];
+                    }
+                    if (comprehensiveBtn) {
+                        comprehensiveBtn.href = planLinks.comprehensive[period];
+                    }
+                }
+
                 toggleOptions.forEach(button => {
                     button.addEventListener('click', () => {
-                        // Remove active class from all buttons
                         toggleOptions.forEach(btn => btn.classList.remove('active'));
-                        // Add active class to the clicked button
                         button.classList.add('active');
 
                         const period = button.getAttribute('data-period');
-                        // Toggle class for the price flip animation
+
                         if (period === 'annual') {
                             pricingSection.classList.add('annual-view');
+                            updateButtonLinks('annual'); // تحديث الروابط للخطة السنوية
                         } else {
                             pricingSection.classList.remove('annual-view');
+                            updateButtonLinks('monthly'); // تحديث الروابط للخطة الشهرية
                         }
 
-                        // Move the highlighter to the new active button
                         moveHighlighter(button);
                     });
                 });
 
-                // Initialize highlighter position on page load
+                // --- الإعداد الأولي عند تحميل الصفحة ---
                 const initiallyActiveButton = document.querySelector('.toggle-option.active');
                 if (initiallyActiveButton) {
                     moveHighlighter(initiallyActiveButton);
+                    updateButtonLinks('monthly'); // تعيين الروابط الشهرية كافتراضي عند تحميل الصفحة
                 }
             }
             // --- END: New Simplified Toggle Functionality ---
