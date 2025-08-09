@@ -68,6 +68,11 @@
             /* Gradients */
             --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
             --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #0c2d32 100%);
+            --gold-1: #cda434;   /* ذهب أساسي */
+            --gold-2: #ffd56e;   /* هايلايت */
+            --gold-3: #8a6e2f;   /* ظل */
+            --gold-glow: rgba(255, 213, 110, 0.45);
+
         }
 
         /* Basic Reset - إعادة تعيين أساسية */
@@ -224,6 +229,119 @@
             margin-left: auto;
             margin-right: auto;
         }
+        /*
+        ==============================================
+        |                                            |
+        |          الخطة الشاملة: ستايل ذهبي        |
+        |          (الخطة الشاملة: ستايل ذهبي            |
+        |                                            |
+        ==============================================
+        */
+        /* الخطة الشاملة: ستايل ذهبي */
+        .pricing-card.premium {
+            background-image: linear-gradient(135deg, var(--gold-1) 0%, var(--gold-2) 55%, var(--gold-1) 100%);
+            border-color: var(--gold-2);
+            box-shadow: 0 10px 30px var(--gold-glow);
+            transform: scale(1.06); /* تبرز شوي */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* نصوص وأيقونات داخل البطاقة الذهبية */
+        .pricing-card.premium h3,
+        .pricing-card.premium p,
+        .pricing-card.premium ul li,
+        .pricing-card.premium .plan-price,
+        .pricing-card.premium .plan-price span {
+            color: #2e2309; /* بني داكن يقرأ بوضوح على الذهبي */
+        }
+        .pricing-card.premium ul li i {
+            color: #2e2309;
+        }
+        .pricing-card.premium .btn {
+            background-image: linear-gradient(135deg, var(--gold-3), var(--gold-1));
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 6px 18px var(--gold-glow);
+        }
+        .pricing-card.premium .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px var(--gold-glow);
+        }
+        /* شريط لمّاع يمر فوق البطاقة عند الهوفر */
+        .pricing-card.premium::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            right: -60%;
+            width: 40%;
+            height: 140%;
+            transform: skewX(-20deg);
+            background: linear-gradient(to left, transparent, rgba(255,255,255,.7), transparent);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .pricing-card.premium:hover::before {
+            opacity: 1;
+            animation: goldShine 1.2s ease forwards;
+        }
+        .pricing-card.premium:hover {
+            box-shadow: 0 15px 40px var(--gold-glow);
+        }
+        /* زر الخطة الشاملة */
+        .pricing-card.premium .btn {
+            background-image: linear-gradient(135deg, var(--gold-3), var(--gold-1));
+            color: #fff;
+            border: none;
+            box-shadow: 0 6px 18px var(--gold-glow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* تأثير عند التمرير */
+        .pricing-card.premium .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            background-image: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+            box-shadow: 0 10px 28px var(--gold-glow);
+        }
+
+        /* تأثير عند النقر */
+        .pricing-card.premium .btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 4px 12px var(--gold-glow);
+            background-image: linear-gradient(135deg, var(--gold-3), var(--gold-1));
+        }
+
+        /* لمعة تمر على الزر */
+        .pricing-card.premium .btn::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -100%; /* كان left، خليناه right */
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(300deg, transparent, rgba(255,255,255,0.5), transparent); /* بدل 120deg بـ 300deg لعكس الاتجاه */
+            transform: rotate(-25deg); /* عكس الميلان */
+            transition: all 0.5s ease;
+        }
+
+        .pricing-card.premium .btn:hover::before {
+            right: 130%; /* كان left، خليناه right */
+        }
+
+        /* تأثير نبض للخطة المجانية */
+        .free-plan-card {
+            animation: freePulse 3s ease-in-out infinite;
+        }
+
+        /* حركة النبض */
+        @keyframes freePulse {
+            0%   { box-shadow: var(--shadow-light), inset 0 0 0 rgba(59, 174, 94, 0); }
+            50%  { box-shadow: var(--shadow-light), inset 0 0 24px rgba(59, 174, 93, 0.705); }
+            100% { box-shadow: var(--shadow-light), inset 0 0 0 rgba(59, 174, 94, 0); }
+        }
+
 
         /*
         ==============================================
@@ -1404,6 +1522,10 @@
                 transform: scale(1)
             }
         }
+        @keyframes goldShine {
+            0%   { right: -60%; }
+            100% { right: 700%; }
+        }
 
         /* --- The close button (X) --- */
         .lightbox-close {
@@ -1670,6 +1792,8 @@
             height: 100%;
             border: none;
         }
+
+
         /* --- END: New Pill-Shaped Toggle Styles --- */
         /* --- END: New Pill-Shaped Toggle Styles --- */
         /*
@@ -2442,7 +2566,7 @@
                 </div>
                 
                 <!-- الخطة الشاملة -->
-                <div class="pricing-card fade-in-up animate-on-scroll">
+                <div class="pricing-card premium fade-in-up animate-on-scroll">
                     <h3>الخطة الشاملة</h3>
                     <p class="text-light">خيار مثالي للفرق أو الوكالات التجارية</p>
                     <div class="plan-price">
