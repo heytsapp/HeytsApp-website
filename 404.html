@@ -2,14 +2,27 @@
 <html lang="ar" dir="rtl">
 
 <head>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "sjometrg4h");
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBFJ5VYPCK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MBFJ5VYPCK');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحديث قادم – HeytsApp</title>
+    <title>قيد الإنشاء | HeytsApp</title>
     <meta name="description"
-        content="نعمل حاليًا على إطلاق نسخة HeytsApp PRO الجديدة والمطورة بأدوات أكثر ذكاءً وقوة. تابعنا لمعرفة موعد الإطلاق.">
+        content="شكرًا لحماسك! هذا القسم من الموقع قيد التطوير وسيتم إطلاقه قريبًا مع بقية الميزات الكاملة.">
 
-    <link rel="icon" type="image/x-icon" href="img/icon.ico">
-
+    <link rel="icon" type="image/x-icon" href="/img/icon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap"
@@ -22,13 +35,14 @@
             --primary: #3bae5e;
             --primary-dark: #2a8c4a;
             --dark: #0c2d32;
+            --light-bg: #f4f9f5;
             --white-color: #FFFFFF;
-            --text-light: rgba(255, 255, 255, 0.85);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --gold: #cda434;
+            --text-dark: #0c2d32;
+            --text-light: #556a6e;
+            --border-color: #e9eef2;
             --radius: 12px;
-            --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.2);
-            --gradient-dark: linear-gradient(145deg, var(--dark) 0%, #1a3c42 100%);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
 
         *,
@@ -39,188 +53,213 @@
             box-sizing: border-box;
         }
 
-        html,
-        body {
+        html {
             height: 100%;
         }
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background-image: var(--gradient-dark);
-            color: var(--white-color);
+            background-color: var(--light-bg);
+            color: var(--text-dark);
             line-height: 1.8;
-            text-align: center;
+            text-align: right;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
-            /* منع التمرير الأفقي */
+            flex-direction: column;
+            min-height: 100%;
         }
 
-        .maintenance-container {
-            max-width: 650px;
+        .container {
             width: 100%;
-            padding: 50px 40px;
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-heavy);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            animation: fadeIn 1.2s ease-out forwards;
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-decoration: none;
         }
 
-        .logo {
-            margin-bottom: 30px;
+        .btn-primary {
+            color: var(--white-color);
+            background-image: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(59, 174, 94, 0.4);
+        }
+
+        /* --- Header & Footer --- */
+        .header {
+            padding: 20px 0;
+            background-color: var(--white-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo img {
-            max-height: 50px;
-            margin: 0 auto;
+            height: 45px;
         }
 
-        h1 {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            /* تم تعديل الحجم قليلاً */
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--white-color);
-            line-height: 1.4;
-        }
-
-        h1 .highlight {
-            color: var(--gold);
-        }
-
-        p.subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 25px;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .teaser-section {
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .teaser-section h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .teaser-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            gap: 15px;
-            /* تم جعل القائمة شبكية لتوزيع أفضل */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        .teaser-list li {
+        main {
+            flex-grow: 1;
             display: flex;
             align-items: center;
-            font-size: 1.05rem;
-            /* تم تعديل حجم الخط */
+            justify-content: center;
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- NEW: Coming Soon Section Styles --- */
+        .coming-soon-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .main-icon {
+            font-size: 6rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: var(--primary-dark);
+            color: var(--white-color);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .main-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--dark);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .main-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        .features-preview {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            padding: 30px;
+            background-color: var(--white-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+        }
+
+        .features-preview h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
             text-align: right;
             font-weight: 500;
-            padding: 10px;
-            border-radius: 8px;
-            background-color: rgba(0, 0, 0, 0.1);
         }
 
-        .teaser-list i {
-            color: var(--gold);
-            font-size: 1.4rem;
-            margin-left: 15px;
-            width: 25px;
+        .feature-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
         }
 
-        .contact-prompt {
-            margin-top: 40px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--white-color);
-        }
-
-        .social-icons {
+        .action-buttons {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 15px;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .social-icons a {
-            color: var(--white-color);
-            font-size: 1.8rem;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        /*
-        ==============================================
-        |       أنماط الشاشات الصغيرة والهواتف        |
-        ==============================================
-        */
-        @media (max-width: 600px) {
-            body {
-                align-items: flex-start;
-                /* السماح للمحتوى بالبدء من الأعلى */
-                padding-top: 5vh;
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .main-icon {
+                font-size: 5rem;
             }
 
-            .maintenance-container {
-                padding: 30px 20px;
+            .main-title {
+                font-size: 1.5rem;
             }
 
-            .logo img {
-                max-height: 45px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            p.subtitle {
+            .main-description {
                 font-size: 1rem;
             }
 
-            .teaser-section h3 {
-                font-size: 1.2rem;
-            }
-
-            .teaser-list {
-                /* عرض الميزات في عمود واحد على الشاشات الصغيرة */
+            .features-grid {
                 grid-template-columns: 1fr;
             }
 
-            .teaser-list li {
-                font-size: 1rem;
-                padding: 12px;
+            /* Stack features on mobile */
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
         }
     </style>
@@ -228,53 +267,59 @@
 
 <body>
 
-    <main class="maintenance-container">
-        <div class="logo">
-            <img src="/img/LOGO_3.png" alt="HeytsApp Logo">
-        </div>
-
-        <h1>تحديث كبير قادم: إليكم <span class="highlight">HeytsApp PRO</span></h1>
-        <p class="subtitle">
-            شكرًا لزيارتكم. نعمل حاليًا على إطلاق إصدار جديد ومطور من البرنامج ليقدم لكم أدوات أكثر قوة وذكاءً. النسخة
-            الحالية كانت مجرد خطوة أولى نحو ما هو قادم.
-        </p>
-
-        <div class="teaser-section">
-            <h3>نقدم لكم في الإصدار الجديد:</h3>
-            <ul class="teaser-list">
-                <li><i class="fas fa-brain"></i>
-                    <div>مجيب آلي مدعوم بالذكاء الاصطناعي.</div>
-                </li>
-                <li><i class="fas fa-bullseye"></i>
-                    <div>تخصيص متقدم للردود لكل حملة إعلانية.</div>
-                </li>
-                <li><i class="fas fa-chart-line"></i>
-                    <div>لوحة تحليلات متقدمة لدعم قراراتك.</div>
-                </li>
-                <li><i class="fas fa-mobile-alt"></i>
-                    <div>إمكانية التحكم بالنظام عن بعد من هاتفك.</div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="contact-prompt">
-            كن على اطلاع بموعد الإطلاق، تابعنا:
-        </div>
-        <div class="social-icons">
-            <a href="https://www.youtube.com/@HeytsApp" aria-label="YouTube" target="_blank" title="قناتنا على يوتيوب">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://web.facebook.com/61578299563205" aria-label="Facebook" target="_blank"
-                title="صفحتنا على فيسبوك">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://wa.me/212766194903" aria-label="WhatsApp" target="_blank" title="تواصل معنا عبر واتساب">
-                <i class="fab fa-whatsapp"></i>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo" aria-label="العودة للصفحة الرئيسية">
+                <img src="/img/LOGO_2.png" alt="HeytsApp Logo">
             </a>
         </div>
+    </header>
+
+    <main>
+        <section class="coming-soon-section">
+            <div class="container">
+                <div class="main-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="status-badge">قريبًا جدًا...</div>
+                <h1 class="main-title">هذه الصفحة هي محطتنا القادمة!</h1>
+                <p class="main-description">
+                    شكرًا لحماسك! هذا القسم من الموقع وبقية الأقسام ما زالت قيد التطوير ووضع اللمسات الأخيرة. نحن نبني
+                    لك تجربة متكاملة ستُطلق قريبًا. ابق على اطلاع!
+                </p>
+
+                <div class="features-preview">
+                    <h3>لمحة سريعة على القوة القادمة:</h3>
+                    <div class="features-grid">
+                        <div class="feature-item"><i class="fas fa-brain"></i> <span>مجيب آلي بالذكاء الاصطناعي</span>
+                        </div>
+                        <div class="feature-item"><i class="fas fa-tachometer-alt"></i> <span>لوحة إحصائيات
+                                متقدمة</span></div>
+                        <div class="feature-item"><i class="fas fa-mobile-alt"></i> <span>تحكم كامل عن بعد</span></div>
+                        <div class="feature-item"><i class="fas fa-sitemap"></i> <span>إدارة حسابات متعددة</span></div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="/" class="btn btn-primary">
+                        <i class="fas fa-home"></i>
+                        العودة إلى الصفحة الرئيسية
+                    </a>
+                    <a href="https://wa.me/212766194903" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        تواصل معنا على واتساب
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 – جميع الحقوق محفوظة | HeytsApp</p>
+        </div>
+    </footer>
 
 </body>
 
 </html>
-
