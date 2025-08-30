@@ -23,6 +23,11 @@
     <meta name="description"
         content="HeytsApp أداة عربية مغربية تجعل كل محادثة فرصة بيع حقيقية. ترحيب مخصص، متابعة ذكية، ومجيب آلي يعمل بالذكاء الاصطناعي — وكل ذلك محليًا على جهازك.">
     <meta property="og:image" content="https://i.postimg.cc/rF8tj1dZ/preview.jpg">
+    <meta property="og:title" content="HeytsApp – حوّل واتساب إلى آلة مبيعات لا تنام">
+    <meta property="og:description"
+        content="HeytsApp أداة عربية مغربية تجعل كل محادثة فرصة بيع حقيقية. ترحيب مخصص، متابعة ذكية، ومجيب آلي يعمل بالذكاء الاصطناعي.">
+    <meta property="og:url" content="https://heytsapp.com/">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/x-icon" href="img/icon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,10 +82,12 @@
             text-align: right;
             overflow-x: hidden;
         }
+
         .hero-main-title {
             text-align: center;
             margin-bottom: 50px;
         }
+
         .container {
             width: 100%;
             max-width: 1240px;
@@ -149,30 +156,38 @@
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             user-select: none;
         }
+
         .btn-primary {
             color: var(--white-color);
             background-image: var(--gradient-primary);
             background-size: 200% auto;
             box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
         }
+
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(59, 174, 0.4);
         }
+
         .header-cta {
             padding: 12px 28px;
             font-size: 0.9rem;
         }
+
         .pricing-card.popular .btn.btn-primary {
-            background-color: var(--white-color); /* خلفية زر أبيض */
-            color: var(--primary-dark); /* نص زر أخضر داكن */
-            border-color: var(--white-color); /* حدود زر بيضاء */
+            background-color: var(--white-color);
+            /* خلفية زر أبيض */
+            color: var(--primary-dark);
+            /* نص زر أخضر داكن */
+            border-color: var(--white-color);
+            /* حدود زر بيضاء */
         }
 
         .pricing-card.popular .btn.btn-primary:hover {
-            background-color: #f0f0f0; /* تغيير طفيف عند المرور */
+            background-color: #f0f0f0;
+            /* تغيير طفيف عند المرور */
         }
-        
+
         .section {
             padding: 120px 0;
             position: relative;
@@ -273,6 +288,7 @@
             height: 45px;
             transition: transform .3s ease;
         }
+
         .logo img:hover {
             transform: scale(1.05);
         }
@@ -396,7 +412,8 @@
         .hero-image {
             perspective: 1500px;
         }
-  /*
+
+        /*
         .hero-image img {
             border-radius: var(--radius);
             transform: rotateY(-20deg) rotateX(10deg);
@@ -452,6 +469,7 @@
 
         /* ✅ يطبق فقط من الشاشات الكبيرة */
         @media (min-width: 992px) {
+
             /* إذا بقي عنصر وحيد في الصف الأخير */
             .features-grid>.feature-card:last-child:nth-child(3n + 1) {
                 grid-column: span 3;
@@ -475,23 +493,49 @@
 
         /* --- START: NEW AND FIXED CODE --- */
         /* تطبيق تأخير متدرج صحيح للظهور عند تحميل الصفحة */
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(2) { transition-delay: 0.1s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(3) { transition-delay: 0.2s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(4) { transition-delay: 0.3s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(5) { transition-delay: 0.4s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(6) { transition-delay: 0.5s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(7) { transition-delay: 0.6s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(8) { transition-delay: 0.7s; }
-        .features-grid .feature-card.animate-on-scroll:nth-of-type(9) { transition-delay: 0.8s; }
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(2) {
+            transition-delay: 0.1s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(3) {
+            transition-delay: 0.2s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(4) {
+            transition-delay: 0.3s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(5) {
+            transition-delay: 0.4s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(6) {
+            transition-delay: 0.5s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(7) {
+            transition-delay: 0.6s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(8) {
+            transition-delay: 0.7s;
+        }
+
+        .features-grid .feature-card.animate-on-scroll:nth-of-type(9) {
+            transition-delay: 0.8s;
+        }
 
 
         /* إصلاح الاستجابة الفورية وإضافة تأثير التوهج عند مرور الفأرة */
         .feature-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            transition-delay: 0s !important; /* لضمان الاستجابة الفورية دائماً */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07), 0 0 15px rgba(59, 174, 94, 0.6); /* الظل الأساسي + تأثير التوهج */
+            transition-delay: 0s !important;
+            /* لضمان الاستجابة الفورية دائماً */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07), 0 0 15px rgba(59, 174, 94, 0.6);
+            /* الظل الأساسي + تأثير التوهج */
         }
+
         /* --- END: NEW AND FIXED CODE --- */
 
         .feature-card .feature-header {
@@ -717,7 +761,8 @@
             gap: 10px;
             margin-bottom: 10px;
         }
-       /*
+
+        /*
         ==============================================
         |                                            |
         |    11.5. API VS HeytsApp (VIBRANT STYLE)     |
@@ -729,21 +774,26 @@
         /* إزالة الهوامش الافتراضية لتحكم كامل */
         .comparison-table-wrapper {
             margin: 60px 0;
-            overflow-x: auto; /* <-- هذا هو السطر المهم الذي تم إرجاعه */
-            padding-bottom: 15px; /* <-- مسافة بسيطة أسفل الجدول لتحسين الشكل */
+            overflow-x: auto;
+            /* <-- هذا هو السطر المهم الذي تم إرجاعه */
+            padding-bottom: 15px;
+            /* <-- مسافة بسيطة أسفل الجدول لتحسين الشكل */
         }
 
         /* 1. الجدول الرئيسي: تصميم عصري بدون حدود خارجية */
         .comparison-table-wrapper table {
             width: 100%;
-            border-collapse: separate; /* مهم جداً للتصميم الجديد */
-            border-spacing: 0 10px; /* مسافة رأسية بين صفوف المقارنة */
+            border-collapse: separate;
+            /* مهم جداً للتصميم الجديد */
+            border-spacing: 0 10px;
+            /* مسافة رأسية بين صفوف المقارنة */
             min-width: 700px;
         }
 
         /* 2. رأس الجدول: استخدام التدرج اللوني الأساسي لجعله قوياً وجذاباً */
         .comparison-table-wrapper thead th {
-            background-image: var(--gradient-dark); /* تدرج لوني داكن وأنيق */
+            background-image: var(--gradient-dark);
+            /* تدرج لوني داكن وأنيق */
             color: var(--white-color);
             font-size: 1.2rem;
             padding: 25px;
@@ -755,6 +805,7 @@
             border-top-right-radius: var(--radius);
             border-bottom-right-radius: var(--radius);
         }
+
         .comparison-table-wrapper thead th:last-child {
             border-top-left-radius: var(--radius);
             border-bottom-left-radius: var(--radius);
@@ -773,8 +824,10 @@
 
         /* 5. تمييز عمود HeytsApp: جعله أكثر بروزاً وحيوية */
         .comparison-table-wrapper tbody td:last-child {
-            background-color: #f4f9f5; /* لون الخلفية الأخضر الفاتح جداً */
-            border-right: 4px solid var(--primary); /* خط جانبي بلون الهوية */
+            background-color: #f4f9f5;
+            /* لون الخلفية الأخضر الفاتح جداً */
+            border-right: 4px solid var(--primary);
+            /* خط جانبي بلون الهوية */
         }
 
         /* 6. تنسيق الخلية الأولى (اسم الميزة) */
@@ -790,6 +843,7 @@
             border-top-right-radius: var(--radius);
             border-bottom-right-radius: var(--radius);
         }
+
         .comparison-table-wrapper tbody td:last-child {
             border-top-left-radius: var(--radius);
             border-bottom-left-radius: var(--radius);
@@ -809,7 +863,8 @@
             background: var(--white-color);
             border-radius: var(--radius);
             border: 1px solid var(--border-color);
-            border-top: 5px solid var(--primary); /* خط علوي قوي بلون الهوية */
+            border-top: 5px solid var(--primary);
+            /* خط علوي قوي بلون الهوية */
             box-shadow: var(--shadow-medium);
         }
 
@@ -820,9 +875,11 @@
             align-items: center;
             gap: 15px;
         }
+
         /* إضافة أيقونة للعنوان */
         .comparison-summary h3::before {
-            content: '\f005'; /* أيقونة النجمة من FontAwesome */
+            content: '\f005';
+            /* أيقونة النجمة من FontAwesome */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--primary);
@@ -853,7 +910,7 @@
 
 
 
-        
+
         .testimonial-slider-wrapper {
             position: relative;
         }
@@ -1026,31 +1083,41 @@
             border-radius: 0;
             text-align: center;
             margin: 0;
-            
-            background-color: #0c2d32; /* Green fallback color */
-            
-            background-image: 
+
+            background-color: #0c2d32;
+            /* Green fallback color */
+
+            background-image:
                 /* الطبقة العلوية: طبقة لون داكن شبه شفاف لتغطية النجمة */
                 linear-gradient(to right, #c1272c77 0.9%, #0c2d32 30%),
                 /* الطبقة الوسطى: صورة النجمة */
                 url('https://upload.wikimedia.org/wikipedia/commons/c/ca/Star_of_Morocco.svg'),
                 /* الطبقة السفلية: التدرج اللوني الرئيسي */
-                linear-gradient(to right, 
-                    #c1272ca1 0.9%,  /* أحمر ثابت */
-                    #0c2d32 30%   /* أخضر ثابت */
+                linear-gradient(to right,
+                    #c1272ca1 0.9%,
+                    /* أحمر ثابت */
+                    #0c2d32 30%
+                    /* أخضر ثابت */
                 );
 
-            background-repeat: no-repeat; /* عدم التكرار لجميع الطبقات */
-            
-            background-position: 
-                center,                 /* موقع طبقة الشفافية */
-                left -60px center,      /* موقع النجمة */
-                center;                 /* موقع التدرج اللوني */
+            background-repeat: no-repeat;
+            /* عدم التكرار لجميع الطبقات */
 
-            background-size: 
-                cover,                  /* حجم طبقة الشفافية */
-                220px,                  /* حجم النجمة */
-                cover;                  /* حجم التدرج اللوني */
+            background-position:
+                center,
+                /* موقع طبقة الشفافية */
+                left -60px center,
+                /* موقع النجمة */
+                center;
+            /* موقع التدرج اللوني */
+
+            background-size:
+                cover,
+                /* حجم طبقة الشفافية */
+                220px,
+                /* حجم النجمة */
+                cover;
+            /* حجم التدرج اللوني */
         }
 
         .highlight-box h3 {
@@ -1173,7 +1240,7 @@
         }
 
 
-       /*
+        /*
         ==============================================
         |     philosophy section hover effect         |
         ==============================================
@@ -1190,7 +1257,8 @@
         /* الحالة الأساسية للبطاقة */
         .philosophy-card {
             cursor: pointer;
-            transition: all 0.3s ease-out; /* للانتقالات الناعمة الأخرى */
+            transition: all 0.3s ease-out;
+            /* للانتقالات الناعمة الأخرى */
         }
 
         /* تشغيل التأثير عند مرور المؤشر */
@@ -1215,14 +1283,16 @@
         |        5. RESPONSIVE & MOBILE NAV          |
         ==============================================
         */
-        
+
         @media (max-width: 1100px) {
             .mobile-menu-toggle {
                 display: block;
             }
+
             .mobile-menu-toggle i {
                 transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             }
+
             html.menu-open .mobile-menu-toggle i {
                 transform: rotate(180deg);
             }
@@ -1230,17 +1300,20 @@
             .navbar {
                 position: fixed;
                 top: 0;
-                left: 0; /* ✅ تم التغيير: إعادة القائمة إلى اليسار */
+                left: 0;
+                /* ✅ تم التغيير: إعادة القائمة إلى اليسار */
                 width: 300px;
                 max-width: 80%;
                 height: 100vh;
                 background-color: var(--white-color);
-                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1); /* ✅ تم التغيير: عكس اتجاه الظل */
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+                /* ✅ تم التغيير: عكس اتجاه الظل */
                 z-index: 999;
                 padding: 100px 0 40px;
                 overflow-y: auto;
                 overscroll-behavior: contain;
-                transform: translateX(-100%); /* ✅ تم التغيير: إخفاء القائمة جهة اليسار */
+                transform: translateX(-100%);
+                /* ✅ تم التغيير: إخفاء القائمة جهة اليسار */
                 visibility: hidden;
                 transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s 0.5s;
             }
@@ -1253,16 +1326,19 @@
 
             .navbar ul {
                 flex-direction: column;
-                align-items: center; /* ✅ تم التغيير: توسيط كل العناصر */
+                align-items: center;
+                /* ✅ تم التغيير: توسيط كل العناصر */
                 width: 100%;
                 gap: 0;
             }
 
             .navbar ul li {
                 width: 100%;
-                text-align: center; /* ✅ تم التغيير: توسيط النص */
+                text-align: center;
+                /* ✅ تم التغيير: توسيط النص */
                 opacity: 0;
-                transform: translateY(20px); /* تغيير حركة ظهور النص لتكون من الأسفل */
+                transform: translateY(20px);
+                /* تغيير حركة ظهور النص لتكون من الأسفل */
                 transition: opacity 0.4s ease, transform 0.4s ease;
             }
 
@@ -1270,14 +1346,38 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-            .navbar.is-open ul li:nth-child(1) { transition-delay: 0.1s; }
-            .navbar.is-open ul li:nth-child(2) { transition-delay: 0.15s; }
-            .navbar.is-open ul li:nth-child(3) { transition-delay: 0.2s; }
-            .navbar.is-open ul li:nth-child(4) { transition-delay: 0.25s; }
-            .navbar.is-open ul li:nth-child(5) { transition-delay: 0.3s; }
-            .navbar.is-open ul li:nth-child(6) { transition-delay: 0.35s; }
-            .navbar.is-open ul li:nth-child(7) { transition-delay: 0.4s; }
-            .navbar.is-open ul li:nth-child(8) { transition-delay: 0.45s; }
+
+            .navbar.is-open ul li:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            .navbar.is-open ul li:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+
+            .navbar.is-open ul li:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+
+            .navbar.is-open ul li:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .navbar.is-open ul li:nth-child(5) {
+                transition-delay: 0.3s;
+            }
+
+            .navbar.is-open ul li:nth-child(6) {
+                transition-delay: 0.35s;
+            }
+
+            .navbar.is-open ul li:nth-child(7) {
+                transition-delay: 0.4s;
+            }
+
+            .navbar.is-open ul li:nth-child(8) {
+                transition-delay: 0.45s;
+            }
 
             .navbar ul li a {
                 display: block;
@@ -1287,18 +1387,22 @@
             }
 
             .navbar .special-link {
-                margin: 20px auto 0; /* ✅ تم التغيير: توسيط الزر الخاص */
+                margin: 20px auto 0;
+                /* ✅ تم التغيير: توسيط الزر الخاص */
                 width: fit-content;
                 text-align: center;
             }
         }
+
         @media (max-width: 1150px) {
             .mobile-menu-toggle {
                 display: block;
             }
+
             .mobile-menu-toggle i {
                 transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             }
+
             html.menu-open .mobile-menu-toggle i {
                 transform: rotate(180deg);
             }
@@ -1306,17 +1410,20 @@
             .navbar {
                 position: fixed;
                 top: 0;
-                left: 0; /* ✅ تم التغيير: إعادة القائمة إلى اليسار */
+                left: 0;
+                /* ✅ تم التغيير: إعادة القائمة إلى اليسار */
                 width: 300px;
                 max-width: 80%;
                 height: 100vh;
                 background-color: var(--white-color);
-                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1); /* ✅ تم التغيير: عكس اتجاه الظل */
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
+                /* ✅ تم التغيير: عكس اتجاه الظل */
                 z-index: 999;
                 padding: 100px 0 40px;
                 overflow-y: auto;
                 overscroll-behavior: contain;
-                transform: translateX(-100%); /* ✅ تم التغيير: إخفاء القائمة جهة اليسار */
+                transform: translateX(-100%);
+                /* ✅ تم التغيير: إخفاء القائمة جهة اليسار */
                 visibility: hidden;
                 transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s 0.5s;
             }
@@ -1329,16 +1436,19 @@
 
             .navbar ul {
                 flex-direction: column;
-                align-items: center; /* ✅ تم التغيير: توسيط كل العناصر */
+                align-items: center;
+                /* ✅ تم التغيير: توسيط كل العناصر */
                 width: 100%;
                 gap: 0;
             }
 
             .navbar ul li {
                 width: 100%;
-                text-align: center; /* ✅ تم التغيير: توسيط النص */
+                text-align: center;
+                /* ✅ تم التغيير: توسيط النص */
                 opacity: 0;
-                transform: translateY(20px); /* تغيير حركة ظهور النص لتكون من الأسفل */
+                transform: translateY(20px);
+                /* تغيير حركة ظهور النص لتكون من الأسفل */
                 transition: opacity 0.4s ease, transform 0.4s ease;
             }
 
@@ -1346,14 +1456,38 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-            .navbar.is-open ul li:nth-child(1) { transition-delay: 0.1s; }
-            .navbar.is-open ul li:nth-child(2) { transition-delay: 0.15s; }
-            .navbar.is-open ul li:nth-child(3) { transition-delay: 0.2s; }
-            .navbar.is-open ul li:nth-child(4) { transition-delay: 0.25s; }
-            .navbar.is-open ul li:nth-child(5) { transition-delay: 0.3s; }
-            .navbar.is-open ul li:nth-child(6) { transition-delay: 0.35s; }
-            .navbar.is-open ul li:nth-child(7) { transition-delay: 0.4s; }
-            .navbar.is-open ul li:nth-child(8) { transition-delay: 0.45s; }
+
+            .navbar.is-open ul li:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            .navbar.is-open ul li:nth-child(2) {
+                transition-delay: 0.15s;
+            }
+
+            .navbar.is-open ul li:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+
+            .navbar.is-open ul li:nth-child(4) {
+                transition-delay: 0.25s;
+            }
+
+            .navbar.is-open ul li:nth-child(5) {
+                transition-delay: 0.3s;
+            }
+
+            .navbar.is-open ul li:nth-child(6) {
+                transition-delay: 0.35s;
+            }
+
+            .navbar.is-open ul li:nth-child(7) {
+                transition-delay: 0.4s;
+            }
+
+            .navbar.is-open ul li:nth-child(8) {
+                transition-delay: 0.45s;
+            }
 
             .navbar ul li a {
                 display: block;
@@ -1363,7 +1497,8 @@
             }
 
             .navbar .special-link {
-                margin: 20px auto 0; /* ✅ تم التغيير: توسيط الزر الخاص */
+                margin: 20px auto 0;
+                /* ✅ تم التغيير: توسيط الزر الخاص */
                 width: fit-content;
                 text-align: center;
             }
@@ -1389,14 +1524,19 @@
 
             /* --- START: Mobile Fix for Feature Spotlight Icons --- */
             .feature-spotlight-content ul {
-                padding-right: 0; /* إزالة أي مسافات قد تدفع المحتوى للحافة */
+                padding-right: 0;
+                /* إزالة أي مسافات قد تدفع المحتوى للحافة */
             }
 
             .feature-spotlight-content ul li {
-                width: fit-content; /* جعل عرض العنصرพอดี لمحتواه */
-                margin: 0 auto 20px auto; /* توسيط العنصر أفقيًا وإضافة هامش سفلي */
-                text-align: right; /* ضمان محاذاة النص لليمين داخل العنصر */
+                width: fit-content;
+                /* جعل عرض العنصرพอดี لمحتواه */
+                margin: 0 auto 20px auto;
+                /* توسيط العنصر أفقيًا وإضافة هامش سفلي */
+                text-align: right;
+                /* ضمان محاذاة النص لليمين داخل العنصر */
             }
+
             /* --- END: Mobile Fix for Feature Spotlight Icons --- */
 
             .hero-image,
@@ -1423,10 +1563,12 @@
             h1 {
                 font-size: 2.2rem;
             }
+
             .header-cta {
                 padding: 10px 20px;
                 font-size: 0.8rem;
             }
+
             h2 {
                 font-size: 1.8rem;
             }
@@ -1441,16 +1583,16 @@
             .testimonial-card {
                 flex-basis: 90%;
             }
-                        /* --- Custom styling for the header's main CTA button --- */
+
+            /* --- Custom styling for the header's main CTA button --- */
             .header .btn-primary {
                 padding: 6px 15px;
                 /* تقليل الحشو الداخلي للزر */
                 font-size: 0.7rem;
                 /* تصغير حجم الخط قليلاً */
             }
-            
-        }
 
+        }
     </style>
 </head>
 
@@ -1481,7 +1623,7 @@
         </div>
     </header>
 
- 
+
     <main>
 
         <section id="hero" class="hero">
@@ -1491,7 +1633,8 @@
                 </div>
                 <div class="hero-grid">
                     <div class="hero-content fade-in-up animate-on-load">
-                        <p class="lead">نقدم لك HeytsApp — أول أداة عربية مغربية تجعل كل محادثة فرصة بيع حقيقية. ترحيب مخصص
+                        <p class="lead">نقدم لك HeytsApp — أول أداة عربية مغربية تجعل كل محادثة فرصة بيع حقيقية. ترحيب
+                            مخصص
                             لكل إعلان، متابعة ذكية تفهم سياق العميل، ومجيب آلي يعمل بالذكاء الاصطناعي — وكل ذلك محليًا
                             على جهازك للحفاظ على الخصوصية 100%.</p>
                         <ul class="hero-trust-list">
@@ -1525,22 +1668,26 @@
                     <span class="section-tagline">لمحة سريعة</span>
                     <h2>نظامك التسويقي الأول لأتمتة واتساب</h2>
                     <p>
-                        إنه أول نظام عربي ثوري، يعمل من جهاز الكمبيوتر الخاص بك، ومصمم خصيصًا لتحويل تدفق العملاء من إعلاناتك
+                        إنه أول نظام عربي ثوري، يعمل من جهاز الكمبيوتر الخاص بك، ومصمم خصيصًا لتحويل تدفق العملاء من
+                        إعلاناتك
                         إلى أرباح حقيقية. HeytsApp ليس مجرد مجيب آلي، بل هو مدير حملاتك الذكي على واتساب.
                     </p>
                     <p>
                         <strong>متى تظهر قوته؟</strong>
-                        عندما يتوقف هاتفك عن الاهتزاز من كثرة الإشعارات، وتدرك أن كل عميل جديد قد استلم ترحيبًا مخصصًا لإعلانه،
-                        وأن العملاء المترددين استلموا متابعة ذكية بالـ AI، وأنك لم تكتب حرفًا واحدًا. في تلك اللحظة، تكتشف قوته
+                        عندما يتوقف هاتفك عن الاهتزاز من كثرة الإشعارات، وتدرك أن كل عميل جديد قد استلم ترحيبًا مخصصًا
+                        لإعلانه،
+                        وأن العملاء المترددين استلموا متابعة ذكية بالـ AI، وأنك لم تكتب حرفًا واحدًا. في تلك اللحظة،
+                        تكتشف قوته
                         الحقيقية.
                     </p>
                 </div>
             </div>
         </section>
-        
+
         <div class="highlight-box fade-in-up animate-on-scroll">
             <div class="container">
-                <h3>أول أداة مغربية وعربية ثورية بقدرات عالمية. مصممة خصيصًا لتمنح المعلنين قوة لا تُقارن في أتمتة واتساب.</h3>
+                <h3>أول أداة مغربية وعربية ثورية بقدرات عالمية. مصممة خصيصًا لتمنح المعلنين قوة لا تُقارن في أتمتة
+                    واتساب.</h3>
             </div>
         </div>
         <section id="philosophy" class="section">
@@ -1553,25 +1700,29 @@
                     <div class="philosophy-card fade-in-up animate-on-scroll">
                         <div class="icon"><i class="fas fa-bullseye"></i></div>
                         <h3>قوة لا تُقارَن، وليس مجرد أتمتة</h3>
-                        <p>الأدوات العالمية تمنحك مجيبًا آليًا. نحن نمنحك نظامًا تسويقيًا متكاملًا: يربط إعلاناتك بالردود، يتابع
+                        <p>الأدوات العالمية تمنحك مجيبًا آليًا. نحن نمنحك نظامًا تسويقيًا متكاملًا: يربط إعلاناتك
+                            بالردود، يتابع
                             عملائك بالذكاء الاصطناعي، ويقدم لك إحصائيات تحول البيانات إلى أرباح.</p>
                     </div>
                     <div class="philosophy-card fade-in-up animate-on-scroll" style="transition-delay: 0.1s;">
                         <div class="icon"><i class="fas fa-user-shield"></i></div>
                         <h3>بياناتك مِلكك، وقرارك سيادي</h3>
-                        <p>على عكس المنصات السحابية، HeytsApp يعمل بالكامل على جهاز الكمبيوتر الخاص بك. محادثاتك، قوائم عملائك،
+                        <p>على عكس المنصات السحابية، HeytsApp يعمل بالكامل على جهاز الكمبيوتر الخاص بك. محادثاتك، قوائم
+                            عملائك،
                             وأسرار عملك تبقى تحت سيطرتك المطلقة، بعيدًا عن أي خوادم خارجية.</p>
                     </div>
                     <div class="philosophy-card fade-in-up animate-on-scroll" style="transition-delay: 0.2s;">
                         <div class="icon"><i class="fas fa-magic-wand-sparkles"></i></div>
                         <h3>البساطة الثورية: قوة عالمية في دقائق</h3>
-                        <p>تثبيت قياسي في دقيقة، ربط بحسابك عبر مسح QR لمرة واحدة فقط، وانطلق. صممنا واجهة سهلة لأي معلن، لكنها
+                        <p>تثبيت قياسي في دقيقة، ربط بحسابك عبر مسح QR لمرة واحدة فقط، وانطلق. صممنا واجهة سهلة لأي
+                            معلن، لكنها
                             تخفي خلفها محركًا بقدرات لا يستهان بها.</p>
                     </div>
                     <div class="philosophy-card fade-in-up animate-on-scroll" style="transition-delay: 0.3s;">
                         <div class="icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>صُمِّم لهدف واحد: مضاعفة نتائجك</h3>
-                        <p>كل خيار في HeytsApp - من 'الكلمة المفتاحية الذهبية' إلى 'تحليل أداء الترحيب' - تم بناؤه ليجيب على
+                        <p>كل خيار في HeytsApp - من 'الكلمة المفتاحية الذهبية' إلى 'تحليل أداء الترحيب' - تم بناؤه ليجيب
+                            على
                             سؤال واحد: كيف يمكن أن يساعدك هذا في تحقيق مبيعات أكثر؟</p>
                     </div>
                 </div>
@@ -1611,11 +1762,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="feature-spotlight-image animate-on-scroll"><img src="img/2p.png" alt="فرق العمل والعملاء"></div>
+                    <div class="feature-spotlight-image animate-on-scroll"><img src="img/2p.png"
+                            alt="فرق العمل والعملاء"></div>
                 </div>
             </div>
         </section>
-        
+
 
 
         <section id="features" class="section section-bg">
@@ -1632,7 +1784,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>لأول مرة، اربط كل حملة فيسبوك برسالة ترحيب مخصصة. استقبل عميل العقارات برسالة، وعميل العطور
+                            <p>لأول مرة، اربط كل حملة فيسبوك برسالة ترحيب مخصصة. استقبل عميل العقارات برسالة، وعميل
+                                العطور
                                 بأخرى. النتيجة؟ تفاعل فوري يبدأ من الثانية الأولى.</p>
                         </div>
                     </div>
@@ -1643,7 +1796,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>لا تدع عميلاً يضيع مجدداً. ابنِ قواعد متابعة تلقائية تعيد إحياء المحادثات بعد يوم، يومين، أو
+                            <p>لا تدع عميلاً يضيع مجدداً. ابنِ قواعد متابعة تلقائية تعيد إحياء المحادثات بعد يوم، يومين،
+                                أو
                                 أسبوع، وتحول المترددين إلى مشترين.</p>
                         </div>
                     </div>
@@ -1654,7 +1808,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>بمتغير واحد، يقرأ النظام سجل المحادثة ويصوغ رد متابعة فريد ومقنع لكل عميل على حدة، بناءً على
+                            <p>بمتغير واحد، يقرأ النظام سجل المحادثة ويصوغ رد متابعة فريد ومقنع لكل عميل على حدة، بناءً
+                                على
                                 تعليماتك الخاصة.</p>
                         </div>
                     </div>
@@ -1665,7 +1820,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>اكتشف 'ساعات الذروة' لتركيز إعلاناتك، وأفضل رسالة تحقق 'أعلى تحويل'، و'الكلمة المفتاحية الذهبية'
+                            <p>اكتشف 'ساعات الذروة' لتركيز إعلاناتك، وأفضل رسالة تحقق 'أعلى تحويل'، و'الكلمة المفتاحية
+                                الذهبية'
                                 لعملائك. بيانات حقيقية لقرارات ذكية.</p>
                         </div>
                     </div>
@@ -1676,7 +1832,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>أنشئ قواعد رد دقيقة بالكلمات المفتاحية. وإن لم يجد تطابقاً، يتدخل الذكاء الاصطناعي للرد، ليضمن
+                            <p>أنشئ قواعد رد دقيقة بالكلمات المفتاحية. وإن لم يجد تطابقاً، يتدخل الذكاء الاصطناعي للرد،
+                                ليضمن
                                 عدم ترك أي عميل بدون إجابة.</p>
                         </div>
                     </div>
@@ -1687,7 +1844,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>ميزة غير مسبوقة. أرسل أوامر من هاتفك لإيقاف البوت، طلب تقرير فوري، أو إرسال رسالة لعميل معين.
+                            <p>ميزة غير مسبوقة. أرسل أوامر من هاتفك لإيقاف البوت، طلب تقرير فوري، أو إرسال رسالة لعميل
+                                معين.
                                 عملك يسير معك أينما كنت.</p>
                         </div>
                     </div>
@@ -1698,7 +1856,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>أدر عدة حسابات واتساب من واجهة واحدة. كل حساب يعمل باستقلالية تامة في تبويب خاص به، بإعداداته،
+                            <p>أدر عدة حسابات واتساب من واجهة واحدة. كل حساب يعمل باستقلالية تامة في تبويب خاص به،
+                                بإعداداته،
                                 إحصائياته، وقواعده الخاصة.</p>
                         </div>
                     </div>
@@ -1709,7 +1868,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>تجاهل تلقائياً العملاء الذين يحملون تسميات معينة أو الموجودين في قوائم الاستثناء. حافظ على
+                            <p>تجاهل تلقائياً العملاء الذين يحملون تسميات معينة أو الموجودين في قوائم الاستثناء. حافظ
+                                على
                                 احترافيتك وركز جهدك حيث يجب.</p>
                         </div>
                     </div>
@@ -1720,7 +1880,8 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>يقوم البوت بمحاكاة الكتابة وتسجيل الصوت مع فواصل ذكية بين الرسائل، لتبدو تفاعلاتك طبيعية وتحافظ
+                            <p>يقوم البوت بمحاكاة الكتابة وتسجيل الصوت مع فواصل ذكية بين الرسائل، لتبدو تفاعلاتك طبيعية
+                                وتحافظ
                                 على سلامة رقمك.</p>
                         </div>
                     </div>
@@ -1839,7 +2000,8 @@
                         <h3><i class="fas fa-exclamation-triangle"></i> قبل HeytsApp (عالم الفوضى)</h3>
                         <ul>
                             <li><i class="fas fa-times"></i> إرهاق الرد اليدوي على مئات الرسائل يوميًا.</li>
-                            <li><i class="fas fa-times"></i> ضياع عملاء محتملين بسبب التأخر في الرد خارج أوقات العمل.</li>
+                            <li><i class="fas fa-times"></i> ضياع عملاء محتملين بسبب التأخر في الرد خارج أوقات العمل.
+                            </li>
                             <li><i class="fas fa-times"></i> تخمين أداء الإعلانات دون معرفة أيها يجلب أفضل العملاء.</li>
                             <li><i class="fas fa-times"></i> نسيان متابعة العملاء المترددين، وخسارة صفقات محققة.</li>
                             <li><i class="fas fa-times"></i> فوضى الردود المنسوخة التي تفتقر للمسة الشخصية.</li>
@@ -1849,16 +2011,21 @@
                     <div class="comparison-card after animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
                         <h3><i class="fas fa-check-double"></i> بعد HeytsApp (قوة لا تُقارن)</h3>
                         <ul>
-                            <li><i class="fas fa-check"></i> <strong>نظام ثوري:</strong> رد فوري ومخصص لكل إعلان على حدة.</li>
+                            <li><i class="fas fa-check"></i> <strong>نظام ثوري:</strong> رد فوري ومخصص لكل إعلان على
+                                حدة.</li>
                             <li><i class="fas fa-check"></i> <strong>مضاعفة النتائج:</strong> متابعة ذكية بالـ AI تُحوّل
                                 المترددين إلى مشترين.</li>
-                            <li><i class="fas fa-check"></i> <strong>رؤية كاملة:</strong> إحصائيات تكشف أفضل الإعلانات أداءً
+                            <li><i class="fas fa-check"></i> <strong>رؤية كاملة:</strong> إحصائيات تكشف أفضل الإعلانات
+                                أداءً
                                 وساعات الذروة.</li>
-                            <li><i class="fas fa-check"></i> <strong>كفاءة غير مسبوقة:</strong> مجيب آلي يرد على 90% من الأسئلة
+                            <li><i class="fas fa-check"></i> <strong>كفاءة غير مسبوقة:</strong> مجيب آلي يرد على 90% من
+                                الأسئلة
                                 المتكررة 24/7.</li>
-                            <li><i class="fas fa-check"></i> <strong>تحكم مطلق عن بعد:</strong> إدارة البوت بالكامل من هاتفك
+                            <li><i class="fas fa-check"></i> <strong>تحكم مطلق عن بعد:</strong> إدارة البوت بالكامل من
+                                هاتفك
                                 الشخصي.</li>
-                            <li><i class="fas fa-check"></i> <strong>قوة الذكاء الاصطناعي:</strong> ردود فريدة كأنك عينت موظفاً
+                            <li><i class="fas fa-check"></i> <strong>قوة الذكاء الاصطناعي:</strong> ردود فريدة كأنك عينت
+                                موظفاً
                                 خبيراً.</li>
                         </ul>
                     </div>
@@ -1871,7 +2038,8 @@
                 <div class="section-title fade-in-up animate-on-scroll">
                     <span class="section-tagline">الخيار الأنسب لعملك</span>
                     <h2>أيهما يتوافق مع أهدافك؟ مقارنة بين WhatsApp Business API و HeytsApp</h2>
-                    <p>فهم الفروقات الجوهرية بين الحلول المتاحة هو الخطوة الأولى لاتخاذ قرار صحيح. هذه مقارنة موضوعية لمساعدتك
+                    <p>فهم الفروقات الجوهرية بين الحلول المتاحة هو الخطوة الأولى لاتخاذ قرار صحيح. هذه مقارنة موضوعية
+                        لمساعدتك
                         على اختيار الأداة التي تتناسب مع أهدافك وحجم عملك.</p>
                 </div>
 
@@ -1892,42 +2060,53 @@
                             </tr>
                             <tr>
                                 <td><strong>آلية بدء المحادثة</strong></td>
-                                <td>تتطلب الموافقة المسبقة على قوالب رسائل (Templates) لبدء أي محادثة. مناسبة للرسائل الإشعارية
+                                <td>تتطلب الموافقة المسبقة على قوالب رسائل (Templates) لبدء أي محادثة. مناسبة للرسائل
+                                    الإشعارية
                                     الموحدة.</td>
-                                <td>مرونة كاملة في بدء المحادثات. مثالية للتسويق التفاعلي، إرسال العروض، والمتابعة الشخصية.</td>
+                                <td>مرونة كاملة في بدء المحادثات. مثالية للتسويق التفاعلي، إرسال العروض، والمتابعة
+                                    الشخصية.</td>
                             </tr>
                             <tr>
                                 <td><strong>قيد "نافذة الـ 24 ساعة"</strong></td>
-                                <td>يتم تقييد الردود الحرة بعد مرور 24 ساعة على آخر رسالة للعميل. للتواصل مجدداً، يجب استخدام
+                                <td>يتم تقييد الردود الحرة بعد مرور 24 ساعة على آخر رسالة للعميل. للتواصل مجدداً، يجب
+                                    استخدام
                                     قالب رسالة.</td>
-                                <td>لا يوجد أي قيد زمني. يمكنك متابعة عملائك والتواصل معهم بحرية في أي وقت لضمان أفضل النتائج.
+                                <td>لا يوجد أي قيد زمني. يمكنك متابعة عملائك والتواصل معهم بحرية في أي وقت لضمان أفضل
+                                    النتائج.
                                 </td>
                             </tr>
                             <tr>
                                 <td><strong>نموذج التكلفة</strong></td>
-                                <td>تسعير مبني على عدد المحادثات. التكلفة متغيرة وتعتمد على حجم الاستخدام الشهري وأسعار كل دولة.
+                                <td>تسعير مبني على عدد المحادثات. التكلفة متغيرة وتعتمد على حجم الاستخدام الشهري وأسعار
+                                    كل دولة.
                                 </td>
-                                <td>نموذج اشتراك ثابت (شهري أو سنوي) يوفر عدداً غير محدود من الرسائل، مما يمنحك ميزانية واضحة.
+                                <td>نموذج اشتراك ثابت (شهري أو سنوي) يوفر عدداً غير محدود من الرسائل، مما يمنحك ميزانية
+                                    واضحة.
                                 </td>
                             </tr>
                             <tr>
                                 <td><strong>سهولة الإعداد والتشغيل</strong></td>
-                                <td>عملية إعداد تتطلب خطوات متعددة، منها التحقق من Facebook Business Manager وقد تستغرق بعض
+                                <td>عملية إعداد تتطلب خطوات متعددة، منها التحقق من Facebook Business Manager وقد تستغرق
+                                    بعض
                                     الوقت للموافقة.</td>
                                 <td>إعداد سريع ومباشر خلال دقائق عبر مسح كود QR. لا يتطلب أي خبرة تقنية مسبقة.</td>
                             </tr>
                             <tr>
                                 <td><strong>الاستقرار والأمان الرسمي</strong></td>
-                                <td>عالية جدًا وقانونية 100%. الخدمة رسمية من Meta، مما يضمن استقرارًا تامًا وعدم وجود أي خطر
+                                <td>عالية جدًا وقانونية 100%. الخدمة رسمية من Meta، مما يضمن استقرارًا تامًا وعدم وجود
+                                    أي خطر
                                     على الحساب.</td>
-                                <td>تعتمد على استقرار واتساب ويب. بما أنه غير رسمي، يوجد خطر نظري للحظر إذا تم استخدامه بشكل غير
+                                <td>تعتمد على استقرار واتساب ويب. بما أنه غير رسمي، يوجد خطر نظري للحظر إذا تم استخدامه
+                                    بشكل غير
                                     مسؤول.</td>
                             </tr>
                             <tr>
                                 <td><strong>الوصول إلى المحادثات</strong></td>
-                                <td>تتم إدارة المحادثات والردود بشكل كامل عبر المنصة الوسيطة (API)، وليس من تطبيق واتساب على
+                                <td>تتم إدارة المحادثات والردود بشكل كامل عبر المنصة الوسيطة (API)، وليس من تطبيق واتساب
+                                    على
                                     الهاتف.</td>
-                                <td>تحكم مزدوج. يمكنك إدارة الردود الآلية من البرنامج والتدخل للرد يدويًا من هاتفك في أي لحظة.
+                                <td>تحكم مزدوج. يمكنك إدارة الردود الآلية من البرنامج والتدخل للرد يدويًا من هاتفك في أي
+                                    لحظة.
                                 </td>
                             </tr>
                         </tbody>
@@ -1936,342 +2115,401 @@
 
                 <div class="comparison-summary fade-in-up animate-on-scroll">
                     <h3>الخلاصة: لكل أداة جمهورها المستهدف</h3>
-                    <p>من خلال هذه المقارنة، يتضح أن منصة <strong>WhatsApp Business API</strong> هي الحل الأمثل للشركات الكبرى
-                        والمؤسسات (مثل البنوك وشركات الطيران) التي أولويتها هي إرسال إشعارات رسمية وموحدة على نطاق واسع، وتملك
+                    <p>من خلال هذه المقارنة، يتضح أن منصة <strong>WhatsApp Business API</strong> هي الحل الأمثل للشركات
+                        الكبرى
+                        والمؤسسات (مثل البنوك وشركات الطيران) التي أولويتها هي إرسال إشعارات رسمية وموحدة على نطاق واسع،
+                        وتملك
                         الموارد التقنية والميزانيات اللازمة لذلك.</p>
-                    <p>في المقابل، تم تصميم <strong>HeytsApp</strong> خصيصًا ليكون الأداة العملية للمتاجر الإلكترونية، المسوقين،
+                    <p>في المقابل، تم تصميم <strong>HeytsApp</strong> خصيصًا ليكون الأداة العملية للمتاجر الإلكترونية،
+                        المسوقين،
                         والشركات الصغيرة والمتوسطة التي تحتاج إلى:</p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> <strong>المرونة والسرعة</strong> في إطلاق الحملات التسويقية
+                        <li><i class="fas fa-check-circle"></i> <strong>المرونة والسرعة</strong> في إطلاق الحملات
+                            التسويقية
                             والتواصل مع العملاء.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>التحكم المباشر</strong> في المحادثات واستخدام أرقامهم
+                        <li><i class="fas fa-check-circle"></i> <strong>التحكم المباشر</strong> في المحادثات واستخدام
+                            أرقامهم
                             المعروفة لدى العملاء.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>التكلفة الواضحة والمناسبة</strong> التي تدعم نمو أعمالهم
+                        <li><i class="fas fa-check-circle"></i> <strong>التكلفة الواضحة والمناسبة</strong> التي تدعم نمو
+                            أعمالهم
                             دون مفاجآت.</li>
                     </ul>
-                    <p>الاختيار يعتمد على طبيعة عملك. إذا كان هدفك هو التسويق المرن، المتابعة الذكية للعملاء، والتحكم الكامل
+                    <p>الاختيار يعتمد على طبيعة عملك. إذا كان هدفك هو التسويق المرن، المتابعة الذكية للعملاء، والتحكم
+                        الكامل
                         بتكلفة ثابتة، فإن HeytsApp هو الخيار الذي تم تصميمه ليخدم أهدافك مباشرة.</p>
                 </div>
             </div>
         </section>
 
-    <section id="testimonials" class="section">
-        <div class="container">
-            <div class="section-title fade-in-up animate-on-scroll">
-                <span class="section-tagline">شركاء النجاح</span>
-                <h2>النتائج تتحدث عن نفسها</h2>
-                <p>نحن لا نتحدث عن أرقام فقط، بل عن تحوّل حقيقي في طريقة العمل. هذه تجارب واقعية من معلنين مثلك.</p>
-            </div>
-
-            <div class="testimonial-slider-wrapper">
-                <div class="testimonial-slider">
-
-                    <div class="testimonial-card">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="quote">"صراحة عتقتوني. كنت كنبقا تال 2 ديال الصباح نجاوب فالكوموندات. دابا مع HeytsApp
-                            كلشي مقاد، والوقت لي شاط وليت كنركز فيه على الإشهار. الله يسهل عليكم."</p>
-                        <h4 class="testimonial-author">— يوسف العلمي، صاحب متجر إلكتروني</h4>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="quote">"L'API est un vrai plus pour nous. On a pu l'intégrer avec notre CRM et automatiser
-                            le suivi des leads pour nos clients. Résultat : +20% de conversion sur la dernière campagne.
-                            C'est du solide."</p>
-                        <h4 class="testimonial-author">— Fatima Z. Bennani, Directrice Marketing</h4>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="quote">"This tool is my secret weapon. Clients think I have a team because the response is
-                            so fast and professional. The best part is the simplicity, مافيهش تعقيدات. Highly recommended."
-                        </p>
-                        <h4 class="testimonial-author">— Amine Cherkaoui, Consultant en Marketing</h4>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="quote">"مكنفهمش بزاف فالتكنولوجيا وكنت خايفة. ولكن لقيت كلشي ساهل، والفيديوات ديال الشرح
-                            واضحة. دابا البوت مكلف بالردود وانا كنتلها فالكليان لي فالمحل. تهنيت."</p>
-                        <h4 class="testimonial-author">— Salma El Fassi, Gérante de boutique</h4>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="quote">"Indispensable pour moi. Je pilote 3 numéros WhatsApp pour 3 business différents
-                            sans me perdre. Le fait de pouvoir segmenter les clients par projet est un avantage énorme.
-                            Propre et efficace."</p>
-                        <h4 class="testimonial-author">— Karim Boujida, Entrepreneur</h4>
-                    </div>
-
-                    <div class="testimonial-card">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="quote">"The follow-up sequence is brilliant for recovering abandoned carts. We had a
-                            question, and support responded on WhatsApp in minutes. Great product, even better service."</p>
-                        <h4 class="testimonial-author">— Kenza Tazi, E-commerce Manager</h4>
-                    </div>
-
-                </div>
-                <div class="slider-nav">
-                    <button class="prev-btn" aria-label="Previous Testimonial"><i class="fas fa-arrow-right"></i></button>
-                    <button class="next-btn" aria-label="Next Testimonial"><i class="fas fa-arrow-left"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="faq" class="section section-bg">
-        <div class="container">
-            <div class="section-title fade-in-up animate-on-scroll is-visible">
-                <span class="section-tagline">هل لديك أسئلة؟</span>
-                <h2>أسئلة شائعة... وإجابات واضحة</h2>
-                <p>ندرك أن كل أداة قوية تثير الأسئلة. لذلك، جمعنا هنا إجابات مباشرة تزيل كل شك، وتوضح لك القوة الحقيقية التي
-                    ستحصل عليها. لم تجد ما تبحث عنه؟ فريق الخبراء لدينا جاهز لمساعدتك.</p>
-            </div>
-            <div class="faq-accordion-grid">
-
-                <div class="faq-column">
-
-                    <div class="faq-item">
-                        <button class="faq-question">لماذا يجب أن يبقى الحاسوب متصلاً بالإنترنت؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                لأننا نرفض المساومة على أمنك. الأنظمة السحابية الأخرى تعرض بيانات عملائك للخطر على سيرفرات
-                                خارجية. HeytsApp يحول حاسوبك إلى <strong>قلعة بياناتك الخاصة</strong>؛ كل شيء يبقى تحت
-                                سيطرتك الكاملة. هذا المبدأ لا يحمي بياناتك فقط، بل يحمي رقمك من الحظر الناتج عن الأنشطة
-                                المريبة للسيرفرات البعيدة. إنه قرار تصميمي يضع أمانك أولاً.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن أن يتعرض رقمي للحظر؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                صممنا HeytsApp ليكون بمثابة <strong>درع واقٍ لرقمك</strong>. البرنامج مزود بتقنيات ذكية
-                                تحاكي السلوك البشري الطبيعي لتقليل المخاطر لأقصى حد. ومع ذلك، الشفافية هي أساس عملنا: لا
-                                توجد أداة في العالم تضمن عدم الحظر 100%، لأن القرار النهائي يعود لواتساب ويعتمد على سلوك
-                                المستخدم. نحن نمنحك أقوى الأدوات للحماية، ويبقى الاستخدام المسؤول هو مفتاح الأمان الدائم.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل أحتاج لمسح QR Code في كل مرة؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                لا. بفضل تقنية حفظ الجلسة الذكية، يقوم HeytsApp بالاتصال تلقائيًا بعد المرة الأولى. أنت تمسح
-                                الكود مرة واحدة فقط، والبرنامج يتكفل بالباقي لتبدأ عملك مباشرة دون خطوات متكررة.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكنني ربط أكثر من حساب واتساب؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                بالتأكيد. تم تصميم HeytsApp ليكون <strong>مركز التحكم الخاص بك</strong>. يمكنك إدارة عدة
-                                أرقام وحملات من واجهة واحدة منظمة، ويعتمد عدد الحسابات المتاحة على خطة اشتراكك.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن استيراد الأرقام من ملف Excel؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، وبكل سهولة. هذه الميزة متاحة في "الحملة اليدوية"، حيث يمكنك رفع ملف Excel وسيتم تنقيح
-                                الأرقام الخاطئة أو المكررة تلقائيًا قبل الإرسال.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يدعم إرسال الصور والفيديوهات؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، وبشكل يتجاوز التوقعات. أرسل الصور، الفيديوهات، والملفات، وتميز بميزة إرسال
-                                <strong>التسجيلات الصوتية (Voice Notes)</strong> التي تظهر للعميل وكأنك سجلتها له في تلك
-                                اللحظة، مما يضاعف قوة تواصلك الشخصي.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن تخصيص الرسائل باسم العميل؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                طبعًا. مخاطبة العميل باسمه هي أبسط وأقوى طريقة لبناء علاقة شخصية. باستخدام متغير {name}،
-                                تتحول رسائلك من رسائل جماعية باردة إلى محادثات شخصية ودافئة تزيد من نسبة الاستجابة.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يوجد دفع لمرة واحدة؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نحن لا نبيع برنامجًا ثم نتركك وحدك. نموذج الاشتراك هو <strong>شراكة مستمرة لضمان
-                                    نجاحك</strong>؛ فهو يضمن لك الحصول على تحديثات فورية لمواكبة تغييرات واتساب، دعم فني
-                                متخصص، وميزات جديدة تضاف باستمرار لتبقيك في الطليعة.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">ماذا يحدث عند انتهاء الاشتراك؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                تتوقف ميزات الأتمتة مؤقتًا، ولكن الأهم أن جميع بياناتك وإعداداتك تظل محفوظة بأمان داخل
-                                جهازك. بمجرد التجديد، يعود كل شيء للعمل فورًا من حيث توقفت.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل أحتاج إلى إنترنت دائم؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، لضمان أن يكون مساعدك الآلي جاهزًا للرد على عملائك في أي لحظة. الاتصال الدائم بالإنترنت
-                                هو ما يسمح لـ HeytsApp بالعمل كفريق مبيعات لا ينام، ويستجيب لعملائك على مدار 24/7.
-                            </p>
-                        </div>
-                    </div>
+        <section id="testimonials" class="section">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll">
+                    <span class="section-tagline">شركاء النجاح</span>
+                    <h2>النتائج تتحدث عن نفسها</h2>
+                    <p>نحن لا نتحدث عن أرقام فقط، بل عن تحوّل حقيقي في طريقة العمل. هذه تجارب واقعية من معلنين مثلك.</p>
                 </div>
 
-                <div class="faq-column">
+                <div class="testimonial-slider-wrapper">
+                    <div class="testimonial-slider">
 
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن استثناء عملاء معينين من المتابعة؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، هذه إحدى ميزاتنا الذكية لإدارة العملاء. يمكنك تصنيف جهات الاتصال في واتساب أعمال (مثلاً
-                                "عميل مؤكد") ثم اختيار هذه التسمية في "قائمة التجاهل" بالبرنامج ليتم استثناؤهم بذكاء.
-                            </p>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"صراحة عتقتوني. كنت كنبقا تال 2 ديال الصباح نجاوب فالكوموندات. دابا مع
+                                HeytsApp
+                                كلشي مقاد، والوقت لي شاط وليت كنركز فيه على الإشهار. الله يسهل عليكم."</p>
+                            <h4 class="testimonial-author">— يوسف العلمي، صاحب متجر إلكتروني</h4>
                         </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">هل توجد "قائمة استثناءات" للأرقام؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم. "قائمة الاستثناءات" في الإعدادات تضمن لك عدم مراسلة أي رقم تضيفه إليها بشكل كامل، مما
-                                يحافظ على خصوصية عملائك وسمعة علامتك التجارية.
-                            </p>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"L'API est un vrai plus pour nous. On a pu l'intégrer avec notre CRM et
+                                automatiser
+                                le suivi des leads pour nos clients. Résultat : +20% de conversion sur la dernière
+                                campagne.
+                                C'est du solide."</p>
+                            <h4 class="testimonial-author">— Fatima Z. Bennani, Directrice Marketing</h4>
                         </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">هل البرنامج يعمل على أنظمة غير ويندوز؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                حاليًا، تركيزنا الكامل منصب على تقديم تجربة استثنائية لمستخدمي Windows 10 و 11. فريقنا يعمل
-                                بجد على تطوير نسخ لأنظمة أخرى ستكون متاحة ضمن خططنا التوسعية المستقبلية.
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="quote">"This tool is my secret weapon. Clients think I have a team because the
+                                response is
+                                so fast and professional. The best part is the simplicity, مافيهش تعقيدات. Highly
+                                recommended."
                             </p>
+                            <h4 class="testimonial-author">— Amine Cherkaoui, Consultant en Marketing</h4>
                         </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن تشغيل البرنامج تلقائيًا مع بدء التشغيل؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، لتجربة أتمتة كاملة. من الإعدادات، يمكنك تفعيل خيار "التشغيل التلقائي" ودع HeytsApp يعمل
-                                في الخلفية. شغل جهازك، ودعه يتولى الرد على عملائك.
-                            </p>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"مكنفهمش بزاف فالتكنولوجيا وكنت خايفة. ولكن لقيت كلشي ساهل، والفيديوات ديال
+                                الشرح
+                                واضحة. دابا البوت مكلف بالردود وانا كنتلها فالكليان لي فالمحل. تهنيت."</p>
+                            <h4 class="testimonial-author">— Salma El Fassi, Gérante de boutique</h4>
                         </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">هل يدعم رسائل المتابعة التلقائية (Follow-up)؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، وهذه إحدى أقوى ميزاتنا. يمكنك بناء <strong>تسلسل متابعة تلقائي</strong> يرسل رسائل ذكية
-                                بعد فترة زمنية تحددها، وذلك لإعادة إشراك العملاء المترددين ورفع نسبة إغلاق الصفقات.
-                            </p>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"Indispensable pour moi. Je pilote 3 numéros WhatsApp pour 3 business
+                                différents
+                                sans me perdre. Le fait de pouvoir segmenter les clients par projet est un avantage
+                                énorme.
+                                Propre et efficace."</p>
+                            <h4 class="testimonial-author">— Karim Boujida, Entrepreneur</h4>
                         </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">هل يعرض البرنامج تقارير وإحصائيات؟<span class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                بالتأكيد. HeytsApp ليس مجرد بوت، بل هو <strong>أداة ذكاء أعمال مصغرة</strong>. لوحة
-                                الإحصائيات تمنحك رؤى واضحة بالأرقام حول أداء حملاتك وأوقات الذروة، مما يساعدك على اتخاذ
-                                قرارات تسويقية أفضل.
-                            </p>
+                        <div class="testimonial-card">
+                            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="quote">"The follow-up sequence is brilliant for recovering abandoned carts. We had
+                                a
+                                question, and support responded on WhatsApp in minutes. Great product, even better
+                                service."</p>
+                            <h4 class="testimonial-author">— Kenza Tazi, E-commerce Manager</h4>
                         </div>
-                    </div>
 
-                    <div class="faq-item">
-                        <button class="faq-question">كيف يعمل الذكاء الاصطناعي في البرنامج؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                يعمل الذكاء الاصطناعي عبر ربطه بحسابك الخاص في <strong>Gemini (من Google)</strong>. أنت تقوم
-                                بإدخال مفتاح الـ API الخاص بك في الإعدادات، مما يمنحك السيطرة الكاملة. الميزة الأهم هي أنك
-                                تستطيع كتابة "شخصية" وهوية للذكاء الاصطناعي عبر صندوق التعليمات (Prompt)، حيث تشرح له طبيعة
-                                عملك واللهجة المطلوبة، ليصبح مساعداً خبيراً بعلامتك التجارية.
-                            </p>
-                        </div>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">ما هي ميزة "التحكم عن بعد" وكيف تفيدني؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                هي أداة متقدمة تحول هاتفك الشخصي إلى ريموت كنترول للبوت. عبر إرسال أوامر بسيطة برسائل واتساب
-                                من رقمك المحدد مسبقاً، يمكنك إيقاف البوت، طلب تقارير أداء فورية، إضافة أرقام للقائمة
-                                السوداء، والمزيد. تمنحك هذه الميزة القدرة على إدارة عملك بالكامل حتى عندما تكون بعيداً عن
-                                حاسوبك.
-                            </p>
-                        </div>
+                    <div class="slider-nav">
+                        <button class="prev-btn" aria-label="Previous Testimonial"><i
+                                class="fas fa-arrow-right"></i></button>
+                        <button class="next-btn" aria-label="Next Testimonial"><i
+                                class="fas fa-arrow-left"></i></button>
                     </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">هل يمكن للذكاء الاصطناعي إنشاء رسائل متابعة فريدة؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                نعم، وهذه من أقوى إمكانيات البرنامج. عند إعداد قاعدة متابعة، يمكنك تفعيل خيار الذكاء
-                                الاصطناعي. سيقوم بقراءة سجل المحادثة السابقة مع العميل لفهم سياق استفساراته، ثم يقوم بصياغة
-                                <strong>رسالة متابعة فريدة ومخصصة له تماماً</strong>، مما يزيد بشكل كبير من فرصة إقناعه.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question">بعيداً عن الردود، ما الذي يجعل HeytsApp أداة أعمال متكاملة؟<span
-                                class="icon"></span></button>
-                        <div class="faq-answer">
-                            <p>
-                                HeytsApp يتجاوز كونه مجرد مجيب آلي. إنه منصة متكاملة بفضل ميزات مثل: <strong>لوحة الإحصائيات
-                                    المتقدمة</strong> التي تحلل أداء كل رسالة، و<strong>نظام النسخ الاحتياطي
-                                    والاستيراد</strong> الذي يحفظ كل إعداداتك، بالإضافة إلى <strong>المرونة الهائلة</strong>
-                                في إنشاء قواعد ورسائل مخصصة لكل حملة إعلانية أو وقت معين من اليوم.
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-        </div>
-    </section>
-    
+        </section>
+
+
+        <section id="faq" class="section section-bg">
+            <div class="container">
+                <div class="section-title fade-in-up animate-on-scroll is-visible">
+                    <span class="section-tagline">هل لديك أسئلة؟</span>
+                    <h2>أسئلة شائعة... وإجابات واضحة</h2>
+                    <p>ندرك أن كل أداة قوية تثير الأسئلة. لذلك، جمعنا هنا إجابات مباشرة تزيل كل شك، وتوضح لك القوة
+                        الحقيقية التي
+                        ستحصل عليها. لم تجد ما تبحث عنه؟ فريق الخبراء لدينا جاهز لمساعدتك.</p>
+                </div>
+                <div class="faq-accordion-grid">
+
+                    <div class="faq-column">
+
+                        <div class="faq-item">
+                            <button class="faq-question">لماذا يجب أن يبقى الحاسوب متصلاً بالإنترنت؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    لأننا نرفض المساومة على أمنك. الأنظمة السحابية الأخرى تعرض بيانات عملائك للخطر على
+                                    سيرفرات
+                                    خارجية. HeytsApp يحول حاسوبك إلى <strong>قلعة بياناتك الخاصة</strong>؛ كل شيء يبقى
+                                    تحت
+                                    سيطرتك الكاملة. هذا المبدأ لا يحمي بياناتك فقط، بل يحمي رقمك من الحظر الناتج عن
+                                    الأنشطة
+                                    المريبة للسيرفرات البعيدة. إنه قرار تصميمي يضع أمانك أولاً.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكن أن يتعرض رقمي للحظر؟<span class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    صممنا HeytsApp ليكون بمثابة <strong>درع واقٍ لرقمك</strong>. البرنامج مزود بتقنيات
+                                    ذكية
+                                    تحاكي السلوك البشري الطبيعي لتقليل المخاطر لأقصى حد. ومع ذلك، الشفافية هي أساس
+                                    عملنا: لا
+                                    توجد أداة في العالم تضمن عدم الحظر 100%، لأن القرار النهائي يعود لواتساب ويعتمد على
+                                    سلوك
+                                    المستخدم. نحن نمنحك أقوى الأدوات للحماية، ويبقى الاستخدام المسؤول هو مفتاح الأمان
+                                    الدائم.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل أحتاج لمسح QR Code في كل مرة؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    لا. بفضل تقنية حفظ الجلسة الذكية، يقوم HeytsApp بالاتصال تلقائيًا بعد المرة الأولى.
+                                    أنت تمسح
+                                    الكود مرة واحدة فقط، والبرنامج يتكفل بالباقي لتبدأ عملك مباشرة دون خطوات متكررة.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكنني ربط أكثر من حساب واتساب؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    بالتأكيد. تم تصميم HeytsApp ليكون <strong>مركز التحكم الخاص بك</strong>. يمكنك إدارة
+                                    عدة
+                                    أرقام وحملات من واجهة واحدة منظمة، ويعتمد عدد الحسابات المتاحة على خطة اشتراكك.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكن استيراد الأرقام من ملف Excel؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، وبكل سهولة. هذه الميزة متاحة في "الحملة اليدوية"، حيث يمكنك رفع ملف Excel وسيتم
+                                    تنقيح
+                                    الأرقام الخاطئة أو المكررة تلقائيًا قبل الإرسال.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يدعم إرسال الصور والفيديوهات؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، وبشكل يتجاوز التوقعات. أرسل الصور، الفيديوهات، والملفات، وتميز بميزة إرسال
+                                    <strong>التسجيلات الصوتية (Voice Notes)</strong> التي تظهر للعميل وكأنك سجلتها له في
+                                    تلك
+                                    اللحظة، مما يضاعف قوة تواصلك الشخصي.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكن تخصيص الرسائل باسم العميل؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    طبعًا. مخاطبة العميل باسمه هي أبسط وأقوى طريقة لبناء علاقة شخصية. باستخدام متغير
+                                    {name}،
+                                    تتحول رسائلك من رسائل جماعية باردة إلى محادثات شخصية ودافئة تزيد من نسبة الاستجابة.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يوجد دفع لمرة واحدة؟<span class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نحن لا نبيع برنامجًا ثم نتركك وحدك. نموذج الاشتراك هو <strong>شراكة مستمرة لضمان
+                                        نجاحك</strong>؛ فهو يضمن لك الحصول على تحديثات فورية لمواكبة تغييرات واتساب، دعم
+                                    فني
+                                    متخصص، وميزات جديدة تضاف باستمرار لتبقيك في الطليعة.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">ماذا يحدث عند انتهاء الاشتراك؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    تتوقف ميزات الأتمتة مؤقتًا، ولكن الأهم أن جميع بياناتك وإعداداتك تظل محفوظة بأمان
+                                    داخل
+                                    جهازك. بمجرد التجديد، يعود كل شيء للعمل فورًا من حيث توقفت.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل أحتاج إلى إنترنت دائم؟<span class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، لضمان أن يكون مساعدك الآلي جاهزًا للرد على عملائك في أي لحظة. الاتصال الدائم
+                                    بالإنترنت
+                                    هو ما يسمح لـ HeytsApp بالعمل كفريق مبيعات لا ينام، ويستجيب لعملائك على مدار 24/7.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-column">
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكن استثناء عملاء معينين من المتابعة؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، هذه إحدى ميزاتنا الذكية لإدارة العملاء. يمكنك تصنيف جهات الاتصال في واتساب
+                                    أعمال (مثلاً
+                                    "عميل مؤكد") ثم اختيار هذه التسمية في "قائمة التجاهل" بالبرنامج ليتم استثناؤهم
+                                    بذكاء.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل توجد "قائمة استثناءات" للأرقام؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم. "قائمة الاستثناءات" في الإعدادات تضمن لك عدم مراسلة أي رقم تضيفه إليها بشكل
+                                    كامل، مما
+                                    يحافظ على خصوصية عملائك وسمعة علامتك التجارية.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل البرنامج يعمل على أنظمة غير ويندوز؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    حاليًا، تركيزنا الكامل منصب على تقديم تجربة استثنائية لمستخدمي Windows 10 و 11.
+                                    فريقنا يعمل
+                                    بجد على تطوير نسخ لأنظمة أخرى ستكون متاحة ضمن خططنا التوسعية المستقبلية.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكن تشغيل البرنامج تلقائيًا مع بدء التشغيل؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، لتجربة أتمتة كاملة. من الإعدادات، يمكنك تفعيل خيار "التشغيل التلقائي" ودع
+                                    HeytsApp يعمل
+                                    في الخلفية. شغل جهازك، ودعه يتولى الرد على عملائك.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يدعم رسائل المتابعة التلقائية (Follow-up)؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، وهذه إحدى أقوى ميزاتنا. يمكنك بناء <strong>تسلسل متابعة تلقائي</strong> يرسل
+                                    رسائل ذكية
+                                    بعد فترة زمنية تحددها، وذلك لإعادة إشراك العملاء المترددين ورفع نسبة إغلاق الصفقات.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يعرض البرنامج تقارير وإحصائيات؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    بالتأكيد. HeytsApp ليس مجرد بوت، بل هو <strong>أداة ذكاء أعمال مصغرة</strong>. لوحة
+                                    الإحصائيات تمنحك رؤى واضحة بالأرقام حول أداء حملاتك وأوقات الذروة، مما يساعدك على
+                                    اتخاذ
+                                    قرارات تسويقية أفضل.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">كيف يعمل الذكاء الاصطناعي في البرنامج؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    يعمل الذكاء الاصطناعي عبر ربطه بحسابك الخاص في <strong>Gemini (من Google)</strong>.
+                                    أنت تقوم
+                                    بإدخال مفتاح الـ API الخاص بك في الإعدادات، مما يمنحك السيطرة الكاملة. الميزة الأهم
+                                    هي أنك
+                                    تستطيع كتابة "شخصية" وهوية للذكاء الاصطناعي عبر صندوق التعليمات (Prompt)، حيث تشرح
+                                    له طبيعة
+                                    عملك واللهجة المطلوبة، ليصبح مساعداً خبيراً بعلامتك التجارية.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">ما هي ميزة "التحكم عن بعد" وكيف تفيدني؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    هي أداة متقدمة تحول هاتفك الشخصي إلى ريموت كنترول للبوت. عبر إرسال أوامر بسيطة
+                                    برسائل واتساب
+                                    من رقمك المحدد مسبقاً، يمكنك إيقاف البوت، طلب تقارير أداء فورية، إضافة أرقام للقائمة
+                                    السوداء، والمزيد. تمنحك هذه الميزة القدرة على إدارة عملك بالكامل حتى عندما تكون
+                                    بعيداً عن
+                                    حاسوبك.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">هل يمكن للذكاء الاصطناعي إنشاء رسائل متابعة فريدة؟<span
+                                    class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    نعم، وهذه من أقوى إمكانيات البرنامج. عند إعداد قاعدة متابعة، يمكنك تفعيل خيار الذكاء
+                                    الاصطناعي. سيقوم بقراءة سجل المحادثة السابقة مع العميل لفهم سياق استفساراته، ثم يقوم
+                                    بصياغة
+                                    <strong>رسالة متابعة فريدة ومخصصة له تماماً</strong>، مما يزيد بشكل كبير من فرصة
+                                    إقناعه.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question">بعيداً عن الردود، ما الذي يجعل HeytsApp أداة أعمال
+                                متكاملة؟<span class="icon"></span></button>
+                            <div class="faq-answer">
+                                <p>
+                                    HeytsApp يتجاوز كونه مجرد مجيب آلي. إنه منصة متكاملة بفضل ميزات مثل: <strong>لوحة
+                                        الإحصائيات
+                                        المتقدمة</strong> التي تحلل أداء كل رسالة، و<strong>نظام النسخ الاحتياطي
+                                        والاستيراد</strong> الذي يحفظ كل إعداداتك، بالإضافة إلى <strong>المرونة
+                                        الهائلة</strong>
+                                    في إنشاء قواعد ورسائل مخصصة لكل حملة إعلانية أو وقت معين من اليوم.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="final-cta-section" id="download">
             <div class="container fade-in-up animate-on-scroll">
                 <h2>كل محادثة على واتساب تستحق أن تتحول إلى فرصة.</h2>
@@ -2306,7 +2544,7 @@
                 <a href="https://wa.me/212766194903" aria-label="Twitter" target="_blank"><i
                         class="fab fa-whatsapp"></i></a>
             </div>
-    
+
             <div class="copyright">
                 <p>© 2025 – جميع الحقوق محفوظة | HeytsApp</p>
             </div>
@@ -2419,7 +2657,7 @@
             // --- END: Testimonial Slider Functionality ---
         });
     </script>
-    
+
 </body>
 
 </html>
