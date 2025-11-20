@@ -40,25 +40,45 @@
     <style>
         /*
         ==============================================
-        |       1. GLOBAL STYLES & CORE SETUP        |
+        |       1. GLOBAL STYLES & DARK THEME SETUP  |
         ==============================================
         */
         :root {
+            /* Premium Dark Mode Palette */
+            --bg-body: #050a0b;
+            --bg-card: rgba(20, 30, 35, 0.6);
+            --bg-card-hover: rgba(30, 45, 50, 0.8);
             --primary: #3bae5e;
             --primary-dark: #2a8c4a;
-            --dark: #0c2d32;
-            --light-bg: #f4f9f5;
-            --white-color: #FFFFFF;
-            --text-dark: #0c2d32;
-            --text-light: #556a6e;
-            --border-color: #e9eef2;
+            --accent-gold: #FFD700;
+
+            /* Text Colors */
+            --text-main: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-dark: #ffffff;
+            /* Overriding original variable */
+
+            /* Borders & Effects */
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-active: rgba(59, 174, 94, 0.5);
+            --glow-primary: rgba(59, 174, 94, 0.6);
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.6);
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            --gradient-dark: linear-gradient(135deg, #050a0b 0%, #0c2d32 100%);
+
+            /* Legacy Vars Mapped to Dark Mode */
+            --white-color: #ffffff;
+            --light-bg: #0b1214;
+            /* Slightly lighter than body */
+            --border-color: rgba(255, 255, 255, 0.08);
             --stars-color: #FFD700;
             --radius: 12px;
-            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.07);
-            --shadow-heavy: 0 15px 45px rgba(0, 0, 0, 0.1);
-            --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #0c2d32 100%);
+            --dark: #0c2d32;
+            /* Kept as accent color */
         }
 
         *,
@@ -76,8 +96,8 @@
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--white-color);
-            color: var(--text-dark);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.8;
             text-align: right;
             overflow-x: hidden;
@@ -100,7 +120,7 @@
         h3,
         h4 {
             font-weight: 800;
-            color: var(--dark);
+            color: var(--text-main);
             margin-bottom: 1.5rem;
             line-height: 1.3;
         }
@@ -121,7 +141,7 @@
         p {
             margin-bottom: 1.2rem;
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: var(--text-secondary);
         }
 
         a {
@@ -158,7 +178,7 @@
         }
 
         .btn-primary {
-            color: var(--white-color);
+            color: #ffffff;
             background-image: var(--gradient-primary);
             background-size: 200% auto;
             box-shadow: 0 4px 15px rgba(59, 174, 94, 0.3);
@@ -166,7 +186,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(59, 174, 0.4);
+            box-shadow: 0 8px 25px rgba(59, 174, 94, 0.5);
         }
 
         .header-cta {
@@ -175,17 +195,14 @@
         }
 
         .pricing-card.popular .btn.btn-primary {
-            background-color: var(--white-color);
-            /* خلفية زر أبيض */
+            background-color: #ffffff;
             color: var(--primary-dark);
-            /* نص زر أخضر داكن */
-            border-color: var(--white-color);
-            /* حدود زر بيضاء */
+            border-color: #ffffff;
+            background-image: none;
         }
 
         .pricing-card.popular .btn.btn-primary:hover {
             background-color: #f0f0f0;
-            /* تغيير طفيف عند المرور */
         }
 
         .section {
@@ -196,6 +213,7 @@
 
         .section-bg {
             background-color: var(--light-bg);
+            /* mapped to dark grey */
         }
 
         .section-title {
@@ -210,6 +228,7 @@
         .section-title p {
             max-width: 800px;
             margin: 0 auto;
+            color: var(--text-secondary);
         }
 
         .cta-repeater {
@@ -225,9 +244,8 @@
         .cta-repeater p {
             margin-top: 15px;
             font-style: italic;
+            color: var(--text-secondary);
         }
-
-
 
         /*
         ==============================================
@@ -264,7 +282,8 @@
             z-index: 1000;
             padding: 20px 0;
             transition: all 0.4s ease;
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(5, 10, 11, 0.8);
+            /* Dark Translucent */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
@@ -277,7 +296,7 @@
         .header.scrolled {
             padding: 15px 0;
             box-shadow: var(--shadow-medium);
-            border-bottom-color: var(--border-color);
+            border-bottom-color: var(--border-glass);
         }
 
         .header .container {
@@ -305,7 +324,7 @@
         .navbar ul li a {
             font-weight: 700;
             font-size: 0.95rem;
-            color: var(--dark);
+            color: var(--text-main);
             position: relative;
             padding: 5px 0;
             transition: color 0.3s ease;
@@ -341,7 +360,7 @@
 
         .special-link:hover {
             background-color: var(--primary);
-            color: var(--white-color) !important;
+            color: #ffffff !important;
         }
 
         .special-link::after {
@@ -356,7 +375,7 @@
         .hero {
             padding: 120px 0;
             background-image: var(--gradient-dark);
-            color: var(--white-color);
+            color: var(--text-main);
         }
 
         .hero-grid {
@@ -367,7 +386,7 @@
         }
 
         .hero h1 {
-            color: var(--white-color);
+            color: var(--text-main);
         }
 
         .hero h1 .highlight {
@@ -380,7 +399,7 @@
 
         .hero-content p.lead {
             font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.85);
+            color: var(--text-secondary);
             margin-bottom: 2.5rem;
         }
 
@@ -415,13 +434,6 @@
             perspective: 1500px;
         }
 
-        /*
-        .hero-image img {
-            border-radius: var(--radius);
-            transform: rotateY(-20deg) rotateX(10deg);
-            transition: transform 0.5s ease;
-        }
-  */
         .hero-image:hover img {
             transform: rotateY(0) rotateX(0);
         }
@@ -438,10 +450,12 @@
         }
 
         .philosophy-card {
-            background-color: var(--dark); /* <-- تغيير الخلفية إلى اللون الداكن */
+            background-color: var(--bg-card);
+            /* Dark Glass */
+            backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.1); /* <-- إضافة حد فاتح خفيف */
+            border: 1px solid var(--border-glass);
             transition: all 0.3s ease;
             box-shadow: var(--shadow-light);
             text-align: center;
@@ -450,39 +464,37 @@
         .philosophy-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
-            transition-delay: 0s !important; /* لضمان الاستجابة الفورية دائماً */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07), 0 0 15px rgba(59, 174, 94, 0.6); /* الظل الأساسي + تأثير التوهج */
+            background-color: var(--bg-card-hover);
+            transition-delay: 0s !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 15px var(--glow-primary);
         }
 
         .philosophy-card .icon {
             font-size: 2.5rem;
-            color: var(--white-color); /* <-- تم تغيير اللون إلى الأبيض */
+            color: var(--text-main);
             margin-bottom: 20px;
         }
 
         .philosophy-card h3 {
             font-size: 1.3rem;
-            color: var(--white-color); /* <-- تغيير لون العنوان إلى الأبيض */
+            color: var(--text-main);
         }
 
-        /* --- START: Card expand on scroll effect --- */
         .philosophy-card-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-out, margin-top 0.4s ease-out;
         }
 
-        /* التمدد عند دخول البطاقة للشاشة بدلاً من التمرير */
         .philosophy-card.is-visible .philosophy-card-content {
-            max-height: 500px; /* <-- تم زيادة الارتفاع لضمان ظهور كل النص */
-            margin-top: 1.5rem; /* لإضافة مسافة بين العنوان والنص عند الظهور */
+            max-height: 500px;
+            margin-top: 1.5rem;
         }
 
         .philosophy-card-content p {
-            margin-bottom: 0; /* لإزالة الهامش السفلي الافتراضي والتحكم بالمسافات بدقة */
-            color: rgba(255, 255, 255, 0.8); /* <-- تغيير لون نص الشرح إلى الأبيض */
+            margin-bottom: 0;
+            color: var(--text-secondary);
         }
-        /* --- END: Card expand on scroll effect --- */
 
         .features-grid {
             display: grid;
@@ -490,15 +502,11 @@
             gap: 30px;
         }
 
-        /* ✅ يطبق فقط من الشاشات الكبيرة */
         @media (min-width: 992px) {
-
-            /* إذا بقي عنصر وحيد في الصف الأخير */
             .features-grid>.feature-card:last-child:nth-child(3n + 1) {
                 grid-column: span 3;
             }
 
-            /* إذا بقي عنصران في الصف الأخير */
             .features-grid>.feature-card:nth-last-child(2):nth-child(3n + 1),
             .features-grid>.feature-card:last-child:nth-child(3n + 2) {
                 grid-column: span 2;
@@ -506,16 +514,15 @@
         }
 
         .feature-card {
-            background: var(--white-color);
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
             border-radius: var(--radius);
             padding: 30px;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-glass);
             box-shadow: var(--shadow-light);
             transition: all 0.3s ease;
         }
 
-        /* --- START: NEW AND FIXED CODE --- */
-        /* تطبيق تأخير متدرج صحيح للظهور عند تحميل الصفحة */
         .features-grid .feature-card.animate-on-scroll:nth-of-type(2) {
             transition-delay: 0.1s;
         }
@@ -548,18 +555,13 @@
             transition-delay: 0.8s;
         }
 
-
-        /* إصلاح الاستجابة الفورية وإضافة تأثير التوهج عند مرور الفأرة */
         .feature-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary);
+            background-color: var(--bg-card-hover);
             transition-delay: 0s !important;
-            /* لضمان الاستجابة الفورية دائماً */
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07), 0 0 15px rgba(59, 174, 94, 0.6);
-            /* الظل الأساسي + تأثير التوهج */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 0 15px var(--glow-primary);
         }
-
-        /* --- END: NEW AND FIXED CODE --- */
 
         .feature-card .feature-header {
             display: flex;
@@ -577,10 +579,12 @@
         .feature-card .feature-title h3 {
             font-size: 1.4rem;
             margin-bottom: 0.2rem;
+            color: var(--text-main);
         }
 
         .feature-card .feature-content p {
             font-size: 1rem;
+            color: var(--text-secondary);
         }
 
         .process-step {
@@ -603,7 +607,7 @@
         .process-step-content .step-number {
             display: inline-block;
             background-image: var(--gradient-primary);
-            color: var(--white-color);
+            color: #ffffff;
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -616,6 +620,11 @@
 
         .process-step h3 {
             font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
         }
 
         .process-step:nth-child(even) .process-step-image {
@@ -634,12 +643,10 @@
         }
 
         .feature-spotlight-image {
-            /* التأكد من أن حاوية الصورة شفافة تمامًا */
             background: none;
         }
 
         .feature-spotlight-image img {
-            /* إزالة الظل والحدود وكل التأثيرات عن الصورة */
             box-shadow: none;
             border-radius: 0;
         }
@@ -656,6 +663,11 @@
             gap: 15px;
             margin-bottom: 1px;
             font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-spotlight-content ul li strong {
+            color: var(--text-main);
         }
 
         .feature-spotlight-content ul i {
@@ -665,19 +677,18 @@
         }
 
         .stats-section {
-            background-image: linear-gradient(rgba(12, 45, 50, 0.98), rgba(12, 45, 50, 0.98)), url('img/Capture d’écran 2025-06-12 155454.jpg');
+            background-image: linear-gradient(rgba(5, 10, 11, 0.9), rgba(5, 10, 11, 0.9)), url('img/Capture d’écran 2025-06-12 155454.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
 
-        .stats-section .section-title h2,
-        .stats-section .section-title p {
-            color: var(--white-color);
+        .stats-section .section-title h2 {
+            color: var(--text-main);
         }
 
         .stats-section .section-title p {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .stats-grid {
@@ -688,10 +699,11 @@
         }
 
         .stat-item {
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: var(--radius);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-glass);
         }
 
         .stat-item .icon {
@@ -701,32 +713,20 @@
         }
 
         .stat-item h3 {
-            color: var(--white-color);
+            color: var(--text-main);
             font-size: 1.3rem;
             margin-bottom: 10px;
         }
 
         .stat-item p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-secondary);
             font-size: 1rem;
             margin-bottom: 0;
         }
 
-
-        .success-story-card {
-            margin-top: 60px;
-            padding: 40px;
-            border-radius: var(--radius);
-            background: var(--light-bg);
-            border-left: 5px solid var(--primary);
-        }
-
         /*
         ==============================================
-        |                                            |
         |           8. BEFORE & AFTER SECTION        |
-        |                (قسم قبل وبعد)              |
-        |                                            |
         ==============================================
         */
 
@@ -740,40 +740,58 @@
         .comparison-card {
             padding: 30px;
             border-radius: 15px;
-            background: #fff;
-            height: 100%; /* لضمان تساوي الطول */
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            /* Dark Background */
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .comparison-card h3 {
             font-size: 1.5rem;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid var(--border-glass);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .comparison-card.before {
-            border: 2px solid #ffcccc;
-            background-color: #fff5f5;
+            border: 2px solid rgba(192, 57, 43, 0.3);
+            background-color: rgba(30, 10, 10, 0.6);
+            /* Dark Red Tint */
         }
 
-        .comparison-card.before h3 { color: #c0392b; border-bottom-color: #ffcccc; }
-        .comparison-card.before ul li i { color: #c0392b; }
+        .comparison-card.before h3 {
+            color: #e74c3c;
+            border-bottom-color: rgba(192, 57, 43, 0.3);
+        }
+
+        .comparison-card.before ul li i {
+            color: #e74c3c;
+        }
+
         .comparison-card.before i {
             color: #c62828;
         }
 
         .comparison-card.after {
-            border: 2px solid #3bae5e;
-            background-color: #f4f9f5;
+            border: 2px solid rgba(59, 174, 94, 0.3);
+            background-color: rgba(10, 30, 15, 0.6);
+            /* Dark Green Tint */
         }
 
-        .comparison-card.after h3 { color: #2a8c4a; border-bottom-color: #c6f6d5; }
-        .comparison-card.after ul li i { color: #3bae5e; }
+        .comparison-card.after h3 {
+            color: #3bae5e;
+            border-bottom-color: rgba(59, 174, 94, 0.3);
+        }
+
+        .comparison-card.after ul li i {
+            color: #3bae5e;
+        }
+
         .comparison-card.after i {
             color: var(--primary);
         }
@@ -785,67 +803,60 @@
         }
 
         .comparison-card ul li {
-            display: flex;             /* استخدام فليكس لضبط المحاذاة */
-            align-items: flex-start;   /* محاذاة الأيقونة مع أعلى السطر */
-            justify-content: flex-start; /* التأكد من أن العناصر تبدأ من اليمين ولا تتفرق */
-            gap: 12px;                 /* مسافة ثابتة وأنيقة بين الأيقونة والنص */
-            margin-bottom: 18px;       /* مسافة بين كل نقطة والأخرى */
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
             font-size: 1rem;
             line-height: 1.6;
-            color: #555;
-            text-align: right;         /* ضمان محاذاة النص لليمين */
+            color: var(--text-secondary);
+            text-align: right;
         }
+
         .comparison-card ul li i {
-            flex-shrink: 0;        /* منع الأيقونة من الانكماش */
-            margin-top: 5px;       /* ضبط موقع الأيقونة لتوازي السطر الأول */
-            font-size: 1.2rem;     /* حجم مناسب للأيقونة */
-            width: 25px;           /* عرض ثابت لضمان محاذاة النصوص تحت بعضها */
+            flex-shrink: 0;
+            margin-top: 5px;
+            font-size: 1.2rem;
+            width: 25px;
         }
+
         .comparison-card ul li strong {
-            color: #0c2d32;        /* لون داكن وواضح للعنوان */
+            color: var(--text-main);
             font-weight: 700;
-            margin-left: 5px;      /* مسافة صغيرة بين العنوان والشرح */
-            display: inline-block; /* لضمان عدم تكسر الكلمة بشكل غريب */
+            margin-left: 5px;
+            display: inline-block;
         }
+
         /*
         ==============================================
-        |                                            |
         |    11.5. API VS HeytsApp (VIBRANT STYLE)     |
-        |         (نمط حيوي وجذاب للمقارنة)           |
-        |                                            |
         ==============================================
         */
 
-        /* إزالة الهوامش الافتراضية لتحكم كامل */
         .comparison-table-wrapper {
             margin: 60px 0;
             overflow-x: auto;
-            /* <-- هذا هو السطر المهم الذي تم إرجاعه */
             padding-bottom: 15px;
-            /* <-- مسافة بسيطة أسفل الجدول لتحسين الشكل */
         }
 
-        /* 1. الجدول الرئيسي: تصميم عصري بدون حدود خارجية */
         .comparison-table-wrapper table {
             width: 100%;
             border-collapse: separate;
-            /* مهم جداً للتصميم الجديد */
             border-spacing: 0 10px;
-            /* مسافة رأسية بين صفوف المقارنة */
             min-width: 700px;
         }
 
-        /* 2. رأس الجدول: استخدام التدرج اللوني الأساسي لجعله قوياً وجذاباً */
         .comparison-table-wrapper thead th {
             background-image: var(--gradient-dark);
-            /* تدرج لوني داكن وأنيق */
-            color: var(--white-color);
+            color: var(--text-main);
             font-size: 1.2rem;
             padding: 25px;
             text-align: center;
+            border: 1px solid var(--border-glass);
+            border-bottom: none;
         }
 
-        /* 3. تطبيق الحواف الدائرية بشكل صحيح على الرأس */
         .comparison-table-wrapper thead th:first-child {
             border-top-right-radius: var(--radius);
             border-bottom-right-radius: var(--radius);
@@ -856,35 +867,33 @@
             border-bottom-left-radius: var(--radius);
         }
 
-        /* 4. خلايا الجدول: تصميم كبطاقات منفصلة لكل صف */
         .comparison-table-wrapper tbody td {
             padding: 25px;
-            background-color: var(--white-color);
+            background-color: var(--bg-card);
+            /* Dark glass background */
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--border-glass);
             box-shadow: var(--shadow-light);
             vertical-align: top;
             line-height: 1.8;
-            color: var(--text-light);
+            color: var(--text-secondary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* 5. تمييز عمود HeytsApp: جعله أكثر بروزاً وحيوية */
         .comparison-table-wrapper tbody td:last-child {
-            background-color: #f4f9f5;
-            /* لون الخلفية الأخضر الفاتح جداً */
+            background-color: rgba(59, 174, 94, 0.05);
+            /* Slight green tint */
             border-right: 4px solid var(--primary);
-            /* خط جانبي بلون الهوية */
+            border-left: none;
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
         }
 
-        /* 6. تنسيق الخلية الأولى (اسم الميزة) */
         .comparison-table-wrapper tbody td:first-child {
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-main);
             font-size: 1.05rem;
-            border-right: 1px solid var(--border-color);
-        }
-
-        /* 7. تطبيق الحواف الدائرية على خلايا الجسم أيضاً */
-        .comparison-table-wrapper tbody td:first-child {
+            border-right: 1px solid var(--border-glass);
             border-top-right-radius: var(--radius);
             border-bottom-right-radius: var(--radius);
         }
@@ -894,42 +903,37 @@
             border-bottom-left-radius: var(--radius);
         }
 
-        /* 8. تأثير بسيط عند مرور الماوس فوق الصف */
         .comparison-table-wrapper tbody tr:hover td {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
+            background-color: var(--bg-card-hover);
         }
 
-
-        /* 9. تصميم جديد لقسم الخلاصة ليتماشى مع النمط الحيوي */
         .comparison-summary {
             margin-top: 60px;
             padding: 40px;
-            background: var(--white-color);
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
             border-radius: var(--radius);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-glass);
             border-top: 5px solid var(--primary);
-            /* خط علوي قوي بلون الهوية */
             box-shadow: var(--shadow-medium);
         }
 
         .comparison-summary h3 {
-            color: var(--dark);
+            color: var(--text-main);
             font-size: 1.8rem;
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        /* إضافة أيقونة للعنوان */
         .comparison-summary h3::before {
             content: '\f005';
-            /* أيقونة النجمة من FontAwesome */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--primary);
         }
-
 
         .comparison-summary ul {
             list-style: none;
@@ -943,7 +947,11 @@
             gap: 15px;
             margin-bottom: 15px;
             font-size: 1.1rem;
-            color: var(--text-dark);
+            color: var(--text-secondary);
+        }
+
+        .comparison-summary ul li strong {
+            color: var(--text-main);
         }
 
         .comparison-summary ul li i {
@@ -951,10 +959,6 @@
             font-size: 1.4rem;
             margin-top: 5px;
         }
-
-
-
-
 
         .testimonial-slider-wrapper {
             position: relative;
@@ -981,17 +985,31 @@
             transform: scale(0.95);
             opacity: 0.7;
             transition: transform 0.4s ease, opacity 0.4s ease;
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius);
+            padding: 30px;
+            color: var(--text-secondary);
         }
 
         .testimonial-slider .testimonial-card.is-active {
             transform: scale(1);
             opacity: 1;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(59, 174, 94, 0.1);
         }
 
         .testimonial-card .stars {
             color: var(--stars-color);
             margin-bottom: 20px;
             font-size: 1.2rem;
+        }
+
+        .testimonial-card .testimonial-author {
+            color: var(--text-main);
+            margin-top: 20px;
+            font-weight: bold;
         }
 
         .slider-nav {
@@ -1003,7 +1021,7 @@
 
         .slider-nav button {
             background-color: var(--primary);
-            color: var(--white-color);
+            color: #ffffff;
             border: none;
             width: 50px;
             height: 50px;
@@ -1019,15 +1037,10 @@
         }
 
         .slider-nav button:disabled {
-            background-color: var(--border-color);
+            background-color: var(--border-glass);
             cursor: not-allowed;
             transform: scale(1);
         }
-
-
-
-
-
 
         .faq-accordion-grid {
             display: grid;
@@ -1044,8 +1057,9 @@
         }
 
         .faq-item {
-            background-color: var(--white-color);
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
             border-radius: var(--radius);
             padding: 10px 25px;
             box-shadow: var(--shadow-light);
@@ -1068,7 +1082,7 @@
             font-family: 'Tajawal', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-main);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1088,7 +1102,7 @@
         }
 
         .faq-item.active .faq-question {
-            color: var(--primary-dark);
+            color: var(--primary);
         }
 
         .faq-item.active .faq-question .icon {
@@ -1104,18 +1118,20 @@
 
         .faq-item.active .faq-answer {
             padding-top: 15px;
-            border-top-color: var(--border-color);
+            border-top-color: var(--border-glass);
         }
 
         .faq-answer p {
             padding-bottom: 10px;
             font-size: 1rem;
+            color: var(--text-secondary);
         }
 
         .anti-spam-note {
             margin-top: 60px;
             padding: 30px;
-            background-color: #fff;
+            background-color: var(--bg-card);
+            color: var(--text-secondary);
             border-top: 4px solid var(--primary);
             border-radius: var(--radius);
             box-shadow: var(--shadow-medium);
@@ -1123,50 +1139,23 @@
         }
 
         .highlight-box {
-            color: var(--white-color);
+            color: #ffffff;
             padding: 40px 0;
             border-radius: 0;
             text-align: center;
             margin: 0;
-
             background-color: #0c2d32;
-            /* Green fallback color */
-
             background-image:
-                /* الطبقة العلوية: طبقة لون داكن شبه شفاف لتغطية النجمة */
                 linear-gradient(to right, #c1272c77 0.9%, #0c2d32 30%),
-                /* الطبقة الوسطى: صورة النجمة */
                 url('https://upload.wikimedia.org/wikipedia/commons/c/ca/Star_of_Morocco.svg'),
-                /* الطبقة السفلية: التدرج اللوني الرئيسي */
-                linear-gradient(to right,
-                    #c1272ca1 0.9%,
-                    /* أحمر ثابت */
-                    #0c2d32 30%
-                    /* أخضر ثابت */
-                );
-
+                linear-gradient(to right, #c1272ca1 0.9%, #0c2d32 30%);
             background-repeat: no-repeat;
-            /* عدم التكرار لجميع الطبقات */
-
-            background-position:
-                center,
-                /* موقع طبقة الشفافية */
-                left -60px center,
-                /* موقع النجمة */
-                center;
-            /* موقع التدرج اللوني */
-
-            background-size:
-                cover,
-                /* حجم طبقة الشفافية */
-                220px,
-                /* حجم النجمة */
-                cover;
-            /* حجم التدرج اللوني */
+            background-position: center, left -60px center, center;
+            background-size: cover, 220px, cover;
         }
 
         .highlight-box h3 {
-            color: var(--white-color);
+            color: #ffffff;
             font-size: 1.5rem;
             line-height: 1.6;
         }
@@ -1200,10 +1189,12 @@
         }
 
         .footer {
-            background-color: var(--dark);
+            background-color: #020506;
+            /* Darker than body */
             color: rgba(255, 255, 255, 0.7);
             padding: 60px 20px 30px;
             text-align: center;
+            border-top: 1px solid var(--border-glass);
         }
 
         .footer .logo img {
@@ -1243,13 +1234,10 @@
         .footer .copyright {
             font-size: .9rem;
             color: #aaa;
-            border-top: 1px solid #2f4f4f;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 30px;
             margin-top: 30px;
         }
-
-
-
 
         html.menu-open {
             overflow: hidden;
@@ -1259,7 +1247,7 @@
             display: none;
             background: none;
             border: none;
-            color: var(--dark);
+            color: var(--text-main);
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 1001;
@@ -1271,11 +1259,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 998;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.4s ease, visibility 0s 0.4s;
+            backdrop-filter: blur(5px);
         }
 
         .nav-overlay.is-open {
@@ -1284,8 +1273,7 @@
             transition: opacity 0.4s ease;
         }
 
-
-    /*
+        /*
         ==============================================
         |   NEW: STYLES FOR 'WHO-IS-IT-FOR' ACCORDION |
         ==============================================
@@ -1297,16 +1285,19 @@
         }
 
         .accordion-item {
-            background-color: var(--white-color);
-            border: 1px solid var(--border-color);
+            background-color: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
             border-radius: var(--radius);
             transition: all 0.3s ease;
             box-shadow: var(--shadow-light);
         }
 
-        .accordion-item:hover, .accordion-item.active {
+        .accordion-item:hover,
+        .accordion-item.active {
             border-color: var(--primary);
             box-shadow: var(--shadow-medium);
+            background-color: var(--bg-card-hover);
         }
 
         .accordion-header {
@@ -1325,24 +1316,24 @@
             font-size: 1.8rem;
             color: var(--primary);
             margin-left: 20px;
-            width: 30px; /* To align titles */
+            width: 30px;
         }
 
         .accordion-header h4 {
             font-size: 1.25rem;
             margin: 0;
-            flex-grow: 1; /* Pushes the arrow to the end */
-            color: var(--dark);
+            flex-grow: 1;
+            color: var(--text-main);
             transition: color 0.3s ease;
         }
 
         .accordion-item.active .accordion-header h4 {
-            color: var(--primary-dark);
+            color: var(--primary);
         }
 
         .accordion-header .accordion-arrow {
             font-size: 1rem;
-            color: var(--text-light);
+            color: var(--text-secondary);
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
@@ -1359,24 +1350,20 @@
         .accordion-content p {
             padding: 0 20px 20px 20px;
             margin: 0;
-            padding-right: 70px; /* Align with title text */
+            padding-right: 70px;
             font-size: 1rem;
-            color: var(--text-light);
+            color: var(--text-secondary);
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 200px; /* Adjust if content is taller */
+            max-height: 200px;
         }
 
-      
-
-        /* --- END: Seismic hover effect for philosophy cards --- */
         /*
         ==============================================
         |        5. RESPONSIVE & MOBILE NAV          |
         ==============================================
         */
-
         @media (max-width: 1100px) {
             .mobile-menu-toggle {
                 display: block;
@@ -1394,19 +1381,18 @@
                 position: fixed;
                 top: 0;
                 left: 0;
-                /* ✅ تم التغيير: إعادة القائمة إلى اليسار */
                 width: 300px;
                 max-width: 80%;
                 height: 100vh;
-                background-color: var(--white-color);
-                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
-                /* ✅ تم التغيير: عكس اتجاه الظل */
+                background-color: #050a0b;
+                /* Dark bg for mobile menu */
+                border-right: 1px solid var(--border-glass);
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
                 z-index: 999;
                 padding: 100px 0 40px;
                 overflow-y: auto;
                 overscroll-behavior: contain;
                 transform: translateX(-100%);
-                /* ✅ تم التغيير: إخفاء القائمة جهة اليسار */
                 visibility: hidden;
                 transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s 0.5s;
             }
@@ -1420,7 +1406,6 @@
             .navbar ul {
                 flex-direction: column;
                 align-items: center;
-                /* ✅ تم التغيير: توسيط كل العناصر */
                 width: 100%;
                 gap: 0;
             }
@@ -1428,10 +1413,8 @@
             .navbar ul li {
                 width: 100%;
                 text-align: center;
-                /* ✅ تم التغيير: توسيط النص */
                 opacity: 0;
                 transform: translateY(20px);
-                /* تغيير حركة ظهور النص لتكون من الأسفل */
                 transition: opacity 0.4s ease, transform 0.4s ease;
             }
 
@@ -1481,13 +1464,14 @@
 
             .navbar .special-link {
                 margin: 20px auto 0;
-                /* ✅ تم التغيير: توسيط الزر الخاص */
                 width: fit-content;
                 text-align: center;
             }
         }
 
         @media (max-width: 1150px) {
+
+            /* Same logic applied for this breakpoint */
             .mobile-menu-toggle {
                 display: block;
             }
@@ -1504,19 +1488,17 @@
                 position: fixed;
                 top: 0;
                 left: 0;
-                /* ✅ تم التغيير: إعادة القائمة إلى اليسار */
                 width: 300px;
                 max-width: 80%;
                 height: 100vh;
-                background-color: var(--white-color);
-                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.1);
-                /* ✅ تم التغيير: عكس اتجاه الظل */
+                background-color: #050a0b;
+                border-right: 1px solid var(--border-glass);
+                box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
                 z-index: 999;
                 padding: 100px 0 40px;
                 overflow-y: auto;
                 overscroll-behavior: contain;
                 transform: translateX(-100%);
-                /* ✅ تم التغيير: إخفاء القائمة جهة اليسار */
                 visibility: hidden;
                 transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s 0.5s;
             }
@@ -1527,10 +1509,10 @@
                 transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0s 0s;
             }
 
+            /* ... Repeated nested styles from 1100px media query ... */
             .navbar ul {
                 flex-direction: column;
                 align-items: center;
-                /* ✅ تم التغيير: توسيط كل العناصر */
                 width: 100%;
                 gap: 0;
             }
@@ -1538,10 +1520,8 @@
             .navbar ul li {
                 width: 100%;
                 text-align: center;
-                /* ✅ تم التغيير: توسيط النص */
                 opacity: 0;
                 transform: translateY(20px);
-                /* تغيير حركة ظهور النص لتكون من الأسفل */
                 transition: opacity 0.4s ease, transform 0.4s ease;
             }
 
@@ -1591,7 +1571,6 @@
 
             .navbar .special-link {
                 margin: 20px auto 0;
-                /* ✅ تم التغيير: توسيط الزر الخاص */
                 width: fit-content;
                 text-align: center;
             }
@@ -1615,22 +1594,15 @@
                 order: 2;
             }
 
-            /* --- START: Mobile Fix for Feature Spotlight Icons --- */
             .feature-spotlight-content ul {
                 padding-right: 0;
-                /* إزالة أي مسافات قد تدفع المحتوى للحافة */
             }
 
             .feature-spotlight-content ul li {
                 width: fit-content;
-                /* جعل عرض العنصرพอดี لمحتواه */
                 margin: 0 auto 20px auto;
-                /* توسيط العنصر أفقيًا وإضافة هامش سفلي */
                 text-align: right;
-                /* ضمان محاذاة النص لليمين داخل العنصر */
             }
-
-            /* --- END: Mobile Fix for Feature Spotlight Icons --- */
 
             .hero-image,
             .process-step-image,
@@ -1650,6 +1622,7 @@
             .process-step:nth-child(even) .process-step-content {
                 order: 2;
             }
+
             .feature-spotlight-content ul,
             .target-audience-accordion {
                 padding-right: 0;
@@ -1681,18 +1654,15 @@
                 flex-basis: 90%;
             }
 
-            /* --- Custom styling for the header's main CTA button --- */
             .header .btn-primary {
                 padding: 6px 15px;
-                /* تقليل الحشو الداخلي للزر */
                 font-size: 0.7rem;
-                /* تصغير حجم الخط قليلاً */
             }
-
         }
-        /* --- تصميم قسم التحول الجديد --- */
+
+        /* --- تصميم قسم التحول الجديد (Dark Transformation) --- */
         #comparison-redesign {
-            background-color: #f8f9fa;
+            background-color: var(--light-bg);
             overflow: visible;
         }
 
@@ -1705,12 +1675,12 @@
             position: relative;
         }
 
-        /* التجاوب مع الشاشات */
         @media (max-width: 992px) {
             .transformation-container {
                 flex-direction: column;
                 gap: 40px;
             }
+
             .transform-icon {
                 transform: rotate(90deg);
                 margin: -20px auto;
@@ -1718,7 +1688,6 @@
             }
         }
 
-        /* البطاقة العامة */
         .state-card {
             flex: 1;
             padding: 40px;
@@ -1727,47 +1696,48 @@
             transition: transform 0.3s ease;
         }
 
-        /* --- تصميم الطريقة القديمة (Old Way) --- */
+        /* --- تصميم الطريقة القديمة (Old Way) - Dark Adaptation --- */
         .state-card.old-way {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
-            color: #666;
+            background: #121212;
+            /* Very dark grey */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
             z-index: 1;
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .state-card.old-way .icon-box {
-            background: #fdecec;
+            background: rgba(231, 76, 60, 0.15);
             color: #e74c3c;
         }
 
         .state-card.old-way .status-badge {
-            background: #fdecec;
+            background: rgba(231, 76, 60, 0.15);
             color: #e74c3c;
         }
 
         .state-card.old-way li i {
-            color: #e74c3c; /* لون أحمر للخطأ */
+            color: #e74c3c;
             font-size: 1.2rem;
             margin-top: 2px;
         }
 
-        /* --- تصميم طريقة HeytsApp (New Way) - التصميم الفخم --- */
+        /* --- تصميم طريقة HeytsApp (New Way) - Premium Dark --- */
         .state-card.new-way {
-            background: var(--dark); /* الخلفية الداكنة للهوية */
+            background: #091518;
+            /* Dark teal tint */
             color: #fff;
-            transform: scale(1.05); /* تكبير طفيف للتمييز */
+            transform: scale(1.05);
             z-index: 2;
-            box-shadow: 0 20px 50px rgba(12, 45, 50, 0.3); /* ظل قوي */
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(59, 174, 94, 0.3);
             position: relative;
             overflow: hidden;
-            border-radius: 20px; /* حواف كاملة */
+            border-radius: 20px;
         }
 
-        /* تأثير التوهج الخلفي */
         .state-card.new-way .glow-effect {
             position: absolute;
             top: -50%;
@@ -1780,8 +1750,13 @@
         }
 
         @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .state-card.new-way .card-header h3 {
@@ -1800,14 +1775,15 @@
         }
 
         .state-card.new-way li {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .state-card.new-way li:last-child {
             border-bottom: none;
         }
 
         .state-card.new-way li i {
-            color: #3bae5e; /* لون أخضر للصح */
+            color: #3bae5e;
             font-size: 1.4rem;
             background: rgba(59, 174, 94, 0.1);
             padding: 5px;
@@ -1819,7 +1795,6 @@
             font-size: 1.1rem;
         }
 
-        /* --- عناصر مشتركة داخل البطاقات --- */
         .card-header {
             text-align: center;
             margin-bottom: 30px;
@@ -1869,20 +1844,19 @@
             padding-bottom: 0;
         }
 
-        /* --- أيقونة التحول في الوسط --- */
         .transform-icon {
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: var(--primary);
-            background: #fff;
+            color: #fff;
+            background: var(--primary);
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(59, 174, 94, 0.4);
             z-index: 3;
-            margin: auto -30px; /* لجعلها تتداخل */
+            margin: auto -30px;
             position: relative;
         }
     </style>
@@ -1893,7 +1867,7 @@
     <header id="header" class="header">
         <div class="container">
             <a href="/" class="logo">
-                <img src="img/LOGO_2.png" alt="HeytsApp Logo">
+                <img src="img/LOGO_3.png" alt="HeytsApp Logo">
             </a>
             <nav class="navbar" id="main-nav">
                 <ul>
@@ -1915,9 +1889,8 @@
         </div>
     </header>
 
-
     <main>
-
+    
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-main-title fade-in-up animate-on-load">
@@ -1928,11 +1901,12 @@
                         <p class="lead">نقدم لك HeytsApp PRO 2.0 — الثورة العربية الأولى في عالم واتساب.
                             أداة تدمج قوة <strong>الذكاء الاصطناعي (Gemini AI)</strong> مع نظام <strong>تتبع الطلبات
                                 (Tracking)</strong>، وتعمل محليًا على جهازك لضمان الخصوصية المطلقة.</p>
-        
-                        <p class="lead" style="font-size: 1.1rem; color: #3bae5e; font-weight: bold; margin-top: -10px;">
+    
+                        <p class="lead"
+                            style="font-size: 1.1rem; color: var(--primary); font-weight: bold; margin-top: -10px;">
                             وداعاً للردود اليدوية. الآن، لديك نظام "يفهم" عميلك، "يتذكر" تفضيلاته، و "يغلق" صفقاتك.
                         </p>
-        
+    
                         <ul class="hero-trust-list">
                             <li><i class="fas fa-brain"></i>
                                 <div><strong>ذاكرة ذكية للعملاء:</strong> البوت يتذكر اسم العميل، مدينته، وسياق
@@ -1943,15 +1917,16 @@
                                     الطلب للعميل تلقائيًا.</div>
                             </li>
                             <li><i class="fas fa-file-export"></i>
-                               <div><strong>إدخال بيانات ذاتي:</strong> الـ AI يستخرج البيانات (الاسم، العنوان) من
+                                <div><strong>إدخال بيانات ذاتي:</strong> الـ AI يستخرج البيانات (الاسم، العنوان) من
                                     المحادثة ويرسلها لملفاتك.</div>
                             </li>
                             <li><i class="fas fa-robot"></i>
-                               <div><strong>توجيه القواعد الذكي:</strong> الـ AI يقرر بذكاء متى يرسل فيديو توضيحي،
+                                <div><strong>توجيه القواعد الذكي:</strong> الـ AI يقرر بذكاء متى يرسل فيديو توضيحي،
                                     ومتى ينادي المشرف البشري.</div>
                             </li>
                         </ul>
-                        <a href="#download" class="btn btn-primary"><i class="fas fa-rocket"></i> امتلك هذه القوة مجانًا لـ 7
+                        <a href="#download" class="btn btn-primary"><i class="fas fa-rocket"></i> امتلك هذه القوة مجانًا لـ
+                            7
                             أيام</a>
                         <p class="hero-trust-line">تكنولوجيا عالمية، بصناعة مغربية فخورة 🇲🇦.</p>
                     </div>
@@ -1961,7 +1936,7 @@
                 </div>
             </div>
         </section>
-
+    
         <section id="quick-look" class="section section-bg">
             <div class="container">
                 <div class="section-title fade-in-up animate-on-scroll">
@@ -1971,20 +1946,22 @@
                         نسيان العملاء؟ أخطاء النسخ واللصق؟ ضياع أرقام التتبع؟ <strong>وداعاً لكل هذا.</strong>
                         <br>
                         برنامج HeytsApp PRO 2.0 هو النظام الوحيد الذي يحول واتساب من تطبيق دردشة إلى <strong>منصة CRM
-                            متكاملة</strong>. إنه يربط محادثاتك بملفات Google Sheets، ويستخدم أحدث نماذج الذكاء الاصطناعي لفهم
+                            متكاملة</strong>. إنه يربط محادثاتك بملفات Google Sheets، ويستخدم أحدث نماذج الذكاء الاصطناعي
+                        لفهم
                         (وليس مجرد الرد على) عملائك.
                     </p>
                     <p
-                        style="margin-top: 20px; border-right: 4px solid #3bae5e; padding-right: 15px; background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-                        <strong>💡 المشهد الجديد لعملك:</strong>
+                        style="margin-top: 20px; border-right: 4px solid var(--primary); padding-right: 15px; background: var(--bg-card); padding: 15px; border-radius: 5px; box-shadow: var(--shadow-light); color: var(--text-secondary);">
+                        <strong style="color: var(--text-main);">💡 المشهد الجديد لعملك:</strong>
                         تخيل أنك تطلق حملة إعلانية، والبرنامج يتولى الباقي: يرحب حسب الإعلان، يجيب عن الأسئلة الصعبة بذكاء،
-                        يستخرج بيانات الطلب ويرسلها للشيت، وعندما تشحن الطلب.. يخبر العميل تلقائياً. <strong>هذا ليس خيالاً، هذا
+                        يستخرج بيانات الطلب ويرسلها للشيت، وعندما تشحن الطلب.. يخبر العميل تلقائياً. <strong>هذا ليس خيالاً،
+                            هذا
                             هو المعيار الجديد لدينا.</strong>
                     </p>
                 </div>
             </div>
         </section>
-
+    
         <div class="highlight-box fade-in-up animate-on-scroll">
             <div class="container">
                 <h3>أول أداة مغربية وعربية ثورية بقدرات عالمية. مصممة خصيصًا لتمنح المعلنين قوة لا تُقارن في أتمتة
@@ -2002,7 +1979,8 @@
                         <div class="icon"><i class="fas fa-bullseye"></i></div>
                         <h3>قوة لا تُقارَن، وليس مجرد أتمتة</h3>
                         <div class="philosophy-card-content">
-                            <p>الأدوات العالمية تمنحك مجيبًا آليًا. نحن نمنحك نظامًا تسويقيًا متكاملًا: يربط إعلاناتك بالردود،
+                            <p>الأدوات العالمية تمنحك مجيبًا آليًا. نحن نمنحك نظامًا تسويقيًا متكاملًا: يربط إعلاناتك
+                                بالردود،
                                 يتابع عملائك بالذكاء الاصطناعي، ويقدم لك إحصائيات تحول البيانات إلى أرباح.</p>
                         </div>
                     </div>
@@ -2018,7 +1996,8 @@
                         <div class="icon"><i class="fas fa-magic-wand-sparkles"></i></div>
                         <h3>البساطة الثورية: قوة عالمية في دقائق</h3>
                         <div class="philosophy-card-content">
-                            <p>تثبيت قياسي في دقيقة، ربط بحسابك عبر مسح QR لمرة واحدة فقط، وانطلق. صممنا واجهة سهلة لأي معلن،
+                            <p>تثبيت قياسي في دقيقة، ربط بحسابك عبر مسح QR لمرة واحدة فقط، وانطلق. صممنا واجهة سهلة لأي
+                                معلن،
                                 لكنها تخفي خلفها محركًا بقدرات لا يستهان بها.</p>
                         </div>
                     </div>
@@ -2026,7 +2005,8 @@
                         <div class="icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>صُمِّم لهدف واحد: مضاعفة نتائجك</h3>
                         <div class="philosophy-card-content">
-                            <p>كل خيار في HeytsApp - من 'الكلمة المفتاحية الذهبية' إلى 'تحليل أداء الترحيب' - تم بناؤه ليجيب على
+                            <p>كل خيار في HeytsApp - من 'الكلمة المفتاحية الذهبية' إلى 'تحليل أداء الترحيب' - تم بناؤه ليجيب
+                                على
                                 سؤال واحد: كيف يمكن أن يساعدك هذا في تحقيق مبيعات أكثر؟</p>
                         </div>
                     </div>
@@ -2035,23 +2015,24 @@
         </section>
         <section id="who-is-it-for" class="section">
             <div class="container">
-        
+    
                 <div class="section-title fade-in-up animate-on-scroll" style="margin-bottom: 50px;">
                     <h2 style="font-size: 2.8rem; color: var(--primary); margin-bottom: 10px;">
                         الجمهور المستهدف
                     </h2>
-                    <h3 style="font-size: 1.5rem; color: var(--dark); font-weight: 500;">
+                    <h3 style="font-size: 1.5rem; color: var(--text-main); font-weight: 500;">
                         مصمم خصيصًا ليمنحك الأفضلية
                     </h3>
                 </div>
-        
+    
                 <div class="feature-spotlight">
-        
+    
                     <div class="feature-spotlight-content slide-in-right animate-on-scroll">
-        
-                        <p style="margin-bottom: 30px;">سواء كنت تدير متجرًا إلكترونيًا أو تقود وكالة تسويق، تم بناء HeytsApp
+    
+                        <p style="margin-bottom: 30px;">سواء كنت تدير متجرًا إلكترونيًا أو تقود وكالة تسويق، تم بناء
+                            HeytsApp
                             ليحل تحدياتك اليومية.</p>
-        
+    
                         <div class="target-audience-accordion">
                             <div class="accordion-item">
                                 <button class="accordion-header">
@@ -2060,11 +2041,12 @@
                                     <i class="fas fa-chevron-down accordion-arrow"></i>
                                 </button>
                                 <div class="accordion-content">
-                                    <p>لأتمتة تأكيد الطلبات بالكامل. اربط البرنامج بـ Google Sheets ودعه يراسل العميل تلقائيًا
+                                    <p>لأتمتة تأكيد الطلبات بالكامل. اربط البرنامج بـ Google Sheets ودعه يراسل العميل
+                                        تلقائيًا
                                         عند الشحن والتوصيل لتقليل نسبة الاسترجاع (Retour).</p>
                                 </div>
                             </div>
-        
+    
                             <div class="accordion-item">
                                 <button class="accordion-header">
                                     <i class="fas fa-bullhorn accordion-icon"></i>
@@ -2072,11 +2054,12 @@
                                     <i class="fas fa-chevron-down accordion-arrow"></i>
                                 </button>
                                 <div class="accordion-content">
-                                    <p>لإدارة حملات فيسبوك بذكاء. خصص رسالة ترحيب لكل إعلان، واستخدم الـ AI لفرز العملاء الجادين
+                                    <p>لإدارة حملات فيسبوك بذكاء. خصص رسالة ترحيب لكل إعلان، واستخدم الـ AI لفرز العملاء
+                                        الجادين
                                         عن الفضوليين وتصدير بياناتهم لملفاتك.</p>
                                 </div>
                             </div>
-        
+    
                             <div class="accordion-item">
                                 <button class="accordion-header">
                                     <i class="fas fa-headset accordion-icon"></i>
@@ -2084,11 +2067,12 @@
                                     <i class="fas fa-chevron-down accordion-arrow"></i>
                                 </button>
                                 <div class="accordion-content">
-                                    <p>للتخلص من الأسئلة المتكررة. دع الـ AI يجيب عن الأسعار والتفاصيل، بينما يركز فريقك فقط على
+                                    <p>للتخلص من الأسئلة المتكررة. دع الـ AI يجيب عن الأسعار والتفاصيل، بينما يركز فريقك فقط
+                                        على
                                         إغلاق الصفقات الصعبة التي تحتاج تدخلاً بشريًا.</p>
                                 </div>
                             </div>
-        
+    
                             <div class="accordion-item">
                                 <button class="accordion-header">
                                     <i class="fas fa-user-tie accordion-icon"></i>
@@ -2096,23 +2080,24 @@
                                     <i class="fas fa-chevron-down accordion-arrow"></i>
                                 </button>
                                 <div class="accordion-content">
-                                    <p>لترك انطباع احترافي فوري. البوت "يتذكر" اسم العميل وتفاصيله، ويرسل له تذكيرات ومتابعات
+                                    <p>لترك انطباع احترافي فوري. البوت "يتذكر" اسم العميل وتفاصيله، ويرسل له تذكيرات
+                                        ومتابعات
                                         ذكية تجعلك تبدو كشركة كبرى.</p>
                                 </div>
                             </div>
                         </div>
-        
+    
                     </div>
-        
+    
                     <div class="feature-spotlight-image animate-on-scroll">
                         <img src="img/2p.png" alt="فرق العمل والعملاء">
                     </div>
-        
+    
                 </div>
             </div>
         </section>
-
-
+    
+    
         <section id="features" class="section section-bg">
             <div class="container">
                 <div class="section-title fade-in-up animate-on-scroll">
@@ -2127,11 +2112,12 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>تخيل أن البوت يستمع للعميل، يستخرج (الاسم، المدينة، المنتج)، ويرسلها لملف Google Sheet فوراً دون
+                            <p>تخيل أن البوت يستمع للعميل، يستخرج (الاسم، المدينة، المنتج)، ويرسلها لملف Google Sheet فوراً
+                                دون
                                 أن تلمس الكيبورد. وداعًا لأخطاء الإدخال اليدوي.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-shipping-fast feature-icon"></i>
                             <div class="feature-title">
@@ -2143,7 +2129,7 @@
                                 للعميل فوراً. خدمة عملاء احترافية بصفر مجهود.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-memory feature-icon"></i>
                             <div class="feature-title">
@@ -2155,7 +2141,7 @@
                                 واستخدامها لتقديم اقتراحات بيع مذهلة.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-traffic-light feature-icon"></i>
                             <div class="feature-title">
@@ -2163,11 +2149,12 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>الذكاء الاصطناعي لا يكتفي بالرد النصي. إنه يقرر متى "يفعل قاعدة" ليرسل فيديو، ومتى يرسل السعر،
+                            <p>الذكاء الاصطناعي لا يكتفي بالرد النصي. إنه يقرر متى "يفعل قاعدة" ليرسل فيديو، ومتى يرسل
+                                السعر،
                                 ومتى يحول المحادثة للمشرف البشري.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-ad feature-icon"></i>
                             <div class="feature-title">
@@ -2179,7 +2166,7 @@
                                 النتيجة؟ تفاعل فوري يبدأ من الثانية الأولى.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-user-clock feature-icon"></i>
                             <div class="feature-title">
@@ -2187,11 +2174,12 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>لا تدع عميلاً يضيع. ابنِ قواعد متابعة تلقائية تعيد إحياء المحادثات بعد ساعة أو يوم، باستخدام AI
+                            <p>لا تدع عميلاً يضيع. ابنِ قواعد متابعة تلقائية تعيد إحياء المحادثات بعد ساعة أو يوم، باستخدام
+                                AI
                                 لكتابة رسالة مقنعة بناءً على نقاشكم السابق.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-mobile-alt feature-icon"></i>
                             <div class="feature-title">
@@ -2199,11 +2187,12 @@
                             </div>
                         </div>
                         <div class="feature-content">
-                            <p>أرسل أوامر سرية عبر واتساب لإيقاف البوت، طلب تقرير، أو إضافة رقم للقائمة السوداء، وأنت في أي مكان
+                            <p>أرسل أوامر سرية عبر واتساب لإيقاف البوت، طلب تقرير، أو إضافة رقم للقائمة السوداء، وأنت في أي
+                                مكان
                                 بالعالم.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-users-cog feature-icon"></i>
                             <div class="feature-title">
@@ -2215,7 +2204,7 @@
                                 وإعدادات خاصة.</p>
                         </div>
                     </div>
-
+    
                     <div class="feature-card animate-on-scroll fade-in-up">
                         <div class="feature-header"><i class="fas fa-shield-alt feature-icon"></i>
                             <div class="feature-title">
@@ -2230,8 +2219,8 @@
                 </div>
             </div>
         </section>
-
-
+    
+    
         <section id="how-it-works" class="section">
             <div class="container">
                 <div class="section-title fade-in-up animate-on-scroll">
@@ -2240,8 +2229,7 @@
                 </div>
                 <div class="process-step">
                     <div class="process-step-image animate-on-scroll"><img src="img/6.jpg" alt="تفعيل البرنامج"></div>
-                    <div class="process-step-content slide-in-right animate-on-scroll"><span
-                            class="step-number">1</span>
+                    <div class="process-step-content slide-in-right animate-on-scroll"><span class="step-number">1</span>
                         <h3>ثبّت وفعّل التجربة</h3>
                         <p>نزّل وثبّت. في التشغيل الأول أدخل رقم واتسابك لتفعيل التجربة. إن لزم، انسخ معرّف الجهاز
                             وأرسله للدعم لتحصل على مفتاح التنشيط.</p>
@@ -2258,8 +2246,7 @@
                 <div class="process-step">
                     <div class="process-step-image animate-on-scroll"><img src="img/8.jpg" alt="إعداد الرسائل الذكية">
                     </div>
-                    <div class="process-step-content slide-in-right animate-on-scroll"><span
-                            class="step-number">3</span>
+                    <div class="process-step-content slide-in-right animate-on-scroll"><span class="step-number">3</span>
                         <h3>صمّم رسائلك الذكية</h3>
                         <p>أنشئ رسائل ترحيب متعددة لكل حملة. ابنِ قواعد المتابعة، حدّد المدة، واختر نوعها (عادية أو
                             تلقائية)، وأعطِ تعليمات للذكاء الاصطناعي.</p>
@@ -2275,7 +2262,7 @@
                 </div>
             </div>
         </section>
-
+    
         <section id="ad-integration" class="section section-bg">
             <div class="container">
                 <div class="feature-spotlight">
@@ -2298,7 +2285,8 @@
                                     .</div>
                             </li>
                         </ul>
-                        <p style="margin-top: 15px; font-size: 0.95rem; color: #555;">* النتيجة: العميل يشعر أنك تتحدث معه هو
+                        <p style="margin-top: 15px; font-size: 0.95rem; color: var(--text-secondary);">* النتيجة: العميل
+                            يشعر أنك تتحدث معه هو
                             شخصياً، مما يضاعف معدل التحويل (Conversion Rate).</p>
                     </div>
                     <div class="feature-spotlight-image animate-on-scroll"><img src="img/3.gif"
@@ -2312,7 +2300,8 @@
                     <span class="section-tagline" style="color: #fff;">ذكاء الأعمال (BI)</span>
                     <h2>حوّل البيانات إلى قرارات مربحة</h2>
                     <p style="color: rgba(255, 255, 255, 0.9);">
-                        لا تطلق حملاتك في الظلام. يوفر لك HeytsApp لوحة تحكم مركزية تكشف لك أسرار عملائك، تقيس أداء كل رسالة،
+                        لا تطلق حملاتك في الظلام. يوفر لك HeytsApp لوحة تحكم مركزية تكشف لك أسرار عملائك، تقيس أداء كل
+                        رسالة،
                         وتخبرك بالضبط أين تضع ميزانيتك القادمة.
                     </p>
                 </div>
@@ -2320,58 +2309,60 @@
                     <div class="stat-item animate-on-scroll fade-in-up">
                         <div class="icon"><i class="fas fa-chart-line"></i></div>
                         <h3>مؤشرات الأداء (KPIs)</h3>
-                        <p>راقب "معدل الاستجابة" لكل حملة، عدد العملاء الجدد يوميًا، ونسبة التحويل من "متردد" إلى "مشترٍ" بفضل
+                        <p>راقب "معدل الاستجابة" لكل حملة، عدد العملاء الجدد يوميًا، ونسبة التحويل من "متردد" إلى "مشترٍ"
+                            بفضل
                             المتابعة.</p>
                     </div>
-        
+    
                     <div class="stat-item animate-on-scroll fade-in-up" style="transition-delay: 0.1s;">
                         <div class="icon"><i class="fas fa-clock"></i></div>
                         <h3>ساعات "الذروة" الذهبية</h3>
-                        <p>اكتشف "أفضل 4 ساعات" يتفاعل فيها عملاؤك[cite: 187]. استغل هذه المعلومة لجدولة إعلاناتك وزيادة
+                        <p>اكتشف "أفضل 4 ساعات" يتفاعل فيها عملاؤك. استغل هذه المعلومة لجدولة إعلاناتك وزيادة
                             الميزانية في الوقت الصحيح.</p>
                     </div>
-        
+    
                     <div class="stat-item animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
                         <div class="icon"><i class="fas fa-trophy"></i></div>
                         <h3>اختبار A/B التلقائي</h3>
-                        <p>قارن بين رسائل الترحيب والمتابعة[cite: 176, 181]. سيكشف لك النظام عن "أفضل رسالة" و "أقوى كلمة
-                            مفتاحية" تجذب المبيعات[cite: 188, 190].</p>
+                        <p>قارن بين رسائل الترحيب والمتابعة. سيكشف لك النظام عن "أفضل رسالة" و "أقوى كلمة
+                            مفتاحية" تجذب المبيعات.</p>
                     </div>
-        
+    
                     <div class="stat-item animate-on-scroll fade-in-up" style="transition-delay: 0.3s;">
                         <div class="icon"><i class="fas fa-fire"></i></div>
                         <h3>تصنيف العملاء (Hot Leads)</h3>
                         <p>لا تعامل الجميع بنفس الطريقة. يصنف النظام عملائك تلقائيًا إلى "عملاء ساخنين" (جاهزين للشراء)
-                            و"خاملين" [cite: 193, 195, 198]، لتركز جهدك حيث يوجد المال.</p>
+                            و"خاملين"، لتركز جهدك حيث يوجد المال.</p>
                     </div>
-        
+    
                     <div class="stat-item animate-on-scroll fade-in-up" style="transition-delay: 0.4s;">
                         <div class="icon"><i class="fas fa-exchange-alt"></i></div>
                         <h3>مقارنة النمو الزمني</h3>
-                        <p>هل أداؤك يتحسن؟ قارن "اليوم بالأمس" أو "هذا الشهر بالماضي" بضغطة زر[cite: 211, 213]. شاهد نسب النمو
+                        <p>هل أداؤك يتحسن؟ قارن "اليوم بالأمس" أو "هذا الشهر بالماضي" بضغطة زر. شاهد نسب النمو
                             الحقيقية وتأثير تغييراتك على المبيعات.</p>
                     </div>
-        
+    
                     <div class="stat-item animate-on-scroll fade-in-up" style="transition-delay: 0.5s;">
                         <div class="icon"><i class="fas fa-table"></i></div>
                         <h3>سجل العملاء الشامل</h3>
-                        <p>قاعدة بيانات كاملة لكل من راسلك. قم بفلترتهم حسب "المرحلة" (جديد، تم المتابعة، اشترى) وتصديرهم لملفات
-                            Excel بضغطة زر[cite: 569, 570].</p>
+                        <p>قاعدة بيانات كاملة لكل من راسلك. قم بفلترتهم حسب "المرحلة" (جديد، تم المتابعة، اشترى) وتصديرهم
+                            لملفات
+                            Excel بضغطة زر.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-
+    
+    
         <section id="comparison-redesign" class="section">
             <div class="container">
                 <div class="section-title fade-in-up animate-on-scroll">
                     <span class="section-tagline">نقطة التحول</span>
                     <h2>لا تقارن.. <span class="highlight">استبدل الفوضى بالذكاء</span></h2>
                     <p>الفرق بين الطريقة التقليدية وطريقة HeytsApp ليس مجرد تحسين، بل هو تغيير كامل لقواعد
-                        اللعبة[cite: 576].</p>
+                        اللعبة.</p>
                 </div>
-        
+    
                 <div class="transformation-container">
                     <div class="state-card old-way animate-on-scroll fade-in-up">
                         <div class="card-header">
@@ -2402,11 +2393,11 @@
                             </li>
                         </ul>
                     </div>
-        
+    
                     <div class="transform-icon animate-on-scroll">
                         <i class="fas fa-angle-double-left"></i>
                     </div>
-        
+    
                     <div class="state-card new-way animate-on-scroll fade-in-up" style="transition-delay: 0.2s;">
                         <div class="glow-effect"></div>
                         <div class="card-header">
@@ -2455,17 +2446,18 @@
                 </div>
             </div>
         </section>
-
-
+    
+    
         <section id="comparison" class="section">
             <div class="container">
                 <div class="section-title fade-in-up animate-on-scroll">
                     <span class="section-tagline">الخيار الأنسب لعملك</span>
                     <h2>أيهما يتوافق مع أهدافك؟ مقارنة بين WhatsApp Business API و HeytsApp</h2>
-                    <p>فهم الفروقات الجوهرية بين الحلول المتاحة هو الخطوة الأولى لاتخاذ قرار صحيح. هذه مقارنة موضوعية لمساعدتك
+                    <p>فهم الفروقات الجوهرية بين الحلول المتاحة هو الخطوة الأولى لاتخاذ قرار صحيح. هذه مقارنة موضوعية
+                        لمساعدتك
                         على اختيار الأداة التي تتناسب مع أهدافك وحجم عملك.</p>
                 </div>
-
+    
                 <div class="comparison-table-wrapper fade-in-up animate-on-scroll">
                     <table>
                         <thead>
@@ -2483,22 +2475,35 @@
                             </tr>
                             <tr>
                                 <td><strong>آلية بدء المحادثة</strong></td>
-                                <td>تتطلب الموافقة المسبقة على قوالب رسائل (Templates) لبدء أي محادثة. مناسبة للرسائل الإشعارية
+                                <td>تتطلب الموافقة المسبقة على قوالب رسائل (Templates) لبدء أي محادثة. مناسبة للرسائل
+                                    الإشعارية
                                     الموحدة.</td>
-                                <td>مرونة كاملة في بدء المحادثات. مثالية للتسويق التفاعلي، إرسال العروض، والمتابعة الشخصية.</td>
+                                <td>مرونة كاملة في بدء المحادثات. مثالية للتسويق التفاعلي، إرسال العروض، والمتابعة الشخصية.
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong>قيد "نافذة الـ 24 ساعة"</strong></td>
-                                <td>يتم تقييد الردود الحرة بعد مرور 24 ساعة على آخر رسالة للعميل. للتواصل مجدداً، يجب استخدام
+                                <td>يتم تقييد الردود الحرة بعد مرور 24 ساعة على آخر رسالة للعميل. للتواصل مجدداً، يجب
+                                    استخدام
                                     قالب رسالة.</td>
-                                <td>لا يوجد أي قيد زمني. يمكنك متابعة عملائك والتواصل معهم بحرية في أي وقت لضمان أفضل النتائج.
+                                <td>لا يوجد أي قيد زمني. يمكنك متابعة عملائك والتواصل معهم بحرية في أي وقت لضمان أفضل
+                                    النتائج.
                                 </td>
                             </tr>
                             <tr>
+                                <td><strong>المحاكاة البشرية والوسائط (جديد)</strong></td>
+                                <td>روبوت صريح؛ لا تظهر مؤشرات (يكتب/يسجل)، الصوت يُرسل كملف مرفق، ولا يمكنه إضافة/إزالة
+                                    "التسميات" (Labels).</td>
+                                <td>محاكاة "بشرية" كاملة (Typing/Recording)، إرسال نوتات صوتية حقيقية (Voice Notes)، والتحكم
+                                    الآلي في إضافة وإزالة التسميات.</td>
+                            </tr>
+                            <tr>
                                 <td><strong>نموذج التكلفة</strong></td>
-                                <td>تسعير مبني على عدد المحادثات. التكلفة متغيرة وتعتمد على حجم الاستخدام الشهري وأسعار كل دولة.
+                                <td>تسعير مبني على عدد المحادثات. التكلفة متغيرة وتعتمد على حجم الاستخدام الشهري وأسعار كل
+                                    دولة.
                                 </td>
-                                <td>نموذج اشتراك ثابت (شهري أو سنوي) يوفر عدداً غير محدود من الرسائل، مما يمنحك ميزانية واضحة.
+                                <td>نموذج اشتراك ثابت (شهري أو سنوي) يوفر عدداً غير محدود من الرسائل، مما يمنحك ميزانية
+                                    واضحة.
                                 </td>
                             </tr>
                             <tr>
@@ -2509,46 +2514,53 @@
                             </tr>
                             <tr>
                                 <td><strong>الاستقرار والأمان الرسمي</strong></td>
-                                <td>عالية جدًا وقانونية 100%. الخدمة رسمية من Meta، مما يضمن استقرارًا تامًا وعدم وجود أي خطر
+                                <td>عالية جدًا وقانونية 100%. الخدمة رسمية من Meta، مما يضمن استقرارًا تامًا وعدم وجود أي
+                                    خطر
                                     على الحساب.</td>
-                                <td>تعتمد على استقرار واتساب ويب. بما أنه غير رسمي، يوجد خطر نظري للحظر إذا تم استخدامه بشكل غير
-                                    مسؤول.</td>
+                                <td>تعتمد على استقرار واتساب ويب. بما أنه غير رسمي، يجب استخدامه بمسؤولية لتجنب مخاطر الحظر
+                                    النظري.</td>
                             </tr>
                             <tr>
                                 <td><strong>الوصول إلى المحادثات</strong></td>
                                 <td>تتم إدارة المحادثات والردود بشكل كامل عبر المنصة الوسيطة (API)، وليس من تطبيق واتساب على
                                     الهاتف.</td>
-                                <td>تحكم مزدوج. يمكنك إدارة الردود الآلية من البرنامج والتدخل للرد يدويًا من هاتفك في أي لحظة.
+                                <td>تحكم مزدوج. يمكنك إدارة الردود الآلية من البرنامج والتدخل للرد يدويًا من هاتفك في أي
+                                    لحظة.
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-
+    
                 <div class="comparison-summary fade-in-up animate-on-scroll">
                     <h3>الخلاصة: لكل أداة جمهورها المستهدف</h3>
-                    <p>من خلال هذه المقارنة، يتضح أن منصة <strong>WhatsApp Business API</strong> هي الحل الأمثل للشركات الكبرى
-                        والمؤسسات (مثل البنوك وشركات الطيران) التي أولويتها هي إرسال إشعارات رسمية وموحدة على نطاق واسع، وتملك
+                    <p>من خلال هذه المقارنة، يتضح أن منصة <strong>WhatsApp Business API</strong> هي الحل الأمثل للشركات
+                        الكبرى
+                        والمؤسسات (مثل البنوك وشركات الطيران) التي أولويتها هي إرسال إشعارات رسمية وموحدة على نطاق واسع،
+                        وتملك
                         الموارد التقنية والميزانيات اللازمة لذلك.</p>
-
-                    <p>في المقابل، تم تصميم <strong>HeytsApp</strong> خصيصًا ليكون الأداة العملية للمتاجر الإلكترونية، المسوقين،
+    
+                    <p>في المقابل، تم تصميم <strong>HeytsApp</strong> خصيصًا ليكون الأداة العملية للمتاجر الإلكترونية،
+                        المسوقين،
                         والشركات الصغيرة والمتوسطة التي تحتاج إلى:</p>
                     <ul>
                         <li><i class="fas fa-check-circle"></i> <strong>المرونة والسرعة</strong> في إطلاق الحملات التسويقية
                             والتواصل مع العملاء.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>التحكم المباشر</strong> في المحادثات واستخدام أرقامهم
+                        <li><i class="fas fa-check-circle"></i> <strong>التأثير البشري</strong> عبر محاكاة الكتابة، إرسال
+                            النوتات الصوتية، وإدارة تسميات العملاء (Labels) بذكاء.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>التحكم المباشر</strong> في المحادثات واستخدام
+                            أرقامهم
                             المعروفة لدى العملاء.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>التكلفة الواضحة والمناسبة</strong> التي تدعم نمو أعمالهم
+                        <li><i class="fas fa-check-circle"></i> <strong>التكلفة الواضحة والمناسبة</strong> التي تدعم نمو
+                            أعمالهم
                             دون مفاجآت.</li>
-                        <li><i class="fas fa-check-circle"></i> <strong>الذكاء والأتمتة المتقدمة</strong> لتوفير الوقت عبر الرد
-                            الذكي (AI) وتتبع الطلبات تلقائيًا.</li>
                     </ul>
                     <p>الاختيار يعتمد على طبيعة عملك. إذا كان هدفك هو التسويق المرن، المتابعة الذكية للعملاء، والتحكم الكامل
                         بتكلفة ثابتة، فإن HeytsApp هو الخيار الذي تم تصميمه ليخدم أهدافك مباشرة.</p>
                 </div>
             </div>
         </section>
-
+    
         <section id="testimonials" class="section">
             <div class="container">
                 <div class="section-title fade-in-up animate-on-scroll">
@@ -2556,10 +2568,10 @@
                     <h2>النتائج تتحدث عن نفسها</h2>
                     <p>نحن لا نتحدث عن أرقام فقط، بل عن تحوّل حقيقي في طريقة العمل. هذه تجارب واقعية من معلنين مثلك.</p>
                 </div>
-
+    
                 <div class="testimonial-slider-wrapper">
                     <div class="testimonial-slider">
-
+    
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
@@ -2567,72 +2579,80 @@
                                 HeytsApp كلشي أوتوماتيك، والوقت لي شاط وليت كنركز فيه على الإشهار."</p>
                             <h4 class="testimonial-author">— يوسف العلمي، صاحب متجر إلكتروني</h4>
                         </div>
-
+    
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="quote">"L'intégration avec Google Sheets est magique. On a automatisé le suivi des colis
+                            <p class="quote">"L'intégration avec Google Sheets est magique. On a automatisé le suivi des
+                                colis
                                 et réduit les retours de 20%. C'est du solide."</p>
                             <h4 class="testimonial-author">— Fatima Z. Bennani, Directrice Marketing</h4>
                         </div>
-
+    
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                             </div>
-                            <p class="quote">"This tool is my secret weapon. The AI reply is so natural, clients think I have a
+                            <p class="quote">"This tool is my secret weapon. The AI reply is so natural, clients think I
+                                have a
                                 full team working 24/7. Highly recommended."</p>
                             <h4 class="testimonial-author">— Amine Cherkaoui, Consultant en Marketing</h4>
                         </div>
-
+    
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="quote">"مكنفهمش بزاف فالتكنولوجيا وكنت خايفة. ولكن لقيت الـ AI كيرد على الناس أحسن مني،
+                            <p class="quote">"مكنفهمش بزاف فالتكنولوجيا وكنت خايفة. ولكن لقيت الـ AI كيرد على الناس أحسن
+                                مني،
                                 والطلبات كتسجل بوحدها. تهنيت."</p>
                             <h4 class="testimonial-author">— Salma El Fassi, Gérante de boutique</h4>
                         </div>
-
+    
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="quote">"Indispensable pour moi. Je pilote 3 numéros WhatsApp pour 3 business différents
-                                sans me perdre. Le fait de pouvoir segmenter les clients par projet est un avantage énorme."</p>
+                            <p class="quote">"Indispensable pour moi. Je pilote 3 numéros WhatsApp pour 3 business
+                                différents
+                                sans me perdre. Le fait de pouvoir segmenter les clients par projet est un avantage énorme."
+                            </p>
                             <h4 class="testimonial-author">— Karim Boujida, Entrepreneur</h4>
                         </div>
-
+    
                         <div class="testimonial-card">
                             <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                                     class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                            <p class="quote">"The follow-up sequence with AI memory is brilliant for recovering abandoned carts.
+                            <p class="quote">"The follow-up sequence with AI memory is brilliant for recovering abandoned
+                                carts.
                                 We had a question, and support responded instantly. Great product."</p>
                             <h4 class="testimonial-author">— Kenza Tazi, E-commerce Manager</h4>
                         </div>
-
+    
                     </div>
                     <div class="slider-nav">
-                        <button class="prev-btn" aria-label="Previous Testimonial"><i class="fas fa-arrow-right"></i></button>
+                        <button class="prev-btn" aria-label="Previous Testimonial"><i
+                                class="fas fa-arrow-right"></i></button>
                         <button class="next-btn" aria-label="Next Testimonial"><i class="fas fa-arrow-left"></i></button>
                     </div>
                 </div>
             </div>
         </section>
-
-
-
+    
+    
+    
         <section class="final-cta-section" id="download">
             <div class="container fade-in-up animate-on-scroll">
                 <h2>هل أنت مستعد لامتلاك أقوى نظام تسويقي في السوق؟</h2>
                 <p>لا تكتفِ بالرد الآلي البسيط. امتلك الذكاء، الذاكرة، والأتمتة الكاملة.</p>
-                <a href="/download/" class="btn"><i class="fas fa-download"></i> ابدأ فترتك التجريبية الشاملة (PRO) مجانًا</a>
+                <a href="/download/" class="btn"><i class="fas fa-download"></i> ابدأ فترتك التجريبية الشاملة (PRO)
+                    مجانًا</a>
                 <p style="margin-top: 20px; font-size: 0.9rem;"><i class="fab fa-whatsapp"></i> هل لديك استفسار تقني؟ <a
                         href="https://wa.me/212766194903" target="_blank"
                         style="color: white; text-decoration: underline;">فريقنا الهندسي جاهز لإجابتك</a></p>
             </div>
         </section>
-
+    
     </main>
-
+    
     <footer class="footer">
         <div class="container" style="max-width: 1240px;">
             <div class="logo">
@@ -2653,13 +2673,13 @@
                 <a href="https://wa.me/212766194903" aria-label="Twitter" target="_blank"><i
                         class="fab fa-whatsapp"></i></a>
             </div>
-
+    
             <div class="copyright">
                 <p>© 2025 – جميع الحقوق محفوظة | HeytsApp</p>
             </div>
         </div>
     </footer>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Header scroll effect
@@ -2780,7 +2800,9 @@
             });
         });
     </script>
+    
+    </body>
+    
+    </html>
 
-</body>
-
-</html>
+    
